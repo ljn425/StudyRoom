@@ -215,8 +215,6 @@
 		<li class="ui-state-default">Item 7</li>
 	</ul>
 </div>
-
-
 </body>
 </html>
 

@@ -314,9 +314,6 @@ $("p:last").text( "left: " + position.left + ", top: " + position.top );
 		</div>
 	</div>
 </div>
-
-
-
 </body>
 </html>
 
