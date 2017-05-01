@@ -53,7 +53,7 @@
 <div class="container">
     <h1>독서실 회원</h1>
     
-    <form id="memberform" action="${pageContext.request.contextPath}/member_form" method="post">
+    <form id="memberform" action="${pageContext.request.contextPath}/member/member_form" method="post">
         <div class="input-group">
             <b>독서실회원코드</b><br>
             <input id="member_cd" type="text" class="" name="member_cd">
@@ -121,7 +121,7 @@
 		  <hr>
             <input class="btn btn-default" type="submit" value="회원등록"/>
             <input class="btn btn-default" type="reset" value="초기화"/>
-            <a class="btn btn-default" href="${pageContext.request.contextPath}/member_list">회원목록</a>
+            <a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_list">회원목록</a>
 		</form>
 </div>
 </body>
