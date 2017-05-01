@@ -29,7 +29,7 @@ public class StaffController {
 	public String staffPro(Staff staff){
 		System.out.println("StaffController-> Staff()");
 		staffDao.insertStaff(staff);
-		return "redirect:staff/staff_list";// 글입력후 "/staff_list"로 리다이렉트(재요청)
+		return "redirect:/staff/staff_list";// 글입력후 "/staff_list"로 리다이렉트(재요청)
 	}
 	
 	// 입력 폼 요청

@@ -58,76 +58,83 @@
 			<div class="col-md-9 col-lg-10 main">
 <div class="container">
     <h1>독서실 회원</h1>
-    
+    <br>
     <form id="memberform" action="${pageContext.request.contextPath}/member/member_form" method="post">
         <div class="input-group">
-            <b>독서실회원코드</b><br>
+            <b>독서실회원코드:</b><br>
             <input id="member_cd" type="text" class="" name="member_cd">
         </div>
         <br>
         <div class="input-group">
-            <b>지점대표코드</b><br>
+            <b>지점대표코드:</b><br>
             <input id="branch_owner_cd" type="text" class="" name="branch_owner_cd">
         </div>
         <br>
-		<hr>
         <div class="input-group">
-            <b>직원아이디</b><br>
+            <b>직원아이디:</b><br>
             <input id="staff_id" type="text" class="" name="staff_id">
         </div>
         <br>
         <div class="input-group">
-            <b>열람석 코드</b><br>
+            <b>열람석 코드:</b><br>
             <input id="seat_cd" type="text" class="" name="seat_cd">
         </div>
         <br>
         <div class="input-group">
-		   <b>출결번호</b><br>
+		   <b>출결번호:</b><br>
 		   <input id="inout_num" type="text" class="" name="inout_num">
-		  </div>
-		  <br>
-		  <div class="input-group">
-		   <b>이름</b><br>
+		</div>
+		<br>
+		<div class="input-group">
+		   <b>이름:</b><br>
 		   <input id="member_nm" type="text" class="" name="member_nm">
-		  </div>
+		</div>
 		  <br>
-		  <div class="input-group">
-		   <b>성별</b><br>
+		<div class="input-group">
+		   <b>성별:</b><br>
 		   <input id="member_sex" type="text" class="" name="member_sex">
-		  </div>
-		  <div class="input-group">
-		   <b>연락처</b><br>
-		   <input id="member_tel" type="text" class="" name="member_tel">
-		  </div>
-		  <div class="input-group">
-		   <b>주소</b><br>
-		   <input id="member_addr" type="text" class="" name="member_addr">
-		  </div>
-		  <div class="input-group">
-		   <b>등록일</b><br>
-		   <input id="member_regi_date" type="date" class="" name="member_regi_date">
-		  </div>
-		  <div class="input-group">
-		   <b>기간만료일</b><br>
-		   <input id="member_end_date" type="date" class="" name="member_end_date">
-		  </div>
-		  <div class="input-group">
-		   <b>등록경로</b><br>
-		   <input id="member_regi_path" type="text" class="" name="member_regi_path">
-		  </div>
-		  <div class="input-group">
-		   <b>나이</b><br>
-		   <input id="member_age" type="text" class="" name="member_age">
-		  </div>
-		  <div class="input-group">
-		   <b>회원상태</b><br>
-		   <input id="member_seat_state" type="text" class="" name="member_seat_state">
-		  </div>
+		</div>
 		  <br>
-		  <hr>
-            <input class="btn btn-default" type="submit" value="회원등록"/>
-            <input class="btn btn-default" type="reset" value="초기화"/>
-            <a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_list">회원목록</a>
+		<div class="input-group">
+		   <b>연락처:</b><br>
+		   <input id="member_tel" type="text" class="" name="member_tel">
+		</div>
+		  <br>
+		<div class="input-group">
+		   <b>주소:</b><br>
+		   <input id="member_addr" type="text" class="" name="member_addr">
+		</div>
+		  <br>
+		<div class="input-group">
+		   <b>등록일:</b><br>
+		   <input id="member_regi_date" type="date" class="" name="member_regi_date">
+		</div>
+		  <br>
+		<div class="input-group">
+		   <b>기간만료일:</b><br>
+		   <input id="member_end_date" type="date" class="" name="member_end_date">
+		</div>
+		  <br>
+		<div class="input-group">
+		   <b>등록경로:</b><br>
+		   <input id="member_regi_path" type="text" class="" name="member_regi_path">
+		</div>
+		  <br>
+		<div class="input-group">
+		   <b>나이:</b><br>
+		   <input id="member_age" type="text" class="" name="member_age">
+		</div>
+		  <br>
+		<div class="input-group">
+		   <b>회원상태:</b><br>
+		   <input id="member_seat_state" type="text" class="" name="member_seat_state">
+		</div>
+		  <br>
+        <div class="input-group">
+        	<input type="submit" class="btn btn-info" value="회원등록">
+  			<input type="reset" class="btn btn-info" value="초기화">
+  			<a href="${pageContext.request.contextPath}/member/member_list" class="btn btn-info" role="button">회원 목록</a>
+		</div>
 		</form>
 	</div>
   </div>
