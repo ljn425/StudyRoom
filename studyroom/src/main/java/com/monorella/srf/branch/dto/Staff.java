@@ -50,4 +50,12 @@ public class Staff {
 	public void setStaff_in_date(String staff_in_date) {
 		this.staff_in_date = staff_in_date;
 	}
+	@Override
+	public String toString() {
+		return "Staff [staff_id=" + staff_id + ", branch_owner_cd=" + branch_owner_cd + ", staff_pw=" + staff_pw
+				+ ", staff_name=" + staff_name + ", staff_tel=" + staff_tel + ", staff_addr=" + staff_addr
+				+ ", staff_in_date=" + staff_in_date + "]";
+	}
+	
+	
 }

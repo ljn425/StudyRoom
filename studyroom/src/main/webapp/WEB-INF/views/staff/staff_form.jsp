@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <!-- 합쳐지고 최소화된 최신 CSS -->
@@ -17,7 +17,9 @@
 <body>
 <div class="container">
 <h1>직원 등록</h1>
-<form action="${pageContext.request.contextPath}/staff/staff_form" method="post">
+
+<form action="${pageContext.request.contextPath}/staff/staff_pro" method="post">
+
 <div>직원 아이디</div>
 <div><input name="staff_id" id="staff_id" type="text"/></div>
 <div>지점 대표코드</div>
@@ -31,7 +33,7 @@
 <div>직원주소</div>
 <div><input name="staff_addr" id="staff_addr" type="text"/></div>
 <div>직원가입일</div>
-<div><input name="staff_in_date" id="staff_in_date" type="text"/></div>
+<div><input name="staff_in_date" id="staff_in_date" type="date"/></div>
 <div>
         <input type="submit" value="글입력"/>
         <input type="reset" value="초기화"/>

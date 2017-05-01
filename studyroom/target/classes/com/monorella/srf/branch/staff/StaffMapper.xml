@@ -1,1 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.monorella.srf.branch.staff.StaffMapper">
+  <select id="getStaffList" resultType="com.monorella.srf.branch.dto.Staff">
+  	SELECT
+  	staff_id
+  	, branch_owner_cd 
+	, staff_pw 
+	, staff_name 
+	, staff_tel 
+	, staff_addr 
+	FROM branch_staff_tb
+	ORDER BY staff_name DESC 
+  </select>
+  
+  
+  
+  <insert id="insertStaff" parameterType="com.monorella.srf.branch.dto.Staff">
+	INSERT INTO branch_staff_tb(
+		staff_id
+		, branch_owner_cd
+		, staff_pw
+		, staff_name
+		, staff_tel
+		, staff_addr
+		, staff_in_date) 
+	VALUES(
+		#{staff_id}
+		, #{branch_owner_cd}
+		, #{staff_pw}
+		, #{staff_name}
+		, #{staff_tel}
+		, #{staff_addr}
+		, now()
+	)
+	</insert>
+  </mapper>
+  
