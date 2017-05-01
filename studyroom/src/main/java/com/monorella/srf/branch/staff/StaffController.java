@@ -16,7 +16,7 @@ public class StaffController {
 	private StaffDao staffDao;
 	
 	// 직원 리스트 요청 
-	@RequestMapping(value = "/staff_list", method = RequestMethod.GET)
+	@RequestMapping(value = "/staff/staff_list", method = RequestMethod.GET)
 	public String StaffList(Model model){
 		System.out.println("StaffController-> StaffList()");
 		List<Staff> list = staffDao.getStaffList();
@@ -33,7 +33,7 @@ public class StaffController {
 	}
 	
 	// 입력 폼 요청
-		@RequestMapping(value = "/staff_form", method = RequestMethod.GET)
+		@RequestMapping(value = "/staff/staff_form", method = RequestMethod.GET)
 			public String staffForm(){
 				System.out.println("StaffController -> staff_form요청");
 				return "staff/staff_form";

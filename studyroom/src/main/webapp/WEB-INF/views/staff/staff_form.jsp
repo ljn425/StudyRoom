@@ -1,20 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>직원 관리 </title>
+	<!-- head -->
+	<c:import url="../module/head.jsp" />
 </head>
 <body>
+<!-- top -->
+	<c:import url = "../module/top.jsp" />
+	
+	<!-- left -->
+	<div class="container-fluid" id="main">
+		<div class="row row-offcanvas row-offcanvas-left">
+			<c:import url = "../module/left.jsp" />
+			<!-- main -->
+			<div class="col-md-9 col-lg-10 main">
 <div class="container">
 <h1>직원 등록</h1>
 
@@ -40,5 +42,10 @@
     </div>
 </form>
 </div>
+</div>
+</div>
+</div>
+<!--foot-->
+	<c:import url="../module/foot.jsp" />
 </body>
 </html>

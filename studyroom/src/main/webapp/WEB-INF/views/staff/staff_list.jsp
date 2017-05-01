@@ -4,17 +4,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>직원 리스트</title>
+<!-- head -->
+	<c:import url="../module/head.jsp" />
 </head>
 <body>
+<!-- top -->
+	<c:import url = "../module/top.jsp" />
+	
+	<!-- left -->
+	<div class="container-fluid" id="main">
+		<div class="row row-offcanvas row-offcanvas-left">
+			<c:import url = "../module/left.jsp" />
+	
+	<!-- main -->
+			<div class="col-md-9 col-lg-10 main">
 <div class="table-responsive">
   <table class="table">
    <thead>
@@ -46,5 +49,10 @@
         <a href="${pageContext.request.contextPath}/staff/staff_form">직원 추가</a>
     </div>
 </div>
+</div>
+</div>
+</div>
+<!--foot-->
+	<c:import url="../module/foot.jsp" />
 </body>
 </html>
