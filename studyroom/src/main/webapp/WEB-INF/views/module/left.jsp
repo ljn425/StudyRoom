@@ -23,8 +23,8 @@
 				data-toggle="collapse" data-target="#submenu3">회원관리 ▾</a>
 				<ul class="list-unstyled flex-column pl-3 collapse" id="submenu3"
 					aria-expanded="false">
-					<li class="nav-item"><a class="nav-link" href="">회원등록</a></li>
-					<li class="nav-item"><a class="nav-link" href="">회원목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/member_form">회원등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/member_list">회원목록</a></li>
 				</ul>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="#submenu4"
