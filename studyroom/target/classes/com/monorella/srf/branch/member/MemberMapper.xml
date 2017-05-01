@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.monorella.srf.branch.member.MemberMapper">
+
+<select id="getMemberCount" resultType="int">
+        SELECT COUNT(*) FROM branch_member_tb
+    </select>
+	
+	<insert id="inputMember" parameterType="com.monorella.srf.branch.member.Member">
+		INSERT INTO branch_member_tb(
+			member_cd
+			, branch_owner_cd
+			, staff_id
+			, seat_cd
+			, inout_num
+			, member_nm
+			, member_sex
+			, member_tel
+			, member_addr
+			, member_regi_date
+			, member_end_date
+			, member_regi_path
+			, member_age
+			, member_seat_state)
+		VALUES(
+			#{member_cd}
+			, #{branch_owner_cd}
+			, #{staff_id}
+			, #{seat_cd}
+			, #{inout_num}
+			, #{member_nm}
+			, #{member_sex}
+			, #{member_tel}
+			, #{member_addr}
+			, now()
+			, now()
+			, #{member_regi_path}
+			, #{member_age}
+			, #{member_seat_state}
+		)
+	</insert>		
+</mapper>
