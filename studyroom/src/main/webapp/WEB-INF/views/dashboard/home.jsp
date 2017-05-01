@@ -3,30 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<meta charset="utf-8">
-<title>프렌차이즈 : 독서실</title>
-<meta name="description" content="A Bootstrap 4 admin dashboard theme that will get you started. The sidebar toggles off-canvas on smaller screens. This example also include large stat blocks, modal and cards. The top navbar is controlled by a separate hamburger toggle button." />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Codeply">
-
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.min.css" />
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.css" />
-
+	<!-- head -->
+	<c:import url="../module/head.jsp" />
 </head>
-
 <body>
-<!-- top -->
+	<!-- top -->
 	<c:import url = "../module/top.jsp" />
 	
-<!-- left -->
+	<!-- left -->
 	<div class="container-fluid" id="main">
 		<div class="row row-offcanvas row-offcanvas-left">
 			<c:import url = "../module/left.jsp" />
-<!--/모듈 여기까지-->
-
+	
+	<!-- main -->
 			<div class="col-md-9 col-lg-10 main">
 				안녕
 				<!--toggle sidebar button
@@ -617,10 +606,8 @@
 			</div>
 		</div>
 	</div>
-	<!--scripts loaded here-->
-	<script src="${pageContext.request.contextPath}/resources/js/jquery/jquery-3.2.1.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/bootstrapjs/bootstrap.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+	
+	<!--foot-->
+	<c:import url="../module/foot.jsp" />
 </body>
 </html>
