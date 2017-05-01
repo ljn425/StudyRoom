@@ -39,7 +39,7 @@ public class LoginController {
 			System.out.println("로그인 성공");
 			request.getSession().setAttribute("branchOwner", owner);
 		}
-		
+
 		return "dashboard/home";
 	}
 }
