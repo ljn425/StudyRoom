@@ -29,8 +29,8 @@ public class MemberDao {
 	}
 	
 	public int insertMember(Member member) {
-		System.out.println("1st inputMember");
+		System.out.println("1st insertMember");
 		System.out.println(member);
-		return sqlSessionTemplate.insert("com.monorella.srf.branch.member.MemberMapper.inputMember", member);
+		return sqlSessionTemplate.insert("com.monorella.srf.branch.member.MemberMapper.insertMember", member);
 	}
 }

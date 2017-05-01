@@ -46,15 +46,15 @@
 <title>독서실 회원 폼</title>
 </head>
 <body>
-<!-- top -->
+	<!-- top -->
 	<c:import url = "../module/top.jsp" />
 	
-<!-- left -->
+	<!-- left -->
 	<div class="container-fluid" id="main">
 		<div class="row row-offcanvas row-offcanvas-left">
 			<c:import url = "../module/left.jsp" />
-<!--/모듈 여기까지-->
-
+	
+	<!-- main -->
 			<div class="col-md-9 col-lg-10 main">
 <div class="container">
     <h1>독서실 회원</h1>
@@ -131,8 +131,8 @@
 		</div>
 		  <br>
         <div class="input-group">
-        	<input type="submit" class="btn btn-info" value="회원등록">
-  			<input type="reset" class="btn btn-info" value="초기화">
+        	<input type="submit" class="btn btn-default" value="회원등록">
+  			<input type="reset" class="btn btn-default" value="초기화">
   			<a href="${pageContext.request.contextPath}/member/member_list" class="btn btn-info" role="button">회원 목록</a>
 		</div>
 		</form>
@@ -140,15 +140,7 @@
   </div>
 </div>
 </div>
-<!--scripts loaded here-->
-
-	<script
-		src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script
-		src="//cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"></script>
-	<script
-		src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-
-	<script src="js/scripts.js"></script>
+<!--foot-->
+	<c:import url="../module/foot.jsp" />
 </body>
 </html>
