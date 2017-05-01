@@ -1,16 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A Bootstrap 4 admin dashboard theme that will get you started. The sidebar toggles off-canvas on smaller screens. This example also include large stat blocks, modal and cards. The top navbar is controlled by a separate hamburger toggle button." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Codeply">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <title>jQuery UI Sortable - Portlets</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <title>jQuery UI Sortable - Portlets</title>
+
   <style>
   body {
     min-width: 520px;
@@ -44,8 +51,7 @@
     height: 50px;
   }
   </style>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
   <script>
   $( function() {
     $( ".column" ).sortable({
@@ -67,7 +73,6 @@
       icon.closest( ".portlet" ).find( ".portlet-content" ).toggle();
     });
     
- 
     $( function() {
         $( "#sortable" ).sortable({
           placeholder: "ui-state-highlight"
@@ -88,16 +93,20 @@
     			var memberName = $(this).text();
     			var copyPortlet = $('#copyPortlet').clone();
     			copyPortlet.find('.portlet-content').text(memberName);
-    			$('.column').eq(0).prepend(copyPortlet.html());    			
-    			
+    			$('.column').eq(0).prepend(copyPortlet.html());    						
     		}
     	}
-    })
-    
+    })  
   } );
   </script>
 </head>
 <body>
+<!-- top -->
+	<c:import url = "../module/top.jsp" />
+	
+<!-- left -->
+			<c:import url = "../module/left.jsp" />
+<!--/모듈 여기까지-->
 
 <div id="copyPortlet" style="display: none;">
 	<div class="portlet">
