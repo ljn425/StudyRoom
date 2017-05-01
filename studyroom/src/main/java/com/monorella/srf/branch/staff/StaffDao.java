@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 public class StaffDao {
 	 @Autowired
 	    private SqlSessionTemplate sqlSessionTemplate;
-
+	
 }

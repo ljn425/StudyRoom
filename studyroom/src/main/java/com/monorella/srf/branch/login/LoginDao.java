@@ -11,9 +11,9 @@ public class LoginDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public int loginBranchOwner(BranchOwner branchOwner){
-
-		return 1;
+	//지점대표자 로그인
+	public BranchOwner loginBranchOwner(BranchOwner branchOwner){
+		System.out.println("loginBranchOwner com.monorella.srf.branch.login LoginDao");
+		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.login.LoginMapper.loginBranchOwner", branchOwner);
 	}
-	
 }
