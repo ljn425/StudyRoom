@@ -241,7 +241,6 @@ $("p:last").text( "left: " + position.left + ", top: " + position.top );
 </div>
 </div>
 
-
 <div id="copyPortlet" style="display: none;">
 <div class="column"> 
 	<div class="portlet">

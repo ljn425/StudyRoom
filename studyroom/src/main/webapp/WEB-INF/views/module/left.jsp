@@ -31,8 +31,8 @@
 				data-toggle="collapse" data-target="#submenu4">직원관리 ▾</a>
 				<ul class="list-unstyled flex-column pl-3 collapse" id="submenu4"
 					aria-expanded="false">
-					<li class="nav-item"><a class="nav-link" href="">직원등록</a></li>
-					<li class="nav-item"><a class="nav-link" href="">직원목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/staff_form">직원등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/staff_list">직원목록</a></li>
 				</ul>
 			</li>
 		</ul>

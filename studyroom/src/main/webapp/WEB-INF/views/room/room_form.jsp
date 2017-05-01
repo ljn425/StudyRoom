@@ -191,7 +191,6 @@
     <div class="portlet-content">2017-01-01</div>
   </div> 
 </div>
-
 <div class="column">
 </div>
 <div class="column">
