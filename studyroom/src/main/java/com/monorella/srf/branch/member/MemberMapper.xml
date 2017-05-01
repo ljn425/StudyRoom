@@ -5,7 +5,7 @@
   
 <mapper namespace="com.monorella.srf.branch.member.MemberMapper">
 
-<select id="getJoinCount" resultType="int">
+<select id="getMemberCount" resultType="int">
         SELECT COUNT(*) FROM branch_member_tb
     </select>
 	

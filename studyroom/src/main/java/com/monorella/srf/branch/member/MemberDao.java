@@ -12,13 +12,13 @@ public class MemberDao {
 	
 	public int getMemberCount() {
 		System.out.println("2st getMemberCount");
-		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.member.getMemberCount");
+		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.member.MemberMapper.getMemberCount");
 		
 	}
 	
 	public int inputMember(Member member) {
 		System.out.println("1st inputMember");
 		System.out.println(member);
-		return sqlSessionTemplate.insert("com.monorella.srf.branch.member.inputMember", member);
+		return sqlSessionTemplate.insert("com.monorella.srf.branch.member.MemberMapper.inputMember", member);
 	}
 }
