@@ -17,8 +17,8 @@
 	<resources mapping="/resources/**" location="/resources/" /> 
 	<resources mapping="/css/**" location="/resources/css/" /> 
 	<resources mapping="/img/**" location="/resources/images/" /> 
-	<resources mapping="/js/**" location="/resources/js/" /> 
-	
+	<resources mapping="/js/**" location="/resources/js/" />
+	<resources mapping="/module/**" location="/resources/module/" />
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean
