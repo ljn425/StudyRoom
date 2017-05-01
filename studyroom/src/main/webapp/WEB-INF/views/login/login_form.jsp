@@ -5,10 +5,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>프렌차이즈:독서실</title>
-	<link rel= "stylesheet" type="text/css" href="css/login.css">
-
+		<link rel= "stylesheet" type="text/css" href="css/login.css">
 	</head>
 	<body>
+	${sessionScope.branchOwner.branch_owner_nm}
 	<!-- Form-->
 	<div class="form">
 	  <div class="form-toggle"></div>

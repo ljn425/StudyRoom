@@ -17,7 +17,9 @@
 <body>
 <div class="container">
 <h1>직원 등록</h1>
+
 <form action="${pageContext.request.contextPath}/staff/staff_pro" method="post">
+
 <div>직원 아이디</div>
 <div><input name="staff_id" id="staff_id" type="text"/></div>
 <div>지점 대표코드</div>

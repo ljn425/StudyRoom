@@ -11,6 +11,7 @@ import com.monorella.srf.branch.dto.Staff;
 public class StaffDao {
 	 @Autowired
 	    private SqlSessionTemplate sqlSessionTemplate;
+
 	 // 직원 조회 메서드 
 	 public List<Staff> getStaffList(){
 		return  sqlSessionTemplate.selectList("com.monorella.srf.branch.staff.StaffMapper.getStaffList");
@@ -22,4 +23,7 @@ public class StaffDao {
 	        return sqlSessionTemplate.insert("com.monorella.srf.branch.staff.StaffMapper.insertStaff"
 	        								, staff);
 	    }
+
+	
+
 }
