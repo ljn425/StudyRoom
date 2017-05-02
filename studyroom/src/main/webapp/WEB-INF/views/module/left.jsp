@@ -8,7 +8,8 @@
 				<ul class="list-unstyled flex-column pl-3 collapse" id="submenu1"
 					aria-expanded="false">
 					<li class="nav-item"><a class="nav-link" href="">매출현황</a></li>
-					<li class="nav-item"><a class="nav-link" href="">회원등록현황</a></li>
+					<li class="nav-item"><a class="nav-link" 
+						href="${pageContext.request.contextPath}/dashboard/member_status">회원 현황</a></li>
 				</ul>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="#submenu2"
@@ -23,8 +24,10 @@
 				data-toggle="collapse" data-target="#submenu3">회원관리 ▾</a>
 				<ul class="list-unstyled flex-column pl-3 collapse" id="submenu3"
 					aria-expanded="false">
-					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/member_form">회원등록</a></li>
-					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/member_list">회원목록</a></li>
+					<li class="nav-item"><a class="nav-link" 
+						href="${pageContext.request.contextPath}/member/member_form">회원등록</a></li>
+					<li class="nav-item"><a class="nav-link" 
+						href="${pageContext.request.contextPath}/member/member_list">회원목록</a></li>
 				</ul>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="#submenu4"
