@@ -17,21 +17,12 @@
 	
 	<!-- main -->
 			<div class="col-md-9 col-lg-10 main">
-<<<<<<< HEAD
 				<!--toggle sidebar button
             <p class="hidden-md-up">
                 <button type="button" class="btn btn-primary-outline btn-sm" data-toggle="offcanvas"><i class="fa fa-chevron-left"></i> Menu</button>
             </p>-->
-=======
->>>>>>> branch 'master' of https://github.com/ljn425/StudyRoom.git
-
-<<<<<<< HEAD
 				<h1 class="display-4 hidden-xs-down">전주점 오늘의 현황</h1>
-				<p class="lead hidden-xs-down">Current Status of Jeonju-Branch</p>
-=======
-				<h1 class="display-2 hidden-xs-down">오늘의 현황</h1>
->>>>>>> branch 'master' of https://github.com/ljn425/StudyRoom.git
-
+				<p class="lead hidden-xs-down">(Current Status of Jeonju-Branch)</p>
 				<div class="alert alert-warning fade collapse" role="alert"
 					id="myAlert">
 					<button type="button" class="close" data-dismiss="alert"
@@ -49,13 +40,8 @@
 								<div class="rotate">
 									<i class="fa fa-user fa-5x"></i>
 								</div>
-<<<<<<< HEAD
-								<h6 class="text-uppercase">등록 회원 수</h6>
-								<h1 class="display-1">134</h1>
-=======
 								<h6 class="text-uppercase">매출</h6>
 								<h1 class="display-1">100만</h1>
->>>>>>> branch 'master' of https://github.com/ljn425/StudyRoom.git
 							</div>
 						</div>
 					</div>
@@ -65,13 +51,9 @@
 								<div class="rotate">
 									<i class="fa fa-list fa-5x"></i>
 								</div>
-<<<<<<< HEAD
-								<h6 class="text-uppercase">현재 이용자 수</h6>
-								<h1 class="display-1">87</h1>
-=======
 								<h6 class="text-uppercase">지출</h6>
 								<h1 class="display-1">10만</h1>
->>>>>>> branch 'master' of https://github.com/ljn425/StudyRoom.git
+
 							</div>
 						</div>
 					</div>
@@ -81,13 +63,8 @@
 								<div class="rotate">
 									<i class="fa fa-twitter fa-5x"></i>
 								</div>
-<<<<<<< HEAD
-								<h6 class="text-uppercase">월 수입</h6>
-								<h1 class="display-1">125</h1>
-=======
 								<h6 class="text-uppercase">등록회원수</h6>
 								<h1 class="display-1">50명</h1>
->>>>>>> branch 'master' of https://github.com/ljn425/StudyRoom.git
 							</div>
 						</div>
 					</div>
@@ -97,11 +74,7 @@
 								<div class="rotate">
 									<i class="fa fa-share fa-5x"></i>
 								</div>
-<<<<<<< HEAD
-								<h6 class="text-uppercase">월 지출</h6>
-=======
 								<h6 class="text-uppercase">빈 좌석수</h6>
->>>>>>> branch 'master' of https://github.com/ljn425/StudyRoom.git
 								<h1 class="display-1">36</h1>
 							</div>
 						</div>
