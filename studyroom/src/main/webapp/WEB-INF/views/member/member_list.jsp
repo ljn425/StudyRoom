@@ -89,5 +89,16 @@
 </div>
 <!--foot-->
 	<c:import url="../module/foot.jsp" />
+	<script>
+	$(document).ready(function() {
+		$('#searchBtn').click(function(){
+			if($('#selectValue').val().length < 2){
+				alert("검색어를 2자이상 입력하시오");
+			}else if($('#selectValue').val().length >= 2){
+				$('#searchFrom').submit();
+			}
+		});
+	});
+</script>
 </body>
 </html>
