@@ -35,6 +35,7 @@ public class LoginController {
 		//System.out.println(owner);
 		if(owner == null){
 			System.out.println("아이디와 비번이 일치하지 않습니다.");
+			return "/";
 		}else{
 			System.out.println("로그인 성공");
 			request.getSession().setAttribute("branchOwner", owner);
