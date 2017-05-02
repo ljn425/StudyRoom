@@ -10,7 +10,6 @@
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css" />
  
 </head>
 <style>
@@ -32,16 +31,14 @@
 
 <div class="container">
     <h1>독서실 회원 리스트</h1>
-    <div>전체행의 수 : ${totalRowCount}</div>
+    <br>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>출결번호</th>
                 <th>이름</th>
                 <th>성별</th>
                 <th>연락처</th>
-                <th>등록일</th>
-                <th>기간만료일</th>
+                <th>주소</th>
                 <th>나이</th>
                 <th>회원상태</th>
             </tr>
@@ -49,21 +46,19 @@
         <tbody>
             <c:forEach var="b" items="${list}">
                 <tr>
-                    <td><a href="${pageContext.request.contextPath}/member/member_view?member_cd=${b.member_cd}">${b.inout_num}</a></td>
-                    <td>${b.member_nm}</td>
+                    <td><a href="${pageContext.request.contextPath}/member/member_view?inout_num=${b.inout_num}">${b.member_nm}</a></td>
                     <td>${b.member_sex}</td>
                     <td>${b.member_tel}</td>
-                    <td>${b.member_regi_date}</td>
-                    <td>${b.member_end_date}</td>
+                    <td>${b.member_addr}</td>
                     <td>${b.member_age}</td>
                     <td>${b.member_seat_state}</td>
                 </tr>
             </c:forEach>
         </tbody>
     </table>
-    <ul class="pager">
+    <ul class="pagination">
         <c:if test="${currentPage > 1}">
-            <li class="previous"><a href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage-1}">이전</a></li>
+            <li><a href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage-1}">이전</a></li>
         </c:if>
         
         <c:forEach var="i" begin="${startPage}" end="${endPage}" step="1">
@@ -76,17 +71,35 @@
 		</c:forEach>
 		
         <c:if test="${currentPage < lastPage}">
-            <li class="next"><a href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage+1}">다음</a></li>
+            <li><a href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage+1}">다음</a></li>
         </c:if>
     </ul>
-    <div>
-    
-        <a class="btn btn-info" href="${pageContext.request.contextPath}/member/member_form">게시글 입력</a>
-   </div>
   </div>
  </div>
 </div>
 </div>
+
+    <form id="searchMemberFrom" action="${pageContext.request.contextPath}/member/member_list" method="post">
+	 <div class="form-group">
+	 <div class="row">
+	  <div class="col-sm-3">
+	  </div>
+	  <div class="col-sm-2">
+	   <select name="so" class="form-control" id="sel1">
+	    <option value="member_nm">이름</option>
+	    <option value="member_sex">성별</option>
+	    <option value="member_age">나이</option>
+	    <option value="member_seat_state">회원상태</option>
+	  </select>
+	  </div>
+	   <div class="col-sm-3">
+	   		<input name="sv" id="selectValue" type="text" class="form-control" placeholder="검색어를 입력해주세요."/>
+	   </div>
+	   <input class="btn btn-info" id="searchFrom" type="submit" value="검색"/>
+	   </div>
+	   </div>
+	</form>
+	
 <!--foot-->
 	<c:import url="../module/foot.jsp" />
 	<script>

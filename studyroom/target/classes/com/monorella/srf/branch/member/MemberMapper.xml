@@ -5,21 +5,50 @@
   
 <mapper namespace="com.monorella.srf.branch.member.MemberMapper">
 
+	<select id="searchPageMemberList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
+		SELECT
+		 member_nm
+		 , member_sex
+		 , member_age
+		 , member_seat_state
+		FROM branch_member_tb WHERE #{so} LIKE CONCAT('%',#{sv},'%') ORDER BY member_cd DESC LIMIT #{currentPage}, #{pagePerRow}
+	</select>
+
+	<select id="searchMemberHap" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
+		SELECT *
+		FROM branch_member_tb
+		WHERE member_nm LIKE CONCAT('%',#{sv},'%') or member_seat_state LIKE CONCAT('%',#{sv},'%')
+	</select>
+
+	<select id="searchMemberList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
+		SELECT
+			 member_nm
+			 , member_sex
+			 , member_age
+			 , member_seat_state
+		FROM branch_member_tb
+		WHERE #{so} LIKE CONCAT('%',#{sv},'%')
+	</select>
+
 	<select id="selectMemberList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
 		SELECT
-			member_cd AS member_cd
-			, member_cd AS member_cd
-			, seat_cd AS seat_cd
-			, inout_num AS inout_num
-			, member_nm AS member_nm
-			, member_sex AS member_sex
-			, member_tel AS member_tel
-			, member_regi_date AS member_regi_date
-			, member_end_date AS member_end_date
-			, member_age AS member_age
-			, member_seat_state AS member_seat_state
+			member_cd
+			, branch_owner_cd
+			, staff_id
+			, seat_cd
+			, inout_num
+			, member_nm
+			, member_sex
+			, member_tel
+			, member_addr
+			, member_date
+			, member_regi_date
+			, member_end_date
+			, member_regi_path
+			, member_age
+			, member_seat_state
 		FROM branch_member_tb
-		ORDER BY member_nm DESC
+		ORDER BY inout_num DESC
 		LIMIT #{beginRow}, #{pagePerRow}
 	</select>	
 
@@ -39,6 +68,7 @@
 			, member_sex
 			, member_tel
 			, member_addr
+			, member_date
 			, member_regi_date
 			, member_end_date
 			, member_regi_path
@@ -54,6 +84,7 @@
 			, #{member_sex}
 			, #{member_tel}
 			, #{member_addr}
+			, now()
 			, now()
 			, now()
 			, #{member_regi_path}

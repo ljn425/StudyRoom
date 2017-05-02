@@ -10,9 +10,6 @@
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css" />
-
-
 
 <title>독서실 회원 폼</title>
 </head>
@@ -47,22 +44,12 @@
         </div>
         <br>
         <div class="form-group">
-            <b>열람석 코드:</b><br>
-            <input id="seat_cd" type="text" class="" name="seat_cd">
-        </div>
-        <br>
-        <div class="form-group">
-		   <b>출결번호:</b><br>
-		   <input id="inout_num" type="text" class="" name="inout_num">
-		</div>
-		<br>
-		<div class="form-group">
-		   <b>이름:</b><br>
+            <b>이름:</b><br>
 		   <input id="member_nm" type="text" class="" name="member_nm">
 		</div>
-		  <br>
-		<div class="form-group">
-		   <b>성별:</b><br>
+        <br>
+        <div class="form-group">
+        	<b>성별:</b><br>
 		   <input id="member_sex" type="text" class="" name="member_sex">
 		</div>
 		  <br>
@@ -74,21 +61,6 @@
 		<div class="form-group">
 		   <b>주소:</b><br>
 		   <input id="member_addr" type="text" class="" name="member_addr">
-		</div>
-		  <br>
-		<div class="form-group">
-		   <b>등록일:</b><br>
-		   <input id="member_regi_date" type="date" class="" name="member_regi_date">
-		</div>
-		  <br>
-		<div class="form-group">
-		   <b>기간만료일:</b><br>
-		   <input id="member_end_date" type="date" class="" name="member_end_date">
-		</div>
-		  <br>
-		<div class="form-group">
-		   <b>등록경로:</b><br>
-		   <input id="member_regi_path" type="text" class="" name="member_regi_path">
 		</div>
 		  <br>
 		<div class="form-group">
@@ -117,12 +89,18 @@
       $(document).ready(function(){
     	  console.log("ㅇㅇㅇ");
         $('#addButton').click(function(){
-            if($('#inout_num').val()=='') {
-                alert('출결번호를 입력하시오');
-                $('#inout_num').focus();
+            if($('#member_cd').val()=='') {
+                alert('독서실회원코드를 입력하시오');
+                $('#member_cd').focus();
+            } else if($('#branch_owner_cd').val()=='') {
+                alert('지점대표코드를 입력하시오');
+                $('#branch_owner_cd').focus();    
+            } else if($('#staff_id').val()=='') {
+                alert('직원아이디를 입력하시오');
+                $('#staff_id').focus();
             } else if($('#member_nm').val()=='') {
                 alert('이름을 입력하시오');
-                $('#member_nm').focus();    
+                $('#member_nm').focus();
             } else if($('#member_sex').val()=='') {
                 alert('성별을 입력하시오');
                 $('#member_sex').focus();
@@ -132,15 +110,12 @@
             } else if($('#member_addr').val()=='') {
                 alert('주소를 입력하시오');
                 $('#member_addr').focus();
-            } else if($('#member_regi_path').val()=='') {
-                alert('등록경로를 입력하시오');
-                $('#member_regi_path').focus();
             } else if($('#member_age').val()=='') {
-                alert('나이를 입력하시오');
-                $('#member_age').focus();
+                alert('나이를 입력하시오');	
+                $('#member_age').focus(); 
             } else if($('#member_seat_state').val()=='') {
-                alert('나이를 입력하시오');
-                $('#member_seat_state').focus(); 
+                alert('회원상태를 입력하시오');
+                $('#member_seat_state').focus();    
             } else {
                 $('#addButton').submit();
             }

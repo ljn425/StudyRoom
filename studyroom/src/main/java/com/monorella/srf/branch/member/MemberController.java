@@ -11,10 +11,61 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.monorella.srf.branch.dto.Member;
 
+import com.monorella.srf.branch.member.MemberDao;
+
 @Controller
 public class MemberController {
 	@Autowired
 	private MemberDao memberDao;
+	
+	@RequestMapping(value="/member/member_list2", method = {RequestMethod.GET, RequestMethod.POST})
+	public String MemberSearch(Model model
+			, @RequestParam("so") String so
+			, @RequestParam("sv") String sv
+			, @RequestParam(value="currentPage", required=false, defaultValue="1") int currentPage){
+		System.out.println("/member/member_list2  요청");
+		List<Member> searchlist = memberDao.searchMemberList(so, sv);
+		if(currentPage < 1){
+			currentPage = 1;
+            }
+		int joinCount = searchlist.size();
+		int pagePerRow = 5;
+		List<Member> searchpagelist =memberDao.searchPageMemberList(so, sv, currentPage, pagePerRow);
+		
+		int lastPage = joinCount/pagePerRow;
+		if(joinCount%pagePerRow != 0) {
+	        lastPage++;
+	    }
+		 
+		int countPage = 5;
+		int startPage = ((currentPage - 1)/5)*5+1;
+		int endPage = startPage + countPage-1;
+		int nextPage = ((currentPage - 1)/5)*5+6;
+		int previousPage = ((currentPage - 1)/5)*5-5+1;
+	    
+	    if(previousPage <= 0){
+	    	previousPage = 1;
+	    }
+	    if(endPage > lastPage){
+	    	endPage = lastPage;
+	    }
+	    if(nextPage > lastPage){
+	    	nextPage = lastPage;
+	    }
+	    
+	    model.addAttribute("joinCount", joinCount);
+		model.addAttribute("searchpagelist", searchpagelist);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("nextPage", nextPage);
+		model.addAttribute("previousPage", previousPage);
+		model.addAttribute("lastPage", lastPage);
+	    model.addAttribute("so", so);
+	    model.addAttribute("sv", sv);
+		
+		return "/member/member_list2";
+	}
 	
 	@RequestMapping(value="/member/member_list", method = RequestMethod.GET)
 	public String selectMemberList(Model model
@@ -23,18 +74,18 @@ public class MemberController {
 		
 		int joinCount = 0;
 		joinCount = memberDao.selectMemberCount();
-		int pagePerRow = 10;
+		int pagePerRow = 5;
 		List<Member> list = memberDao.selectMemberList(currentPage, pagePerRow);
 		int lastPage = (int)(Math.ceil(joinCount / pagePerRow));
 		if(joinCount%pagePerRow != 0) {
 			lastPage++;
 		}
 		
-		int countPage = 10;
-		int startPage = ((currentPage - 1)/10)*10+1;
+		int countPage = 5;
+		int startPage = ((currentPage - 1)/5)*5+1;
 		int endPage = startPage + countPage-1;
-		int nextPage = ((currentPage - 1)/10)*10+11;
-		int previousPage = ((currentPage - 1)/10)*10-10+1;
+		int nextPage = ((currentPage - 1)/5)*5+6;
+		int previousPage = ((currentPage - 1)/5)*5-5+1;
 		
 		if(previousPage <= 0) {
 			previousPage = 1;
