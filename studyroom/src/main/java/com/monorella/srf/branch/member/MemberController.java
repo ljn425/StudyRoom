@@ -17,14 +17,14 @@ public class MemberController {
 	private MemberDao memberDao;
 	
 	@RequestMapping(value="/member/member_list", method = RequestMethod.GET)
-	public String joinList(Model model
+	public String selectMemberList(Model model
             , @RequestParam(value="currentPage", required=false, defaultValue="1") int currentPage) {
 		System.out.println("/member/member_list 요청");
 		
 		int joinCount = 0;
-		joinCount = memberDao.getMemberCount();
+		joinCount = memberDao.selectMemberCount();
 		int pagePerRow = 10;
-		List<Member> list = memberDao.getMemberList(currentPage, pagePerRow);
+		List<Member> list = memberDao.selectMemberList(currentPage, pagePerRow);
 		int lastPage = (int)(Math.ceil(joinCount / pagePerRow));
 		if(joinCount%pagePerRow != 0) {
 			lastPage++;
@@ -61,10 +61,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/member/member_form", method = RequestMethod.POST)
-	public String member_form(Member member) {
+	public String insertMember(Member member) {
 		System.out.println("post 요청");
 		System.out.println(member);
-		memberDao.inputMember(member);
+		memberDao.insertMember(member);
 		return "redirect:/member/member_list";
 	}
 	
