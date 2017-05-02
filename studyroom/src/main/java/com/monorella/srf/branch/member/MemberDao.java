@@ -8,6 +8,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.monorella.srf.branch.dto.Member;
+
 @Repository
 public class MemberDao {
 	
@@ -23,14 +25,13 @@ public class MemberDao {
 	}
 	
 	public int getMemberCount() {
-		System.out.println("2nd getMemberCount");
-		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.member.MemberMapper.getMemberCount");
-		
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.member.MemberMapper.getMemberCount");
+		return row;
 	}
 	
-	public int insertMember(Member member) {
-		System.out.println("1st insertMember");
+	public int inputMember(Member member) {
+		System.out.println("1st inputMember");
 		System.out.println(member);
-		return sqlSessionTemplate.insert("com.monorella.srf.branch.member.MemberMapper.insertMember", member);
+		return sqlSessionTemplate.insert("com.monorella.srf.branch.member.MemberMapper.inputMember", member);
 	}
 }

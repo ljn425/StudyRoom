@@ -5,7 +5,7 @@
   
 <mapper namespace="com.monorella.srf.branch.member.MemberMapper">
 
-	<select id="getMemberList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.member.Member">
+	<select id="getMemberList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
 		SELECT
 			member_cd AS member_cd
 			, member_cd AS member_cd
@@ -28,7 +28,7 @@
         SELECT COUNT(*) FROM branch_member_tb
     </select>
 	
-	<insert id="insertMember" parameterType="com.monorella.srf.branch.member.Member">
+	<insert id="inputMember" parameterType="com.monorella.srf.branch.dto.Member">
 		INSERT INTO branch_member_tb(
 			member_cd
 			, branch_owner_cd
