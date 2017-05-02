@@ -18,7 +18,7 @@ public class DashboardController {
 	@RequestMapping(value="/dashboard/home" , method = RequestMethod.GET)
 	public String home(Model model){
 		System.out.println("DashboardController-> home()");
-		int membeNom = memberDao.getMemberCount();
+		int membeNom = memberDao.selectMemberCount();
 		System.out.println("DashboardController-> home()-> membeNom: "+membeNom);
 		model.addAttribute("membeNom", membeNom);
 		return "dashboard/home";
