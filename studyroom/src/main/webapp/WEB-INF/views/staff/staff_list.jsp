@@ -34,7 +34,7 @@
 			<div class="col-md-9 col-lg-10 main">
 <div class="table-responsive">
  <!-- 검색 -->
-    <form id="searchFrom" action="${pageContext.request.contextPath}/staffSearch" method="post">
+    <form id="searchFrom" action="${pageContext.request.contextPath}/staff/staff_search" method="post">
 	 <div class="form-group">
 	 <div class="row">
 	  <div class="col-sm-3">

@@ -22,16 +22,17 @@ public class StaffController {
 	private StaffDao staffDao;
 	
 	//게시판 검색
-		@RequestMapping(value="/staffSearch" , method = {RequestMethod.GET, RequestMethod.POST})
+		@RequestMapping(value="staff/staff_search" , method = {RequestMethod.GET, RequestMethod.POST})
 		public String StaffSearch(Model model
 				, @RequestParam("so") String so
 				, @RequestParam("sv") String sv){
 			System.out.println("StaffController->StaffSearch()" + so + sv);
 				List<Staff> searchlist = staffDao.searchStaff(so, sv);
+				System.out.println(searchlist);
 			model.addAttribute("searchlist", searchlist);
 			model.addAttribute("so", so);
 		    model.addAttribute("sv", sv);
-			return "staff/staff_list";
+			return "staff/staff_search";
 		}
 	// 직원 리스트 요청 
 	@RequestMapping(value = "/staff/staff_list", method = RequestMethod.GET)
