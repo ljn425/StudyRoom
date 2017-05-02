@@ -13,6 +13,23 @@
 <link rel="stylesheet" href="css/styles.css" />
  
 </head>
+<style>
+	.pager .disabled>a, .pager .disabled>a:focus, .pager .disabled>a:hover, .pager .disabled>span{
+		color: green;
+	}
+</style>
+<script>
+	$(document).ready(function() {
+		$('#searchBtn').click(function(){
+			if($('#selectValue').val().length < 2){
+				alert("검색어를 2자이상 입력하시오");
+			}else if($('#selectValue').val().length >= 2){
+				$('#searchFrom').submit();
+			}
+		});
+		
+	});
+</script>
 <body>
 	<!-- top -->
 	<c:import url = "../module/top.jsp" />
@@ -60,12 +77,23 @@
         <c:if test="${currentPage > 1}">
             <li class="previous"><a href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage-1}">이전</a></li>
         </c:if>
+        
+        <c:forEach var="i" begin="${startPage}" end="${endPage}" step="1">
+			<c:if test="${i == currentPage}">
+				<li class="disabled"><a href="#">${i}</a></li>
+			</c:if>
+			<c:if test="${i != currentPage}">
+				<li><a href="${pageContext.request.contextPath}/member/member_list?currentPage=${i}">${i}</a></li>
+			</c:if>
+		</c:forEach>
+		
         <c:if test="${currentPage < lastPage}">
             <li class="next"><a href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage+1}">다음</a></li>
         </c:if>
     </ul>
     <div>
-        <a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_form">게시글 입력</a>
+    
+        <a class="btn btn-info" href="${pageContext.request.contextPath}/member/member_form">게시글 입력</a>
    </div>
   </div>
  </div>
