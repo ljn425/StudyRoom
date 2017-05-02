@@ -17,16 +17,12 @@
 	
 	<!-- main -->
 			<div class="col-md-9 col-lg-10 main">
-				안녕
 				<!--toggle sidebar button
             <p class="hidden-md-up">
                 <button type="button" class="btn btn-primary-outline btn-sm" data-toggle="offcanvas"><i class="fa fa-chevron-left"></i> Menu</button>
             </p>-->
-
-				<h1 class="display-2 hidden-xs-down">Bootstrap 4 Dashboard</h1>
-				<p class="lead hidden-xs-down">(with off-canvas sidebar, based
-					on BS v4 alpha 6)</p>
-
+				<h1 class="display-4 hidden-xs-down">전주점 오늘의 현황</h1>
+				<p class="lead hidden-xs-down">(Current Status of Jeonju-Branch)</p>
 				<div class="alert alert-warning fade collapse" role="alert"
 					id="myAlert">
 					<button type="button" class="close" data-dismiss="alert"
@@ -44,8 +40,8 @@
 								<div class="rotate">
 									<i class="fa fa-user fa-5x"></i>
 								</div>
-								<h6 class="text-uppercase">Users</h6>
-								<h1 class="display-1">134</h1>
+								<h6 class="text-uppercase">매출</h6>
+								<h1 class="display-1">100만</h1>
 							</div>
 						</div>
 					</div>
@@ -53,10 +49,11 @@
 						<div class="card card-inverse card-danger">
 							<div class="card-block bg-danger">
 								<div class="rotate">
-									<i class="fa fa-list fa-4x"></i>
+									<i class="fa fa-list fa-5x"></i>
 								</div>
-								<h6 class="text-uppercase">Posts</h6>
-								<h1 class="display-1">87</h1>
+								<h6 class="text-uppercase">지출</h6>
+								<h1 class="display-1">10만</h1>
+
 							</div>
 						</div>
 					</div>
@@ -66,8 +63,8 @@
 								<div class="rotate">
 									<i class="fa fa-twitter fa-5x"></i>
 								</div>
-								<h6 class="text-uppercase">Tweets</h6>
-								<h1 class="display-1">125</h1>
+								<h6 class="text-uppercase">등록회원수</h6>
+								<h1 class="display-1">50명</h1>
 							</div>
 						</div>
 					</div>
@@ -77,7 +74,7 @@
 								<div class="rotate">
 									<i class="fa fa-share fa-5x"></i>
 								</div>
-								<h6 class="text-uppercase">Shares</h6>
+								<h6 class="text-uppercase">빈 좌석수</h6>
 								<h1 class="display-1">36</h1>
 							</div>
 						</div>
@@ -92,40 +89,33 @@
 						<img src="//placehold.it/200/dddddd/fff?text=1"
 							class="center-block img-fluid rounded-circle"
 							alt="Generic placeholder thumbnail">
-						<h4>Responsive</h4>
+						<h4>열람실 101호</h4>
 						<span class="text-muted">Device agnostic</span>
 					</div>
 					<div class="col-6 col-sm-3 placeholder text-center">
 						<img src="//placehold.it/200/e4e4e4/fff?text=2"
 							class="center-block img-fluid rounded-circle"
 							alt="Generic placeholder thumbnail">
-						<h4>Frontend</h4>
+						<h4>열람실 102호</h4>
 						<span class="text-muted">UI / UX oriented</span>
 					</div>
 					<div class="col-6 col-sm-3 placeholder text-center">
 						<img src="//placehold.it/200/d6d6d6/fff?text=3"
 							class="center-block img-fluid rounded-circle"
 							alt="Generic placeholder thumbnail">
-						<h4>HTML5</h4>
+						<h4>열람실 103호</h4>
 						<span class="text-muted">Standards-based</span>
 					</div>
 					<div class="col-6 col-sm-3 placeholder text-center">
 						<img src="//placehold.it/200/e0e0e0/fff?text=4"
 							class="center-block img-fluid rounded-circle"
 							alt="Generic placeholder thumbnail">
-						<h4>Framework</h4>
+						<h4>열람실 104호</h4>
 						<span class="text-muted">CSS and JavaScript</span>
 					</div>
 				</div>
 
 				<a id="features"></a>
-				<hr>
-				<p class="lead">Are you ready for Bootstap 4? It's the 4th
-					generation of this popular responsive framework. Bootstrap 4 will
-					include some interesting new features such as 5 grid sizes (now
-					including xl), cards, `em` sizing, CSS normalization (reboot) and
-					larger font sizes.</p>
-
 				<hr>
 				<div class="row mb-3">
 					<div class="col-lg-3 col-md-4">
@@ -151,16 +141,17 @@
 						</div>
 
 					</div>
+				<!-- 회원테이블 -->
 					<div class="col-lg-9 col-md-8">
 						<div class="table-responsive">
 							<table class="table table-striped">
 								<thead class="thead-inverse">
 									<tr>
 										<th>#</th>
-										<th>Label</th>
-										<th>Header</th>
-										<th>Column</th>
-										<th>Data</th>
+										<th>이름</th>
+										<th>성별</th>
+										<th>나이</th>
+										<th>가입일</th>
 									</tr>
 								</thead>
 								<tbody>
