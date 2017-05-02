@@ -17,15 +17,13 @@
 	
 	<!-- main -->
 			<div class="col-md-9 col-lg-10 main">
-				안녕
 				<!--toggle sidebar button
             <p class="hidden-md-up">
                 <button type="button" class="btn btn-primary-outline btn-sm" data-toggle="offcanvas"><i class="fa fa-chevron-left"></i> Menu</button>
             </p>-->
 
-				<h1 class="display-2 hidden-xs-down">Bootstrap 4 Dashboard</h1>
-				<p class="lead hidden-xs-down">(with off-canvas sidebar, based
-					on BS v4 alpha 6)</p>
+				<h1 class="display-4 hidden-xs-down">전주점 오늘의 현황</h1>
+				<p class="lead hidden-xs-down">Current Status of Jeonju-Branch</p>
 
 				<div class="alert alert-warning fade collapse" role="alert"
 					id="myAlert">
@@ -44,7 +42,7 @@
 								<div class="rotate">
 									<i class="fa fa-user fa-5x"></i>
 								</div>
-								<h6 class="text-uppercase">Users</h6>
+								<h6 class="text-uppercase">등록 회원 수</h6>
 								<h1 class="display-1">134</h1>
 							</div>
 						</div>
@@ -53,9 +51,9 @@
 						<div class="card card-inverse card-danger">
 							<div class="card-block bg-danger">
 								<div class="rotate">
-									<i class="fa fa-list fa-4x"></i>
+									<i class="fa fa-list fa-5x"></i>
 								</div>
-								<h6 class="text-uppercase">Posts</h6>
+								<h6 class="text-uppercase">현재 이용자 수</h6>
 								<h1 class="display-1">87</h1>
 							</div>
 						</div>
@@ -66,7 +64,7 @@
 								<div class="rotate">
 									<i class="fa fa-twitter fa-5x"></i>
 								</div>
-								<h6 class="text-uppercase">Tweets</h6>
+								<h6 class="text-uppercase">월 수입</h6>
 								<h1 class="display-1">125</h1>
 							</div>
 						</div>
@@ -77,7 +75,7 @@
 								<div class="rotate">
 									<i class="fa fa-share fa-5x"></i>
 								</div>
-								<h6 class="text-uppercase">Shares</h6>
+								<h6 class="text-uppercase">월 지출</h6>
 								<h1 class="display-1">36</h1>
 							</div>
 						</div>

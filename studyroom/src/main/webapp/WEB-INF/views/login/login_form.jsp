@@ -20,11 +20,11 @@
 	      <form action="${pageContext.request.contextPath}/login/loginpro" method="post">
 	        <div class="form-group">
 	          <label for="username">아이디</label>
-	          <input type="text" id="username" name="branch_owner_id" required="required"/>
+	          <input type="text" id="username" name="branch_owner_id" value="bid001" required="required"/>
 	        </div>
 	        <div class="form-group">
 	          <label for="password">비밀번호</label>
-	          <input type="password" id="password" name="branch_owner_pw" required="required"/>
+	          <input type="password" id="password" name="branch_owner_pw"  value="bpw001" required="required"/>
 	        </div>
 	        <div class="form-group">
 	          <label class="form-remember">
