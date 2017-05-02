@@ -62,8 +62,8 @@
 								<div class="rotate">
 									<i class="fa fa-twitter fa-5x"></i>
 								</div>
-								<h6 class="text-uppercase">등록회원수</h6>
-								<h1 class="display-1">${membeNom}명</h1>
+								<h6 class="text-uppercase">등록된 회원 수</h6>
+								<h1 class="display-1">${memberNom}명</h1>
 							</div>
 						</div>
 					</div>
