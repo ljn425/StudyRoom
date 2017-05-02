@@ -8,24 +8,25 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.monorella.srf.branch.dto.Member;
+
 @Repository
 public class MemberDao {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public List<Member> getMemberList(int currentPage, int pagePerRow) {
+	public List<Member> selectMemberList(int currentPage, int pagePerRow) {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("beginRow", (currentPage-1)*pagePerRow);
 		map.put("pagePerRow", pagePerRow);
 		System.out.println("3st getMemberList");
-		return sqlSessionTemplate.selectList("com.monorella.srf.branch.member.MemberMapper.getMemberList", map);
+		return sqlSessionTemplate.selectList("com.monorella.srf.branch.member.MemberMapper.selectMemberList", map);
 	}
 	
-	public int getMemberCount() {
-		System.out.println("2nd getMemberCount");
-		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.member.MemberMapper.getMemberCount");
-		
+	public int selectMemberCount() {
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.member.MemberMapper.selectMemberCount");
+		return row;
 	}
 	
 	public int insertMember(Member member) {

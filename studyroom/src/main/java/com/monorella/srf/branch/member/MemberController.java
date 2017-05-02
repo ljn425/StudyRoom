@@ -9,32 +9,63 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.monorella.srf.branch.dto.Member;
+
 @Controller
 public class MemberController {
 	@Autowired
 	private MemberDao memberDao;
 	
-	@RequestMapping(value={"/member/member_list"}, method = RequestMethod.GET)
-	public String joinList(Model model
+	@RequestMapping(value="/member/member_list", method = RequestMethod.GET)
+	public String selectMemberList(Model model
             , @RequestParam(value="currentPage", required=false, defaultValue="1") int currentPage) {
-		int joinCount = memberDao.getMemberCount();
+		System.out.println("/member/member_list 요청");
+		
+		int joinCount = 0;
+		joinCount = memberDao.selectMemberCount();
 		int pagePerRow = 10;
+		List<Member> list = memberDao.selectMemberList(currentPage, pagePerRow);
 		int lastPage = (int)(Math.ceil(joinCount / pagePerRow));
-		List<Member> list = memberDao.getMemberList(currentPage, pagePerRow);
-		model.addAttribute("currentPage", currentPage);
+		if(joinCount%pagePerRow != 0) {
+			lastPage++;
+		}
+		
+		int countPage = 10;
+		int startPage = ((currentPage - 1)/10)*10+1;
+		int endPage = startPage + countPage-1;
+		int nextPage = ((currentPage - 1)/10)*10+11;
+		int previousPage = ((currentPage - 1)/10)*10-10+1;
+		
+		if(previousPage <= 0) {
+			previousPage = 1;
+		}
+		
+		if(endPage > lastPage) {
+			previousPage = 1;
+		}
+		
+		if(nextPage > lastPage) {
+			nextPage = lastPage;
+		}
+		
 		model.addAttribute("joinCount", joinCount);
-		model.addAttribute("lastPage", lastPage);
 		model.addAttribute("list", list);
-		System.out.println("member_list 요청");
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("nextPage", nextPage);
+		model.addAttribute("previousPage", previousPage);
+		model.addAttribute("lastPage", lastPage);
+		
 		return "member/member_list";
 	}
 	
 	@RequestMapping(value="/member/member_form", method = RequestMethod.POST)
-	public String member_form(Member member) {
+	public String insertMember(Member member) {
 		System.out.println("post 요청");
 		System.out.println(member);
 		memberDao.insertMember(member);
-		return "redirect:member/member_list";
+		return "redirect:/member/member_list";
 	}
 	
 	@RequestMapping(value="/member/member_form", method = RequestMethod.GET)

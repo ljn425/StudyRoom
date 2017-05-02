@@ -14,15 +14,14 @@
 	<div class="container-fluid" id="main">
 		<div class="row row-offcanvas row-offcanvas-left">
 			<c:import url = "../module/left.jsp" />
-	
 	<!-- main -->
 			<div class="col-md-9 col-lg-10 main">
 				<!--toggle sidebar button
             <p class="hidden-md-up">
                 <button type="button" class="btn btn-primary-outline btn-sm" data-toggle="offcanvas"><i class="fa fa-chevron-left"></i> Menu</button>
             </p>-->
-				<h1 class="display-4 hidden-xs-down">전주점 오늘의 현황</h1>
-				<p class="lead hidden-xs-down">(Current Status of Jeonju-Branch)</p>
+				<h1 class="display-4 hidden-xs-down">${sessionScope.branchOwner.branch_owner_nm} 오늘의 현황</h1>
+				<br>
 				<div class="alert alert-warning fade collapse" role="alert"
 					id="myAlert">
 					<button type="button" class="close" data-dismiss="alert"
@@ -64,7 +63,7 @@
 									<i class="fa fa-twitter fa-5x"></i>
 								</div>
 								<h6 class="text-uppercase">등록회원수</h6>
-								<h1 class="display-1">50명</h1>
+								<h1 class="display-1">${membeNom}명</h1>
 							</div>
 						</div>
 					</div>

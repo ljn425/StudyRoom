@@ -1,4 +1,4 @@
-package com.monorella.srf.branch.member;
+package com.monorella.srf.branch.dto;
 
 public class Member {
 	private String member_cd;
