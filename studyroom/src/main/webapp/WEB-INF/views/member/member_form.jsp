@@ -12,136 +12,140 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="css/styles.css" />
 
-<script>
-    /* $(document).ready(function(){
-        $('#addButton').click(function(){
-            if($('#joinId').val()=='') {
-                alert('아이디를 입력하시오');
-                $('#joinId').focus();
-            } else if($('#joinPw').val().length <4) {
-                alert('비밀번호를 4자 이상 입력하시오');
-                $('#joinPw').focus();    
-            } else if($('#joinName').val()=='') {
-                alert('이름을 입력하시오');
-                $('#joinName').focus();
-            } else if($('#joinBirth').val()=='') {
-                alert('생년월일을 입력하시오');
-                $('#joinBirth').focus();
-            } else if($('#joinAddr').val()=='') {
-                alert('주소를 입력하시오');
-                $('#joinAddr').focus();
-            } else if($('#joinTel').val()=='') {
-                alert('전화번호를 입력하시오');
-                $('#joinTel').focus();
-            } else if($('#joinEmail').val()=='') {
-                alert('이메일을 입력하시오');
-                $('#joinEmail').focus(); 
-            } else {
-                $('#joinForm').submit();
-            }
-        });
-    }); */
-</script>
+
 
 <title>독서실 회원 폼</title>
 </head>
 <body>
-<!-- top -->
+	<!-- top -->
 	<c:import url = "../module/top.jsp" />
 	
-<!-- left -->
+	<!-- left -->
 	<div class="container-fluid" id="main">
 		<div class="row row-offcanvas row-offcanvas-left">
 			<c:import url = "../module/left.jsp" />
-<!--/모듈 여기까지-->
-
+	
+	<!-- main -->
 			<div class="col-md-9 col-lg-10 main">
 <div class="container">
     <h1>독서실 회원</h1>
-    
+    <br>
     <form id="memberform" action="${pageContext.request.contextPath}/member/member_form" method="post">
-        <div class="input-group">
-            <b>독서실회원코드</b><br>
+        <div class="form-group">
+            <b>독서실회원코드:</b><br>
             <input id="member_cd" type="text" class="" name="member_cd">
         </div>
         <br>
-        <div class="input-group">
-            <b>지점대표코드</b><br>
+        <div class="form-group">
+            <b>지점대표코드:</b><br>
             <input id="branch_owner_cd" type="text" class="" name="branch_owner_cd">
         </div>
         <br>
-		<hr>
-        <div class="input-group">
-            <b>직원아이디</b><br>
+        <div class="form-group">
+            <b>직원아이디:</b><br>
             <input id="staff_id" type="text" class="" name="staff_id">
         </div>
         <br>
-        <div class="input-group">
-            <b>열람석 코드</b><br>
+        <div class="form-group">
+            <b>열람석 코드:</b><br>
             <input id="seat_cd" type="text" class="" name="seat_cd">
         </div>
         <br>
-        <div class="input-group">
-		   <b>출결번호</b><br>
+        <div class="form-group">
+		   <b>출결번호:</b><br>
 		   <input id="inout_num" type="text" class="" name="inout_num">
-		  </div>
-		  <br>
-		  <div class="input-group">
-		   <b>이름</b><br>
+		</div>
+		<br>
+		<div class="form-group">
+		   <b>이름:</b><br>
 		   <input id="member_nm" type="text" class="" name="member_nm">
-		  </div>
+		</div>
 		  <br>
-		  <div class="input-group">
-		   <b>성별</b><br>
+		<div class="form-group">
+		   <b>성별:</b><br>
 		   <input id="member_sex" type="text" class="" name="member_sex">
-		  </div>
-		  <div class="input-group">
-		   <b>연락처</b><br>
-		   <input id="member_tel" type="text" class="" name="member_tel">
-		  </div>
-		  <div class="input-group">
-		   <b>주소</b><br>
-		   <input id="member_addr" type="text" class="" name="member_addr">
-		  </div>
-		  <div class="input-group">
-		   <b>등록일</b><br>
-		   <input id="member_regi_date" type="date" class="" name="member_regi_date">
-		  </div>
-		  <div class="input-group">
-		   <b>기간만료일</b><br>
-		   <input id="member_end_date" type="date" class="" name="member_end_date">
-		  </div>
-		  <div class="input-group">
-		   <b>등록경로</b><br>
-		   <input id="member_regi_path" type="text" class="" name="member_regi_path">
-		  </div>
-		  <div class="input-group">
-		   <b>나이</b><br>
-		   <input id="member_age" type="text" class="" name="member_age">
-		  </div>
-		  <div class="input-group">
-		   <b>회원상태</b><br>
-		   <input id="member_seat_state" type="text" class="" name="member_seat_state">
-		  </div>
+		</div>
 		  <br>
-		  <hr>
-            <input class="btn btn-default" type="submit" value="회원등록"/>
-            <input class="btn btn-default" type="reset" value="초기화"/>
-            <a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_list">회원목록</a>
-		</form>
+		<div class="form-group">
+		   <b>연락처:</b><br>
+		   <input id="member_tel" type="text" class="" name="member_tel">
+		</div>
+		  <br>
+		<div class="form-group">
+		   <b>주소:</b><br>
+		   <input id="member_addr" type="text" class="" name="member_addr">
+		</div>
+		  <br>
+		<div class="form-group">
+		   <b>등록일:</b><br>
+		   <input id="member_regi_date" type="date" class="" name="member_regi_date">
+		</div>
+		  <br>
+		<div class="form-group">
+		   <b>기간만료일:</b><br>
+		   <input id="member_end_date" type="date" class="" name="member_end_date">
+		</div>
+		  <br>
+		<div class="form-group">
+		   <b>등록경로:</b><br>
+		   <input id="member_regi_path" type="text" class="" name="member_regi_path">
+		</div>
+		  <br>
+		<div class="form-group">
+		   <b>나이:</b><br>
+		   <input id="member_age" type="text" class="" name="member_age">
+		</div>
+		  <br>
+		<div class="form-group">
+		   <b>회원상태:</b><br>
+		   <input id="member_seat_state" type="text" class="" name="member_seat_state">
+		</div>
+		  <br>
+		<div>
+        	<input class="btn btn-info" id="addButton" type="submit" value="회원등록"/>
+  			<input class="btn btn-info" type="reset" value="초기화"/>
+  			<a class="btn btn-info" href="${pageContext.request.contextPath}/member/member_list">회원목록</a>
+		</div>	
+	   </form>	
+	  </div> 
 	</div>
   </div>
 </div>
-</div>
-<!--scripts loaded here-->
-
-	<script
-		src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script
-		src="//cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"></script>
-	<script
-		src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-
-	<script src="js/scripts.js"></script>
+<!--foot-->
+	<c:import url="../module/foot.jsp" />
+	<script>
+      $(document).ready(function(){
+    	  console.log("ㅇㅇㅇ");
+        $('#addButton').click(function(){
+            if($('#inout_num').val()=='') {
+                alert('출결번호를 입력하시오');
+                $('#inout_num').focus();
+            } else if($('#member_nm').val()=='') {
+                alert('이름을 입력하시오');
+                $('#member_nm').focus();    
+            } else if($('#member_sex').val()=='') {
+                alert('성별을 입력하시오');
+                $('#member_sex').focus();
+            } else if($('#member_tel').val()=='') {
+                alert('연락처를 입력하시오');
+                $('#member_tel').focus();
+            } else if($('#member_addr').val()=='') {
+                alert('주소를 입력하시오');
+                $('#member_addr').focus();
+            } else if($('#member_regi_path').val()=='') {
+                alert('등록경로를 입력하시오');
+                $('#member_regi_path').focus();
+            } else if($('#member_age').val()=='') {
+                alert('나이를 입력하시오');
+                $('#member_age').focus();
+            } else if($('#member_seat_state').val()=='') {
+                alert('나이를 입력하시오');
+                $('#member_seat_state').focus(); 
+            } else {
+                $('#addButton').submit();
+            }
+        });
+    });
+</script>
 </body>
 </html>
