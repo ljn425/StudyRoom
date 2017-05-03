@@ -5,12 +5,28 @@
 <select id="searchStaff" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Staff">
 	SELECT
 		 staff_id
-		 , branch_owner_cd
-		 , staff_name
-		 , staff_tel
-		 , staff_addr
-	FROM branch_staff_tb
-	WHERE #{so} LIKE CONCAT('%',#{sv},'%')
+		 , branch_owner_cd AS branch_owner_cd
+		 , staff_name AS staff_name
+		 , staff_tel AS staff_tel
+		 , staff_addr AS staff_addr
+		 FROM branch_staff_tb
+		  <if test="sv !=null and sv != ''">
+		 	<if test="so.equals('staff_id')">
+		WHERE staff_id like concat('%',#{sv},'%')
+		</if>
+		<if test="so.equals('branch_owner_cd')">
+			WHERE branch_owner_cd like concat('%',#{sv},'%')
+		</if>
+		<if test="so.equals('staff_name')">
+			WHERE staff_name like concat('%',#{sv},'%') 
+		</if>
+		<if test="so.equals('staff_tel')">
+			WHERE staff_tel like concat('%',#{sv},'%')
+		</if>
+		<if test="so.equals('staff_addr')">
+			WHERE staff_addr like concat('%',#{sv},'%')
+		</if>
+		</if> 
 </select>
 
   <select id="getStaffList" resultType="com.monorella.srf.branch.dto.Staff">
@@ -21,7 +37,9 @@
 	, staff_name 
 	, staff_tel 
 	, staff_addr 
-	FROM branch_staff_tb
+	, DATE_FORMAT(staff_in_date,"%Y %c/%e")
+
+ 	FROM branch_staff_tb
 	ORDER BY staff_name DESC 
   </select>
   
