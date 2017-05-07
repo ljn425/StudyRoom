@@ -15,9 +15,6 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<!-- CSS JS IMAGE 파일 맵핑 -->	
 	<resources mapping="/resources/**" location="/resources/" /> 
-	<resources mapping="/css/**" location="/resources/css/" /> 
-	<resources mapping="/img/**" location="/resources/images/" /> 
-	<resources mapping="/js/**" location="/resources/js/" />
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean
@@ -44,7 +41,7 @@
         <beans:property name="mapperLocations">
             <beans:list>
                 <beans:value>classpath:com/monorella/srf/branch/login/LoginMapper.xml</beans:value>
-<!--                 <beans:value>classpath:com/monorella/srf/branch/dashboard/DashboardMapper.xml</beans:value> -->
+				<beans:value>classpath:com/monorella/srf/branch/dashboard/DashboardMapper.xml</beans:value>
 <!--                 <beans:value>classpath:com/monorella/srf/branch/room/RoomMapper.xml</beans:value> -->
 <!--                 <beans:value>classpath:com/monorella/srf/branch/member/MemberMapper.xml</beans:value> -->
                 <beans:value>classpath:com/monorella/srf/branch/staff/StaffMapper.xml</beans:value> 

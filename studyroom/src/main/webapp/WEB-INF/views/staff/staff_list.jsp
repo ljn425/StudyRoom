@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,23 +56,6 @@
 	   </div>
 	</div>
 	</form>
-<!--   <form id="form_search" method="get" action="./"> 
-  <select id="sch_type" name="sch_type"> 
-  <option value="staff_id" selected="selected">직원아이디</option> 
-  <option value="branch_owner_cd">대표코드</option> 
-  <option value="staff_name">직원이름</option> </select> 
-  <input type="text" id="sch_value" name="sch_value" /> 
-  <button type="button" onclick="search();">검색</button> 
-  </form> 
-  <script> 
-  function search() { 
-	  var sch_value = jQuery('#form_search #sch_value').val(); if (sch_value == '') 
-	  { 
-		  alert('검색어를 입력하세요.'); 
-		  } else { jQuery('#form_search').submit(); 
-		  } 
-	  } </script>
-	   -->
         <a href="${pageContext.request.contextPath}/staff/staff_form">직원 추가</a>
   <table class="table">
    <thead>
@@ -93,7 +77,8 @@
                     <td>${s.staff_name}</td>
                     <td>${s.staff_tel}</td>
                     <td>${s.staff_addr}</td>
-                    <td>${s.staff_in_date}</td>
+                  <td>${s.staff_in_date}</td> 
+                   <%-- <td><fmt:formatDate value="${s.staff_in_date}" pattern="yyyy-MM-dd"/></td> --%> 
                 </tr>
  	</c:forEach>
         </tbody>

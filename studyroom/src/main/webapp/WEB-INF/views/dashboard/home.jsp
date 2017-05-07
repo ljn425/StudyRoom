@@ -15,7 +15,7 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 			<c:import url = "../module/left.jsp" />
 	<!-- main -->
-			<div class="col-md-9 col-lg-10 main">
+			<div class="col-md-9 col-lg-10 main" id="wrap">
 				<!--toggle sidebar button
             <p class="hidden-md-up">
                 <button type="button" class="btn btn-primary-outline btn-sm" data-toggle="offcanvas"><i class="fa fa-chevron-left"></i> Menu</button>
