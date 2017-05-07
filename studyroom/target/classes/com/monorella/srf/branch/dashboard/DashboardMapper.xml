@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.monorella.srf.branch.dashboard.DashboardMapper">
+	<!-- 전체 회원수 -->
+	<select id="selectMemberCount" resultType="int">
+	        SELECT COUNT(*) FROM branch_member_tb
+	</select>
+	
+	<!-- 사용중 열람석수 -->
+	<select id="selectUseMember" resultType="int">
+	        SELECT COUNT(*) FROM branch_saet_tb WHERE colseat_state = "사용중"
+	</select>
+</mapper>
