@@ -8,3 +8,4 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.min.css" />
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/module/menubar.css" />
