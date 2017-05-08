@@ -29,12 +29,12 @@
 <div class="form-group has-success">
   <label class="control-label" for="inputLarge">지점 대표코드</label>
   <SELECT class="form-control" name="branch_owner_cd" id="branch_owner_cd" > 
-     <option value="0010" selected>&nbsp;</option> 
-     <option value="0011">011</option> 
-     <option value="0016">016</option> 
-     <option value="0017">017</option> 
-     <option value="0018">018</option> 
-     <option value="0019">019</option> 
+     <option value="B0010" selected>&nbsp;</option> 
+     <option value="B0011">B011</option> 
+     <option value="B0016">B016</option> 
+     <option value="B0017">B017</option> 
+     <option value="B0018">B018</option> 
+     <option value="B0019">B019</option> 
     </SELECT>
   <!-- <input type="text" class="form-control" id="branch_owner_cd" name="branch_owner_cd" placeholder="지점 대표코드를 입력해주세요"> -->
 </div>
