@@ -58,6 +58,10 @@
   <label class="control-label" for="inputLarge">직원 가입일</label>
   <input type="date" class="form-control" id="staff_in_date" name="staff_in_date">
 </div>
+<div class="form-group has-success">
+  <label class="control-label" for="inputLarge">파일첨부</label>
+  <input type="file" class="form-control" id="staff_file" name="staff_file">
+</div>
 <div>
         <input type="submit" value="글입력"/>
         <input type="reset" value="초기화"/>
