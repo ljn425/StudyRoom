@@ -32,7 +32,7 @@
 			<c:import url = "../module/left.jsp" />
 	
 	<!-- main -->
-			<div class="col-md-9 col-lg-10 main">
+			<div class="col-md-9 col-lg-10 main" id="wrap">
 <div class="table-responsive">
  
         <a href="${pageContext.request.contextPath}/staff/staff_form">직원 추가</a>
