@@ -16,8 +16,8 @@
 				data-toggle="collapse" data-target="#submenu2">열람실 ▾</a>
 				<ul class="list-unstyled flex-column pl-3 collapse" id="submenu2"
 					aria-expanded="false">
-					<li class="nav-item"><a class="nav-link" href="">열람실등록</a></li>
-					<li class="nav-item"><a class="nav-link" href="">열람실현황</a></li>
+					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/room/room_form">열람실등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/room/room_main">열람실현황</a></li>
 				</ul>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="#submenu3"

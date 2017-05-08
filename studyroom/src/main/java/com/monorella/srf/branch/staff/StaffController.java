@@ -44,6 +44,7 @@ public class StaffController {
 			return "redirect:/staff/staff_list";
 		}
 	
+<<<<<<< HEAD
 	// 직원 수정 폼 요청
 		@RequestMapping(value="staff/staff_modify", method = RequestMethod.GET)
 		public String staffModify(Model model 
@@ -72,6 +73,8 @@ public class StaffController {
 			return "staff/staff_view";
 		}
 	
+=======
+>>>>>>> branch 'master' of https://github.com/ljn425/StudyRoom.git
 	//게시판 검색
 		@RequestMapping(value="staff/staff_search" , method = {RequestMethod.GET, RequestMethod.POST})
 		public String StaffSearch(Model model

@@ -16,10 +16,10 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 			<c:import url = "../module/left.jsp" />
 			<!-- main -->
-			<div class="col-md-9 col-lg-10 main">
+			<div class="col-md-9 col-lg-10 main" id="wrap">
 <div class="container">
 <h1>직원 등록</h1>
-
+<br>
 <form class="form-horizontal" action="${pageContext.request.contextPath}/staff/staff_pro" method="post">
 
 <div class="form-group has-success">

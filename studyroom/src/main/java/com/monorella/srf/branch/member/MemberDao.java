@@ -16,28 +16,18 @@ public class MemberDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public List<Member> searchPageMemberList(String so, String sv, int currentPage, int pagePerRow){
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("so", so);
-		map.put("sv", sv);
-		map.put("currentPage", currentPage);
-		map.put("pagePerRow", pagePerRow);
-		System.out.println("5st getMemberList");
-		return sqlSessionTemplate.selectList("com.monorella.srf.branch.member.MemberMapper.searchPageMemberList", map);
-	}
-	
-	public List<Member> searchMemberList(String so, String sv){
+	// 회원검색 메서드
+	public List<Member> searchMember(String so, String sv){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("so", so);
 		map.put("sv", sv);
 		List<Member> memberList = null;
-		memberList = sqlSessionTemplate.selectList("com.monorella.srf.branch.member.MemberMapper.searchMemberList", map);
-		if(so.equals("member_hap"))
-			memberList = sqlSessionTemplate.selectList("com.monorella.srf.branch.member.MemberMapper.searchMemberHap", map);
 		System.out.println("4st getMemberList");
+		memberList = sqlSessionTemplate.selectList("com.monorella.srf.branch.member.MemberMapper.searchMember", map);
 		return memberList;
-	}
+	}	
 	
+	// 회원리스트 메서드
 	public List<Member> selectMemberList(int currentPage, int pagePerRow) {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("beginRow", (currentPage-1)*pagePerRow);
@@ -46,11 +36,14 @@ public class MemberDao {
 		return sqlSessionTemplate.selectList("com.monorella.srf.branch.member.MemberMapper.selectMemberList", map);
 	}
 	
+
 	public int selectMemberCount() {
 		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.member.MemberMapper.selectMemberCount");
+		System.out.println("2st getMemberList");
 		return row;
 	}
 	
+	// 회원추가 메서드
 	public int insertMember(Member member) {
 		System.out.println("1st insertMember");
 		System.out.println(member);

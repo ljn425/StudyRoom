@@ -34,7 +34,8 @@
 	<!-- main -->
 			<div class="col-md-9 col-lg-10 main" id="wrap">
 <div class="table-responsive">
- 
+ <h1>독서실 직원 리스트</h1>
+ <br>
         <a href="${pageContext.request.contextPath}/staff/staff_form">직원 추가</a>
   <table class="table">
    <thead>
@@ -61,7 +62,6 @@
                 </tr>
  	</c:forEach>
         </tbody>
-   
   </table>
    
  </div>
