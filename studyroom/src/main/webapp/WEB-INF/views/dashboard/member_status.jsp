@@ -6,17 +6,25 @@
 	<!-- head ----------------------------------->
 	<c:import url="../module/head.jsp" />
 	<!-- ------------------------------------  -->
+	<c:import url="../module/foot.jsp" />
 	
 	<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/google.js"></script> --%>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript">
+	  $(document).ready(function(){
+		  var a = $('#a').html();
+		  a*=1;
+		  console.log('a :' +  a);
+	
+	  
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
+    	  var b = a;
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['지인 소개', 21],
-          ['전단지', 20],
+          ['지인 소개', 30],
+          ['전단지', b],
           ['인터넷 검색', 40],
           ['플래카드', 24],
           ['기타', 7],
@@ -28,6 +36,7 @@
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
         chart.draw(data, options);
       }
+	  });
     </script>
     
     <script type="text/javascript">
@@ -59,7 +68,7 @@
 		
 		      var data = google.visualization.arrayToDataTable([
 		        ['열람석', '해당 인원수'],
-		        ['사용중', '&{useMemberNum}'],
+		        ['사용중', 20],
 		        ['부재중', 22],
 		        ['미결제', 20],
 		        ['여성', 78],
@@ -96,6 +105,9 @@
 	<!-- -------------------------main---------------------------- -->	
 			<!-- 사각형 박스 정보 차트 start -->
 			<div class="col-md-9 col-lg-10 main">
+			<span id="a">50</span>	
+			
+			
 				<h3>Dashboard > 회원 현황</h3>
 				<%-- 
 				<div class="row mb-3">
