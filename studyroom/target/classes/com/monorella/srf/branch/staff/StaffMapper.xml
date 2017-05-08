@@ -61,7 +61,7 @@
 		, #{staff_name}
 		, #{staff_tel}
 		, #{staff_addr}
-		, now()
+		, #{staff_in_date}
 	)
 	</insert>
   </mapper>
