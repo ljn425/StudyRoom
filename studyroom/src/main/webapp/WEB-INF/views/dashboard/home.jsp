@@ -74,7 +74,7 @@
 									<i class="fa fa-share fa-5x"></i>
 								</div>
 								<h6 class="text-uppercase">빈 좌석수</h6>
-								<h1 class="display-1">36</h1>
+								<h1 class="display-1">36석</h1>
 							</div>
 						</div>
 					</div>
@@ -225,58 +225,6 @@
 				<!--/row-->
 
 				<a id="more"></a>
-				<hr>
-				<h2 class="sub-header">Use card decks for equal height rows of
-					cards</h2>
-				<div class="card-deck-wrapper mb-3">
-					<div class="card-deck">
-						<div class="card card-inverse card-success text-center">
-							<div class="card-block">
-								<blockquote class="card-blockquote">
-									<p>It's really good news that the new Bootstrap 4 now has
-										support for CSS 3 flexbox.</p>
-									<footer>
-										Makes flexible layouts <cite title="Source Title">Faster</cite>
-									</footer>
-								</blockquote>
-							</div>
-						</div>
-						<div class="card card-inverse card-danger text-center">
-							<div class="card-block">
-								<blockquote class="card-blockquote">
-									<p>The Bootstrap 3.x element that was called "Panel"
-										before, is now called a "Card".</p>
-									<footer>
-										All of this makes more <cite title="Source Title">Sense</cite>
-									</footer>
-								</blockquote>
-							</div>
-						</div>
-						<div class="card card-inverse card-warning text-center">
-							<div class="card-block">
-								<blockquote class="card-blockquote">
-									<p>There are also some interesting new text classes for
-										uppercase and capitalize.</p>
-									<footer>
-										These handy utilities make it <cite title="Source Title">Easy</cite>
-									</footer>
-								</blockquote>
-							</div>
-						</div>
-						<div class="card card-inverse card-info text-center">
-							<div class="card-block">
-								<blockquote class="card-blockquote">
-									<p>If you want to use cool icons in Bootstrap 4, you'll
-										have to find your own such as Font Awesome or Ionicons.</p>
-									<footer>
-										The Glyphicons are not <cite title="Source Title">Included</cite>
-									</footer>
-								</blockquote>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--/row-->
 
 				<a id="flexbox"></a>
 				<hr>

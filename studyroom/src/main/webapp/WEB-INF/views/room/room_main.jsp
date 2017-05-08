@@ -146,7 +146,6 @@ $(document).ready(function(){
 <!--/모듈 여기까지-->
 	<!-- main -->
 	  <div class="col-md-9 col-lg-10 main" id="wrap">		
-		
 			<div class="container text-left">
 				<h3>열람실 전체 화면</h3>
 				<div class="row">			
