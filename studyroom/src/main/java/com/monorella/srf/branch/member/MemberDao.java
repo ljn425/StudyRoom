@@ -16,12 +16,14 @@ public class MemberDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public List<Member> searchmember(String so, String sv){
+	// 회원검색 메서드
+	public List<Member> searchMember(String so, String sv){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("so", so);
 		map.put("sv", sv);
 		List<Member> memberList = null;
-		memberList = sqlSessionTemplate.selectList("com.monorella.srf.branch.member.MemberMapper.searchmember", map);
+		System.out.println("4st getMemberList");
+		memberList = sqlSessionTemplate.selectList("com.monorella.srf.branch.member.MemberMapper.searchMember", map);
 		return memberList;
 	}
 	
@@ -37,6 +39,7 @@ public class MemberDao {
 
 	public int selectMemberCount() {
 		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.member.MemberMapper.selectMemberCount");
+		System.out.println("2st getMemberList");
 		return row;
 	}
 	

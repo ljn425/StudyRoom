@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.monorella.srf.branch.dto.Member;
-
 import com.monorella.srf.branch.member.MemberDao;
 
 @Controller
@@ -18,7 +17,19 @@ public class MemberController {
 	@Autowired
 	private MemberDao memberDao;
 
-	
+	//게시판 검색 요청
+	@RequestMapping(value="/member/member_search" , method = {RequestMethod.GET, RequestMethod.POST})
+	public String StaffSearch(Model model
+			, @RequestParam("so") String so
+			, @RequestParam("sv") String sv){
+		System.out.println("MemberController->MemberSearch()" + so + sv);
+		List<Member> searchlist = memberDao.searchMember(so, sv);
+		System.out.println(searchlist);
+		model.addAttribute("searchlist", searchlist);
+		model.addAttribute("so", so);
+		model.addAttribute("sv", sv);
+		return "member/member_search";
+	}
 	
 	// 리스트 및 페이징 요청
 	@RequestMapping(value="/member/member_list", method = RequestMethod.GET)
@@ -66,7 +77,7 @@ public class MemberController {
 	}
 	
 	// 입력 post 요청
-	@RequestMapping(value="/member/member_form", method = RequestMethod.POST)
+	@RequestMapping(value="/member/member_pro", method = RequestMethod.POST)
 	public String insertMember(Member member) {
 		System.out.println("post 요청");
 		System.out.println(member);

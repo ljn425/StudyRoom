@@ -16,15 +16,15 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 			<c:import url = "../module/left.jsp" />
 			<!-- main -->
-			<div class="col-md-9 col-lg-10 main">
+			<div class="col-md-9 col-lg-10 main" id="wrap">
 <div class="container">
-<h1>회원 등록</h1>
-
-<form class="form-horizontal" action="${pageContext.request.contextPath}/staff/staff_pro" method="post">
+<h1>독서실 회원 등록</h1>
+<br>
+<form class="form-horizontal" action="${pageContext.request.contextPath}/member/member_pro" method="post">
 
 <div class="form-group has-success">
   <label class="control-label" for="inputLarge">독서실회원코드</label>
-  <input type="text" class="form-control" id="member_cd" name="member_cd" placeholder="아이디를 입력해주세요">
+  <input type="text" class="form-control" id="member_cd" name="member_cd" placeholder="독서실회원코드를 입력해주세요">
 </div>
 <div class="form-group has-success">
   <label class="control-label" for="inputLarge">지점 대표코드</label>
@@ -56,15 +56,15 @@
 </div>
 <div class="form-group has-success">
   <label class="control-label" for="inputLarge">주소</label>
-  <input type="date" class="form-control" id="member_addr" name="member_addr" placeholder="주소를 입력해주세요">
+  <input type="text" class="form-control" id="member_addr" name="member_addr" placeholder="주소를 입력해주세요">
 </div>
 <div class="form-group has-success">
   <label class="control-label" for="inputLarge">나이</label>
-  <input type="date" class="form-control" id="member_age" name="member_age" placeholder="나이를 입력해주세요">
+  <input type="text" class="form-control" id="member_age" name="member_age" placeholder="나이를 입력해주세요">
 </div>
 <div class="form-group has-success">
   <label class="control-label" for="inputLarge">회원상태</label>
-  <input type="date" class="form-control" id="member_seat_state" name="member_seat_state" placeholder="회원상태를 입력해주세요">
+  <input type="text" class="form-control" id="member_seat_state" name="member_seat_state" placeholder="회원상태를 입력해주세요">
 </div>
 <div>
         <input type="submit" value="글입력"/>
