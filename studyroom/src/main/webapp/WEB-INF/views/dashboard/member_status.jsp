@@ -4,90 +4,14 @@
 <html>
 <head>
 	<!-- head ----------------------------------->
-	<c:import url="../module/head.jsp" />
+		<c:import url="../module/head.jsp" />
 	<!-- ------------------------------------  -->
-	
-	<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/google.js"></script> --%>
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['지인 소개', 21],
-          ['전단지', 20],
-          ['인터넷 검색', 40],
-          ['플래카드', 24],
-          ['기타', 7],
-        ]);
-        var options = {
-          title: '회원 등록 경로',
-          pieHole: 0.3,
-        };
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-        chart.draw(data, options);
-      }
-    </script>
-    
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['지인 소개', 21],
-          ['전단지', 20],
-          ['인터넷 검색', 40],
-          ['플래카드', 24],
-          ['기타', 7],
-        ]);
-        var options = {
-          title: '회원 등록 경로',
-          pieHole: 0.3,
-        };
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart2'));
-        chart.draw(data, options);
-      }
-    </script>
-    
-	<script type="text/javascript">
-		google.charts.load('current', {packages: ['corechart', 'bar']});
-		google.charts.setOnLoadCallback(drawBasic);
-		
-		function drawBasic() {
-		
-		      var data = google.visualization.arrayToDataTable([
-		        ['열람석', '해당 인원수'],
-		        ['사용중', '&{useMemberNum}'],
-		        ['부재중', 22],
-		        ['미결제', 20],
-		        ['여성', 78],
-		        ['남성', 22]
-		      ]);
-		
-		      var options = {
-		        title: '열람석 통계',
-		        chartArea: {width: '60%'},
-		        hAxis: {
-		          title: '인원수',
-		          minValue: 0
-		        },
-		        vAxis: {
-		          title: '열람석'
-		        }
-		      };
-		
-		      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-		
-		      chart.draw(data, options);
-		    }
-	</script>
-    
+	<c:import url="../module/foot.jsp" />
+	<c:import url = "../module/chart_script.jsp" />
 </head>
 <body>
 	<!-- top -->
-	<c:import url = "../module/top.jsp" />
+	<c:import url="../module/top.jsp" />
 	
 	<!-- left -->
 	<div class="container-fluid" id="main">
@@ -96,6 +20,18 @@
 	<!-- -------------------------main---------------------------- -->	
 			<!-- 사각형 박스 정보 차트 start -->
 			<div class="col-md-9 col-lg-10 main">
+			
+			<input id="useMemberNo" type="hidden" value="${useMemberNo}"/>	
+			<input id="absenceMemberNo" type="hidden" value="${absenceMemberNo}"/>
+			<input id="unpaidMemberNo" type="hidden" value="${unpaidMemberNo}"/>
+			<input id="pamphletNo" type="hidden" value="${pamphletNo}"/>	
+			<input id="placardNo" type="hidden" value="${placardNo}"/>
+			<input id="introductionNo" type="hidden" value="${introductionNo}"/>
+			<input id="internetNo" type="hidden" value="${internetNo}"/>	
+			<input id="etctcNo" type="hidden" value="${etctcNo}"/>
+			<input id="MenNo" type="hidden" value="${MenNo}"/>	
+			<input id="womanNo" type="hidden" value="${womanNo}"/>
+			
 				<h3>Dashboard > 회원 현황</h3>
 				<%-- 
 				<div class="row mb-3">
@@ -149,19 +85,19 @@
 	<!-- 사각형 박스 정보 차트 end -->
 	
 	<!-- bar 차트 start-->	
-				<div id="chart_div" style="width: 1200px; height: 500px;"></div>
+				<div id="chart_div" style="width: 1200px; height: 350px;"></div>
 	<!-- bar 차트 end-->
-	
+				<hr>
 	<!-- 등록 경로 원형 차트 start-->	
 				<div class="row col-sm-12">		
-					<div id="donutchart" class="col-sm-6" style="width: 600px; height: 600px;"></div>
-					<div id="donutchart2" class="col-sm-6" style="width: 600px; height: 600px;"></div>
+					<div id="memberPath" class="col-sm-6" style="width: 600px; height: 600px;"></div>
+					<div id="sexRatio" class="col-sm-6" style="width: 600px; height: 600px;"></div>
 				</div>
 	<!-- 등록 경로 원형 차트 end -->	
 	
 		</div>
 	<!-- --------------------------main end--------------------------- -->
 	
-	<c:import url="../module/foot.jsp" />
+	
 </body>
 </html>

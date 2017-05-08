@@ -5,30 +5,30 @@
   
 <mapper namespace="com.monorella.srf.branch.member.MemberMapper">
 
-	<select id="searchPageMemberList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
-		SELECT
+<select id="searchMember" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
+	SELECT
 		 member_nm
-		 , member_sex
-		 , member_age
-		 , member_seat_state
-		FROM branch_member_tb WHERE #{so} LIKE CONCAT('%',#{sv},'%') ORDER BY member_cd DESC LIMIT #{currentPage}, #{pagePerRow}
-	</select>
-
-	<select id="searchMemberHap" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
-		SELECT *
-		FROM branch_member_tb
-		WHERE member_nm LIKE CONCAT('%',#{sv},'%') or member_seat_state LIKE CONCAT('%',#{sv},'%')
-	</select>
-
-	<select id="searchMemberList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
-		SELECT
-			 member_nm
-			 , member_sex
-			 , member_age
-			 , member_seat_state
-		FROM branch_member_tb
-		WHERE #{so} LIKE CONCAT('%',#{sv},'%')
-	</select>
+		 , member_sex AS member_sex
+		 , member_tel AS member_tel
+		 , member_addr AS member_addr
+		 , member_age AS member_age
+		 , member_seat_state AS member_seat_state
+		 FROM branch_member_tb
+		  <if test="sv !=null and sv != ''">
+		 	<if test="so.equals('member_nm')">
+		WHERE member_nm like concat('%',#{sv},'%')
+		</if>
+		<if test="so.equals('member_sex')">
+			WHERE member_sex like concat('%',#{sv},'%')
+		</if>
+		<if test="so.equals('member_age')">
+			WHERE member_age like concat('%',#{sv},'%') 
+		</if>
+		<if test="so.equals('member_seat_state')">
+			WHERE member_seat_state like concat('%',#{sv},'%')
+		</if>
+		</if> 
+</select>
 
 	<select id="selectMemberList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
 		SELECT

@@ -32,9 +32,43 @@
 			<c:import url = "../module/left.jsp" />
 	
 	<!-- main -->
-			<div class="col-md-9 col-lg-10 main">
+			<div class="col-md-9 col-lg-10 main" id="wrap">
 <div class="table-responsive">
- <!-- 검색 -->
+ <h1>독서실 직원 리스트</h1>
+ <br>
+        <a href="${pageContext.request.contextPath}/staff/staff_form">직원 추가</a>
+  <table class="table">
+   <thead>
+   	<tr>
+   	<th>직원 아이디</th>
+   	<th>지점 대표코드</th>
+   	<th>직원 이름</th>
+   	<th>직원 연락처</th>
+   	<th>직원 주소</th>
+   	<th>직원 가입일</th>
+   	</tr>
+   </thead>
+        <tbody>
+
+	<c:forEach var="s" items="${list}">
+                <tr>
+                    <td><a href="${pageContext.request.contextPath}/staff/staff_view?staff_id=${s.staff_id}">${s.staff_id}</a></td>
+                    <td>${s.branch_owner_cd}</td>
+                    <td>${s.staff_name}</td>
+                    <td>${s.staff_tel}</td>
+                    <td>${s.staff_addr}</td>
+                	<td>${s.staff_in_date}</td> 
+               <%--   <td><fmt:formatDate value="${s.staff_in_date}" pattern="yyyy-MM-dd"/></td>  --%>
+                </tr>
+ 	</c:forEach>
+        </tbody>
+  </table>
+   
+ </div>
+</div>
+</div>
+</div>
+<!-- 검색 -->
     <form id="searchFrom" action="${pageContext.request.contextPath}/staff/staff_search" method="post">
 	 <div class="form-group">
 	 <div class="row">
@@ -56,40 +90,6 @@
 	   </div>
 	</div>
 	</form>
-        <a href="${pageContext.request.contextPath}/staff/staff_form">직원 추가</a>
-  <table class="table">
-   <thead>
-   	<tr>
-   	<th>직원 아이디</th>
-   	<th>지점 대표코드</th>
-   	<th>직원 이름</th>
-   	<th>직원 연락처</th>
-   	<th>직원 주소</th>
-   	<th>직원 가입일</th>
-   	</tr>
-   </thead>
-        <tbody>
-
-	<c:forEach var="s" items="${list}">
-                <tr>
-                    <td><a href="${pageContext.request.contextPath}/staffView?staff_id=${s.staff_id}">${s.staff_id}</a></td>
-                    <td>${s.branch_owner_cd}</td>
-                    <td>${s.staff_name}</td>
-                    <td>${s.staff_tel}</td>
-                    <td>${s.staff_addr}</td>
-                  <td>${s.staff_in_date}</td> 
-                   <%-- <td><fmt:formatDate value="${s.staff_in_date}" pattern="yyyy-MM-dd"/></td> --%> 
-                </tr>
- 	</c:forEach>
-        </tbody>
-   
-  </table>
-   
- </div>
-</div>
-</div>
-</div>
-
 <!--foot-->
 	<c:import url="../module/foot.jsp" />
 </body>

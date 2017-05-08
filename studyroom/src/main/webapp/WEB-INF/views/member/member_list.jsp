@@ -3,20 +3,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="description" content="A Bootstrap 4 admin dashboard theme that will get you started. The sidebar toggles off-canvas on smaller screens. This example also include large stat blocks, modal and cards. The top navbar is controlled by a separate hamburger toggle button." />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Codeply">
-
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#searchBtn').click(function(){
+			if($('#selectValue').val().length < 2){
+				alert("검색어를 2자이상 입력하시오");
+			}else if($('#selectValue').val().length >= 2){
+				$('#searchFrom').submit();
+			}
+		});
+	});
+</script>
+<!-- head -->
+	<c:import url="../module/head.jsp" />
 </head>
-<style>
-	.pager .disabled>a, .pager .disabled>a:focus, .pager .disabled>a:hover, .pager .disabled>span{
-		color: green;
-	}
-</style>
 <body>
 	<!-- top -->
 	<c:import url = "../module/top.jsp" />
@@ -27,9 +28,10 @@
 			<c:import url = "../module/left.jsp" />
 	
 	<!-- main -->
-			<div class="col-md-9 col-lg-10 main">
+			<div class="col-md-9 col-lg-10 main" id="wrap">
 
 <div class="container">
+	<br>
     <h1>독서실 회원 리스트</h1>
     <br>
     <table class="table table-striped">
@@ -56,30 +58,41 @@
             </c:forEach>
         </tbody>
     </table>
-    <ul class="pagination">
+    <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
         <c:if test="${currentPage > 1}">
-            <li><a href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage-1}">이전</a></li>
+            <li class="page-item">
+            	<a class="page-link" href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage-1}" aria-label="Previous">
+            		<span aria-hidden="true">&laquo;</span>
+            		<span class="sr-only">Previous</span>
+            	</a>
+            </li>	
         </c:if>
-        
         <c:forEach var="i" begin="${startPage}" end="${endPage}" step="1">
 			<c:if test="${i == currentPage}">
-				<li class="disabled"><a href="#">${i}</a></li>
+				<li class="page-item"><a class="page-link" href="#">${i}</a></li>
 			</c:if>
 			<c:if test="${i != currentPage}">
-				<li><a href="${pageContext.request.contextPath}/member/member_list?currentPage=${i}">${i}</a></li>
+				<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/member/member_list?currentPage=${i}">${i}</a></li>
 			</c:if>
 		</c:forEach>
 		
         <c:if test="${currentPage < lastPage}">
-            <li><a href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage+1}">다음</a></li>
+            <li class="page-item">
+            	<a class="page-link" href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage+1}" aria-label="Next">
+            		<span aria-hidden="true">&raquo;</span>
+        			<span class="sr-only">Next</span>
+            	</a>	
+            </li>	
         </c:if>
     </ul>
+   </nav> 
   </div>
  </div>
 </div>
 </div>
 
-    <form id="searchMemberFrom" action="${pageContext.request.contextPath}/member/member_list" method="post">
+    <form id="searchMemberFrom" action="${pageContext.request.contextPath}/member/member_search" method="post">
 	 <div class="form-group">
 	 <div class="row">
 	  <div class="col-sm-3">
@@ -95,23 +108,14 @@
 	   <div class="col-sm-3">
 	   		<input name="sv" id="selectValue" type="text" class="form-control" placeholder="검색어를 입력해주세요."/>
 	   </div>
-	   <input class="btn btn-info" id="searchFrom" type="submit" value="검색"/>
+	   <div class="col-sm-4">
+	   		<button type="button" id="searchBtn" class="btn btn-default">검색</button>
 	   </div>
 	   </div>
+	  </div>
 	</form>
 	
 <!--foot-->
 	<c:import url="../module/foot.jsp" />
-	<script>
-	$(document).ready(function() {
-		$('#searchBtn').click(function(){
-			if($('#selectValue').val().length < 2){
-				alert("검색어를 2자이상 입력하시오");
-			}else if($('#selectValue').val().length >= 2){
-				$('#searchFrom').submit();
-			}
-		});
-	});
-</script>
 </body>
 </html>
