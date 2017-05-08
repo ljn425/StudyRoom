@@ -58,24 +58,35 @@
             </c:forEach>
         </tbody>
     </table>
-    <ul class="pagination">
+    <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
         <c:if test="${currentPage > 1}">
-            <li><a href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage-1}">이전</a></li>
+            <li class="page-item">
+            	<a class="page-link" href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage-1}" aria-label="Previous">
+            		<span aria-hidden="true">&laquo;</span>
+            		<span class="sr-only">Previous</span>
+            	</a>
+            </li>	
         </c:if>
-        
         <c:forEach var="i" begin="${startPage}" end="${endPage}" step="1">
 			<c:if test="${i == currentPage}">
-				<li class="disabled"><a href="#">${i}</a></li>
+				<li class="page-item"><a class="page-link" href="#">${i}</a></li>
 			</c:if>
 			<c:if test="${i != currentPage}">
-				<li><a href="${pageContext.request.contextPath}/member/member_list?currentPage=${i}">${i}</a></li>
+				<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/member/member_list?currentPage=${i}">${i}</a></li>
 			</c:if>
 		</c:forEach>
 		
         <c:if test="${currentPage < lastPage}">
-            <li><a href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage+1}">다음</a></li>
+            <li class="page-item">
+            	<a class="page-link" href="${pageContext.request.contextPath}/member/member_list?currentPage=${currentPage+1}" aria-label="Next">
+            		<span aria-hidden="true">&raquo;</span>
+        			<span class="sr-only">Next</span>
+            	</a>	
+            </li>	
         </c:if>
     </ul>
+   </nav> 
   </div>
  </div>
 </div>
