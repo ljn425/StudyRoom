@@ -38,6 +38,5 @@
 					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/staff/staff_list">직원목록</a></li>
 				</ul>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/staff/staff_form">출결번호</a></li>
 		</ul>
 </div>
