@@ -1,15 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
-  <c:import url="../module/head.jsp" />
-  <c:import url="../module/foot.jsp" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A Bootstrap 4 admin dashboard theme that will get you started. The sidebar toggles off-canvas on smaller screens. This example also include large stat blocks, modal and cards. The top navbar is controlled by a separate hamburger toggle button." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Codeply">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <title>jQuery UI Sortable - Portlets</title>
 
   <style>
+  body {
+    min-width: 520px;
+  }
   .column {
     width: 170px;
     float: left;
@@ -18,10 +30,8 @@
   .portlet {
     margin: 0 1em 1em 0;
     padding: 0.3em;
-    border: 1px solid;
   }
   .portlet-header {
-  	background-color: yellow;
     padding: 0.2em 0.3em;
     margin-bottom: 0.5em;
     position: relative;
@@ -95,27 +105,23 @@
 	<c:import url = "../module/top.jsp" />
 	
 <!-- left -->
-	<div class="container-fluid" id="main">
-	  <div class="row row-offcanvas row-offcanvas-left">
 	<c:import url = "../module/left.jsp" />
-<!--/ëª¨ë“ˆ ì—¬ê¸°ê¹Œì§€-->
-	<!-- main -->
-	  <div class="col-md-9 col-lg-10 main" id="wrap">
-	  <h1>ì—´ëŒì‹¤ 101í˜¸</h1>
+<!--/¸ğµâ ¿©±â±îÁö-->
 
 <div id="copyPortlet" style="display: none;">
 	<div class="portlet">
-	  	<div class="portlet-header">1</div>
-	  	<div class="portlet-content">ë¹ˆì¢Œì„</div>
-		<div class="portlet-content">ë‚ ì§œ :</div>
+	  	<div class="portlet-header">2</div>
+	  	<div class="portlet-content">Á¤¿ì¼º</div>
+		<div class="portlet-content">2017-01-01</div>
 	</div>
 </div>
 
 <div class="column"> 
   <div class="portlet">
-	  <div class="portlet-header">2</div>
-	  <div class="portlet-content">ë¹ˆì¢Œì„</div>
-	  <div class="portlet-content">0</div>
+	  <div class="portlet-header">1</div>
+	  <div class="portlet-content">Á¤¿ì¼º</div>
+	  <div class="portlet-content">2017-01-01</div>
+	  <button type="button" class="btn btn-info btn-sg" data-toggle="modal" data-target="#myModal">Open</button>
 	  <div class="container">
  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -123,19 +129,19 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">íšŒì› ìˆ˜ì •</h4>
+          <h4 class="modal-title">È¸¿ø ¼öÁ¤</h4>
         </div>
         <div class="modal-body">
 			<form action="/action_page.php">
-			<input name="firstname" value="ì¢Œì„">
-			<input name="firstname" value="ì´ë¦„">
-			<input name="firstname" value="ê¸°ê°„"><br/>
+			<input name="firstname" value="ÁÂ¼®">
+			<input name="firstname" value="ÀÌ¸§">
+			<input name="firstname" value="±â°£"></br>
 			<input type="submit" value="Submit">
 			</form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">íšŒì›ì •ë³´</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">ê²°ì œ</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">È¸¿øÁ¤º¸</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">°áÁ¦</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -145,53 +151,53 @@
   </div>
   
   <div class="portlet">
-	  <div class="portlet-header">3</div>
-	  <div class="portlet-content">ë¹ˆì¢Œì„</div>
- 	 <div class="portlet-content">0</div>
+	  <div class="portlet-header">2</div>
+	  <div class="portlet-content">Á¤¿ì¼º</div>
+ 	 <div class="portlet-content">2017-01-01</div>
   </div>
   
   <div class="portlet">
-	  <div class="portlet-header">4</div>
-	  <div class="portlet-content">ë¹ˆì¢Œì„</div>
- 	 <div class="portlet-content">0</div>
+	  <div class="portlet-header">2</div>
+	  <div class="portlet-content">Á¤¿ì¼º</div>
+ 	 <div class="portlet-content">2017-01-01</div>
   </div>  
 </div>
  
 <div class="column">
   <div class="portlet">
-    <div class="portlet-header">5</div>
-    <div class="portlet-content">ë¹ˆì¢Œì„</div>
-    <div class="portlet-content">0</div>
+    <div class="portlet-header">2</div>
+    <div class="portlet-content">°­µ¿¿ø</div>
+    <div class="portlet-content">2017-01-01</div>
   </div>
  
   <div class="portlet">
-    <div class="portlet-header">6</div>
-    <div class="portlet-content">ë¹ˆì¢Œì„</div>
-    <div class="portlet-content">0</div>
+    <div class="portlet-header">2</div>
+    <div class="portlet-content">°­µ¿¿ø</div>
+    <div class="portlet-content">2017-01-01</div>
   </div>
   
   <div class="portlet">
-    <div class="portlet-header">7</div>
-    <div class="portlet-content">ë¹ˆì¢Œì„</div>
-    <div class="portlet-content">0</div>
+    <div class="portlet-header">2</div>
+    <div class="portlet-content">°­µ¿¿ø</div>
+    <div class="portlet-content">2017-01-01</div>
   </div>
 </div>
 
 <div class="column">
   <div class="portlet">
-    <div class="portlet-header">8</div>
-    <div class="portlet-content">ë¹ˆì¢Œì„</div>
-    <div class="portlet-content">0</div>
+    <div class="portlet-header">3</div>
+    <div class="portlet-content">¿øºó</div>
+    <div class="portlet-content">2017-01-01</div>
   </div>
   <div class="portlet">
-    <div class="portlet-header">9</div>
-    <div class="portlet-content">ë¹ˆì¢Œì„</div>
-    <div class="portlet-content">0</div>
-  </div>
+    <div class="portlet-header">3</div>
+    <div class="portlet-content">¿øºó</div>
+    <div class="portlet-content">2017-01-01</div>
+  </div> 
   <div class="portlet">
-    <div class="portlet-header">10</div>
-    <div class="portlet-content">ë¹ˆì¢Œì„</div>
-    <div class="portlet-content">0</div>
+    <div class="portlet-header">3</div>
+    <div class="portlet-content">¿øºó</div>
+    <div class="portlet-content">2017-01-01</div>
   </div> 
 </div>
 <div class="column">
@@ -206,19 +212,16 @@
 </div>
 
 <div style="clear: both; width: 200px;">
-<span>ì¢Œì„ì¶”ê°€</span>
+	
 	<ul id="sortable">
-		<li class="ui-state-default">11</li>
-		<li class="ui-state-default">12</li>
-		<li class="ui-state-default">13</li>
-		<li class="ui-state-default">14</li>
-		<li class="ui-state-default">15</li>
-		<li class="ui-state-default">16</li>
-		<li class="ui-state-default">17</li>
+		<li class="ui-state-default">Item 1</li>
+		<li class="ui-state-default">Item 2</li>
+		<li class="ui-state-default">Item 3</li>
+		<li class="ui-state-default">Item 4</li>
+		<li class="ui-state-default">Item 5</li>
+		<li class="ui-state-default">Item 6</li>
+		<li class="ui-state-default">Item 7</li>
 	</ul>
-</div>
-</div>
-</div>
 </div>
 </body>
 </html>

@@ -18,8 +18,6 @@
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="#features">Features</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="#myAlert"
-					data-toggle="collapse">Wow</a></li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
