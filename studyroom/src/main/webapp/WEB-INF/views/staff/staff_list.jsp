@@ -52,13 +52,13 @@
 
 	<c:forEach var="s" items="${list}">
                 <tr>
-                    <td><a href="${pageContext.request.contextPath}/staffView?staff_id=${s.staff_id}">${s.staff_id}</a></td>
+                    <td><a href="${pageContext.request.contextPath}/staff/staff_view?staff_id=${s.staff_id}">${s.staff_id}</a></td>
                     <td>${s.branch_owner_cd}</td>
                     <td>${s.staff_name}</td>
                     <td>${s.staff_tel}</td>
                     <td>${s.staff_addr}</td>
-                  <%-- <td>${s.staff_in_date}</td>  --%>
-                 <td><fmt:formatDate value="${s.staff_in_date}" pattern="yyyy-MM-dd"/></td> 
+                	<td>${s.staff_in_date}</td> 
+               <%--   <td><fmt:formatDate value="${s.staff_in_date}" pattern="yyyy-MM-dd"/></td>  --%>
                 </tr>
  	</c:forEach>
         </tbody>
