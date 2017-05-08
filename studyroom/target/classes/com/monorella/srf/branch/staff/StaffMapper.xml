@@ -2,6 +2,35 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.monorella.srf.branch.staff.StaffMapper">
+
+<delete id="deleteStaff" parameterType="com.monorella.srf.branch.dto.Staff">
+	DELETE FROM branch_staff_tb 
+	WHERE staff_id=#{staff_id} 
+	AND staff_pw=#{staff_pw}
+	</delete>
+	
+<update id="modifyStaff" parameterType="com.monorella.srf.branch.dto.Staff">
+	UPDATE branch_staff_tb SET branch_owner_cd=#{branch_owner_cd}
+	, staff_name=#{staff_name} 
+	, staff_tel=#{staff_tel}
+	, staff_addr=#{staff_addr}
+	, staff_in_date=#{staff_in_date}
+	WHERE staff_id=#{staff_id} 
+	AND staff_pw=#{staff_pw}
+	</update>
+	
+<select id="getStaff" parameterType="String" resultType="com.monorella.srf.branch.dto.Staff">
+	SELECT 
+	staff_id As staff_id
+	,branch_owner_cd As branch_owner_cd
+	, staff_name As staff_name
+	, staff_tel AS staff_tel
+	, staff_addr As staff_addr
+	, staff_in_date As staff_in_date
+	FROM branch_staff_tb 
+	WHERE staff_id=#{staff_id}
+	</select>
+
 <select id="searchStaff" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Staff">
 	SELECT
 		 staff_id
@@ -37,12 +66,27 @@
 	, staff_name 
 	, staff_tel 
 	, staff_addr 
-	, DATE_FORMAT(staff_in_date,"%Y %c/%e")
+	, staff_in_date
 
  	FROM branch_staff_tb
 	ORDER BY staff_name DESC 
   </select>
   
+  
+   <!-- 실패한 쿼리 -->
+<!--    <select id="getStaffList" resultType="com.monorella.srf.branch.dto.Staff">
+  	SELECT
+  	staff_id
+  	, branch_owner_cd 
+	, staff_pw 
+	, staff_name 
+	, staff_tel 
+	, staff_addr 
+	, DATE_FORMAT(staff_in_date,"%Y %c/%e")
+
+ 	FROM branch_staff_tb
+	ORDER BY staff_name DESC 
+  </select> -->
   
   
   <insert id="insertStaff" parameterType="com.monorella.srf.branch.dto.Staff">

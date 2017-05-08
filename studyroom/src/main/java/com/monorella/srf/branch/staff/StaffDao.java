@@ -13,7 +13,28 @@ import com.monorella.srf.branch.dto.Staff;
 public class StaffDao {
 	 @Autowired
 	    private SqlSessionTemplate sqlSessionTemplate;
+	
+	 // 직원아이디와 직원패스워드를 입력받아 한개의 직원 삭제
+	    public int deleteStaff(String staff_id, String staff_pw) {
+	    	Staff staff = new Staff();
+	    	staff.setStaff_id(staff_id);
+	    	staff.setStaff_pw(staff_pw);
+	        return sqlSessionTemplate.delete("com.monorella.srf.branch.staff.StaffMapper.deleteStaff",staff);
+	    }
+	
+	// 글수정 메서드 
+		public int modifyStaff(Staff staff) {
+	        return sqlSessionTemplate.update("com.monorella.srf.branch.staff.StaffMapper.modifyStaff"
+											,staff);
+	    }
+		
+	 // 한개의 게시글 내용보기
+	    public Staff getStaff(String staff_id) {
+	        return sqlSessionTemplate.selectOne("com.monorella.srf.branch.staff.StaffMapper.getStaff",staff_id);
+	    }
 	 
+	 
+	 //직원 리스트 메서드
 	 public List<Staff> searchStaff(String so, String sv){
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("so", so);
