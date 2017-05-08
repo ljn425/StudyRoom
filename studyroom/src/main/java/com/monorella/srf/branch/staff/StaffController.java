@@ -34,7 +34,6 @@ public class StaffController {
 
 
 	
-	
 	//게시판 검색
 		@RequestMapping(value="staff/staff_search" , method = {RequestMethod.GET, RequestMethod.POST})
 		public String StaffSearch(Model model

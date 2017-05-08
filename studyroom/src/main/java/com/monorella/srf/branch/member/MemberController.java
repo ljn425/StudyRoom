@@ -17,56 +17,10 @@ import com.monorella.srf.branch.member.MemberDao;
 public class MemberController {
 	@Autowired
 	private MemberDao memberDao;
+
 	
-	@RequestMapping(value="/member/member_list2", method = {RequestMethod.GET, RequestMethod.POST})
-	public String MemberSearch(Model model
-			, @RequestParam("so") String so
-			, @RequestParam("sv") String sv
-			, @RequestParam(value="currentPage", required=false, defaultValue="1") int currentPage){
-		System.out.println("/member/member_list2  요청");
-		List<Member> searchlist = memberDao.searchMemberList(so, sv);
-		if(currentPage < 1){
-			currentPage = 1;
-            }
-		int joinCount = searchlist.size();
-		int pagePerRow = 5;
-		List<Member> searchpagelist =memberDao.searchPageMemberList(so, sv, currentPage, pagePerRow);
-		
-		int lastPage = joinCount/pagePerRow;
-		if(joinCount%pagePerRow != 0) {
-	        lastPage++;
-	    }
-		 
-		int countPage = 5;
-		int startPage = ((currentPage - 1)/5)*5+1;
-		int endPage = startPage + countPage-1;
-		int nextPage = ((currentPage - 1)/5)*5+6;
-		int previousPage = ((currentPage - 1)/5)*5-5+1;
-	    
-	    if(previousPage <= 0){
-	    	previousPage = 1;
-	    }
-	    if(endPage > lastPage){
-	    	endPage = lastPage;
-	    }
-	    if(nextPage > lastPage){
-	    	nextPage = lastPage;
-	    }
-	    
-	    model.addAttribute("joinCount", joinCount);
-		model.addAttribute("searchpagelist", searchpagelist);
-		model.addAttribute("currentPage", currentPage);
-		model.addAttribute("startPage", startPage);
-		model.addAttribute("endPage", endPage);
-		model.addAttribute("nextPage", nextPage);
-		model.addAttribute("previousPage", previousPage);
-		model.addAttribute("lastPage", lastPage);
-	    model.addAttribute("so", so);
-	    model.addAttribute("sv", sv);
-		
-		return "/member/member_list2";
-	}
 	
+	// 리스트 및 페이징 요청
 	@RequestMapping(value="/member/member_list", method = RequestMethod.GET)
 	public String selectMemberList(Model model
             , @RequestParam(value="currentPage", required=false, defaultValue="1") int currentPage) {
@@ -111,6 +65,7 @@ public class MemberController {
 		return "member/member_list";
 	}
 	
+	// 입력 post 요청
 	@RequestMapping(value="/member/member_form", method = RequestMethod.POST)
 	public String insertMember(Member member) {
 		System.out.println("post 요청");
@@ -119,6 +74,7 @@ public class MemberController {
 		return "redirect:/member/member_list";
 	}
 	
+	// 폼 요청
 	@RequestMapping(value="/member/member_form", method = RequestMethod.GET)
 	public String member_form() {
 		System.out.println("member_form 요청");
