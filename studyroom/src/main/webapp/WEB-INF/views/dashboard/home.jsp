@@ -63,7 +63,7 @@
 									<i class="fa fa-twitter fa-5x"></i>
 								</div>
 								<h6 class="text-uppercase">등록된 회원 수</h6>
-								<h1 class="display-1">${memberNom}명</h1>
+								<h1 class="display-1">${memberNo}명</h1>
 							</div>
 						</div>
 					</div>
