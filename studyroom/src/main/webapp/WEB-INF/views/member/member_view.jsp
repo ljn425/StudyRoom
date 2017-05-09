@@ -26,22 +26,36 @@
                 <td>${member.member_nm}</td>
                </tr>
             <tr>
-                   <td>board_title :</td>
-                   <td>${board.boardTitle}</td>
+                   <td>member_sex :</td>
+                   <td>${member.member_sex}</td>
             </tr>
             <tr>
-                   <td>board_content :</td>
-                   <td>${board.boardContent}</td>
+                   <td>member_tel :</td>
+                   <td>${member.member_tel}</td>
             </tr>
             <tr>
-                   <td>board_user :</td>
-                   <td>${board.boardUser}</td>
+                   <td>member_addr :</td>
+                   <td>${member.member_addr}</td>
             </tr>
             <tr>
-                   <td>board_date :</td>
-                   <td>${board.boardDate}</td>
+                   <td>member_age :</td>
+                   <td>${member.member_age}</td>
+            </tr>
+            <tr>
+                   <td>member_seat_state :</td>
+                   <td>${member.member_seat_state}</td>
             </tr>
         </tbody>
     </table>
+   <a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_modify?member_nm=${member.member_nm}">회원 수정</a>
+    <a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_delete?member_nm=${member.member_nm}">회원 삭제</a>
+    <a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_list">회원리스트</a>
+</div>
+</div>
+</div>
+</div>
+
+<!--foot-->
+	<c:import url="../module/foot.jsp" />
 </body>
 </html>
