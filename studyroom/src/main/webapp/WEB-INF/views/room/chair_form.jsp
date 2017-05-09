@@ -118,7 +118,7 @@
 <!--/모듈 여기까지-->
 	<!-- main -->
 	  <div class="col-md-9 col-lg-10 main" id="wrap">
-	  <h1>열람실 205호</h1>
+	  <h1>열람실 ${room.room_nm}</h1>
 
 <div id="copyPortlet" style="display: none;">
 	<div class="portlet">
@@ -127,37 +127,13 @@
 	</div>
 </div>
 
+
 <div class="column"> 
   <div class="portlet">
 	  <div class="portlet-header">2</div>
 	  <div class="portlet-content">빈좌석</div>
-	  <div class="container">
- <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">회원 수정</h4>
-        </div>
-        <div class="modal-body">
-			<form action="/action_page.php">
-			<input name="firstname" value="좌석">
-			<input name="firstname" value="이름">
-			<input name="firstname" value="기간"><br/>
-			<input type="submit" value="Submit">
-			</form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">회원정보</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">결제</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> 
-  </div>
+  </div> 
+</div>
   
   <div class="portlet">
 	  <div class="portlet-header">3</div>
