@@ -16,6 +16,11 @@ public class MemberDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
+	//하나의 게시글 보기
+	public Member getMember(String member_nm) {
+        return sqlSessionTemplate.selectOne("com.monorella.srf.branch.Mapper.member.MemberMapper.getMember",member_nm);
+    }
+	
 	// 회원검색 메서드
 	public List<Member> searchMember(String so, String sv){
 		Map<String, String> map = new HashMap<String, String>();

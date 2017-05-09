@@ -17,9 +17,19 @@ public class MemberController {
 	@Autowired
 	private MemberDao memberDao;
 
+	// 글 상세 내용 요청
+	@RequestMapping(value="/member/member_view", method = RequestMethod.GET)
+	public String MemberView(Model model 
+			,@RequestParam(value="member_nm")String member_nm){
+		System.out.println("/member/member_view 요청");
+		Member member = memberDao.getMember(member_nm);
+		model.addAttribute("member", member);
+		return "member/member_view";
+	}
+	
 	//게시판 검색 요청
 	@RequestMapping(value="/member/member_search" , method = {RequestMethod.GET, RequestMethod.POST})
-	public String StaffSearch(Model model
+	public String MemberSearch(Model model
 			, @RequestParam("so") String so
 			, @RequestParam("sv") String sv){
 		System.out.println("MemberController->MemberSearch()" + so + sv);
