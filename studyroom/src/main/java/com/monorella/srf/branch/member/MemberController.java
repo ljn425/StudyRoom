@@ -49,7 +49,7 @@ public class MemberController {
 		int countPage = 5;
 		int startPage = ((currentPage - 1)/5)*5+1;
 		int endPage = startPage + countPage-1;
-		int nextPage = ((currentPage - 1)/5)*5+6;
+		int nextPage = ((currentPage - 1)/5)*5+2;
 		int previousPage = ((currentPage - 1)/5)*5-5+1;
 		
 		if(previousPage <= 0) {
