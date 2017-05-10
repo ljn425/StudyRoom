@@ -11,6 +11,10 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <style>
+.container{
+	float : left;
+}
+
 .column {
 	width: 170px;
 	float: left;
@@ -58,7 +62,6 @@
 	width: 75%;
 	float: left;
 	padding: 15px;
-	border: 1px solid red;
 }
 </style>
 <style>
@@ -91,6 +94,8 @@ footer {
 }
 ecoration: none;
 }
+
+
 
 @media all and (min-width: 768px) {
 	.nav {
@@ -146,9 +151,15 @@ $(document).ready(function(){
 <!--/모듈 여기까지-->
 	<!-- main -->
 	  <div class="col-md-9 col-lg-10 main" id="wrap">		
-		
-			<div class="container text-left">
-				<h3>열람실 전체 화면</h3>
+			<button type="button" class="btn btn-success btn-lg">전체화면</button>
+			<button type="button" class="btn btn-success btn-lg">열람실 201호</button>
+			<button type="button" class="btn btn-success btn-lg">열람실 202호</button>
+			<button type="button" class="btn btn-success btn-lg">열람실 203호</button>
+			<button type="button" class="btn btn-success btn-lg">열람실 204호</button>
+			
+			<div class="container text-left con">
+			<hr>
+			 <h3>열람실 전체 화면</h3>
 				<div class="row">			
 					<br>
 					<div class="col-sm-6">					

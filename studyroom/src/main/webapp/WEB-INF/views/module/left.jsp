@@ -38,6 +38,7 @@
 					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/staff/staff_list">직원목록</a></li>
 				</ul>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/staff/staff_form">출결번호</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">요금제 설정</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">공지사항</a></li>
 		</ul>
 </div>

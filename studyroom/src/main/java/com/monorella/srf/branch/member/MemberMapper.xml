@@ -5,6 +5,18 @@
   
 <mapper namespace="com.monorella.srf.branch.member.MemberMapper">
 
+<select id="getMember" parameterType="String" resultType="com.monorella.srf.branch.dto.Member">
+	SELECT 
+	member_nm As member_nm
+	,member_sex As member_sex
+	, member_tel As member_tel
+	, member_addr AS member_addr
+	, member_age As member_age
+	, member_seat_state As member_seat_state
+	FROM branch_member_tb 
+	WHERE member_nm=#{member_nm}
+	</select>
+
 <select id="searchMember" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
 	SELECT
 		 member_nm
@@ -34,7 +46,7 @@
 		SELECT
 			member_cd
 			, branch_owner_cd
-			, staff_id
+			, member_id
 			, seat_cd
 			, inout_num
 			, member_nm
@@ -61,7 +73,7 @@
 		INSERT INTO branch_member_tb(
 			member_cd
 			, branch_owner_cd
-			, staff_id
+			, member_id
 			, seat_cd
 			, inout_num
 			, member_nm
@@ -77,7 +89,7 @@
 		VALUES(
 			#{member_cd}
 			, #{branch_owner_cd}
-			, #{staff_id}
+			, #{member_id}
 			, #{seat_cd}
 			, #{inout_num}
 			, #{member_nm}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.monorella.srf.branch.room.RoomMapper">
+	
+	<!-- 열람석 등록 -->
+	<insert id="insertSeat" parameterType="com.monorella.srf.branch.dto.Seat">
+		INSERT INTO branch_saet_tb(
+			room_cd
+			, branch_owner_cd
+			, seat_num
+			, colseat_state
+			, seat_appoint)
+		VALUES (
+		#{room_cd}
+		, #{branch_owner_cd}
+		, 5
+		, '빈좌석'
+		, 'N')
+	</insert>
+	
+	
+	<!-- 열람실 등록 -->
+	<insert id="insertMember" parameterType="com.monorella.srf.branch.dto.Room">
+		INSERT INTO branch_room_tb(
+		room_cd
+		, branch_owner_cd
+		, room_nm
+		, seat_num
+		, room_division)
+		VALUES (
+		#{room_cd}
+		, #{branch_owner_cd}
+		, #{room_nm}
+		, #{seat_num}
+		, #{room_division})	
+	</insert>
+  </mapper>
