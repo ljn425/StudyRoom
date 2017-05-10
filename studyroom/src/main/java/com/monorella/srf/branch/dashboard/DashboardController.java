@@ -23,17 +23,18 @@ public class DashboardController {
 	@RequestMapping(value="/dashboard/member_status" , method = RequestMethod.GET)
 	public String selectMemberStatus(Model model){
 		System.out.println("DashboardController-> selectMemberStatus()");
-		int useMemberNo = dashboardDao.selectUseMember();
-		int absenceMemberNo = dashboardDao.selectAbsenceMember();
-		int unpaidMemberNo = dashboardDao.selectUnpaidMember();
-		int MenNo = dashboardDao.selectMen();
-		int womanNo = dashboardDao.selectWoman();
+		int useMemberNo = dashboardDao.selectUseMember(); //사용중 열람석
+		int absenceMemberNo = dashboardDao.selectAbsenceMember(); //부재중 열람석 
+		int unpaidMemberNo = dashboardDao.selectUnpaidMember(); // 미결제 열람석
+		int MenNo = dashboardDao.selectMen(); //여성회원
+		int womanNo = dashboardDao.selectWoman();//남성회원
 		
-		int pamphletNo = dashboardDao.selectPamphlet();
-		int placardNo = dashboardDao.selectPlacard();
-		int introductionNo = dashboardDao.selectIntroduction();
-		int internetNo = dashboardDao.selectInternet();
-		int etctcNo = dashboardDao.selectEtc();
+		// 등록경로-------------------------------------------
+		int pamphletNo = dashboardDao.selectPamphlet(); //전단지
+		int placardNo = dashboardDao.selectPlacard(); //플래카드
+		int introductionNo = dashboardDao.selectIntroduction(); //지인소개
+		int internetNo = dashboardDao.selectInternet(); //인터넷
+		int etctcNo = dashboardDao.selectEtc(); //기타
 		
 		System.out.println("DashboardController-> selectMemberStatus()-> useMemberNo: "+useMemberNo);
 		System.out.println("DashboardController-> selectMemberStatus()-> absenceMemberNo: "+absenceMemberNo);
