@@ -13,7 +13,7 @@ public class StaffBoardDao {
 	 // 글쓰기 메서드
     public int insertStaffBoard(StaffBoard staffboard) {
        
-        return sqlSessionTemplate.insert("com.monorella.srf.branch.staff.StaffBoardMapper.insertStaffBoard"
+        return sqlSessionTemplate.insert("com.monorella.srf.branch.staffboard.StaffBoardMapper.insertStaffBoard"
         								, staffboard);
     }
 }
