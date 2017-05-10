@@ -27,7 +27,7 @@
             }
         });
     });
-</script> -->
+</script>
 <!-- head -->
 	<c:import url="../module/head.jsp" />
 </head>

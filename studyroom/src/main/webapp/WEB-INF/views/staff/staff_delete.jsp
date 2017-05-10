@@ -24,7 +24,6 @@
 <body>
 <div class="container">
 <h1>직원 삭제</h1>
- 
         <form  class="form-inline" id="removeForm" action="${pageContext.request.contextPath}/staff/staff_delete" method="post">
             <!-- boardPw와 함께 boardNo값도 숨겨서(hidden값으로) 넘김 -->
             <input name="staff_id" value="${param.staff_id}" type="hidden"/>
