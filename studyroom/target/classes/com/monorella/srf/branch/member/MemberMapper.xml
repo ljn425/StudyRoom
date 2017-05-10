@@ -5,6 +5,7 @@
   
 <mapper namespace="com.monorella.srf.branch.member.MemberMapper">
 
+<<<<<<< HEAD
 	<select id="searchMember" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
 		SELECT
 			 member_nm
@@ -29,12 +30,50 @@
 			</if>
 			</if> 
 	</select>
+=======
+<select id="getMember" parameterType="String" resultType="com.monorella.srf.branch.dto.Member">
+	SELECT 
+	member_nm As member_nm
+	,member_sex As member_sex
+	, member_tel As member_tel
+	, member_addr AS member_addr
+	, member_age As member_age
+	, member_seat_state As member_seat_state
+	FROM branch_member_tb 
+	WHERE member_nm=#{member_nm}
+	</select>
+
+<select id="searchMember" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
+	SELECT
+		 member_nm
+		 , member_sex AS member_sex
+		 , member_tel AS member_tel
+		 , member_addr AS member_addr
+		 , member_age AS member_age
+		 , member_seat_state AS member_seat_state
+		 FROM branch_member_tb
+		  <if test="sv !=null and sv != ''">
+		 	<if test="so.equals('member_nm')">
+		WHERE member_nm like concat('%',#{sv},'%')
+		</if>
+		<if test="so.equals('member_sex')">
+			WHERE member_sex like concat('%',#{sv},'%')
+		</if>
+		<if test="so.equals('member_age')">
+			WHERE member_age like concat('%',#{sv},'%') 
+		</if>
+		<if test="so.equals('member_seat_state')">
+			WHERE member_seat_state like concat('%',#{sv},'%')
+		</if>
+		</if> 
+</select>
+>>>>>>> branch 'master' of https://github.com/ljn425/StudyRoom.git
 
 	<select id="selectMemberList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
 		SELECT
 			member_cd
 			, branch_owner_cd
-			, staff_id
+			, member_id
 			, seat_cd
 			, inout_num
 			, member_nm
@@ -61,7 +100,7 @@
 		INSERT INTO branch_member_tb(
 			member_cd
 			, branch_owner_cd
-			, staff_id
+			, member_id
 			, seat_cd
 			, inout_num
 			, member_nm
@@ -77,7 +116,7 @@
 		VALUES(
 			#{member_cd}
 			, #{branch_owner_cd}
-			, #{staff_id}
+			, #{member_id}
 			, #{seat_cd}
 			, #{inout_num}
 			, #{member_nm}

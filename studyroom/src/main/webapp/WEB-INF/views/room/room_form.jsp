@@ -89,7 +89,13 @@
 										<td><input type="text" class="form-control" name="room_cd"></td>
 										<td><input type="text" class="form-control" name="room_nm"></td>
 										<td><input type="text" class="form-control" name="seat_num"></td>
-										<td><input type="text" class="form-control" name="room_division"></td>
+										<td>
+											<select class="form-control" name="room_division">
+												<option value="man">남학생실</option>
+												<option value="woman">여학생실</option>
+												<option value="normal">공용실</option>
+											</select>
+										</td>
 									</tr>
 								</tbody>
 							</table>
