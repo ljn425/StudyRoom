@@ -1,4 +1,4 @@
-package com.monorella.srf.branch.staff;
+package com.monorella.srf.branch.staffboard;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

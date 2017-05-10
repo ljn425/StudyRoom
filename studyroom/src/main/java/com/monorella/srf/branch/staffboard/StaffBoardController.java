@@ -1,4 +1,4 @@
-package com.monorella.srf.branch.staff;
+package com.monorella.srf.branch.staffboard;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
