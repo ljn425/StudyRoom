@@ -20,7 +20,17 @@
  	  <c:import url="../module2/left.jsp" />
 		
 	  <!-- 오른쪽 -->
-      <c:import url="../module2/right.jsp"/>
+        <div class="content-wrapper">
+	  <section class="content-header">
+	    <h1>
+	       ZakSim
+	      <small>Control panel</small>
+	    </h1>
+	    <ol class="breadcrumb">
+	      <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+	      <li class="active">열람실</li>
+	    </ol>
+	  </section>
   	  
   	  <!-- Main content -->
       <section class="content">
@@ -28,9 +38,7 @@
 			<!--/모듈 여기까지-->
 			<!-- main -->
 			<div class="col-md-9 col-lg-10 main" id="wrap">
-				<h6>
-					<span>열람실</span>
-				</h6>
+
 				<hr>
 				<h2 class="sub-header">등록된 열람실</h2>
 				<div class="card-deck-wrapper mb-3">
@@ -110,8 +118,8 @@
 		</div>
 	</section>
       
-      </div>
-     
+   </div>
+  </div>
    
 </body>
 </html>
