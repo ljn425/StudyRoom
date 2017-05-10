@@ -31,13 +31,13 @@
 			<div class="col-md-9 col-lg-10 main" id="wrap">
 
 <div class="container">
-	<br>
     <h1>독서실 회원 리스트</h1>
     <br>
-    <table class="table table-striped">
+    <table class="table table-hover">
         <thead>
             <tr>
-                <th>이름</th>
+            	<th>독서실회원코드</th>
+           	    <th>이름</th>
                 <th>성별</th>
                 <th>연락처</th>
                 <th>주소</th>
@@ -48,7 +48,8 @@
         <tbody>
             <c:forEach var="b" items="${list}">
                 <tr>
-                    <td><a href="${pageContext.request.contextPath}/member/member_view?inout_num=${b.inout_num}">${b.member_nm}</a></td>
+                    <td><a href="${pageContext.request.contextPath}/member/member_view?member_cd=${b.member_cd}">${b.member_cd}</a></td>
+                    <td>${b.member_nm}</td>
                     <td>${b.member_sex}</td>
                     <td>${b.member_tel}</td>
                     <td>${b.member_addr}</td>
@@ -109,7 +110,7 @@
 	   		<input name="sv" id="selectValue" type="text" class="form-control" placeholder="검색어를 입력해주세요."/>
 	   </div>
 	   <div class="col-sm-4">
-	   		<button type="button" id="searchBtn" class="btn btn-default">검색</button>
+	   		<button class="btn btn-primary" type="button" id="searchBtn" class="btn btn-default">검색</button>
 	   </div>
 	   </div>
 	  </div>
