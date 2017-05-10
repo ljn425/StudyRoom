@@ -18,7 +18,7 @@
 	</head>
 	<body>
 	<!-- Form-->
-	<h1 id="logo">ToStudy 지점사이트</h1>
+	<h1 id="logo">ZakSIM 지점사이트</h1>
 	<div class="form">
 	  <div class="form-panel one">
 	    <div class="form-content">
