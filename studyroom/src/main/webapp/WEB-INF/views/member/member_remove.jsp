@@ -33,6 +33,7 @@
 
 <div class="container">
 <h1>독서실 회원 삭제</h1>
+<br>
      <form class="form-inline" id="removeForm" action="${pageContext.request.contextPath}/member/member_remove" method="post">
          <input name="member_cd" value="${param.member_cd}" type="hidden"/>
          <div class="form-group">

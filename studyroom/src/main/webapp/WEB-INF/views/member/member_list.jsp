@@ -15,20 +15,24 @@
 		});
 	});
 </script>
-<!-- head -->
-	<c:import url="../module/head.jsp" />
+	<!-- 헤드 -->
+	<c:import url="../module2/head.jsp"/>
+	<!-- JS -->
+	<c:import url="../module2/jsscript.jsp" />
 </head>
-<body>
-	<!-- top -->
-	<c:import url = "../module/top.jsp" />
-	
-	<!-- left -->
-	<div class="container-fluid" id="main">
-		<div class="row row-offcanvas row-offcanvas-left">
-			<c:import url = "../module/left.jsp" />
-	
-	<!-- main -->
-			<div class="col-md-9 col-lg-10 main" id="wrap">
+<body class="skin-blue">
+    <div class="wrapper">
+    <!-- 상단 -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- 왼쪽 -->
+ 	  <c:import url="../module2/left.jsp" />
+		
+	  <!-- 오른쪽 -->
+      <c:import url="../module2/right.jsp"/>
+		
+	  <!-- Main content -->
+      <section class="content">
 
 <div class="container">
     <h1>독서실 회원 리스트</h1>
@@ -89,9 +93,8 @@
     </ul>
    </nav> 
   </div>
+  </section>
  </div>
-</div>
-</div>
 
     <form id="searchMemberFrom" action="${pageContext.request.contextPath}/member/member_search" method="post">
 	 <div class="form-group">
@@ -115,8 +118,5 @@
 	   </div>
 	  </div>
 	</form>
-	
-<!--foot-->
-	<c:import url="../module/foot.jsp" />
 </body>
 </html>
