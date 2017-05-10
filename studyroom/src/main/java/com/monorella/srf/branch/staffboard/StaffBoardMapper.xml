@@ -1,1 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.monorella.srf.branch.staffboard.StaffBoardMapper">
+
+<select id="getStaffBoardList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.StaffBoard">
+	SELECT 
+		staffboard_no
+		, staffboard_title
+		, staff_name
+		, staffboard_date
+		FROM branch_staffboard_tb 
+		ORDER BY staffboard_no DESC 
+		LIMIT #{beginRow}, #{pagePerRow}
+	</select>
+	
+	<select id="getStaffBoardCount" resultType="int">
+		SELECT COUNT(*) FROM branch_staffboard_tb
+	</select>
+
+ <insert id="insertStaffBoard" parameterType="com.monorella.srf.branch.dto.StaffBoard">
+	INSERT INTO branch_staffboard_tb(
+		staffboard_pw
+		, staffboard_title
+		, staffboard_content
+		, staff_name
+		, staffboard_date)
+	VALUES(
+		#{staffboard_pw}
+		, #{staffboard_title}
+		, #{staffboard_content}
+		, #{staff_name}
+		, now()
+	)
+	</insert>
+
+</mapper>
