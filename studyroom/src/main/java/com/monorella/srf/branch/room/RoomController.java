@@ -47,8 +47,9 @@ public class RoomController {
 	
 	//열람실 등록폼
    @RequestMapping(value="/room/room_form", method = RequestMethod.GET)
-	public String room_form(){
+	public String room_form(Model model){
 		System.out.println("room_form 요청");
+		model.addAttribute("roomlist", roomDao.selectRoom());
 		return "room/room_form";
 	}
 	//좌석등록
