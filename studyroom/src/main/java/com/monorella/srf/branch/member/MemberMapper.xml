@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.monorella.srf.branch.member.MemberMapper">
+<<<<<<< HEAD
 
 	<select id="searchMember" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
 		SELECT
@@ -30,6 +31,9 @@
 			</if> 
 	</select>
 
+=======
+
+>>>>>>> branch 'master' of https://github.com/ljn425/StudyRoom.git
 <select id="getMember" parameterType="String" resultType="com.monorella.srf.branch.dto.Member">
 	SELECT 
 	member_nm As member_nm
@@ -65,7 +69,11 @@
 			WHERE member_seat_state like concat('%',#{sv},'%')
 		</if>
 		</if> 
+<<<<<<< HEAD
 </select>
+=======
+</select>
+>>>>>>> branch 'master' of https://github.com/ljn425/StudyRoom.git
 
 	<select id="selectMemberList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
 		SELECT
