@@ -2,29 +2,46 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <c:import url="../module/head.jsp" />
-  <c:import url="../module/foot.jsp" />
-</head>
-<body>
-	<!-- top -->
-	<c:import url = "../module/top.jsp" />
-	<!-- left -->
-	<div class="container-fluid" id="main">
-	  <div class="row row-offcanvas row-offcanvas-left">
-	<c:import url = "../module/left.jsp" />
-	<!--/모듈 여기까지-->
-	<!-- main -->
-	  <div class="col-md-9 col-lg-10 main" id="wrap">
-	  	
-	  	
-	  	<!-- 컨텐츠 작성 -->
-	  
-	  
-	  </div>
-	 </div>
-	</div>	
-</body>
-</html>
+  <head>
+    <!-- 헤드 -->
+	<c:import url="../module2/head.jsp"/>
+	<!-- JS -->
+	<c:import url="../module2/jsscript.jsp" />
+  </head>
+  <body class="skin-blue">
+    <div class="wrapper">
+    <!-- 상단 -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- 왼쪽 -->
+ 	  <c:import url="../module2/left.jsp" />
+		
+	  <!-- 오른쪽 -->
+      <c:import url="../module2/right.jsp"/>
+  	  
+  	  <!-- Main content -->
+      <section class="content">
+      	내용을 입력해주세요.
+      
+      	<!-- <div class="row">
+            <div class="col-lg-3 col-xs-6">
+            	그리드01
+            </div>
+            <div class="col-lg-3 col-xs-6">
+            	그리드02
+            </div>
+            <div class="col-lg-3 col-xs-6">
+            	그리드03
+            </div>
+            <div class="col-lg-3 col-xs-6">
+            	그리드04
+            </div>
+        </div> -->
+      	
+      </section>
+      
+     </div>
+     
+
+  </body>
+</html>  

@@ -1,12 +1,12 @@
 package com.monorella.srf.branch.dto;
 
 public class Seat {
-	//`seat_cd`,  `room_cd`,  `branch_owner_cd`,  `member_cd`,  `seat_num`,  `colseat_state`,  `seat_in_time`,  `seat_out_time`,  `seat_date`,  `seat_appoint`
+	//`seat_cd`,  `room_cd`,  `branch_owner_cd`,  `member_cd`,  `seat_cnumber`,  `colseat_state`,  `seat_in_time`,  `seat_out_time`,  `seat_date`,  `seat_appoint`
 	private int seat_cd; //열람석 코드
 	private String room_cd; //열람실 코드
 	private String branch_owner_cd; //지점대표자 코드
 	private String member_cd; //회원 코드
-	private int	seat_num; //열람석 번호
+	private int	seat_cnumber; //열람석 번호
 	private String colseat_state; //열람석 상태
 	private String seat_in_time; //입실
 	private String seat_out_time; //퇴실
@@ -43,11 +43,11 @@ public class Seat {
 	public void setMember_cd(String member_cd) {
 		this.member_cd = member_cd;
 	}
-	public int getSeat_num() {
-		return seat_num;
+	public int getseat_cnumber() {
+		return seat_cnumber;
 	}
-	public void setSeat_num(int seat_num) {
-		this.seat_num = seat_num;
+	public void setseat_cnumber(int seat_cnumber) {
+		this.seat_cnumber = seat_cnumber;
 	}
 	public String getColseat_state() {
 		return colseat_state;
@@ -77,7 +77,7 @@ public class Seat {
 	@Override
 	public String toString() {
 		return "Seat [seat_cd=" + seat_cd + ", room_cd=" + room_cd + ", branch_owner_cd=" + branch_owner_cd
-				+ ", member_cd=" + member_cd + ", seat_num=" + seat_num + ", colseat_state=" + colseat_state
+				+ ", member_cd=" + member_cd + ", seat_cnumber=" + seat_cnumber + ", colseat_state=" + colseat_state
 				+ ", seat_in_time=" + seat_in_time + ", seat_out_time=" + seat_out_time + ", seat_date=" + seat_date
 				+ ", seat_appoint=" + seat_appoint + "]";
 	}

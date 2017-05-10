@@ -10,13 +10,13 @@
 		INSERT INTO branch_saet_tb(
 			room_cd
 			, branch_owner_cd
-			, seat_num
+			, seat_cnumber
 			, colseat_state
 			, seat_appoint)
 		VALUES (
 		#{room_cd}
 		, #{branch_owner_cd}
-		, 5
+		, #{seat_cnumber}
 		, '빈좌석'
 		, 'N')
 	</insert>
@@ -24,6 +24,10 @@
 	
 	<!-- 열람실 등록 -->
 	<insert id="insertMember" parameterType="com.monorella.srf.branch.dto.Room">
+			<selectKey resultType="String" keyProperty="room_cd" order="BEFORE">
+				SELECT CONCAT('room_cd', MAX(CONVERT(SUBSTRING(room_cd, 8), UNSIGNED))+1) as room_cd
+				FROM branch_saet_tb
+			</selectKey>
 		INSERT INTO branch_room_tb(
 		room_cd
 		, branch_owner_cd
@@ -31,7 +35,7 @@
 		, seat_num
 		, room_division)
 		VALUES (
-		#{room_cd}
+		#{room_cd} 
 		, #{branch_owner_cd}
 		, #{room_nm}
 		, #{seat_num}

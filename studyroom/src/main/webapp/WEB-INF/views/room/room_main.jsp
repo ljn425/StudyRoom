@@ -3,13 +3,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <c:import url="../module/head.jsp" />
-  <c:import url="../module/foot.jsp" />
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+  <head>
+    <!-- 헤드 -->
+	<c:import url="../module2/head.jsp"/>
+	<!-- JS -->
+	<c:import url="../module2/jsscript.jsp" />
+  
 <style>
 .container{
 	float : left;
@@ -141,14 +140,19 @@ $(document).ready(function(){
 </script>
 
 </head>
-<body>
-<!-- top -->
-	<c:import url = "../module/top.jsp" />
-<!-- left -->
-	<div class="container-fluid" id="main">
-	  <div class="row row-offcanvas row-offcanvas-left">
-	<c:import url = "../module/left.jsp" />
-<!--/모듈 여기까지-->
+<body class="skin-blue">
+    <div class="wrapper">
+    <!-- 상단 -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- 왼쪽 -->
+ 	  <c:import url="../module2/left.jsp" />
+		
+	  <!-- 오른쪽 -->
+      <c:import url="../module2/right.jsp"/>
+  	  
+  	  <!-- Main content -->
+      <section class="content">
 	<!-- main -->
 	  <div class="col-md-9 col-lg-10 main" id="wrap">		
 			<button type="button" class="btn btn-success btn-lg">전체화면</button>
@@ -490,7 +494,7 @@ $(document).ready(function(){
 				</div>
 			</div>
 	</div>
-</div>
-</div>
+	</section>
+  </div>
 </body>
 </html>
