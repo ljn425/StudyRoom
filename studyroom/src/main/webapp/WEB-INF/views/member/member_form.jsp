@@ -18,7 +18,7 @@
 			<div class="col-md-9 col-lg-10 main" id="wrap">
 				<div class="container">
 					<h1>독서실 회원 등록</h1><br>
-					<form class="form-horizontal" action="${pageContext.request.contextPath}/member/member_pro" method="post">
+					<form class="form-horizontal" action="${pageContext.request.contextPath}/member/member_form" method="post">
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">독서실회원코드</label>
 							<input type="text" class="form-control" id="member_cd" name="member_cd" placeholder="독서실회원코드를 입력해주세요">
@@ -26,12 +26,12 @@
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">지점 대표코드</label>
 							<select class="form-control" name="branch_owner_cd" id="branch_owner_cd" > 
-								<option value="0010" selected>&nbsp;</option> 
-								<option value="0011">011</option> 
-								<option value="0016">016</option> 
-								<option value="0017">017</option> 
-								<option value="0018">018</option> 
-								<option value="0019">019</option> 
+								<option value="B0010" selected>&nbsp;</option> 
+							     <option value="B0011">B011</option> 
+							     <option value="B0016">B016</option> 
+							     <option value="B0017">B017</option> 
+							     <option value="B0018">B018</option> 
+							     <option value="B0019">B019</option>
 							</select>
 						</div>
 						<div class="form-group has-success">
@@ -72,10 +72,10 @@
 								<option value="전단지">전단지</option> 
 								<option value="기타">기타</option> 
 							</select>
-						</div><hr>
+						</div><hr><br>
 						<div>
-							<input type="submit" value="글입력"/>
-							<input type="reset" value="초기화"/>
+							<input class="btn btn-success" type="submit" value="글입력"/>
+							<input class="btn btn-success" type="reset" value="초기화"/>
 						</div><br><br>
 					</form>
 				</div>
