@@ -24,7 +24,7 @@
              <tr>
                 <td>member_nm :</td>
                 <td>${member.member_nm}</td>
-               </tr>
+            </tr>
             <tr>
                    <td>member_sex :</td>
                    <td>${member.member_sex}</td>

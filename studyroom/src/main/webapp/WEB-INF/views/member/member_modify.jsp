@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -14,11 +15,11 @@
 	<div class="container-fluid" id="main">
 		<div class="row row-offcanvas row-offcanvas-left">
 			<c:import url = "../module/left.jsp" />
-			<!-- main -->
-			<div class="col-md-9 col-lg-10 main" id="wrap">
-				<div class="container">
-					<h1>독서실 회원 등록</h1><br>
-					<form class="form-horizontal" action="${pageContext.request.contextPath}/member/member_pro" method="post">
+	<!-- main -->
+	<div class="col-md-9 col-lg-10 main" id="wrap">
+<div class="container">
+    <h1>독서실 회원 수정</h1> 
+    <form class="form-horizontal" action="${pageContext.request.contextPath}/member/member_pro" method="post">
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">독서실회원코드</label>
 							<input type="text" class="form-control" id="member_cd" name="member_cd" placeholder="독서실회원코드를 입력해주세요">
@@ -36,7 +37,7 @@
 						</div>
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">직원아이디</label>
-							<input type="text" class="form-control" id="staff_id" name="staff_id" placeholder="직원아이디를 입력해주세요">
+							<input type="text" class="form-control" id="member_id" name="member_id" placeholder="직원아이디를 입력해주세요">
 						</div>
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">이름</label>
@@ -74,9 +75,10 @@
 							</select>
 						</div><hr>
 						<div>
-							<input type="submit" value="글입력"/>
-							<input type="reset" value="초기화"/>
-						</div><br><br>
+        					<input type="submit" value="글수정"/>
+       					 	<input type="reset" value="초기화"/>
+        				<a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_list">글목록</a>
+   		 				</div>
 					</form>
 				</div>
 			</div>
