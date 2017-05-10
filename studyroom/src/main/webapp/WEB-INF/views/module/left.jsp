@@ -39,6 +39,6 @@
 				</ul>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="#">요금제 설정</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">공지사항</a></li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/staffboard/staffBoard_list">공지사항</a></li>
 		</ul>
 </div>
