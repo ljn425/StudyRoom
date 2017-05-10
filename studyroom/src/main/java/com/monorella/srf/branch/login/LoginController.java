@@ -17,6 +17,13 @@ public class LoginController {
 	@Autowired LoginDao loginDao;
 	@Autowired MemberDao memberDao;
 	
+	
+
+	@RequestMapping(value = "/home/NewFile", method = RequestMethod.GET)
+	public String main_form(){
+		return "home/NewFile";
+	}
+	
 	//로그아웃 처리
 	@RequestMapping(value = "/login/logout", method = RequestMethod.GET)
 	public String logout(){
@@ -44,6 +51,6 @@ public class LoginController {
 			request.getSession().setAttribute("branchOwner", owner);
 		}
 
-		return "redirect:/dashboard/home";
+		return "redirect:/home/NewFile";
 	}
 }

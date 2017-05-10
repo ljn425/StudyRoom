@@ -3,25 +3,28 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<c:import url="../module/head.jsp" />
-<c:import url="../module/foot.jsp" />
-<style>
-	.left_contain{
-		float : left;
-	}
-</style>
+  <head>
+    <!-- 헤드 -->
+	<c:import url="../module2/head.jsp"/>
+	  <!-- JS -->
+	 <c:import url="../module2/jsscript.jsp" />
+  </head>
 
 </head>
-<body>
-	<!-- top -->
-	<c:import url="../module/top.jsp" />
-	<!-- left -->
-	<div class="container-fluid" id="main">
+<body class="skin-blue">
+    <div class="wrapper">
+    <!-- 상단 -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- 왼쪽 -->
+ 	  <c:import url="../module2/left.jsp" />
+		
+	  <!-- 오른쪽 -->
+      <c:import url="../module2/right.jsp"/>
+  	  
+  	  <!-- Main content -->
+      <section class="content">
 		<div class="row row-offcanvas row-offcanvas-left">
-			<c:import url="../module/left.jsp" />
 			<!--/모듈 여기까지-->
 			<!-- main -->
 			<div class="col-md-9 col-lg-10 main" id="wrap">
@@ -77,7 +80,7 @@
 								<thead>
 									<tr>
 										<th>지점대표코드</th>
-										<th>No(열람실코드, 예:R6)</th>
+									    <!-- <th>No(열람실코드, 예:R6)</th> -->
 										<th>열람실명(예:205호)</th>
 										<th>좌석 수(숫자만)</th>
 										<th>구분(예:남자, 여자)</th>
@@ -86,7 +89,7 @@
 								<tbody id="add_tbody">
 									<tr id="add_tr">
 										<td><input type="text" class="form-control" name="branch_owner_cd" value="${sessionScope.branchOwner.branch_owner_cd}" readonly></td>
-										<td><input type="text" class="form-control" name="room_cd"></td>
+										<!-- <td><input type="text" class="form-control" name="room_cd"></td> -->
 										<td><input type="text" class="form-control" name="room_nm"></td>
 										<td><input type="text" class="form-control" name="seat_num"></td>
 										<td>
@@ -105,6 +108,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
+      
+      </div>
+     
+   
 </body>
 </html>

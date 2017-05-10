@@ -135,7 +135,7 @@
 			<c:forEach var="s" items="${seat}">
 				<div class="column">
 					<div class="portlet">
-						<div class="portlet-header">2</div>
+						<div class="portlet-header">${s.seat_cnumber}</div>
 						<div class="portlet-content">빈좌석</div>
 					</div>
 				</div>
