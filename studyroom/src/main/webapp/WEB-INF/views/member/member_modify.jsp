@@ -4,6 +4,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+    $(document).ready(function(){
+        $('#modifyButton').click(function(){
+            if($('#branch_owner_cd').val()=='') {
+                alert('지점대표코드를 정확히 입력하세요');
+                $('#branch_owner_cd').focus();
+            } else if($('#staff_id').val()=='') {
+                alert('직원아이디를 입력하세요');
+                $('#staff_id').focus();
+            } else if($('#member_nm').val()=='') {
+                alert('이름을 입력하세요');
+                $('#member_nm').focus();
+            } else {
+                $('#modifyForm').submit();
+            }
+        });
+    });
+</script>
 	<!-- head -->
 	<c:import url="../module/head.jsp" />
 </head>
@@ -19,49 +37,49 @@
 	<div class="col-md-9 col-lg-10 main" id="wrap">
 <div class="container">
     <h1>독서실 회원 수정</h1> 
-    <form class="form-horizontal" action="${pageContext.request.contextPath}/member/member_pro" method="post">
+    <form class="form-horizontal" action="${pageContext.request.contextPath}/member/member_modify" method="post">
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">독서실회원코드</label>
-							<input type="text" class="form-control" id="member_cd" name="member_cd" placeholder="독서실회원코드를 입력해주세요">
+							<input type="text" class="form-control" value="${member.member_cd}" name="member_cd" readonly>
 						</div>
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">지점 대표코드</label>
 							<select class="form-control" name="branch_owner_cd" id="branch_owner_cd" > 
-								<option value="0010" selected>&nbsp;</option> 
-								<option value="0011">011</option> 
-								<option value="0016">016</option> 
-								<option value="0017">017</option> 
-								<option value="0018">018</option> 
-								<option value="0019">019</option> 
+								<option value="B0010" selected>&nbsp;</option> 
+							     <option value="B0011">B011</option> 
+							     <option value="B0016">B016</option> 
+							     <option value="B0017">B017</option> 
+							     <option value="B0018">B018</option> 
+							     <option value="B0019">B019</option>
 							</select>
 						</div>
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">직원아이디</label>
-							<input type="text" class="form-control" id="member_id" name="member_id" placeholder="직원아이디를 입력해주세요">
+							<input type="text" class="form-control" value="${member.staff_id}" name="staff_id" placeholder="직원아이디를 입력해주세요">
 						</div>
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">이름</label>
-							<input type="text" class="form-control" id="member_nm" name="member_nm" placeholder="이름을 입력해주세요">
+							<input type="text" class="form-control" value="${member.member_nm}" name="member_nm" placeholder="이름을 입력해주세요">
 						</div>
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">성별</label>
-							<input type="text" class="form-control" id="member_sex" name="member_sex" placeholder="성별을 입력해주세요">
+							<input type="text" class="form-control" value="${member.member_sex}" name="member_sex" placeholder="성별을 입력해주세요">
 						</div>
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">연락처</label>
-							<input type="text" class="form-control" id="member_tel" name="member_tel" placeholder="연락처를 입력해주세요">
+							<input type="text" class="form-control" value="${member.member_tel}" name="member_tel" placeholder="연락처를 입력해주세요">
 						</div>
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">주소</label>
-							<input type="text" class="form-control" id="member_addr" name="member_addr" placeholder="주소를 입력해주세요">
+							<input type="text" class="form-control" value="${member.member_addr}" name="member_addr" placeholder="주소를 입력해주세요">
 						</div>
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">나이</label>
-							<input type="text" class="form-control" id="member_age" name="member_age" placeholder="나이를 입력해주세요">
+							<input type="text" class="form-control" value="${member.member_age}" name="member_age" placeholder="나이를 입력해주세요">
 						</div>
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">회원상태</label>
-							<input type="text" class="form-control" id="member_seat_state" name="member_seat_state" placeholder="회원상태를 입력해주세요">
+							<input type="text" class="form-control" value="${member.member_seat_state}" name="member_seat_state" placeholder="회원상태를 입력해주세요">
 						</div>
 						<div class="form-group has-success">
 							<label class="control-label" for="inputLarge">등록경로</label>
@@ -75,9 +93,9 @@
 							</select>
 						</div><hr>
 						<div>
-        					<input type="submit" value="글수정"/>
-       					 	<input type="reset" value="초기화"/>
-        				<a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_list">글목록</a>
+        					<input class="btn btn-success" type="submit" value="글수정"/>
+       					 	<input class="btn btn-success" type="reset" value="초기화"/>
+        				<a class="btn btn-success" href="${pageContext.request.contextPath}/member/member_list">글목록</a>
    		 				</div>
 					</form>
 				</div>

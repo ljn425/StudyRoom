@@ -17,17 +17,52 @@ public class MemberController {
 	@Autowired
 	private MemberDao memberDao;
 
-	// 글 상세 내용 요청
+	// 회원 삭제 폼 요청
+	@RequestMapping(value="/member/member_remove", method = RequestMethod.GET)
+	public String memberRemove(@RequestParam(value="member_cd", required=true) String member_cd){
+		System.out.println("/member/member_remove 요청");
+		return "member/member_remove";
+	}
+	
+	// 회원 삭제 요청
+	@RequestMapping(value ="/member/member_remove", method = RequestMethod.POST)
+	public String memberRemove(@RequestParam(value="member_cd") String member_cd
+			, @RequestParam(value="branch_owner_cd") String branch_owner_cd) {
+		memberDao.removeMember(member_cd, branch_owner_cd);
+		System.out.println("삭제 완료");
+		return "redirect:/member/member_list";
+	}
+	
+	// 회원 수정 폼 요청
+	@RequestMapping(value="/member/member_modify", method = RequestMethod.GET)
+	public String memberModify(Model model
+			, @RequestParam(value="member_cd", required=true) String member_cd) {
+		System.out.println("/member/member_modify2 요청");
+		Member member = memberDao.getMember(member_cd);
+		model.addAttribute("member", member);
+		return "member/member_modify";	
+		
+	}
+	
+	// 회원 수정 요청
+	@RequestMapping(value ="/member/member_modify", method = RequestMethod.POST)
+	public String boardModify(Member member){
+		System.out.println("/member/member_modify1 요청");
+		memberDao.modifyMember(member);
+		return "redirect:/member/member_view?member_cd="+member.getMember_cd();		
+	}
+		
+	// 회원 상세 요청
 	@RequestMapping(value="/member/member_view", method = RequestMethod.GET)
 	public String MemberView(Model model 
-			,@RequestParam(value="member_nm")String member_nm){
+			, @RequestParam(value="member_cd")String member_cd){
 		System.out.println("/member/member_view 요청");
-		Member member = memberDao.getMember(member_nm);
+		Member member = memberDao.getMember(member_cd);
 		model.addAttribute("member", member);
 		return "member/member_view";
 	}
 	
-	//게시판 검색 요청
+	//회원 검색 요청
 	@RequestMapping(value="/member/member_search" , method = {RequestMethod.GET, RequestMethod.POST})
 	public String MemberSearch(Model model
 			, @RequestParam("so") String so
@@ -87,7 +122,7 @@ public class MemberController {
 	}
 	
 	// 입력 post 요청
-	@RequestMapping(value="/member/member_pro", method = RequestMethod.POST)
+	@RequestMapping(value="/member/member_form", method = RequestMethod.POST)
 	public String insertMember(Member member) {
 		System.out.println("post 요청");
 		System.out.println(member);

@@ -33,16 +33,16 @@
 
 <div class="container">
 <h1>독서실 회원 삭제</h1>
-     <form  class="form-inline" id="removeForm" action="${pageContext.request.contextPath}/member/member_remove" method="post">
-         <input name="member_nm" value="${param.member_nm}" type="hidden"/>
+     <form class="form-inline" id="removeForm" action="${pageContext.request.contextPath}/member/member_remove" method="post">
+         <input name="member_cd" value="${param.member_cd}" type="hidden"/>
          <div class="form-group">
-             <label for="branch_owner_cd">지점대표코드 :</label>
-             <input class="form-control" id="branch_owner_cd" name="branch_owner_cd" type="password">
-         </div>
+             <label for="branch_owner_cd">지점대표코드 </label>
+             <input class="form-control" id="branch_owner_cd" name="branch_owner_cd" type="text">
+         </div><br>
          <div>
-       		 <input type="submit" value="글입력"/>
-        	<input type="reset" value="초기화"/>
-   		 </div>
+       		 <input class="btn btn-secondary" type="submit" value="글입력"/>
+        	<input class="btn btn-secondary" type="reset" value="초기화"/>
+   		 </div><br>
         </form>
 </div>
 </div>
