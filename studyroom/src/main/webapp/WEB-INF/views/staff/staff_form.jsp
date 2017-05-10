@@ -4,20 +4,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- head -->
-	<c:import url="../module/head.jsp" />
+ <!-- 헤드 -->
+	<c:import url="../module2/head.jsp"/>
+	<!-- JS -->
+	<c:import url="../module2/jsscript.jsp" />
 </head>
-<body>
-<!-- top -->
-	<c:import url = "../module/top.jsp" />
-	
-	<!-- left -->
-	<div class="container-fluid" id="main">
-		<div class="row row-offcanvas row-offcanvas-left">
-			<c:import url = "../module/left.jsp" />
-			<!-- main -->
-			<div class="col-md-9 col-lg-10 main" id="wrap">
-<div class="container">
+ <body class="skin-blue">
+    <div class="wrapper">
+ <!-- 상단 -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- 왼쪽 -->
+ 	  <c:import url="../module2/left.jsp" />
+		
+	  <!-- 오른쪽 -->
+      <c:import url="../module2/right.jsp"/>
+  	  
+  	  <!-- Main content -->
+      <section class="content">
+      <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- general form elements -->
+              <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title">직원 등록</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <form role="form" action="${pageContext.request.contextPath}/staff/staff_pro" method="post">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label for="exampleInputstaffid">직원아이디</label>
+                      <input type="text" class="form-control" id="staff_id" name="staff_id" placeholder="아이디를 입력해주세요">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputFile">File input</label>
+                      <input type="file" id="exampleInputFile">
+                      <p class="help-block">Example block-level help text here.</p>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> Check me out
+                      </label>
+                    </div>
+                  </div><!-- /.box-body -->
+
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </form>
+              </div><!-- /.box -->
+      
+      
+<%-- <div class="container">
 <h1>직원 등록</h1>
 <br>
 <form class="form-horizontal" action="${pageContext.request.contextPath}/staff/staff_pro" method="post">
@@ -63,16 +106,14 @@
   <input type="file" class="form-control" id="staff_file" name="staff_file" >
 
 </div> -->
-<div>
-        <input type="submit" value="글입력"/>
+<div> --%>
+<!--         <input type="submit" value="글입력"/>
         <input type="reset" value="초기화"/>
     </div>
-</form>
+</form> -->
 </div>
 </div>
+</section>
 </div>
-</div>
-<!--foot-->
-	<c:import url="../module/foot.jsp" />
 </body>
 </html>

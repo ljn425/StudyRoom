@@ -21,7 +21,7 @@ public class StaffBoardController {
 								, @RequestParam(value="currentPage", required=false, defaultValue="1") int currentPage){
 			System.out.println("StaffBoardController -> staffboardlist()");
 			int staffboardCount = staffboardDao.getStaffBoardCount();
-			int pagePerRow = 5;
+			int pagePerRow = 10;
 			int lastPage = (int)(Math.ceil(staffboardCount / pagePerRow));
 			/*반올림 : Math.round()
 			올림 : Math.ceil()
@@ -29,15 +29,15 @@ public class StaffBoardController {
 			List<StaffBoard> list = staffboardDao.getStaffBoardList(currentPage, pagePerRow);
 			  
 		    //페이지를 10씩 끊어서 
-		    int countPage = 5;
+		    int countPage = 10;
 		    //시작 페이지 구하기 
-		    int startPage = ((currentPage-1)/5)*5+1;
+		    int startPage = ((currentPage-1)/10)*10+1;
 		    //끝 페이지 구하기 
 		    int endPage = startPage + countPage-1;
 		    //다음 페이지 구하기 
-		    int nextPage = ((currentPage-1)/5)*5+6;
+		    int nextPage = ((currentPage-1)/10)*10+11;
 		    //이전페이지 구하기 
-		    int previousPage =((currentPage-1)/5)*5-5+1;
+		    int previousPage =((currentPage-1)/10)*10-10+1;
 		    
 		    //이전 페이지가 0보다 같거나 작을경우
 		    if(previousPage <=0){
