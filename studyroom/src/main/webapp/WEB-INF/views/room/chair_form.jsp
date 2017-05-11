@@ -4,8 +4,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-<c:import url="../module/head.jsp" />
-<c:import url="../module/foot.jsp" />
+<!-- head -->
+<c:import url="../module2/head.jsp"/>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -23,7 +23,7 @@
 }
 
 .portlet-header {
-	background-color: yellow;
+	background-color: orange;
 	padding: 0.2em 0.3em;
 	margin-bottom: 0.5em;
 	position: relative;
@@ -102,7 +102,7 @@
 				if (downScreenX != screenX || downScreenY != screenY) {
 					var memberName = $(this).text();
 					var copyPortlet = $('#copyPortlet').clone();
-					copyPortlet.find('.portlet-content').text(memberName);
+					copyPortlet.find('.portlet-content').text("");
 					$('.column').eq(0).append(copyPortlet.html());
 				}
 			}
@@ -114,49 +114,90 @@
 			var charNum = $('#charNum').text();
 			charNum *= 1;
 			console.log(charNum);
-			$('#charNum').html(charNum + 1);
+			$('#charNum').html("&nbsp");
+			$('#charNum2').html("");
+			
 		});
 
 	});
 </script>
 </head>
-<body>
-	<!-- top -->
-	<c:import url="../module/top.jsp" />
-
-	<!-- left -->
-	<div class="container-fluid" id="main">
-		<div class="row row-offcanvas row-offcanvas-left">
-			<c:import url="../module/left.jsp" />
-			<!--/모듈 여기까지-->
-			<!-- main -->
-			<div class="col-md-9 col-lg-10 main" id="wrap">
-				<h1>열람실 ${room.room_nm}</h1>
-			<c:forEach var="s" items="${seat}">
-				<div class="column">
+<body class="skin-blue">
+    <div class="wrapper">
+      <!-- 상단 -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- 왼쪽 -->
+ 	  <c:import url="../module2/left.jsp" />
+	
+	<!-- 오른쪽 -->
+     <div class="content-wrapper">
+	  <section class="content-header">
+	    <h1>
+	       ZakSim
+	      <small>Control panel</small>
+	    </h1>
+	    <ol class="breadcrumb">
+	      <li><a href="${pageContext.request.contextPath}/home/NewFile"><i class="fa fa-dashboard"></i>Home</a></li>
+	      <li class="active">열람실</li>
+	    </ol>
+	  </section> 
+	  	
+	<!-- Main content -->
+      <section class="content">
+		<div class="row">
+            <div class="col-xs-12">
+            <div class='color-palette-set'>
+               <div class='bg-orange disabled color-palette'>
+               	 <h1>
+	               	<span>열람실 ${room.room_nm}</span>
+               	</h1>
+               </div>
+             </div><!-- col-xs-12 -->  
+             </div>
+				<h1></h1>
+			<div class="col-xs-9">	
+				<c:forEach var="s" items="${seat}">
+					<div class="column">
+						<div class="portlet">
+							<div class="portlet-header">${s.seat_cnumber}</div>
+							<div class="portlet-content">빈좌석</div>
+						</div>
+					</div>
+				</c:forEach>	
+			</div>
+			<div class="col-xs-3">
+				<div id="copyPortlet" style="display: none;">
 					<div class="portlet">
-						<div class="portlet-header">${s.seat_cnumber}</div>
-						<div class="portlet-content">빈좌석</div>
+					  	<div class="portlet-header " id="charNum">&nbsp;</div>
+					  	<div class="portlet-content" id="charNum2">&nbsp;</div>
 					</div>
 				</div>
-			</c:forEach>	
+			<div style="clear: both; width: 200px;">
+			
+			<div class="box box-solid box-warning">
+                <div class="box-header">
+                  <h3 class="box-title">배치도</h3>
+                  <div class="box-tools right">
+                  </div>
+                </div>
+                <div class="box-body">
+                  <span>추가(드래그 해주세요)</span>
+					<ul id="sortable">
+						<li class="ui-state-default">장식물</li>
+					</ul>
+					<button class="btn btn-block btn-info btn-xs">등록</button>
+					<button class="btn btn-block btn-danger btn-xs">취소</button>
+					
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+			
 			</div>
-		</div>
-		<div id="copyPortlet" style="display: none;">
-			<div class="portlet">
-			  	<div class="portlet-header space">&nbsp;</div>
-			  	<div class="portlet-content">&nbsp;</div>
 			</div>
-		</div>
-		
-		<div style="clear: both; width: 200px;">
-		<span>좌석추가(드래그 해주세요)</span>
-			<ul id="sortable">
-				<li class="ui-state-default">빈좌석</li>
-			</ul>
-		</div>
-		
-	</div>
+		</div><!-- row -->
+	</section><!-- content -->
+   </div><!-- content-wrapper -->
+  </div><!-- wrapper -->
 </body>
 </html>
 
