@@ -3,8 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- head -->
-	<c:import url="../module/head.jsp" />
+<!-- 헤드 -->
+	<c:import url="../module2/head.jsp"/>
+	<!-- JS -->
+	<c:import url="../module2/jsscript.jsp" />
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 	//제이쿼리 사용
@@ -35,16 +37,26 @@
 </script> -->
 
 </head>
-<body>
-<!-- top -->
-	<c:import url = "../module/top.jsp" />
-	
-	<!-- left -->
-	<div class="container-fluid" id="main">
-		<div class="row row-offcanvas row-offcanvas-left">
-			<c:import url = "../module/left.jsp" />
-			<!-- main -->
-			<div class="col-md-9 col-lg-10 main" id="wrap">
+<body class="skin-blue">
+    <div class="wrapper">
+ <!-- 상단 -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- 왼쪽 -->
+ 	  <c:import url="../module2/left.jsp" />
+		
+	 <!-- 수정부분  -->
+      <div class="content-wrapper">
+		  <section class="content-header">
+		    <h1>
+		       ZakSim
+		      <small>Control panel</small>
+		    </h1>
+		    <ol class="breadcrumb">
+		      <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+		      <li class="active">직원</li>
+		    </ol>
+		  </section>
 			
 <div class="container">
 			<h1 style="color:#1D8B15;">직원 공지사항</h1>
@@ -93,10 +105,7 @@
 		
 </div>
 </div>
-</div>
 
-<!--foot-->
-	<c:import url="../module/foot.jsp" />
 </body>
 </html>
 
