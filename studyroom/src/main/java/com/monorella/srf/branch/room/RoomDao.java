@@ -15,6 +15,12 @@ public class RoomDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
+	//열람석 select
+	public List<Seat> selectSeat(){
+		System.out.println("selectSeat()");
+		return sqlSessionTemplate.selectList("com.monorella.srf.branch.room.RoomMapper.selectSeat");
+	}
+	
 	//열람실 select
 	public List<Room> selectRoom(){
 		System.out.println("selectRoom()");

@@ -6,157 +6,21 @@
   <head>
     <!-- 헤드 -->
 	<c:import url="../module2/head.jsp"/>
-	<!-- JS -->
-	<c:import url="../module2/jsscript.jsp" />
-  
-<style>
-.container{
-	float : left;
-}
-
-.column {
-	width: 170px;
-	float: left;
-	padding-bottom: 100px;
-}
-
-.ui-widget-content{
-	border: 1px solid;
-}
-
-.portlet {
-	margin: 0 1em 1em 0;
-	padding: 0.3em;
-}
-
-.portlet-header {
-	padding: 0.2em 0.3em;
-	margin-bottom: 0.5em;
-	position: relative;
-}
-
-.portlet-toggle {
-	position: absolute;
-	top: 50%;
-	right: 0;
-	margin-top: -8px;
-}
-
-.portlet-content {
-	padding: 0.4em;
-}
-
-.portlet-placeholder {
-	border: 1px dotted black;
-	margin: 0 1em 1em 0;
-	height: 50px;
-}
-</style>
-<style>
-* {
-	box-sizing: border-box;
-}
-
-.menu {
-	width: 100%;
-	height: 100%;
-	float: left;
-	padding: 15px;
-}
-</style>
-<style>
-.flex-container {
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-flow: row wrap;
-	flex-flow: row wrap;
-	text-align: center;
-}
-
-.flex-container>* {
-	padding: 15px;
-	-webkit-flex: 1 100%;
-	flex: 1 100%;
-}
-
-.article {
-	text-align: left;
-}
-
-header {
-	background: black;
-	color: white;
-}
-
-footer {
-	background: #aaa;
-	color: white;
-}
-ecoration: none;
-}
-
-
-
-@media all and (min-width: 768px) {
-	.nav {
-		text-align: left;
-		-webkit-flex: 1 auto;
-		flex: 1 auto;
-		-webkit-order: 1;
-		order: 1;
-	}
-	.article {
-		-webkit-flex: 5 0px;
-		flex: 5 0px;
-		-webkit-order: 2;
-		order: 2;
-	}
-	footer {
-		-webkit-order: 3;
-		order: 3;
-	}
-}
-</style>
-
-<style>
-#draggable {
-	width: 80px;
-	height: 80px;
-	padding: 0.1em;
-	float: left;
-	margin: 0px 0px 0px 0;
-}
-</style>
-
-<script type="text/javascript">
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').focus()
-})
-</script>
-
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover();   
-});
-</script>
-
-<!-- window.open -->
-
-
-<script>
-var myWindow;
-
-function openWin() {
-    myWindow = window.open("https://www.w3schools.com/", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=1000,left=700,width=500,height=500");
-
-    myWindow.document.write("<p>This is 'myWindow'</p>");
-   
-}
-
-function closeWin() {
-    myWindow.close();
-}
-</script>
+  	<!-- JS -->
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			console.log('안녕');
+			var contextPath = '<c:out value='${pageContext.request.contextPath}'/>';
+			$('.seat_btn').click(function(){
+				console.log('클릭');
+				var test = $(this).attr('value');
+				console.log(test);
+				window.open(contextPath+'/payment/payment?room_cd='+test, '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=1000,left=700,width=500,height=500');
+			});
+		});
+	</script>
 </head>
 <body class="skin-blue">
     <div class="wrapper">
@@ -167,352 +31,56 @@ function closeWin() {
  	  <c:import url="../module2/left.jsp" />
 		
 	  <!-- 오른쪽 -->
-      <c:import url="../module2/right.jsp"/>
+      <div class="content-wrapper">
+	  <section class="content-header">
+	    <h1>
+	       ZakSim
+	      <small>Control panel</small>
+	    </h1>
+	    <ol class="breadcrumb">
+	      <li><a href="${pageContext.request.contextPath}/home/NewFile"><i class="fa fa-table"></i>Home</a></li>
+	      <li class="active">열람실현황</li>
+	    </ol>
+	  </section>
   	  
   	  <!-- Main content -->
       <section class="content">
 	<!-- main -->
 	  <div class="col-md-9 col-lg-10 main" id="wrap">		
-			<button type="button" class="btn btn-success btn-lg">전체화면</button>
+			<button class="btn bg-purple margin">열람실 전체</button>
 			<c:forEach var="r" items="${roomlist}">
-				<button type="button" class="btn btn-success btn-lg">열람실 ${r.room_nm}</button>
+				<button class="btn bg-purple margin">열람실 ${r.room_nm}</button>
 			</c:forEach>
 			<div class="container text-left con">
 			<hr>
-			 <h3>열람실 전체 화면</h3>
 				<div class="row">			
-					<br>
-					<div class="col-sm-6">					
-						<div class="menu">
-							<h5>201</h5>
-							<div class="column1">
-								<%@include file="modalinclude.jsp"%>								
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>2</h6>
-									<button onclick="openWin()" class="font-size: 1px;">결제</button>
-								</div>
-								
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>3</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>4</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>5</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>6</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>7</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>8</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>9</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>11</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>12</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>13</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>14</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>15</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>16</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>17</h6>
-									<h6></h6>
-								</div>
-							</div>
-						</div>
+					<div class="col-sm-12">	
+						<c:forEach var="s" items="${seatlist}">
+						<%--  <c:choose>
+						 	<c:when test="${s.seat_cnumber}">
+						 	</c:when>
+						 </c:choose> --%>
+						 <input type="hidden" class="get_seat" value="${s.seat_cd}"/>
+							<button class="btn bg-olive btn-flat margin seat_btn" value="${s.seat_cd}">
+								<p>열람석${s.seat_cnumber}</p>
+								<c:choose>
+								 <c:when test="${s.member_nm eq null}">
+									<p> [빈좌석]</p>
+								 </c:when>
+								 <c:otherwise>
+								 	<p> [${s.member_nm}]</p>
+								 </c:otherwise>
+								</c:choose>
+							</button>
+						</c:forEach>			
 					</div>
-					<br>
-
-					<div class="col-sm-6">
-						<div class="menu">
-							<h5>202</h5>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>18</h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>19</h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>20</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>21</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>22</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>23</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>24</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>25</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>26</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>27</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>28</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>29</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>30</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>31</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>32</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>33</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>34</h6>
-									<h6></h6>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="menu">
-							<h5>203</h5>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>35</h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>36</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>37</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>38</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>39</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>40</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>41</h6>
-									<h6></h6>
-								</div>
-							</div>
-						</div>
-					</div>
-					<br>
-
-					<div class="col-sm-6">
-						<div class="menu">
-							<h5>204</h5>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>42</h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>43</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>44</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>45</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>46</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>47</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>48</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>49</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>50</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>51</h6>
-									<h6></h6>
-								</div>
-							</div>
-							<div class="column1">
-								<div id="draggable" class="ui-widget-content">
-									<h6>53</h6>
-									<h6></h6>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-	</div>
-	</section>
-  </div>
+				</div><!-- row -->
+			</div><!-- container text-left con -->
+		</div><!-- col-md-9 col-lg-10 main -->
+	 </section><!-- content -->
+    </div><!-- content-wrapper -->
+  </div><!-- wrapper -->
+  
+<c:import url="../module2/jsscript.jsp" />
 </body>
 </html>
