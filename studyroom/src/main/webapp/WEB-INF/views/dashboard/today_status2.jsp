@@ -11,14 +11,10 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
   <!-- Ionicons -->
   <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-  <!-- Morris charts -->
-  <link href="${pageContext.request.contextPath}/resources/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
   <!-- Theme style -->
   <link href="${pageContext.request.contextPath}/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
   <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
   <link href="${pageContext.request.contextPath}/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-  <!-- DATA TABLES -->
-  <link href="${pageContext.request.contextPath}/resources/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="skin-blue">
     <div class="wrapper">
@@ -112,53 +108,31 @@
               </div>
             </div><!-- ./col -->
           </div><!-- /.row -->
-  		  
-  		  <div class="row">
-            <div class="col-md-6">
-              <!-- DONUT CHART 1 -->
-              <div class="box box-danger">
-                <div class="box-header">
-                  <h3 class="box-title"><b>열람실 이용자 비율</h3>
-                </div>
-                <div class="box-body chart-responsive">
-                  <div class="chart" id="now-room-num" style="height: 300px; position: relative;"></div>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col (LEFT) -->
-            
-            <div class="col-md-6">
-			 <!-- BAR CHART -->
-              <div class="box box-success">
-                <div class="box-header">
-                  <h3 class="box-title"><b>연령대별(성별) 이용자</b></h3>
-                </div>
-                <div class="box-body chart-responsive">
-                  <div class="chart" id="bar-chart" style="height: 300px;"></div>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col (RIGHT) -->
-            
-          </div><!-- /.row -->
           
           <div class="row">
             <div class="col-xs-12">
-           	  <div class="box">
+              <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title"><b>현재 이용자</b></h3>
+                  <h3 class="box-title">이용중 회원 정보</h3>
+                  <div class="box-tools">
+                    <div class="input-group">
+                      <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+                      <div class="input-group-btn">
+                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
                 </div><!-- /.box-header -->
-                <div class="box-body">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-	                      <th>열람실</th>
-	                      <th>열람석</th>
-	                      <th>이름</th>
-	                      <th>성별</th>
-	                      <th>입실 시간</th>
-	                      <th>호출 메세지</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+                <div class="box-body table-responsive no-padding">
+                  <table class="table table-hover">
+                    <tr>
+                      <th>열람실</th>
+                      <th>열람석</th>
+                      <th>이름</th>
+                      <th>성별</th>
+                      <th>입실 시간</th>
+                      <th>호출 메세지</th>
+                    </tr>
                     <c:forEach var="m" items="${useMemberList}">
 	                    <tr>
 	                      <td>201호</td>
@@ -169,23 +143,40 @@
 	                      <td><a href="#"><span class="label label-warning">Calling</span></a></td>
 	                    </tr>
                     </c:forEach>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <th>열람실</th>
-                        <th>열람석</th>
-                        <th>이름</th>
-                        <th>성별</th>
-                        <th>입실 시간</th>
-                        <th>호출 메세지</th>
-                      </tr>
-                    </tfoot>
                   </table>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
-            </div><!-- /.col -->
+            </div>
+          </div>
+  		  
+  		  <div class="row">
+            <div class="col-md-6">
+              <!-- DONUT CHART 1 -->
+              <div class="box box-danger">
+                <div class="box-header">
+                  <h3 class="box-title">열람실 이용자 비율</h3>
+                </div>
+                <div class="box-body chart-responsive">
+                  <div class="chart" id="now-room-num" style="height: 300px; position: relative;"></div>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col (LEFT) -->
+            
+            
+            <div class="col-md-6">
+			  <!-- DONUT CHART 2 -->
+              <div class="box box-danger">
+                <div class="box-header">
+                  <h3 class="box-title">이용자 연령 비율</h3>
+                </div>
+                <div class="box-body chart-responsive">
+                  <div class="chart" id="now-age-status" style="height: 300px; position: relative;"></div>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col (RIGHT) -->
+            
           </div><!-- /.row -->
-          
+  		  
         </section><!-- /.content -->
 
       </div><!-- /.content-wrapper -->
@@ -210,23 +201,12 @@
     <!-- Morris.js charts -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/plugins/morris/morris.min.js" type="text/javascript"></script>
-    <!-- SlimScroll -->
-    <script src="${pageContext.request.contextPath}/resources/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-	<!-- DATA TABES SCRIPT -->
-    <script src="${pageContext.request.contextPath}/resources/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
-    <script src="${pageContext.request.contextPath}/resources/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
-    
+
     <!-- Page script -->
      <script type="text/javascript">
       $(function () {
         "use strict";
-          // 변수 설정
-          // 연령대 변수
-	      var useTeensMemberNo = '<c:out value='${useTeensMemberNo}'/>';
-	      useTeensMemberNo *= 1;
-          var useTeensMenMemberNo = '<c:out value='${useTeensMenMemberNo}'/>';
-          useTeensMenMemberNo *= 1;
-           
+        
       	//DONUT CHART
 		  var donut = new Morris.Donut({
 		    element: 'now-room-num',
@@ -240,38 +220,23 @@
 		    hideHover: 'auto'
 		  });
 		 
-	   //BAR CHART
-	     var bar = new Morris.Bar({
-	        element: 'bar-chart',
-	        resize: true,
-	        data: [
-	          {y: '10대', a: useTeensMenMemberNo, b: useTeensMemberNo, c: useTeensMemberNo-useTeensMenMemberNo},
-	          {y: '20대', a: 1, b: 7, c: 10},
-	          {y: '30대', a: 4, b: 10, c: 15},
-	          {y: '40대', a: 5, b: 0, c: 10},
-	          {y: '기타', a: 4, b: 4, c: 10},
-	        ],
-	        barColors: ['#1266FF', '#E5D85C', '#FF5E00'],
-	        xkey: 'y',
-	        ykeys: ['a', 'b', 'c'],
-	        labels: ['남자', '합계', '여자'],
-	        hideHover: 'auto'
-	     });  
-	  });
+      
+   	 	//DONUT CHART
+	     var donut = new Morris.Donut({
+	       element: 'now-age-status',
+	       resize: true,
+	       colors: ["#F15F5F", "#E5D85C", "#86E57F", "#6799FF", "#F361DC"],
+	       data: [
+	         {label: "10대", value: 12},
+	         {label: "20대", value: 30},
+	         {label: "30대", value: 12},
+	         {label: "40대", value: 6},
+	         {label: "기타 연령", value: 3}
+	       ],
+	       hideHover: 'auto'
+	     });
+	     
+	   });
      </script>
-     
-     <script type="text/javascript">
-      $(function () {
-        $("#example1").dataTable();
-        $('#example2').dataTable({
-          "bPaginate": true,
-          "bLengthChange": false, // jquery.dataTables.js 파일 내에 aLengthMenu로 find
-          "bFilter": false,
-          "bSort": true,
-          "bInfo": true,
-          "bAutoWidth": false
-        });
-      });
-    </script>
   </body>
 </html>

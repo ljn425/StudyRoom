@@ -38,6 +38,7 @@
 		<!-- 테이블1(밑에 div x2 추가 )-->       
           <div class="row">
             <div class="col-xs-12">
+            
               <div class="box">
                 <div class="box-header">
                   <h3 class="box-title">Hover Data Table</h3>

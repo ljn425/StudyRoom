@@ -11,8 +11,6 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
   <!-- Ionicons -->
   <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-  <!-- Morris charts -->
-  <link href="${pageContext.request.contextPath}/resources/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
   <!-- Theme style -->
   <link href="${pageContext.request.contextPath}/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
   <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
@@ -220,12 +218,12 @@
      <script type="text/javascript">
       $(function () {
         "use strict";
-          // 변수 설정
-          // 연령대 변수
+          
 	      var useTeensMemberNo = '<c:out value='${useTeensMemberNo}'/>';
 	      useTeensMemberNo *= 1;
           var useTeensMenMemberNo = '<c:out value='${useTeensMenMemberNo}'/>';
           useTeensMenMemberNo *= 1;
+          var useTeensWomanMemberNo = useTeensMemberNo-useTeensMenMemberNo;
            
       	//DONUT CHART
 		  var donut = new Morris.Donut({
@@ -241,22 +239,42 @@
 		  });
 		 
 	   //BAR CHART
-	     var bar = new Morris.Bar({
+	     /*  var bar = new Morris.Bar({
 	        element: 'bar-chart',
 	        resize: true,
 	        data: [
-	          {y: '10대', a: useTeensMenMemberNo, b: useTeensMemberNo, c: useTeensMemberNo-useTeensMenMemberNo},
+	          {y: '10대', a: useTeensMenMemberNo, b: useTeensMemberNo, c: useTeensWomanMemberNo},
 	          {y: '20대', a: 1, b: 7, c: 10},
 	          {y: '30대', a: 4, b: 10, c: 15},
-	          {y: '40대', a: 5, b: 0, c: 10},
+	          {y: '40대', a: 5, b: 0, c: 40},
 	          {y: '기타', a: 4, b: 4, c: 10},
 	        ],
 	        barColors: ['#1266FF', '#E5D85C', '#FF5E00'],
 	        xkey: 'y',
 	        ykeys: ['a', 'b', 'c'],
-	        labels: ['남자', '합계', '여자'],
+	        labels: ['men', 'sum', 'woman'],
 	        hideHover: 'auto'
-	     });  
+	      }); */
+	   
+	      var bar = new Morris.Bar({
+	          element: 'bar-chart',
+	          resize: true,
+	          data: [
+	            {y: '2006', a: 100, b: 90},
+	            {y: '2007', a: 75, b: 65},
+	            {y: '2008', a: 50, b: 40},
+	            {y: '2009', a: 75, b: 65},
+	            {y: '2010', a: 50, b: 40},
+	            {y: '2011', a: 75, b: 65},
+	            {y: '2012', a: 100, b: 90}
+	          ],
+	          barColors: ['#00a65a', '#f56954'],
+	          xkey: 'y',
+	          ykeys: ['a', 'b'],
+	          labels: ['CPU', 'DISK'],
+	          hideHover: 'auto'
+	        });
+	     
 	  });
      </script>
      

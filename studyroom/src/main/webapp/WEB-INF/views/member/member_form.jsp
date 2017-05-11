@@ -44,11 +44,11 @@
 					<form role="form" action="${pageContext.request.contextPath}/member/member_form" method="post">
 						<div class="box-body">
 						  <div class="form-group">
-							<label for="exampleInputstaffid">독서실 회원코드</label>
+							<label for="member_cd">독서실 회원코드</label>
 							<input type="text" class="form-control" id="member_cd" name="member_cd" placeholder="독서실회원코드를 입력해주세요">
 						</div>
 						<div class="form-group">
-                      	   <label for="exampleInputPassword1">지점 대표코드</label>
+                      	   <label for="branch_owner_cd">지점 대표코드</label>
 							<select class="form-control" name="branch_owner_cd" id="branch_owner_cd" > 
 								<option value="B0010" selected>&nbsp;</option> 
 							     <option value="B0011">B011</option> 

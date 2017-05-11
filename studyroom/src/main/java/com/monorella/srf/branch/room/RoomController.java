@@ -1,6 +1,7 @@
 package com.monorella.srf.branch.room;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,7 @@ public class RoomController {
 				Seat seat = new Seat();
 				seat.setBranch_owner_cd(room.getBranch_owner_cd());
 				seat.setRoom_cd(room.getRoom_cd());
-				seat.setseat_cnumber(i+1);
+				seat.setSeat_cnumber(i+1);
 				roomDao.insertSeat(seat);
 				seatli.add(seat);
 			}
@@ -42,7 +43,7 @@ public class RoomController {
 		}else{
 			System.out.println("열람실 등록 실패");
 		}
-		return "room/room_form";
+		return "room/room_form"; 
 	}
 	
 	//열람실 등록폼
@@ -61,7 +62,9 @@ public class RoomController {
 	//열람실 현황
 	@RequestMapping(value="/room/room_main", method = RequestMethod.GET)
 	public String room_main(Model model){
+		List<Seat> seatlist = roomDao.selectSeat();
 		model.addAttribute("roomlist", roomDao.selectRoom());
+		model.addAttribute("seatlist", seatlist);
 		return "room/room_main";
 	}
 }
