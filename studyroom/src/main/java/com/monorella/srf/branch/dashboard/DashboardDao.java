@@ -60,10 +60,51 @@ public class DashboardDao {
 		return row;
 	}		
 	
+	
 	//----------------------------------------------------연령대별 회원-------------------------------------------------
-	//이용중 10대 회원
-	public int selectUseTeensMemberCount(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseTeensMemberCount");
+	//이용중 기타연령 회원 남
+	public int selectUseEtcMenMemberCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseEtcMenMemberCount");
+		return row;
+	}
+	//이용중 기타연령 회원 여
+	public int selectUseEtcWomanMemberCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseEtcWomanMemberCount");
+		return row;
+	}
+	//이용중 40대 회원 남
+	public int selectUseFortyMenMemberCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseFortyMenMemberCount");
+		return row;
+	}
+	//이용중 40대 회원 여
+	public int selectUseFortyWomanMemberCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseFortyWomanMemberCount");
+		return row;
+	}
+	//이용중 30대 회원 남
+	public int selectUseThirtyMenMemberCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseThirtyMenMemberCount");
+		return row;
+	}
+	//이용중 30대 회원 여
+	public int selectUseThirtyWomanMemberCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseThirtyWomanMemberCount");
+		return row;
+	}
+	//이용중 20대 회원 남
+	public int selectUseTwentyMenMemberCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseTwentyMenMemberCount");
+		return row;
+	}
+	//이용중 20대 회원 여
+	public int selectUseTwentyWomanMemberCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseTwentyWomanMemberCount");
+		return row;
+	}
+	//이용중 10대 회원 여
+	public int selectUseTeensWomanMemberCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseTeensWomanMemberCount");
 		return row;
 	}
 	//이용중 10대 회원 남
@@ -71,14 +112,14 @@ public class DashboardDao {
 		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseTeensMenMemberCount");
 		return row;
 	}
-	
-	
-	//----------------------------------------------------회원-------------------------------------------------
 	//이용중 회원 목록
 	public List<Member> selectUseMemberList(){
 		List<Member> useMember = sqlSessionTemplate.selectList("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseMemberList");
 		return useMember;
 	}
+	
+	
+	//----------------------------------------------------회원-------------------------------------------------
 	//금일 등록회원
 	public int selectTodayInsertMemberCount(){
 		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectTodayInsertMemberCount");
