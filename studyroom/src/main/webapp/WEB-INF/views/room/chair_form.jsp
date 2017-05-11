@@ -121,13 +121,22 @@
 		var contextPath = '<c:out value='${pageContext.request.contextPath}'/>';
 		console.log(contextPath);
 		$('#add_btn').click(function() {
-		 var result = confirm('정말로 이 배치도로 등록하시겠습니까?');
+		 var result = confirm('정말로 이 배치도로 등록 하시겠습니까?');
 		 if(result) { 
 			console.log('yes');
-			location.replace(contextPath+'/home/NewFile'); 
+			location.replace(contextPath+'/dashboard/today_status'); 
 		   }else{ 
 			 
 		   }
+		 
+		 $('#cancel_btn').click(function() {
+			 var result = confirm('정말로 등록을 취소 하시겠습니까?');
+			 if(result) { 
+				console.log('yes');
+				location.replace(contextPath+'/dashboard/today_status'); 
+			   }else{ 
+				 
+			   } 
 		 });
 	});
 </script>

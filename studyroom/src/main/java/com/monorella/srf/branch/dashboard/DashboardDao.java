@@ -58,6 +58,12 @@ public class DashboardDao {
 	
 	
 	//----------------------------------------------------회원-------------------------------------------------
+	//금일 등록회원
+	
+	public int selectTodayInsertMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectTodayInsertMember");
+		return row;
+	}
 	//남자
 	public int selectMen(){
 		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMen");

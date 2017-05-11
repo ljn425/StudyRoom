@@ -42,13 +42,16 @@
 		<input id="useMemberNo" type="hidden" value="${useMemberNo}"/>	
 		<input id="absenceMemberNo" type="hidden" value="${absenceMemberNo}"/>
 		<input id="unpaidMemberNo" type="hidden" value="${unpaidMemberNo}"/>
+		
 		<input id="pamphletNo" type="hidden" value="${pamphletNo}"/>	
 		<input id="placardNo" type="hidden" value="${placardNo}"/>
 		<input id="introductionNo" type="hidden" value="${introductionNo}"/>
 		<input id="internetNo" type="hidden" value="${internetNo}"/>	
 		<input id="etctcNo" type="hidden" value="${etctcNo}"/>
+		
 		<input id="MenNo" type="hidden" value="${MenNo}"/>	
 		<input id="womanNo" type="hidden" value="${womanNo}"/>
+		<input id="todayMember" type="hidden" value="${todayMember}"/>
 		
         <section class="content">
   
@@ -57,7 +60,7 @@
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>${useMemberNo+absenceMemberNo+unpaidMemberNo}</h3>
+                  <h3>${todayMember}</h3>
                   <p>금일 등록 회원</p>
                 </div>
                 <div class="icon">
@@ -71,7 +74,7 @@
               <div class="small-box bg-green">
                 <div class="inner">
                   <h3>${useMemberNo}</h3>
-                  <p>사용중 열람석</p>
+                  <p>이용중 열람석</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -107,7 +110,62 @@
             </div><!-- ./col -->
           </div><!-- /.row -->
           
-          
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">이용중 회원 정보</h3>
+                  <div class="box-tools">
+                    <div class="input-group">
+                      <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+                      <div class="input-group-btn">
+                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                  <table class="table table-hover">
+                    <tr>
+                      <th>열람실</th>
+                      <th>열람석</th>
+                      <th>이름</th>
+                      <th>입실 시간</th>
+                      <th>호출 메세지</th>
+                    </tr>
+                    <tr>
+                      <td>A</td>
+                      <td>183</td>
+                      <td>John Doe</td>
+                      <td>11-7-2014</td>
+                      <td><a href="#"><span class="label label-warning">Calling</span></a></td>
+                    </tr>
+                    <tr>
+                      <td>B</td>
+                      <td>219</td>
+                      <td>Alexander Pierce</td>
+                      <td>11-7-2014</td>
+                      <td><a href="#"><span class="label label-warning">Calling</span></a></td>
+                    </tr>
+                    <tr>
+                      <td>A</td>
+                      <td>657</td>
+                      <td>Bob Doe</td>
+                      <td>11-7-2014</td>
+                      <td><a href="#"><span class="label label-warning">Calling</span></a></td>
+                    </tr>
+                    <tr>
+                      <td>C</td>
+                      <td>175</td>
+                      <td>Mike Doe</td>
+                      <td>11-7-2014</td>
+                      <td><a href="#"><span class="label label-warning">Calling</span></a></td>
+                  </table>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div>
+          </div>
+  
           <div class="row">
             <div class="col-xs-12">
               <!-- interactive chart -->
