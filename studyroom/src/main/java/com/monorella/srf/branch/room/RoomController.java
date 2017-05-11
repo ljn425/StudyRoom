@@ -43,7 +43,7 @@ public class RoomController {
 		}else{
 			System.out.println("열람실 등록 실패");
 		}
-		return "room/room_form";
+		return "room/room_form"; 
 	}
 	
 	//열람실 등록폼
