@@ -42,19 +42,6 @@
         </section>
 
 		<!-- -----------------------내용!!!------------------------------ -->	
-		<input id="useMemberNo" type="hidden" value="${useMemberNo}"/>	
-		<input id="absenceMemberNo" type="hidden" value="${absenceMemberNo}"/>
-		<input id="unpaidMemberNo" type="hidden" value="${unpaidMemberNo}"/>
-		
-		<input id="pamphletNo" type="hidden" value="${pamphletNo}"/>	
-		<input id="placardNo" type="hidden" value="${placardNo}"/>
-		<input id="introductionNo" type="hidden" value="${introductionNo}"/>
-		<input id="internetNo" type="hidden" value="${internetNo}"/>	
-		<input id="etctcNo" type="hidden" value="${etctcNo}"/>
-		
-		<input id="MenNo" type="hidden" value="${MenNo}"/>	
-		<input id="womanNo" type="hidden" value="${womanNo}"/>
-		<input id="todayMember" type="hidden" value="${todayMember}"/>
 		
         <section class="content">
   
@@ -63,7 +50,7 @@
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>${todayMember}</h3>
+                  <h3>${todayMemberNo}</h3>
                   <p>금일 등록 회원</p>
                 </div>
                 <div class="icon">
