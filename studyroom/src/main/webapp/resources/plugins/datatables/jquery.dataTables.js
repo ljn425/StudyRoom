@@ -7952,7 +7952,7 @@
 		 *  @example
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
-		 *        "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+		 *        "aLengthMenu": [[5, 25, 50, -1], [10, 25, 50, "All"]]
 		 *      } );
 		 *    } );
 		 *  
@@ -7967,7 +7967,7 @@
 		 *      } );
 		 *    } );
 		 */
-		"aLengthMenu": [ 10, 25, 50, 100 ],
+		"aLengthMenu": [ 5, 10, 15, 20],
 	
 	
 		/**
@@ -8171,7 +8171,7 @@
 	
 		/**
 		 * Allows the end user to select the size of a formatted page from a select
-		 * menu (sizes are 10, 25, 50 and 100). Requires pagination (bPaginate).
+		 * menu (sizes are 5, 10, 15 and 20). Requires pagination (bPaginate).
 		 *  @type boolean
 		 *  @default true
 		 *  @dtopt Features
@@ -9036,7 +9036,7 @@
 		 *      } );
 		 *    } )
 		 */
-		"iDisplayLength": 10,
+		"iDisplayLength": 5,
 	
 	
 		/**
@@ -9374,7 +9374,7 @@
 			/**
 			 * Detail the action that will be taken when the drop down menu for the
 			 * pagination length option is changed. The '_MENU_' variable is replaced
-			 * with a default select list of 10, 25, 50 and 100, and can be replaced
+			 * with a default select list of 5, 10, 15 and 20, and can be replaced
 			 * with a custom select box if required.
 			 *  @type string
 			 *  @default Show _MENU_ entries
@@ -9396,11 +9396,11 @@
 			 *      $('#example').dataTable( {
 			 *        "oLanguage": {
 			 *          "sLengthMenu": 'Display <select>'+
+			 *            '<option value="5">5</option>'+
 			 *            '<option value="10">10</option>'+
+			 *            '<option value="15">15</option>'+
 			 *            '<option value="20">20</option>'+
-			 *            '<option value="30">30</option>'+
-			 *            '<option value="40">40</option>'+
-			 *            '<option value="50">50</option>'+
+			 *            '<option value="25">25</option>'+
 			 *            '<option value="-1">All</option>'+
 			 *            '</select> records'
 			 *        }
