@@ -46,16 +46,17 @@
 	
 	
 	<!-- 회원 -->
-	
+	<!-- 이용중 회원 목록 -->
+	<select id="selectUseMemberList" parameterType="java.util.List" resultType="com.monorella.srf.branch.dto.Member">
+		SELECT seat_cd, member_nm, member_sex
+		FROM branch_member_tb
+		WHERE member_seat_state = "Y";
+	</select>
 	<!-- 금일 등록 회원 -->
 	<select id="selectTodayInsertMember" resultType="int">
 		SELECT COUNT(*)
 		FROM branch_member_tb 
 		WHERE member_date = now();
-	</select>
-	<!-- 전체 회원 -->
-	<select id="selectMemberCount" resultType="int">
-		SELECT COUNT(*) FROM branch_member_tb
 	</select>
 	<!-- 여자 회원 -->
 	<select id="selectWoman" resultType="int">
@@ -64,5 +65,9 @@
 	<!-- 남자 회원 -->
 	<select id="selectMen" resultType="int">
 		SELECT COUNT(*) FROM branch_member_tb WHERE member_sex = "남자"
+	</select>
+	<!-- 전체 회원 -->
+	<select id="selectMemberCount" resultType="int">
+		SELECT COUNT(*) FROM branch_member_tb
 	</select>
 </mapper>
