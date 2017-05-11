@@ -23,11 +23,16 @@ public class DashboardController {
 	@RequestMapping(value="/dashboard/member_status" , method = RequestMethod.GET)
 	public String selectMemberStatus(Model model){
 		System.out.println("DashboardController-> selectMemberStatus()");
-		int useMemberNo = dashboardDao.selectUseMember(); //사용중 열람석
-		int absenceMemberNo = dashboardDao.selectAbsenceMember(); //부재중 열람석 
-		int unpaidMemberNo = dashboardDao.selectUnpaidMember(); // 미결제 열람석
+		
+		// 열람석 상태-------------------------------------------
+		int useMemberNo = dashboardDao.selectUseSeat(); //사용중 열람석
+		int absenceMemberNo = dashboardDao.selectAbsenceSeat(); //부재중 열람석 
+		int unpaidMemberNo = dashboardDao.selectUnpaidSeat(); // 미결제 열람석
+		
+		// 회원
 		int MenNo = dashboardDao.selectMen(); //여성회원
 		int womanNo = dashboardDao.selectWoman();//남성회원
+		
 		
 		// 등록경로-------------------------------------------
 		int pamphletNo = dashboardDao.selectPamphlet(); //전단지

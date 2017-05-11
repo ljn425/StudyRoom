@@ -30,15 +30,15 @@
 	
 	<!-- 열람석 -->
 	<!-- 미결제 열람석 -->
-	<select id="selectUnpaidMember" resultType="int">
+	<select id="selectUnpaidSeat" resultType="int">
 		SELECT COUNT(*) FROM branch_saet_tb WHERE colseat_state = "미결제"
 	</select>
 	<!-- 부재중 열람석 -->
-	<select id="selectAbsenceMember" resultType="int">
+	<select id="selectAbsenceSeat" resultType="int">
 		SELECT COUNT(*) FROM branch_saet_tb WHERE colseat_state = "부재중"
 	</select>
 	<!-- 사용중 열람석 -->
-	<select id="selectUseMember" resultType="int">
+	<select id="selectUseSeat" resultType="int">
 		SELECT COUNT(*) FROM branch_saet_tb WHERE colseat_state = "사용중"
 	</select>
 	
