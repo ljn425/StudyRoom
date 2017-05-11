@@ -6,6 +6,7 @@
 <mapper namespace="com.monorella.srf.branch.dashboard.DashboardMapper">
 	
 	<!-- 등록경로 -->
+	
 	<!-- 전단지 -->
 	<select id="selectPamphlet" resultType="int">
 		SELECT COUNT(*) FROM branch_member_tb WHERE member_regi_path = "전단지"
@@ -29,6 +30,7 @@
 	
 	
 	<!-- 열람석 -->
+	
 	<!-- 미결제 열람석 -->
 	<select id="selectUnpaidSeat" resultType="int">
 		SELECT COUNT(*) FROM branch_saet_tb WHERE colseat_state = "미결제"
@@ -44,6 +46,7 @@
 	
 	
 	<!-- 회원 -->
+	
 	<!-- 금일 등록 회원 -->
 	<select id="selectTodayInsertMember" resultType="int">
 		SELECT COUNT(*)
