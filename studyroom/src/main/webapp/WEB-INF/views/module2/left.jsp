@@ -70,7 +70,7 @@
               </a>
             </li>
             <li>
-              <a href="pages/mailbox/mailbox.html">
+              <a href="${pageContext.request.contextPath}/staffboard/staffBoard_list">
                 <i class="fa fa-envelope"></i> <span>공지사항</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
@@ -113,7 +113,7 @@
                 <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
               </ul>
             </li>
-            <li><a href="documentation/index.html"><i class="fa fa-book"></i> 요금제 설정</a></li>
+            <li><a href="#"><i class="fa fa-book"></i> 요금제 설정</a></li>
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-danger"></i> Important</a></li>
             <li><a href="#"><i class="fa fa-circle-o text-warning"></i> Warning</a></li>
