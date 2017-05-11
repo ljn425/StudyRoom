@@ -15,9 +15,37 @@ public class StaffBoardController {
 	@Autowired
 	private StaffBoardDao staffboardDao;
 	
+	// 직원 수정 폼 요청
+			@RequestMapping(value="/staffboard/staffboard_modify", method = RequestMethod.GET)
+			public String staffboardmodify(Model model 
+									,@RequestParam(value="staffboard_no", required=true)int staffboard_no){
+				System.out.println("");
+				StaffBoard staffboard= staffboardDao.getStaffBoard(staffboard_no);
+				model.addAttribute("staffboard", staffboard);
+				return "staffboard/staffboard_modify";
+			}
+			
+			// 직원 수정 요청
+			@RequestMapping(value ="/staffboard/staffboard_modify", method = RequestMethod.POST)
+			public String staffboardmodify(StaffBoard staffboard){
+				System.out.println("");
+				staffboardDao.modifyStaffBoard(staffboard);
+				return "redirect:/staffboard/staffboard_view?staffboard_no="+staffboard.getStaffboard_no();
+			}
+	
+	// 공지사항 상세 내용 요청
+		@RequestMapping(value="/staffboard/staffboard_view", method = RequestMethod.GET)
+		public String staffboardview(Model model 
+								,@RequestParam(value="staffboard_no")int staffboard_no){
+			System.out.println("StaffBoardController ->staffboardview()" );
+			StaffBoard staffboard = staffboardDao.getStaffBoard(staffboard_no);
+			model.addAttribute("staffboard", staffboard);
+			return "staffboard/staffboard_view";
+		}
+		
 	// 리스트요청
 		@RequestMapping(value = "/staffboard/staffBoard_list", method = RequestMethod.GET)
-		public String staffBoardList(Model model 
+		public String staffboardlist(Model model 
 								, @RequestParam(value="currentPage", required=false, defaultValue="1") int currentPage){
 			System.out.println("StaffBoardController -> staffboardlist()");
 			int staffboardCount = staffboardDao.getStaffBoardCount();

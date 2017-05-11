@@ -60,7 +60,8 @@ public class RoomController {
 	}
 	//열람실 현황
 	@RequestMapping(value="/room/room_main", method = RequestMethod.GET)
-	public String room_main(){
+	public String room_main(Model model){
+		model.addAttribute("roomlist", roomDao.selectRoom());
 		return "room/room_main";
 	}
 }

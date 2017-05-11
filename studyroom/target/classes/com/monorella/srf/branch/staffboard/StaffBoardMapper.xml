@@ -4,6 +4,26 @@
  
 <mapper namespace="com.monorella.srf.branch.staffboard.StaffBoardMapper">
 
+<update id="modifyStaffBoard" parameterType="com.monorella.srf.branch.dto.StaffBoard">
+	UPDATE branch_staffboard_tb 
+	SET staffboard_title=#{staffboard_title}
+	, staffboard_content=#{staffboard_content} 
+	, staff_name=#{staff_name}
+	WHERE staffboard_no=#{staffboard_no} 
+	AND staffboard_pw=#{staffboard_pw}
+	</update>
+
+<select id="getStaffBoard" parameterType="int" resultType="com.monorella.srf.branch.dto.StaffBoard">
+	SELECT 
+	staffboard_no 
+	, staffboard_title 
+	, staffboard_content 
+	, staff_name 
+	, staffboard_date 
+	FROM branch_staffboard_tb 
+	WHERE staffboard_no=#{staffboard_no}
+	</select>
+
 <select id="getStaffBoardList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.StaffBoard">
 	SELECT 
 		staffboard_no

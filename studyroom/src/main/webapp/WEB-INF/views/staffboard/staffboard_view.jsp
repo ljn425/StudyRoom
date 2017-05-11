@@ -4,21 +4,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- head -->
-	<c:import url="../module/head.jsp" />
+<!-- 헤드 -->
+	<c:import url="../module2/head.jsp"/>
+	<!-- JS -->
+	<c:import url="../module2/jsscript.jsp" />
 </head>
-<body>
-
-<!-- top -->
-	<c:import url = "../module/top.jsp" />
-	
-	<!-- left -->
-	<div class="container-fluid" id="main">
-		<div class="row row-offcanvas row-offcanvas-left">
-			<c:import url = "../module/left.jsp" />
-	
-	<!-- main -->
-			<div class="col-md-9 col-lg-10 main" id="wrap">
+<body class="skin-blue">
+    <div class="wrapper">
+ <!-- 상단 -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- 왼쪽 -->
+ 	  <c:import url="../module2/left.jsp" />
+		
+	 <!-- 수정부분  -->
+      <div class="content-wrapper">
+		  <section class="content-header">
+		    <h1>
+		       ZakSim
+		      <small>Control panel</small>
+		    </h1>
+		    <ol class="breadcrumb">
+		      <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+		      <li class="active">직원</li>
+		    </ol>
+		  </section>
 <div class="container">
     <h1>STAFF VIEW(팀프로젝트)</h1>
      <table class="table">
@@ -45,13 +55,13 @@
             </tr>
         </tbody>
     </table>
-    <a class="btn btn-default" href="${pageContext.request.contextPath}/staff/staff_modify?staff_id=${staff.staff_id}">수정</a>
-    <a class="btn btn-default" href="${pageContext.request.contextPath}/staff/staff_delete?staff_id=${staff.staff_id}">삭제</a>
+    <a class="btn btn-default" href="${pageContext.request.contextPath}/staffboard/staffboard_modify?staff_id=${staff.staff_id}">수정</a>
+    <a class="btn btn-default" href="${pageContext.request.contextPath}/staffboard/staffboard_delete?staff_id=${staff.staff_id}">삭제</a>
     <a class="btn btn-default" href="${pageContext.request.contextPath}/staffboard/staffboard_list">글목록</a>
 </div>
 </div>
 </div>
-</div>
+
 
 <!--foot-->
 	<c:import url="../module/foot.jsp" />

@@ -57,7 +57,7 @@ public class StaffController {
 		
 		// 직원 수정 요청
 		@RequestMapping(value ="staff/staff_modify", method = RequestMethod.POST)
-		public String boardModify(Staff staff){
+		public String staffModify(Staff staff){
 			System.out.println("요놈4");
 			staffDao.modifyStaff(staff);
 			return "redirect:/staff/staff_view?staff_id="+staff.getStaff_id();
