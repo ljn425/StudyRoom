@@ -58,7 +58,8 @@
 }
 
 .menu {
-	width: 75%;
+	width: 100%;
+	height: 100%;
 	float: left;
 	padding: 15px;
 }
@@ -119,8 +120,8 @@ ecoration: none;
 
 <style>
 #draggable {
-	width: 60px;
-	height: 60px;
+	width: 80px;
+	height: 80px;
 	padding: 0.1em;
 	float: left;
 	margin: 0px 0px 0px 0;
@@ -139,6 +140,23 @@ $(document).ready(function(){
 });
 </script>
 
+<!-- window.open -->
+
+
+<script>
+var myWindow;
+
+function openWin() {
+    myWindow = window.open("https://www.w3schools.com/", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=1000,left=700,width=500,height=500");
+
+    myWindow.document.write("<p>This is 'myWindow'</p>");
+   
+}
+
+function closeWin() {
+    myWindow.close();
+}
+</script>
 </head>
 <body class="skin-blue">
     <div class="wrapper">
@@ -168,12 +186,14 @@ $(document).ready(function(){
 						<div class="menu">
 							<h5>201</h5>
 							<div class="column1">
-								<%@include file="modalinclude.jsp"%>
+								<%@include file="modalinclude.jsp"%>								
 							</div>
 							<div class="column1">
 								<div id="draggable" class="ui-widget-content">
 									<h6>2</h6>
+									<button onclick="openWin()" class="font-size: 1px;">결제</button>
 								</div>
+								
 							</div>
 							<div class="column1">
 								<div id="draggable" class="ui-widget-content">
