@@ -8,6 +8,8 @@
 <c:import url="../module/foot.jsp" />
 </head>
 <body>
+
+	결제창입니다.
 	<!-- Trigger the modal with a button -->
 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">열람석1</button>
 

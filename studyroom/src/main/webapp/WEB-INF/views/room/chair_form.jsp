@@ -128,7 +128,7 @@
 		   }else{ 
 			 
 		   }
-		 
+		});
 		 $('#cancel_btn').click(function() {
 			 var result = confirm('정말로 등록을 취소 하시겠습니까?');
 			 if(result) { 
