@@ -30,7 +30,25 @@
 		    </ol>
 		  </section>
 <div class="table-responsive">
-<h1>직원 공지사항</h1>
+ <!-- 검색 -->
+    <form id="searchFrom" action="${pageContext.request.contextPath}/staffboard/staffboard_search" method="post">
+	 <div class="form-group">
+	 <div class="row">
+	  <div class="col-sm-2">
+	   <select name="so" class="form-control" id="sel1">
+	    <option value="staffboard_title">제목</option>
+	    <option value="staff_name">작성자</option>
+	  </select>
+	  </div>
+	   <div class="col-sm-3">
+	   		<input name="sv" id="selectValue" type="text" class="form-control" placeholder="검색어를 입력해주세요."/>
+	   </div>
+	   <div class="col-sm-4">
+	   		<button type="button" id="searchBtn" class="btn btn-default">검색</button>
+	   </div>
+	   </div>
+	</div>
+	</form>
 
     <div>전체행의 수 : ${staffboard_content}</div>
     <table class="table">

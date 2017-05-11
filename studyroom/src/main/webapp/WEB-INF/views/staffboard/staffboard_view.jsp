@@ -55,8 +55,8 @@
             </tr>
         </tbody>
     </table>
-    <a class="btn btn-default" href="${pageContext.request.contextPath}/staffboard/staffboard_modify?staff_id=${staff.staff_id}">수정</a>
-    <a class="btn btn-default" href="${pageContext.request.contextPath}/staffboard/staffboard_delete?staff_id=${staff.staff_id}">삭제</a>
+    <a class="btn btn-default" href="${pageContext.request.contextPath}/staffboard/staffboard_modify?staffboard_no=${staffboard.staffboard_no}">수정</a>
+    <a class="btn btn-default" href="${pageContext.request.contextPath}/staffboard/staffboard_delete?staffboard_no=${staffboard.staffboard_no}">삭제</a>
     <a class="btn btn-default" href="${pageContext.request.contextPath}/staffboard/staffboard_list">글목록</a>
 </div>
 </div>

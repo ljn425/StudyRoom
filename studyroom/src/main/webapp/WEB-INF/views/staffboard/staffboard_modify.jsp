@@ -71,9 +71,10 @@
         <div class="form-group">staffboard_content :
             <textarea class="form-control" id="staffboard_content" name="staffboard_content" rows="5" cols="50">${staffboard.staffboard_content}</textarea>
         </div>
-        <div>
-            <input class="btn btn-default" id="modifyButton" type="button" value="글수정"/>
-            <input class="btn btn-default" type="reset" value="초기화"/>
+       
+          <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">글입력</button>
+                    <button type="reset" class="btn btn-primary">초기화</button>
             <a class="btn btn-default" href="${pageContext.request.contextPath}/staffboard/staffboard_list">글목록</a>
         </div>
     </form>

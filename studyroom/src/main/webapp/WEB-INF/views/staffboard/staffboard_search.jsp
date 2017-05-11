@@ -1,49 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script>
-	$(document).ready(function(){
-		//console.log("하이");
-		$('#searchBtn').click(function(){
-			if($('#selectValue').val().length < 2){
-				alert("검색어는 2자 이상 입력하셔야 합니다.");
-			}else if($('#selectValue').val().length >= 2){
-				$('#searchFrom').submit();
-			}
-		});
-		
-	});
-</script>
-<!-- head -->
-	<c:import url="../module/head.jsp" />
+<!-- 헤드 -->
+	<c:import url="../module2/head.jsp"/>
+	<!-- JS -->
+	<c:import url="../module2/jsscript.jsp" />
 </head>
-<body>
-<!-- top -->
-	<c:import url = "../module/top.jsp" />
-	
-	<!-- left -->
-	<div class="container-fluid" id="main">
-		<div class="row row-offcanvas row-offcanvas-left">
-			<c:import url = "../module/left.jsp" />
-	
-	<!-- main -->
-			<div class="col-md-9 col-lg-10 main">
+<body class="skin-blue">
+    <div class="wrapper">
+ <!-- 상단 -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- 왼쪽 -->
+ 	  <c:import url="../module2/left.jsp" />
+		
+	 <!-- 수정부분  -->
+      <div class="content-wrapper">
+		  <section class="content-header">
+		    <h1>
+		       ZakSim
+		      <small>Control panel</small>
+		    </h1>
+		    <ol class="breadcrumb">
+		      <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+		      <li class="active">직원</li>
+		    </ol>
+		  </section>
 <div class="table-responsive">
  <!-- 검색 -->
-    <form id="searchFrom" action="${pageContext.request.contextPath}/staff/staff_search" method="post">
+    <form id="searchFrom" action="${pageContext.request.contextPath}/staffboard/staffboard_search" method="post">
 	 <div class="form-group">
 	 <div class="row">
 	  <div class="col-sm-3">
 	  </div>
 	  <div class="col-sm-2">
 	   <select name="so" class="form-control" id="sel1">
-	    <option value="staff_id">아이디</option>
-	    <option value="branch_owner_cd">대표코드</option>
-	    <option value="staff_name">직원이름</option>
+	    <option value="staffboard_title">제목</option>
+	    <option value="staff_name">작성자</option>
 	  </select>
 	  </div>
 	   <div class="col-sm-3">
@@ -55,40 +51,61 @@
 	   </div>
 	</div>
 	</form>
-        <a href="${pageContext.request.contextPath}/staff/staff_form">직원 추가</a>
-  <table class="table">
-   <thead>
-   	<tr>
-   	<th>직원 아이디</th>
-   	<th>지점 대표코드</th>
-   	<th>직원 이름</th>
-   	<th>직원 연락처</th>
-   	<th>직원 주소</th>
-   	<th>직원 가입일</th>
-   	</tr>
-   </thead>
+
+    <div>전체행의 수 : ${staffboard_content}</div>
+    <table class="table">
+        <thead>
+            <tr>
+            	<th>staffboard_no</th>
+                <th>staffboard_title</th>
+                <th>staff_name</th>
+                <th>staffboard_date</th>
+            </tr>
+        </thead>
         <tbody>
 
 	<c:forEach var="s" items="${searchlist}">
                 <tr>
-                    <td><a href="${pageContext.request.contextPath}/staffView?staff_id=${s.staff_id}">${s.staff_id}</a></td>
-                    <td>${s.branch_owner_cd}</td>
+                    <td><a href="${pageContext.request.contextPath}/staffboard/staffboard_view?staffboard_no=${s.staffboard_no}">${s.staffboard_no}</a></td>
+                    <td>${s.staffboard_title}</td>
                     <td>${s.staff_name}</td>
-                    <td>${s.staff_tel}</td>
-                    <td>${s.staff_addr}</td>
-                    <td>${s.staff_in_date}</td>
+                    <td>${s.staffboard_date}</td>
                 </tr>
  	</c:forEach>
         </tbody>
-   
-  </table>
-   
- </div>
-</div>
-</div>
-</div>
+    </table>
+    </div>
+      
+    <div>
+        <a href="${pageContext.request.contextPath}/staffboard/staffboard_form">공지사항 입력</a>
 
-<!--foot-->
-	<c:import url="../module/foot.jsp" />
+
+	<c:if test="${currentPage > 1}">
+	
+		<span><a href="${pageContext.request.contextPath}/staffboard/staffboard_list?currentPage=${previousPage}"><span class="glyphicon glyphicon-chevron-left"></span></a></span>
+         <span><a href="${pageContext.request.contextPath}/staffboard/staffboard_list?currentPage=${currentPage-1}">이전</a></span>
+     </c:if>    
+
+ 
+ <c:forEach var="i" begin="${startPage}" end="${endPage}" step="1"> 
+ 	<c:choose>
+ 		<c:when test="${i == currentPage}">
+ 			<span><a href="#">${i}</a></span>
+ 		</c:when>
+ 		<c:otherwise>	
+			<span><a href="${pageContext.request.contextPath}/staffboard/staffboard_list?currentPage=${i}">${i}</a></span>
+		</c:otherwise>	
+	</c:choose>
+</c:forEach>
+	
+		<c:if test="${currentPage < lastPage}">
+            <span><a href="${pageContext.request.contextPath}/staffboard/staffboard_list?currentPage=${currentPage+1}">다음</a></span>
+           <span><a href="${pageContext.request.contextPath}/staffboard/staffboard_list?currentPage=${nextPage}"><span class="glyphicon glyphicon-chevron-right"></span></a></span>
+            
+		</c:if>
+	
+    </div>
+</div>
+</div>
 </body>
 </html>

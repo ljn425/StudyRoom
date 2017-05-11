@@ -8,16 +8,36 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
 import com.monorella.srf.branch.dto.StaffBoard;
 @Repository
 public class StaffBoardDao {
 	@Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 	
+	 //공지사항 검색 메서드
+	 public List<StaffBoard> searchStaffBoard(String so, String sv){
+		 System.out.println("StaffBoardDao->searchStaffBoard ->so:" +so
+				 +"sv:" + sv);
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("so", so);
+			map.put("sv", sv);
+			List<StaffBoard> staffboardList = null;
+			staffboardList = sqlSessionTemplate.selectList("com.monorella.srf.branch.staffboard.StaffBoardMapper.searchStaffBoard", map);
+			return staffboardList;
+		}
+	
+	// 공지사항 삭제 메서드
+    public int deleteStaffBoard(int staffboard_no, String staffboard_pw) {
+    	StaffBoard staffboard = new StaffBoard();
+    	staffboard.setStaffboard_no(staffboard_no);
+    	staffboard.setStaffboard_pw(staffboard_pw);
+        return sqlSessionTemplate.delete("com.monorella.srf.branch.staffboard.StaffBoardMapper.deleteStaffBoard",staffboard);
+    }
+	
 	// 글수정 메서드 
 			public int modifyStaffBoard(StaffBoard staffboard) {
-		        return sqlSessionTemplate.update("com.monorella.srf.branch.staff.StaffBoardMapper.modifyStaffBoard"
+				System.out.println("modifyStaffBoard dao 확인");
+		        return sqlSessionTemplate.update("com.monorella.srf.branch.staffboard.StaffBoardMapper.modifyStaffBoard"
 												,staffboard);
 		    }
 	
