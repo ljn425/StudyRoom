@@ -34,7 +34,7 @@ public class StaffDao {
 	    }
 	 
 	 
-	 //직원 리스트 메서드
+	 //직원 검색 메서드
 	 public List<Staff> searchStaff(String so, String sv){
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("so", so);

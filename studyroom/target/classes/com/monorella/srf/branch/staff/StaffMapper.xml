@@ -21,12 +21,12 @@
 	
 <select id="getStaff" parameterType="String" resultType="com.monorella.srf.branch.dto.Staff">
 	SELECT 
-	staff_id As staff_id
-	,branch_owner_cd As branch_owner_cd
-	, staff_name As staff_name
-	, staff_tel AS staff_tel
-	, staff_addr As staff_addr
-	, staff_in_date As staff_in_date
+	staff_id 
+	,branch_owner_cd 
+	, staff_name 
+	, staff_tel 
+	, staff_addr 
+	, staff_in_date 
 	FROM branch_staff_tb 
 	WHERE staff_id=#{staff_id}
 	</select>
@@ -34,10 +34,10 @@
 <select id="searchStaff" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Staff">
 	SELECT
 		 staff_id
-		 , branch_owner_cd AS branch_owner_cd
-		 , staff_name AS staff_name
-		 , staff_tel AS staff_tel
-		 , staff_addr AS staff_addr
+		 , branch_owner_cd 
+		 , staff_name 
+		 , staff_tel 
+		 , staff_addr
 		 FROM branch_staff_tb
 		  <if test="sv !=null and sv != ''">
 		 	<if test="so.equals('staff_id')">
