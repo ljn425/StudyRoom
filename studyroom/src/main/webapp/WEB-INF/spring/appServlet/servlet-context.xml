@@ -48,7 +48,7 @@
                 <beans:value>classpath:com/monorella/srf/branch/staff/StaffMapper.xml</beans:value> 
                 <beans:value>classpath:com/monorella/srf/branch/member/MemberMapper.xml</beans:value>
                 <beans:value>classpath:com/monorella/srf/branch/payment/PaymentMapper.xml</beans:value>
-<!--                 <beans:value>classpath:com/monorella/srf/branch/staff/StaffMapper.xml</beans:value> -->
+                <beans:value>classpath:com/monorella/srf/branch/staffboard/StaffBoardMapper.xml</beans:value> 
 <!--                 <beans:value>classpath:com/monorella/srf/branch/sms/SmsMapper.xml</beans:value> -->
             </beans:list>
         </beans:property>

@@ -3,19 +3,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- head -->
-	<c:import url="../module/head.jsp" />
+    <!-- 헤드 -->
+	<c:import url="../module2/head.jsp"/>
+	<!-- JS -->
+	<c:import url="../module2/jsscript.jsp" />
 </head>
-<body>
-	<!-- top -->
-	<c:import url = "../module/top.jsp" />
-	
-	<!-- left -->
-	<div class="container-fluid" id="main">
-		<div class="row row-offcanvas row-offcanvas-left">
-			<c:import url = "../module/left.jsp" />
-			<!-- main -->
-			<div class="col-md-9 col-lg-10 main" id="wrap">
+	<body class="skin-blue">
+   	 <div class="wrapper">
+   	 <!-- 상단 -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- 왼쪽 -->
+ 	  <c:import url="../module2/left.jsp" />
+		
+	   <!-- 오른쪽 -->
+      <!-- 수정부분  -->
+      <div class="content-wrapper">
+		  <section class="content-header">
+		    <h1>
+		       StudyRoom
+		      <small>웹 기반 독서실 관리프로그램</small>
+		    </h1>
+		    <ol class="breadcrumb">
+		      <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+		      <li class="active">회원</li>
+		    </ol>
+		  </section>
+  	  
+	  <!-- Main content -->
+      <section class="content">
+			
 				<div class="container">
 					<h1>독서실 회원 등록</h1><br>
 					<form class="form-horizontal" action="${pageContext.request.contextPath}/member/member_form" method="post">
@@ -78,11 +95,9 @@
 							<input class="btn btn-success" type="reset" value="초기화"/>
 						</div><br><br>
 					</form>
-				</div>
-			</div>
+				</div>	
+			 </section> 
 		</div>
-	</div>
-<!--foot-->
-	<c:import url="../module/foot.jsp" />
+	</div>	
 </body>
 </html>

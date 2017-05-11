@@ -15,50 +15,69 @@
 		});
 	});
 </script>
-<!-- head -->
-	<c:import url="../module/head.jsp" />
+	<!-- 헤드 -->
+	<c:import url="../module2/head.jsp"/>
+	<!-- JS -->
+	<c:import url="../module2/jsscript.jsp" />
 </head>
-<body>
-	<!-- top -->
-	<c:import url = "../module/top.jsp" />
-	
-	<!-- left -->
-	<div class="container-fluid" id="main">
-		<div class="row row-offcanvas row-offcanvas-left">
-			<c:import url = "../module/left.jsp" />
-	
-	<!-- main -->
-			<div class="col-md-9 col-lg-10 main" id="wrap">
-
-<div class="container">
-    <h1>독서실 회원 리스트</h1>
-    <br>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-            	<th>독서실회원코드</th>
-           	    <th>이름</th>
-                <th>성별</th>
-                <th>연락처</th>
-                <th>주소</th>
-                <th>나이</th>
-                <th>회원상태</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach var="b" items="${list}">
-                <tr>
-                    <td><a href="${pageContext.request.contextPath}/member/member_view?member_cd=${b.member_cd}">${b.member_cd}</a></td>
-                    <td>${b.member_nm}</td>
-                    <td>${b.member_sex}</td>
-                    <td>${b.member_tel}</td>
-                    <td>${b.member_addr}</td>
-                    <td>${b.member_age}</td>
-                    <td>${b.member_seat_state}</td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+<body class="skin-blue">
+    <div class="wrapper">
+    <!-- 상단 -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- 왼쪽 -->
+ 	  <c:import url="../module2/left.jsp" />
+		
+	  <!-- 오른쪽 -->
+		<!-- 수정부분  -->
+      <div class="content-wrapper">
+		  <section class="content-header">
+		    <h1>
+		       StudyRoom
+		      <small>웹 기반 독서실 관리프로그램</small>
+		    </h1>
+		    <ol class="breadcrumb">
+		      <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+		      <li class="active">회원</li>
+		    </ol> 
+		  </section>
+	  <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">회원 리스트</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table class="table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                      	<th>독서실 회원코드</th>
+		            	<th>이름</th>
+		           	    <th>성별</th>
+		                <th>연락처</th>
+		                <th>주소</th>
+		                <th>나이</th>
+		                <th>회원상태</th>
+            		  </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+			            <c:forEach var="b" items="${list}">
+			                <tr>
+			                    <td><a href="${pageContext.request.contextPath}/member/member_view?member_cd=${b.member_cd}">${b.member_cd}</a></td>
+			                    <td>${b.member_nm}</td>
+			                    <td>${b.member_sex}</td>
+			                    <td>${b.member_tel}</td>
+			                    <td>${b.member_addr}</td>
+			                    <td>${b.member_age}</td>
+			                    <td>${b.member_seat_state}</td>
+	               		    </tr>  
+	          		     </c:forEach>
+	          	 	  </tr>  
+	       			 </tbody>
+	       			 </table>  
     <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
         <c:if test="${currentPage > 1}">
@@ -90,8 +109,9 @@
    </nav> 
   </div>
  </div>
+</div>  
 </div>
-</div>
+  </section>
 
     <form id="searchMemberFrom" action="${pageContext.request.contextPath}/member/member_search" method="post">
 	 <div class="form-group">
@@ -100,6 +120,7 @@
 	  </div>
 	  <div class="col-sm-2">
 	   <select name="so" class="form-control" id="sel1">
+	   	<option value="member_cd">독서실 회원코드</option>
 	    <option value="member_nm">이름</option>
 	    <option value="member_sex">성별</option>
 	    <option value="member_age">나이</option>
@@ -114,9 +135,8 @@
 	   </div>
 	   </div>
 	  </div>
-	</form>
-	
-<!--foot-->
-	<c:import url="../module/foot.jsp" />
+	</form>	
+</div>	
+</div>	
 </body>
 </html>

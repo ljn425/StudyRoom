@@ -5,7 +5,7 @@
 <head>
 <!-- head -->
 	<c:import url="../module/head.jsp" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 	//제이쿼리 사용
 	//github test..
@@ -32,7 +32,7 @@
 			}	
 		});
 	});
-</script>
+</script> -->
 
 </head>
 <body>
@@ -45,14 +45,11 @@
 			<c:import url = "../module/left.jsp" />
 			<!-- main -->
 			<div class="col-md-9 col-lg-10 main" id="wrap">
+			
 <div class="container">
-<div class="col-sm-12" style="height:90px;"></div>
-	<div class="col-sm-3" style="background-color:#FFFFFF; height:600px;">
-	</div>
-	 
-		<div class="col-sm-6">
 			<h1 style="color:#1D8B15;">직원 공지사항</h1>
-			<form id="addForm" class="form-horizontal" action="${pageContext.request.contextPath}/staff/staffboard_form" method="post">
+			<br>
+			<form id="staffboard_form" class="form-horizontal" action="${pageContext.request.contextPath}/staffboard/staffboard_pro" method="post">
 			 
 			    <div class="form-group has-success">
 			  			<label class="control-label" for="formGroupInputLarge">staffboard_pw</label>
@@ -81,25 +78,19 @@
 			 			<input class="form-control" type="text" name="staff_name" id="staff_name" placeholder="이름을 입력해주세요">
 					</div>
 				</div> 
-				<div class="form-group has-success">
-				  <label class="control-label" for="inputLarge">staffboard_date</label>
-				  <input type="date" class="form-control" id="staffboard_date" name="staffboard_date">
-				</div>
 				
 			    <div>
 				    
 				   	 <div style="float: right;">
-				        <input id="addButton" type="button" class=" btn btn-success" value="글입력"/>
+				        <input id="staffboard_form" type="submit" class=" btn btn-success" value="글입력"/>
 				        <input type="reset" class="btn btn-success" value="초기화"/>
-				        <a class="btn btn-success" href="${pageContext.request.contextPath}/boardList">글목록</a>
+				        <a class="btn btn-success" href="${pageContext.request.contextPath}/staffboard/staffBoard_list">글목록</a>
 				     </div>
 				     
 			    </div>   
 			</form>
 		</div>
-		<div class="col-sm-3" style="background-color:#FFFFFF; height:600px;">
-</div>
-</div>
+		
 </div>
 </div>
 </div>
