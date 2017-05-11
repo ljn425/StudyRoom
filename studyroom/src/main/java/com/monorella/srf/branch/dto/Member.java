@@ -4,7 +4,7 @@ public class Member {
 	private String member_cd;
 	private String branch_owner_cd;
 	private String staff_id;
-	private String seat_cd;
+	private int seat_cd;
 	private String inout_num;
 	private String member_nm;
 	private String member_sex;
@@ -33,10 +33,10 @@ public class Member {
 	public void setStaff_id(String staff_id) {
 		this.staff_id = staff_id;
 	}
-	public String getSeat_cd() {
+	public int getSeat_cd() {
 		return seat_cd;
 	}
-	public void setSeat_cd(String seat_cd) {
+	public void setSeat_cd(int seat_cd) {
 		this.seat_cd = seat_cd;
 	}
 	public String getInout_num() {

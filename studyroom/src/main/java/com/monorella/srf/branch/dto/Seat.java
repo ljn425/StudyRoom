@@ -6,19 +6,13 @@ public class Seat {
 	private String room_cd; //열람실 코드
 	private String branch_owner_cd; //지점대표자 코드
 	private String member_cd; //회원 코드
+	private String member_nm; //회원 이름
 	private int	seat_cnumber; //열람석 번호
 	private String colseat_state; //열람석 상태
 	private String seat_in_time; //입실
 	private String seat_out_time; //퇴실
 	private String seat_date; //날짜
 	private String seat_appoint; //열람석 지정(결제여부)
-	
-	public String getSeat_out_time() {
-		return seat_out_time;
-	}
-	public void setSeat_out_time(String seat_out_time) {
-		this.seat_out_time = seat_out_time;
-	}
 	public int getSeat_cd() {
 		return seat_cd;
 	}
@@ -43,10 +37,16 @@ public class Seat {
 	public void setMember_cd(String member_cd) {
 		this.member_cd = member_cd;
 	}
-	public int getseat_cnumber() {
+	public String getMember_nm() {
+		return member_nm;
+	}
+	public void setMember_nm(String member_nm) {
+		this.member_nm = member_nm;
+	}
+	public int getSeat_cnumber() {
 		return seat_cnumber;
 	}
-	public void setseat_cnumber(int seat_cnumber) {
+	public void setSeat_cnumber(int seat_cnumber) {
 		this.seat_cnumber = seat_cnumber;
 	}
 	public String getColseat_state() {
@@ -61,6 +61,12 @@ public class Seat {
 	public void setSeat_in_time(String seat_in_time) {
 		this.seat_in_time = seat_in_time;
 	}
+	public String getSeat_out_time() {
+		return seat_out_time;
+	}
+	public void setSeat_out_time(String seat_out_time) {
+		this.seat_out_time = seat_out_time;
+	}
 	public String getSeat_date() {
 		return seat_date;
 	}
@@ -73,13 +79,15 @@ public class Seat {
 	public void setSeat_appoint(String seat_appoint) {
 		this.seat_appoint = seat_appoint;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Seat [seat_cd=" + seat_cd + ", room_cd=" + room_cd + ", branch_owner_cd=" + branch_owner_cd
-				+ ", member_cd=" + member_cd + ", seat_cnumber=" + seat_cnumber + ", colseat_state=" + colseat_state
-				+ ", seat_in_time=" + seat_in_time + ", seat_out_time=" + seat_out_time + ", seat_date=" + seat_date
-				+ ", seat_appoint=" + seat_appoint + "]";
+				+ ", member_cd=" + member_cd + ", member_nm=" + member_nm + ", seat_cnumber=" + seat_cnumber
+				+ ", colseat_state=" + colseat_state + ", seat_in_time=" + seat_in_time + ", seat_out_time="
+				+ seat_out_time + ", seat_date=" + seat_date + ", seat_appoint=" + seat_appoint + "]";
 	}
+	
+	
 	
 }

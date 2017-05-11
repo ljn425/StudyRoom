@@ -17,48 +17,60 @@ public class DashboardDao {
 	
 	//----------------------------------------------------회원 등록 경로-------------------------------------------------
 	// 전단지
-	public int selectPamphlet(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectPamphlet");
+	public int selectPamphletCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectPamphletCount");
 		return row;
 	}
 	// 지인소개
-	public int selectIntroduction(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectIntroduction");
+	public int selectIntroductionCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectIntroductionCount");
 		return row;
 	}
 	// 인터넷
-	public int selectInternet(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectInternet");
+	public int selectInternetCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectInternetCount");
 		return row;
 	}
 	// 플래카드
-	public int selectPlacard(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectPlacard");
+	public int selectPlacardCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectPlacardCount");
 		return row;
 	}
 	// 기타
-		public int selectEtc(){
-			int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectEtc");
+		public int selectEtcCount(){
+			int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectEtcCount");
 			return row;
 	}
 	
 	
 	//----------------------------------------------------열람석 상태-------------------------------------------------
 	//미결제 열람석
-	public int selectUnpaidSeat(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUnpaidSeat");
+	public int selectUnpaidSeatCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUnpaidSeatCount");
 		return row;
 	}
 	//부재중 열람석
-	public int selectAbsenceSeat(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectAbsenceSeat");
+	public int selectAbsenceSeatCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectAbsenceSeatCount");
 		return row;
 	}
 	//사용중 열람석
-	public int selectUseSeat(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseSeat");
+	public int selectUseSeatCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseSeatCount");
 		return row;
 	}		
+	
+	//----------------------------------------------------연령대별 회원-------------------------------------------------
+	//이용중 10대 회원
+	public int selectUseTeensMemberCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseTeensMemberCount");
+		return row;
+	}
+	//이용중 10대 회원 남
+	public int selectUseTeensMenMemberCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseTeensMenMemberCount");
+		return row;
+	}
 	
 	
 	//----------------------------------------------------회원-------------------------------------------------
@@ -67,25 +79,24 @@ public class DashboardDao {
 		List<Member> useMember = sqlSessionTemplate.selectList("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseMemberList");
 		return useMember;
 	}
-	
 	//금일 등록회원
-	public int selectTodayInsertMember(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectTodayInsertMember");
+	public int selectTodayInsertMemberCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectTodayInsertMemberCount");
 		return row;
 	}
 	//남자
-	public int selectMen(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMen");
+	public int selectMenCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMenCount");
 		return row;
 	}
 	//여자
-	public int selectWoman(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectWoman");
+	public int selectWomanCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectWomanCount");
 		return row;
 	}
 	//전체 회원
 	public int selectMemberCount() {
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMemberCount");
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMemberCountCount");
 		return row;
 	}
 }
