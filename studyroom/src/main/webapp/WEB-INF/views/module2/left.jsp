@@ -7,7 +7,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left info">
-              <p>전주점 <a href="#"><i class="fa fa-circle text-success"></i> Online</a></p>
+              <p>${sessionScope.branchOwner.branch_owner_nm} <a href="#"><i class="fa fa-circle text-success"></i> Online</a></p>
             </div>
           </div>
           <!-- search form -->
@@ -28,8 +28,8 @@
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/dashboard/member_status"><i class="fa fa-circle-o"></i> 오늘의 현황</a></li>
+                <li><a href="${pageContext.request.contextPath}/dashboard/member_status"><i class="fa fa-circle-o"></i> 점심 뭐먹지?</a></li>
               </ul>
             </li>
             <li class="treeview">

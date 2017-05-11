@@ -1,219 +1,892 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- head ----------------------------------->
-		<c:import url="../module/head.jsp" />
-	<!-- ------------------------------------  -->
-	<c:import url="../module/foot.jsp" />
-	
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<!-- 등록경로 -->
-	<script type="text/javascript">
-		$(document).ready(function(){
-			var pamphletNo = $('#pamphletNo').val();
-			var placardNo = $('#placardNo').val();
-			var introductionNo = $('#introductionNo').val();
-			var internetNo = $('#internetNo').val();
-			var etctcNo = $('#etctcNo').val();
-			
-			pamphletNo*=1; // int 변환
-			placardNo*=1;
-			introductionNo*=1;
-			internetNo*=1;
-			etctcNo*=1;
-			
-			console.log('pamphletNo :' +  pamphletNo);
-			console.log('placardNo :' +  placardNo);
-			console.log('introductionNo :' +  introductionNo);
-			console.log('internetNo :' +  internetNo);
-			console.log('etctcNo :' +  etctcNo);
-			
-			google.charts.load("current", {packages:["corechart"]});
-			google.charts.setOnLoadCallback(drawChart);
-			function drawChart() {
-			 var a = a;
-			  var data = google.visualization.arrayToDataTable([
-			    ['Task', 'Hours per Day'],
-			    ['지인 소개', introductionNo],
-			    ['전단지', pamphletNo],
-			    ['인터넷 검색', internetNo],
-			    ['플래카드', placardNo],
-			    ['기타', etctcNo],
-			  ]);
-			  var options = {
-			    title: '회원 등록 경로',
-			    pieHole: 0.3,
-			  };
-			  var chart = new google.visualization.PieChart(document.getElementById('memberPath'));
-			  chart.draw(data, options);
-			}
-		});
-    </script>
-    <!-- 회원성비 -->
-    <script type="text/javascript">
-		$(document).ready(function(){	
-			var MenNo = $('#MenNo').val();
-			var womanNo = $('#womanNo').val();
-			
-			MenNo*=1;
-			womanNo*=1;
-			
-			console.log('MenNo :' +  MenNo);
-			console.log('womanNo :' +  womanNo);
-		
-			google.charts.load("current", {packages:["corechart"]});
-			google.charts.setOnLoadCallback(drawChart);
-			function drawChart() {
-			  var data = google.visualization.arrayToDataTable([
-			    ['Task', 'Hours per Day'],
-			    ['남성회원', MenNo],
-			    ['여성회원', womanNo]
-			  ]);
-			  var options = {
-			    title: '회원 성비',
-			    pieHole: 0.3,
-			  };
-			  var chart = new google.visualization.PieChart(document.getElementById('sexRatio'));
-			  chart.draw(data, options);
-		  }
-		});
-    </script>
-    <!-- 열람석상태 -->
-	<script type="text/javascript">
-		$(document).ready(function(){
-			var useMemberNo = $('#useMemberNo').val();
-			var absenceMemberNo = $('#absenceMemberNo').val();
-			var unpaidMemberNo = $('#unpaidMemberNo').val();
-			
-			useMemberNo*=1; // int 변환
-			absenceMemberNo*=1;
-			unpaidMemberNo*=1;
-			
-			console.log('useMemberNo :' +  useMemberNo);
-			console.log('absenceMemberNo :' +  absenceMemberNo);
-			console.log('unpaidMemberNo :' +  unpaidMemberNo);
-			
-			google.charts.load('current', {packages: ['corechart', 'bar']});
-			google.charts.setOnLoadCallback(drawBasic);
-			function drawBasic() {
-				var a = a;	
-				var data = google.visualization.arrayToDataTable([
-				  ['열람석', '해당 인원수'],
-				  ['사용중', useMemberNo],
-				  ['부재중', absenceMemberNo],
-				  ['미결제', unpaidMemberNo],
-				]);
-				
-				var options = {
-				  title: '열람석 통계',
-				  chartArea: {width: '50%'},
-				  hAxis: {
-				    title: '인원수',
-				    minValue: 0
-				  },
-				  vAxis: {
-				    title: '열람실 A'
-				  }
-				};
-				
-				var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-				
-				chart.draw(data, options);
-			}
-		});
-	</script>
-</head>
-<body>
-	<!-- top -->
-	<c:import url="../module/top.jsp" />
-	
-	<!-- left -->
-	<div class="container-fluid" id="main">
-		<div class="row row-offcanvas row-offcanvas-left">
-			<c:import url = "../module/left.jsp" />
-	<!-- -------------------------main---------------------------- -->	
-			<!-- 사각형 박스 정보 차트 start -->
-			<div class="col-md-9 col-lg-10 main">
-			
-			<input id="useMemberNo" type="hidden" value="${useMemberNo}"/>	
-			<input id="absenceMemberNo" type="hidden" value="${absenceMemberNo}"/>
-			<input id="unpaidMemberNo" type="hidden" value="${unpaidMemberNo}"/>
-			<input id="pamphletNo" type="hidden" value="${pamphletNo}"/>	
-			<input id="placardNo" type="hidden" value="${placardNo}"/>
-			<input id="introductionNo" type="hidden" value="${introductionNo}"/>
-			<input id="internetNo" type="hidden" value="${internetNo}"/>	
-			<input id="etctcNo" type="hidden" value="${etctcNo}"/>
-			<input id="MenNo" type="hidden" value="${MenNo}"/>	
-			<input id="womanNo" type="hidden" value="${womanNo}"/>
-			
-				<h3>Dashboard > 회원 현황</h3>
-				<%-- 
-				<div class="row mb-3">
-					<div class="col-xl-3 col-lg-6">
-						<div class="card card-inverse card-success">
-							<div class="card-block bg-success">
-								<div class="rotate">
-									<i class="fa fa-user fa-5x"></i>
-								</div>
-								<h6 class="text-uppercase">총 회원 수</h6>
-								<h1 class="display-1">100만</h1>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-6">
-						<div class="card card-inverse card-danger">
-							<div class="card-block bg-danger">
-								<div class="rotate">
-									<i class="fa fa-list fa-5x"></i>
-								</div>
-								<h6 class="text-uppercase">입실 회원 수</h6>
-								<h1 class="display-1">10만</h1>
+  <meta charset="UTF-8">
+  <title>ZacSIM Flot Charts</title>
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  <!-- Bootstrap 3.3.2 -->
+  <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome Icons -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <!-- Ionicons -->
+  <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+  <!-- Theme style -->
+  <link href="${pageContext.request.contextPath}/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+  <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+  <link href="${pageContext.request.contextPath}/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-6">
-						<div class="card card-inverse card-info">
-							<div class="card-block bg-info">
-								<div class="rotate">
-									<i class="fa fa-twitter fa-5x"></i>
-								</div>
-								<h6 class="text-uppercase">미납자 수</h6>
-								<h1 class="display-1">${memberNom}명</h1>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-6">
-						<div class="card card-inverse card-warning">
-							<div class="card-block bg-warning">
-								<div class="rotate">
-									<i class="fa fa-share fa-5x"></i>
-								</div>
-								<h6 class="text-uppercase">신삼이</h6>
-								<h1 class="display-1">36</h1>
-							</div>
-						</div>
-					</div>
-				</div> --%>
-				<hr>
-	<!-- 사각형 박스 정보 차트 end -->
-	
-	<!-- bar 차트 start-->	
-				<div id="chart_div" style="width: 1200px; height: 350px;"></div>
-	<!-- bar 차트 end-->
-				<hr>
-	<!-- 등록 경로 원형 차트 start-->	
-				<div class="row col-sm-12">		
-					<div id="memberPath" class="col-sm-6" style="width: 600px; height: 600px;"></div>
-					<div id="sexRatio" class="col-sm-6" style="width: 600px; height: 600px;"></div>
-				</div>
-	<!-- 등록 경로 원형 차트 end -->	
-	
-		</div>
-	<!-- --------------------------main end--------------------------- -->
-	
-	
-</body>
+</head>
+<body class="skin-blue">
+    <div class="wrapper">    
+      <header class="main-header">
+        <a href="${pageContext.request.contextPath}/resources/index2.html" class="logo">Zac<b>SIM</b></a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+        
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- Messages: style can be found in dropdown.less-->
+              <li class="dropdown messages-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-envelope-o"></i>
+                  <span class="label label-success">4</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 4 messages</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li><!-- start message -->
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="${pageContext.request.contextPath}/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+                          </div>
+                          <h4>
+                            Support Team
+                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li><!-- end message -->
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="${pageContext.request.contextPath}/resources/dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            AdminLTE Design Team
+                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="${pageContext.request.contextPath}/resources/dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            Developers
+                            <small><i class="fa fa-clock-o"></i> Today</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="${pageContext.request.contextPath}/resources/dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            Sales Department
+                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="${pageContext.request.contextPath}/resources/dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            Reviewers
+                            <small><i class="fa fa-clock-o"></i> 2 days</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">See All Messages</a></li>
+                </ul>
+              </li>
+              <!-- Notifications: style can be found in dropdown.less -->
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning">10</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 10 notifications</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-red"></i> 5 new members joined
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-user text-red"></i> You changed your username
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">View all</a></li>
+                </ul>
+              </li>
+              <!-- Tasks: style can be found in dropdown.less -->
+              <li class="dropdown tasks-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-flag-o"></i>
+                  <span class="label label-danger">9</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 9 tasks</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Design some buttons
+                            <small class="pull-right">20%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">20% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Create a nice theme
+                            <small class="pull-right">40%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">40% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Some task I need to do
+                            <small class="pull-right">60%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">60% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Make beautiful transitions
+                            <small class="pull-right">80%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">80% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                    </ul>
+                  </li>
+                  <li class="footer">
+                    <a href="#">View all tasks</a>
+                  </li>
+                </ul>
+              </li>
+              
+              
+              
+              
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown user user-menu">
+                <a href="${pageContext.request.contextPath}/login/logout" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="${pageContext.request.contextPath}/resources/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                  <span class="hidden-xs">로그아웃</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <img src="${pageContext.request.contextPath}/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <p>
+                      Alexander Pierce - Web Developer
+                      <small>Member since Nov. 2012</small>
+                    </p>
+                  </li>
+                  <!-- Menu Body -->
+                  <li class="user-body">
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      
+      
+<!-- ------------------------------------------------------------레프트!!----------------------------------------------------------------------- -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="${pageContext.request.contextPath}/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+              <p>Alexander Pierce</p>
+
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+          <!-- search form -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search..."/>
+              <span class="input-group-btn">
+                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+          <!-- /.search form -->
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="${pageContext.request.contextPath}/dashboard/member_status"><i class="fa fa-circle-o"></i> 오늘의 현황</a></li>
+                <li><a href="${pageContext.request.contextPath}/dashboard/member_status"><i class="fa fa-circle-o"></i> 통계</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-files-o"></i>
+                <span>Layout Options</span>
+                <span class="label label-primary pull-right">4</span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="${pageContext.request.contextPath}/resources/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
+                <li><a href="${pageContext.request.contextPath}/resources/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
+                <li><a href="${pageContext.request.contextPath}/resources/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
+                <li><a href="${pageContext.request.contextPath}/resources/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../widgets.html">
+                <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
+              </a>
+            </li>
+            <li class="treeview active">
+              <a href="#">
+                <i class="fa fa-pie-chart"></i>
+                <span>Charts</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
+                <li class="active"><a href="flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
+                <li><a href="inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-laptop"></i>
+                <span>UI Elements</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
+                <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
+                <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
+                <li><a href="../UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
+                <li><a href="../UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
+                <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-edit"></i> <span>Forms</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="../forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
+                <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
+                <li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-table"></i> <span>Tables</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="../tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
+                <li><a href="../tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../calendar.html">
+                <i class="fa fa-calendar"></i> <span>Calendar</span>
+                <small class="label pull-right bg-red">3</small>
+              </a>
+            </li>
+            <li>
+              <a href="../mailbox/mailbox.html">
+                <i class="fa fa-envelope"></i> <span>Mailbox</span>
+                <small class="label pull-right bg-yellow">12</small>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-folder"></i> <span>Examples</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="../examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
+                <li><a href="../examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
+                <li><a href="../examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
+                <li><a href="../examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
+                <li><a href="../examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
+                <li><a href="../examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
+                <li><a href="../examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-share"></i> <span>Multilevel</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                <li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Level One <i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                    <li>
+                      <a href="#"><i class="fa fa-circle-o"></i> Level Two <i class="fa fa-angle-left pull-right"></i></a>
+                      <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+              </ul>
+            </li>
+            <li><a href="${pageContext.request.contextPath}/resources/documentation/index.html"><i class="fa fa-book"></i> Documentation</a></li>
+            <li class="header">LABELS</li>
+            <li><a href="#"><i class="fa fa-circle-o text-danger"></i> Important</a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-warning"></i> Warning</a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-info"></i> Information</a></li>
+          </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Right side column. Contains the navbar and content of the page -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Flot Charts
+            <small>preview sample</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Blank page</li>
+          </ol>
+        </section>
+
+<!-- ------------------------------------------------------------내용!!!----------------------------------------------------------------------- -->
+		
+		<input id="useMemberNo" type="hidden" value="${useMemberNo}"/>	
+		<input id="absenceMemberNo" type="hidden" value="${absenceMemberNo}"/>
+		<input id="unpaidMemberNo" type="hidden" value="${unpaidMemberNo}"/>
+		<input id="pamphletNo" type="hidden" value="${pamphletNo}"/>	
+		<input id="placardNo" type="hidden" value="${placardNo}"/>
+		<input id="introductionNo" type="hidden" value="${introductionNo}"/>
+		<input id="internetNo" type="hidden" value="${internetNo}"/>	
+		<input id="etctcNo" type="hidden" value="${etctcNo}"/>
+		<input id="MenNo" type="hidden" value="${MenNo}"/>	
+		<input id="womanNo" type="hidden" value="${womanNo}"/>
+		
+        <section class="content">
+        
+        
+           <div class="row">
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-aqua">
+                <div class="inner">
+                  <h3>${useMemberNo+absenceMemberNo+unpaidMemberNo}</h3>
+                  <p>총 열람석</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>${useMemberNo}</h3>
+                  <p>사용중 열람석</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3>${absenceMemberNo}</h3>
+                  <p>부재중 열람석</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <h3>${pamphletNo}</h3>
+                  <p>미결제 열람석</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+          </div><!-- /.row -->
+          
+          
+          <div class="row">
+            <div class="col-xs-12">
+              <!-- interactive chart -->
+              <div class="box box-primary">
+                <div class="box-header">
+                  <i class="fa fa-bar-chart-o"></i>
+                  <h3 class="box-title">월별 수입 추이</h3>
+                  <div class="box-tools pull-right">
+                    Real time
+                    <div class="btn-group" id="realtime" data-toggle="btn-toggle">
+                      <button type="button" class="btn btn-default btn-xs active" data-toggle="on">On</button>
+                      <button type="button" class="btn btn-default btn-xs" data-toggle="off">Off</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <div id="interactive" style="height: 300px;"></div>
+                </div><!-- /.box-body-->
+              </div><!-- /.box -->
+
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <div class="row">
+            <div class="col-md-6">
+              <!-- Line chart -->
+              <div class="box box-primary">
+                <div class="box-header">
+                  <i class="fa fa-bar-chart-o"></i>
+                  <h3 class="box-title">Line Chart</h3>
+                </div>
+                <div class="box-body">
+                  <div id="line-chart" style="height: 300px;"></div>
+                </div><!-- /.box-body-->
+              </div><!-- /.box -->
+
+              <!-- Area chart -->
+              <div class="box box-primary">
+                <div class="box-header">
+                  <i class="fa fa-bar-chart-o"></i>
+                  <h3 class="box-title">Full Width Area Chart</h3>
+                </div>
+                <div class="box-body">
+                  <div id="area-chart" style="height: 338px;" class="full-width-chart"></div>
+                </div><!-- /.box-body-->
+              </div><!-- /.box -->
+
+            </div><!-- /.col -->
+
+            <div class="col-md-6">
+              <!-- Bar chart -->
+              <div class="box box-primary">
+                <div class="box-header">
+                  <i class="fa fa-bar-chart-o"></i>
+                  <h3 class="box-title">Bar Chart</h3>
+                </div>
+                <div class="box-body">
+                  <div id="bar-chart" style="height: 300px;"></div>
+                </div><!-- /.box-body-->
+              </div><!-- /.box -->
+
+              <!-- Donut chart -->
+              <div class="box box-primary">
+                <div class="box-header">
+                  <i class="fa fa-bar-chart-o"></i>
+                  <h3 class="box-title">Donut Chart</h3>
+                </div>
+                <div class="box-body">
+                  <div id="donut-chart" style="height: 300px;"></div>
+                </div><!-- /.box-body-->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+
+      </div><!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+      </footer>
+    </div><!-- ./wrapper -->
+
+    <!-- jQuery 2.1.3 -->
+    <script src="${pageContext.request.contextPath}/resources/plugins/jQuery/jQuery-2.1.3.min.js"></script>
+    <!-- Bootstrap 3.3.2 JS -->
+    <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- FastClick -->
+    <script src='${pageContext.request.contextPath}/resources/plugins/fastclick/fastclick.min.js'></script>
+    <!-- AdminLTE App -->
+    <script src="${pageContext.request.contextPath}/resources/dist/js/app.min.js" type="text/javascript"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="${pageContext.request.contextPath}/resources/dist/js/demo.js" type="text/javascript"></script>
+    <!-- FLOT CHARTS -->
+    <script src="${pageContext.request.contextPath}/resources/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+    <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+    <script src="${pageContext.request.contextPath}/resources/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+    <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+    <script src="${pageContext.request.contextPath}/resources/plugins/flot/jquery.flot.pie.min.js" type="text/javascript"></script>
+    <!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
+    <script src="${pageContext.request.contextPath}/resources/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+
+    <!-- Page script -->
+    <script type="text/javascript">
+
+      $(function () {
+
+        /*
+         * Flot Interactive Chart
+         * -----------------------
+         */
+        // We use an inline data source in the example, usually data would
+        // be fetched from a server
+        var data = [], totalPoints = 100;
+        function getRandomData() {
+
+          if (data.length > 0)
+            data = data.slice(1);
+
+          // Do a random walk
+          while (data.length < totalPoints) {
+
+            var prev = data.length > 0 ? data[data.length - 1] : 50,
+                    y = prev + Math.random() * 10 - 5;
+
+            if (y < 0) {
+              y = 0;
+            } else if (y > 100) {
+              y = 100;
+            }
+
+            data.push(y);
+          }
+
+          // Zip the generated y values with the x values
+          var res = [];
+          for (var i = 0; i < data.length; ++i) {
+            res.push([i, data[i]]);
+          }
+
+          return res;
+        }
+
+        var interactive_plot = $.plot("#interactive", [getRandomData()], {
+          grid: {
+            borderColor: "#f3f3f3",
+            borderWidth: 1,
+            tickColor: "#f3f3f3"
+          },
+          series: {
+            shadowSize: 0, // Drawing is faster without shadows
+            color: "#3c8dbc"
+          },
+          lines: {
+            fill: true, //Converts the line chart to area chart
+            color: "#3c8dbc"
+          },
+          yaxis: {
+            min: 0,
+            max: 100,
+            show: true
+          },
+          xaxis: {
+            show: true
+          }
+        });
+
+        var updateInterval = 500; //Fetch data ever x milliseconds
+        var realtime = "on"; //If == to on then fetch data every x seconds. else stop fetching
+        function update() {
+
+          interactive_plot.setData([getRandomData()]);
+
+          // Since the axes don't change, we don't need to call plot.setupGrid()
+          interactive_plot.draw();
+          if (realtime === "on")
+            setTimeout(update, updateInterval);
+        }
+
+        //INITIALIZE REALTIME DATA FETCHING
+        if (realtime === "on") {
+          update();
+        }
+        //REALTIME TOGGLE
+        $("#realtime .btn").click(function () {
+          if ($(this).data("toggle") === "on") {
+            realtime = "on";
+          }
+          else {
+            realtime = "off";
+          }
+          update();
+        });
+        /*
+         * END INTERACTIVE CHART
+         */
+
+
+        /*
+         * LINE CHART
+         * ----------
+         */
+        //LINE randomly generated data
+
+        var sin = [], cos = [];
+        for (var i = 0; i < 14; i += 0.5) {
+          sin.push([i, Math.sin(i)]);
+          cos.push([i, Math.cos(i)]);
+        }
+        var line_data1 = {
+          data: sin,
+          color: "#3c8dbc"
+        };
+        var line_data2 = {
+          data: cos,
+          color: "#00c0ef"
+        };
+        $.plot("#line-chart", [line_data1, line_data2], {
+          grid: {
+            hoverable: true,
+            borderColor: "#f3f3f3",
+            borderWidth: 1,
+            tickColor: "#f3f3f3"
+          },
+          series: {
+            shadowSize: 0,
+            lines: {
+              show: true
+            },
+            points: {
+              show: true
+            }
+          },
+          lines: {
+            fill: false,
+            color: ["#3c8dbc", "#f56954"]
+          },
+          yaxis: {
+            show: true,
+          },
+          xaxis: {
+            show: true
+          }
+        });
+        //Initialize tooltip on hover
+        $("<div class='tooltip-inner' id='line-chart-tooltip'></div>").css({
+          position: "absolute",
+          display: "none",
+          opacity: 0.8
+        }).appendTo("body");
+        $("#line-chart").bind("plothover", function (event, pos, item) {
+
+          if (item) {
+            var x = item.datapoint[0].toFixed(2),
+                    y = item.datapoint[1].toFixed(2);
+
+            $("#line-chart-tooltip").html(item.series.label + " of " + x + " = " + y)
+                    .css({top: item.pageY + 5, left: item.pageX + 5})
+                    .fadeIn(200);
+          } else {
+            $("#line-chart-tooltip").hide();
+          }
+
+        });
+        /* END LINE CHART */
+
+        /*
+         * FULL WIDTH STATIC AREA CHART
+         * -----------------
+         */
+        var areaData = [[2, 88.0], [3, 93.3], [4, 102.0], [5, 108.5], [6, 115.7], [7, 115.6],
+          [8, 124.6], [9, 130.3], [10, 134.3], [11, 141.4], [12, 146.5], [13, 151.7], [14, 159.9],
+          [15, 165.4], [16, 167.8], [17, 168.7], [18, 169.5], [19, 168.0]];
+        $.plot("#area-chart", [areaData], {
+          grid: {
+            borderWidth: 0
+          },
+          series: {
+            shadowSize: 0, // Drawing is faster without shadows
+            color: "#00c0ef"
+          },
+          lines: {
+            fill: true //Converts the line chart to area chart
+          },
+          yaxis: {
+            show: false
+          },
+          xaxis: {
+            show: false
+          }
+        });
+
+        /* END AREA CHART */
+
+        /*
+         * BAR CHART
+         * ---------
+         */
+
+        var bar_data = {
+          data: [["January", 10], ["February", 8], ["March", 4], ["April", 13], ["May", 17], ["June", 9]],
+          color: "#3c8dbc"
+        };
+        $.plot("#bar-chart", [bar_data], {
+          grid: {
+            borderWidth: 1,
+            borderColor: "#f3f3f3",
+            tickColor: "#f3f3f3"
+          },
+          series: {
+            bars: {
+              show: true,
+              barWidth: 0.5,
+              align: "center"
+            }
+          },
+          xaxis: {
+            mode: "categories",
+            tickLength: 0
+          }
+        });
+        /* END BAR CHART */
+
+        /*
+         * DONUT CHART
+         * -----------
+         */
+
+        var donutData = [
+          {label: "Series2", data: 30, color: "#3c8dbc"},
+          {label: "Series3", data: 20, color: "#0073b7"},
+          {label: "Series4", data: 50, color: "#00c0ef"}
+        ];
+        $.plot("#donut-chart", donutData, {
+          series: {
+            pie: {
+              show: true,
+              radius: 1,
+              innerRadius: 0.5,
+              label: {
+                show: true,
+                radius: 2 / 3,
+                formatter: labelFormatter,
+                threshold: 0.1
+              }
+
+            }
+          },
+          legend: {
+            show: false
+          }
+        });
+        /*
+         * END DONUT CHART
+         */
+
+      });
+
+      /*
+       * Custom Label formatter
+       * ----------------------
+       */
+      function labelFormatter(label, series) {
+        return "<div style='font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;'>"
+                + label
+                + "<br/>"
+                + Math.round(series.percent) + "%</div>";
+      }
+    </script>
+  </body>
 </html>

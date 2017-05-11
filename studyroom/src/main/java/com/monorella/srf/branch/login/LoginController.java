@@ -17,8 +17,13 @@ public class LoginController {
 	@Autowired LoginDao loginDao;
 	@Autowired MemberDao memberDao;
 	
+	//페이지 테스트
+	@RequestMapping(value="/page/data", method = RequestMethod.GET)
+	public String page_form(){
+		return "pages/tables/data_tb";
+	}
 	
-
+	//테스트
 	@RequestMapping(value = "/home/NewFile", method = RequestMethod.GET)
 	public String main_form(){
 		return "home/NewFile";
@@ -51,6 +56,6 @@ public class LoginController {
 			request.getSession().setAttribute("branchOwner", owner);
 		}
 
-		return "redirect:/home/NewFile";
+		return "redirect:/dashboard/member_status";
 	}
 }
