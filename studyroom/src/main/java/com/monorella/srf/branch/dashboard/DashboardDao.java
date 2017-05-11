@@ -38,7 +38,26 @@ public class DashboardDao {
 			return row;
 	}
 	
-	//----------------------------------------------------회원 상태-------------------------------------------------
+	
+	//----------------------------------------------------열람석 상태-------------------------------------------------
+	//미결제 열람석
+	public int selectUnpaidSeat(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUnpaidSeat");
+		return row;
+	}
+	//부재중 열람석
+	public int selectAbsenceSeat(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectAbsenceSeat");
+		return row;
+	}
+	//사용중 열람석
+	public int selectUseSeat(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseSeat");
+		return row;
+	}		
+	
+	
+	//----------------------------------------------------회원-------------------------------------------------
 	//남자
 	public int selectMen(){
 		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMen");
@@ -49,21 +68,6 @@ public class DashboardDao {
 		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectWoman");
 		return row;
 	}
-	//미결제 회원
-	public int selectUnpaidMember(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUnpaidMember");
-		return row;
-	}
-	//부재중 회원
-	public int selectAbsenceMember(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectAbsenceMember");
-		return row;
-	}
-	//사용중 회원
-	public int selectUseMember(){
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseMember");
-		return row;
-	}	
 	//전체 회원
 	public int selectMemberCount() {
 		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMemberCount");
