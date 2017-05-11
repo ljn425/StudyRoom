@@ -16,9 +16,25 @@ public class MemberDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
+	// 회원삭제 메서드
+    public int removeMember(String member_cd, String branch_owner_cd) {
+    	Member member = new Member();
+    	member.setMember_cd(member_cd);
+    	member.setBranch_owner_cd(branch_owner_cd);
+    	System.out.println("7st getMemberList");
+        return sqlSessionTemplate.delete("com.monorella.srf.branch.member.MemberMapper.removeMember", member);
+    }
+	
+	//회원수정 메서드
+	public int modifyMember(Member member) {
+		System.out.println("6st getMemberList");
+		return sqlSessionTemplate.update("com.monorella.srf.branch.member.MemberMapper.modifyMember", member);
+	}
+	
 	//하나의 게시글 보기
-	public Member getMember(String member_nm) {
-        return sqlSessionTemplate.selectOne("com.monorella.srf.branch.Mapper.member.MemberMapper.getMember",member_nm);
+	public Member getMember(String member_cd) {
+		System.out.println("5st getMemberList");
+        return sqlSessionTemplate.selectOne("com.monorella.srf.branch.member.MemberMapper.getMember", member_cd);
     }
 	
 	// 회원검색 메서드

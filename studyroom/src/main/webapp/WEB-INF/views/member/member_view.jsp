@@ -19,9 +19,15 @@
 			<div class="col-md-9 col-lg-10 main" id="wrap">
 <div class="container">
 	<h1>독서실 회원 상세정보</h1>
-	<table class="table">
+	<br>
+	<table class="table table-hover">
          <tbody>
-             <tr>
+         	
+         	 <tr>
+                <td>member_cd :</td>
+                <td>${member.member_cd}</td>
+            </tr>
+            <tr>
                 <td>member_nm :</td>
                 <td>${member.member_nm}</td>
             </tr>
@@ -47,9 +53,9 @@
             </tr>
         </tbody>
     </table>
-   <a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_modify?member_nm=${member.member_nm}">회원 수정</a>
-    <a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_delete?member_nm=${member.member_nm}">회원 삭제</a>
-    <a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_list">회원리스트</a>
+   <a class="btn btn-secondary" href="${pageContext.request.contextPath}/member/member_modify?member_cd=${member.member_cd}">회원 수정</a>
+    <a class="btn btn-secondary" href="${pageContext.request.contextPath}/member/member_remove?member_cd=${member.member_cd}">회원 삭제</a>
+    <a class="btn btn-secondary" href="${pageContext.request.contextPath}/member/member_list">회원리스트</a>
 </div>
 </div>
 </div>
