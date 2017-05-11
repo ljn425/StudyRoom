@@ -1,8 +1,12 @@
 package com.monorella.srf.branch.dashboard;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.monorella.srf.branch.dto.Member;
 
 @Repository
 public class DashboardDao {
@@ -58,8 +62,13 @@ public class DashboardDao {
 	
 	
 	//----------------------------------------------------회원-------------------------------------------------
-	//금일 등록회원
+	//이용중 회원 목록
+	public List<Member> selectUseMemberList(){
+		List<Member> useMember = sqlSessionTemplate.selectList("com.monorella.srf.branch.dashboard.DashboardMapper.selectUseMemberList");
+		return useMember;
+	}
 	
+	//금일 등록회원
 	public int selectTodayInsertMember(){
 		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectTodayInsertMember");
 		return row;

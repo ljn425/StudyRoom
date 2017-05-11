@@ -1,10 +1,14 @@
 package com.monorella.srf.branch.dashboard;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.monorella.srf.branch.dto.Member;
 
 @Controller
 public class DashboardController {
@@ -19,6 +23,15 @@ public class DashboardController {
 		return "dashboard/chart";
 	}
 	
+	// list test
+	@RequestMapping(value="/dashboard/use_member_list" , method = RequestMethod.GET)
+	public String selectUseMemberList(Model model){
+		List<Member> useMemberList = dashboardDao.selectUseMemberList();
+		model.addAttribute("useMemberList", useMemberList);
+		return "dashboard/use_member_list";
+	}
+	
+	
 	// 메뉴 - 회원 현황 폼
 	@RequestMapping(value="/dashboard/today_status" , method = RequestMethod.GET)
 	public String selectMemberStatus(Model model){
@@ -31,9 +44,9 @@ public class DashboardController {
 		
 		// 회원
 		int MenNo = dashboardDao.selectMen(); //여성회원
-		int womanNo = dashboardDao.selectWoman();//남성회원
-		int todayMember = dashboardDao.selectTodayInsertMember();//금일 등록 회원
-		
+		int womanNo = dashboardDao.selectWoman(); //남성회원
+		int todayMember = dashboardDao.selectTodayInsertMember(); //금일 등록 회원
+		List<Member> useMemberList = dashboardDao.selectUseMemberList(); //이용중 회원 목록
 		
 		// 등록경로-------------------------------------------
 		int pamphletNo = dashboardDao.selectPamphlet(); //전단지
@@ -49,6 +62,7 @@ public class DashboardController {
 		System.out.println("DashboardController-> selectMemberStatus()-> MenNo: "+MenNo);
 		System.out.println("DashboardController-> selectMemberStatus()-> womanNo: "+womanNo);
 		System.out.println("DashboardController-> selectMemberStatus()-> todayMember: "+todayMember);
+		System.out.println("DashboardController-> selectMemberStatus()-> useMemberList: "+useMemberList);
 		
 		System.out.println("DashboardController-> selectMemberStatus()-> pamphletNo: "+pamphletNo);
 		System.out.println("DashboardController-> selectMemberStatus()-> placardNo: "+placardNo);
@@ -63,6 +77,7 @@ public class DashboardController {
 		model.addAttribute("MenNo", MenNo);
 		model.addAttribute("womanNo", womanNo);
 		model.addAttribute("todayMember", todayMember);
+		model.addAttribute("useMemberList", useMemberList);
 		
 		model.addAttribute("pamphletNo", pamphletNo);
 		model.addAttribute("placardNo", placardNo);
