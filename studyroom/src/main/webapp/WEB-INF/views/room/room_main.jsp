@@ -156,11 +156,9 @@ $(document).ready(function(){
 	<!-- main -->
 	  <div class="col-md-9 col-lg-10 main" id="wrap">		
 			<button type="button" class="btn btn-success btn-lg">전체화면</button>
-			<button type="button" class="btn btn-success btn-lg">열람실 201호</button>
-			<button type="button" class="btn btn-success btn-lg">열람실 202호</button>
-			<button type="button" class="btn btn-success btn-lg">열람실 203호</button>
-			<button type="button" class="btn btn-success btn-lg">열람실 204호</button>
-			
+			<c:forEach var="r" items="${roomlist}">
+				<button type="button" class="btn btn-success btn-lg">열람실 ${r.room_nm}</button>
+			</c:forEach>
 			<div class="container text-left con">
 			<hr>
 			 <h3>열람실 전체 화면</h3>

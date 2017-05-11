@@ -116,9 +116,28 @@
 			console.log(charNum);
 			$('#charNum').html("&nbsp");
 			$('#charNum2').html("");
-			
 		});
-
+		
+		var contextPath = '<c:out value='${pageContext.request.contextPath}'/>';
+		console.log(contextPath);
+		$('#add_btn').click(function() {
+		 var result = confirm('정말로 이 배치도로 등록 하시겠습니까?');
+		 if(result) { 
+			console.log('yes');
+			location.replace(contextPath+'/dashboard/today_status'); 
+		   }else{ 
+			 
+		   }
+		 
+		 $('#cancel_btn').click(function() {
+			 var result = confirm('정말로 등록을 취소 하시겠습니까?');
+			 if(result) { 
+				console.log('yes');
+				location.replace(contextPath+'/dashboard/today_status'); 
+			   }else{ 
+				 
+			   } 
+		 });
 	});
 </script>
 </head>
@@ -150,7 +169,7 @@
             <div class='color-palette-set'>
                <div class='bg-orange disabled color-palette'>
                	 <h1>
-	               	<span>열람실 ${room.room_nm}</span>
+	               	<span>열람실 ${room.room_nm} 배치도</span>
                	</h1>
                </div>
              </div><!-- col-xs-12 -->  
@@ -186,8 +205,8 @@
 					<ul id="sortable">
 						<li class="ui-state-default">장식물</li>
 					</ul>
-					<button class="btn btn-block btn-info btn-xs">등록</button>
-					<button class="btn btn-block btn-danger btn-xs">취소</button>
+					<button id="add_btn" type="button" class="btn btn-block btn-info btn-xs">등록</button>
+					<button id="cancel_btn" type="button" class="btn btn-block btn-danger btn-xs">취소</button>
 					
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
