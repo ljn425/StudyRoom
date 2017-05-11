@@ -56,10 +56,11 @@
 				<div class="row">			
 					<div class="col-sm-12">	
 						<c:forEach var="s" items="${seatlist}">
-						<%--  <c:choose>
-						 	<c:when test="${s.seat_cnumber}">
-						 	</c:when>
-						 </c:choose> --%>
+						<%--  <c:if test="${s.room_cd eq 'room_cd2'}">
+						 	<div>
+						 		다른 열람실 ${s.room_cd}
+						 	</div>
+						 </c:if> --%>
 						 <input type="hidden" class="get_seat" value="${s.seat_cd}"/>
 							<button class="btn bg-olive btn-flat margin seat_btn" value="${s.seat_cd}">
 								<p>열람석${s.seat_cnumber}</p>
@@ -72,6 +73,7 @@
 								 </c:otherwise>
 								</c:choose>
 							</button>
+						
 						</c:forEach>			
 					</div>
 				</div><!-- row -->
