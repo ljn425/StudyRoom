@@ -6,139 +6,19 @@
   <head>
     <!-- 헤드 -->
 	<c:import url="../module2/head.jsp"/>
-	<!-- JS -->
+  	<!-- JS -->
 	<c:import url="../module2/jsscript.jsp" />
-  
-<style>
-.container{
-	float : left;
-}
-
-.column {
-	width: 170px;
-	float: left;
-	padding-bottom: 100px;
-}
-
-.ui-widget-content{
-	border: 1px solid;
-}
-
-.portlet {
-	margin: 0 1em 1em 0;
-	padding: 0.3em;
-}
-
-.portlet-header {
-	padding: 0.2em 0.3em;
-	margin-bottom: 0.5em;
-	position: relative;
-}
-
-.portlet-toggle {
-	position: absolute;
-	top: 50%;
-	right: 0;
-	margin-top: -8px;
-}
-
-.portlet-content {
-	padding: 0.4em;
-}
-
-.portlet-placeholder {
-	border: 1px dotted black;
-	margin: 0 1em 1em 0;
-	height: 50px;
-}
-</style>
-<style>
-* {
-	box-sizing: border-box;
-}
-
-.menu {
-	width: 75%;
-	float: left;
-	padding: 15px;
-}
-</style>
-<style>
-.flex-container {
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-flow: row wrap;
-	flex-flow: row wrap;
-	text-align: center;
-}
-
-.flex-container>* {
-	padding: 15px;
-	-webkit-flex: 1 100%;
-	flex: 1 100%;
-}
-
-.article {
-	text-align: left;
-}
-
-header {
-	background: black;
-	color: white;
-}
-
-footer {
-	background: #aaa;
-	color: white;
-}
-ecoration: none;
-}
-
-
-
-@media all and (min-width: 768px) {
-	.nav {
-		text-align: left;
-		-webkit-flex: 1 auto;
-		flex: 1 auto;
-		-webkit-order: 1;
-		order: 1;
-	}
-	.article {
-		-webkit-flex: 5 0px;
-		flex: 5 0px;
-		-webkit-order: 2;
-		order: 2;
-	}
-	footer {
-		-webkit-order: 3;
-		order: 3;
-	}
-}
-</style>
-
-<style>
-#draggable {
-	width: 60px;
-	height: 60px;
-	padding: 0.1em;
-	float: left;
-	margin: 0px 0px 0px 0;
-}
-</style>
-
-<script type="text/javascript">
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').focus()
-})
-</script>
-
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover();   
-});
-</script>
-
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+	<script>
+		$(document).ready(function(){
+			console.log('안녕');
+			var contextPath = '<c:out value='${pageContext.request.contextPath}'/>';
+			$('#pay_btn').click(function(){
+				console.log('클릭');
+				window.open(contextPath+'/payment/payment?room_cd="1"', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=1000,left=700,width=500,height=500');
+			});
+		});
+	</script>
 </head>
 <body class="skin-blue">
     <div class="wrapper">
@@ -168,12 +48,14 @@ $(document).ready(function(){
 						<div class="menu">
 							<h5>201</h5>
 							<div class="column1">
-								<%@include file="modalinclude.jsp"%>
+								<%@include file="modalinclude.jsp"%>								
 							</div>
 							<div class="column1">
 								<div id="draggable" class="ui-widget-content">
 									<h6>2</h6>
+									<button type="button" class="font-size: 1px;" id="pay_btn">결제</button>
 								</div>
+								
 							</div>
 							<div class="column1">
 								<div id="draggable" class="ui-widget-content">
@@ -494,5 +376,7 @@ $(document).ready(function(){
 	</div>
 	</section>
   </div>
+  
+
 </body>
 </html>
