@@ -56,6 +56,6 @@ public class LoginController {
 			request.getSession().setAttribute("branchOwner", owner);
 		}
 
-		return "redirect:/home/NewFile";
+		return "redirect:/dashboard/today_status";
 	}
 }

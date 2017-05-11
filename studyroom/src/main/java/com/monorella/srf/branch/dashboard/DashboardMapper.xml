@@ -44,6 +44,12 @@
 	
 	
 	<!-- 회원 -->
+	<!-- 금일 등록 회원 -->
+	<select id="selectTodayInsertMember" resultType="int">
+		SELECT COUNT(*)
+		FROM branch_member_tb 
+		WHERE member_date = now();
+	</select>
 	<!-- 전체 회원 -->
 	<select id="selectMemberCount" resultType="int">
 		SELECT COUNT(*) FROM branch_member_tb

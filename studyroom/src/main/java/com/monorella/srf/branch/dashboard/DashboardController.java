@@ -20,7 +20,7 @@ public class DashboardController {
 	}
 	
 	// 메뉴 - 회원 현황 폼
-	@RequestMapping(value="/dashboard/member_status" , method = RequestMethod.GET)
+	@RequestMapping(value="/dashboard/today_status" , method = RequestMethod.GET)
 	public String selectMemberStatus(Model model){
 		System.out.println("DashboardController-> selectMemberStatus()");
 		
@@ -32,6 +32,7 @@ public class DashboardController {
 		// 회원
 		int MenNo = dashboardDao.selectMen(); //여성회원
 		int womanNo = dashboardDao.selectWoman();//남성회원
+		int todayMember = dashboardDao.selectTodayInsertMember();//금일 등록 회원
 		
 		
 		// 등록경로-------------------------------------------
@@ -44,8 +45,10 @@ public class DashboardController {
 		System.out.println("DashboardController-> selectMemberStatus()-> useMemberNo: "+useMemberNo);
 		System.out.println("DashboardController-> selectMemberStatus()-> absenceMemberNo: "+absenceMemberNo);
 		System.out.println("DashboardController-> selectMemberStatus()-> unpaidMemberNo: "+unpaidMemberNo);
+		
 		System.out.println("DashboardController-> selectMemberStatus()-> MenNo: "+MenNo);
 		System.out.println("DashboardController-> selectMemberStatus()-> womanNo: "+womanNo);
+		System.out.println("DashboardController-> selectMemberStatus()-> todayMember: "+todayMember);
 		
 		System.out.println("DashboardController-> selectMemberStatus()-> pamphletNo: "+pamphletNo);
 		System.out.println("DashboardController-> selectMemberStatus()-> placardNo: "+placardNo);
@@ -56,8 +59,10 @@ public class DashboardController {
 		model.addAttribute("useMemberNo", useMemberNo);
 		model.addAttribute("absenceMemberNo", absenceMemberNo);
 		model.addAttribute("unpaidMemberNo", unpaidMemberNo);
+		
 		model.addAttribute("MenNo", MenNo);
 		model.addAttribute("womanNo", womanNo);
+		model.addAttribute("todayMember", todayMember);
 		
 		model.addAttribute("pamphletNo", pamphletNo);
 		model.addAttribute("placardNo", placardNo);
@@ -65,7 +70,7 @@ public class DashboardController {
 		model.addAttribute("internetNo", internetNo);
 		model.addAttribute("etctcNo", etctcNo);
 		
-		return "dashboard/member_status";
+		return "dashboard/today_status";
 	}
 	
 	// 오늘의 현황 폼 요청
