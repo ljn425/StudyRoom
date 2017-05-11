@@ -70,7 +70,7 @@
               </a>
             </li>
             <li>
-              <a href="${pageContext.request.contextPath}/staffboard/staffBoard_list">
+              <a href="${pageContext.request.contextPath}/staffboard/staffboard_list">
                 <i class="fa fa-envelope"></i> <span>공지사항</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>

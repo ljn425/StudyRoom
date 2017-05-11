@@ -38,37 +38,41 @@ public class DashboardController {
 		System.out.println("DashboardController-> selectMemberStatus()");
 		
 		// 열람석 상태-------------------------------------------
-		int useMemberNo = dashboardDao.selectUseSeat(); //사용중 열람석
-		int absenceMemberNo = dashboardDao.selectAbsenceSeat(); //부재중 열람석 
-		int unpaidMemberNo = dashboardDao.selectUnpaidSeat(); // 미결제 열람석
+		int useMemberNo = dashboardDao.selectUseSeatCount(); //사용중 열람석
+		int absenceMemberNo = dashboardDao.selectAbsenceSeatCount(); //부재중 열람석 
+		int unpaidMemberNo = dashboardDao.selectUnpaidSeatCount(); // 미결제 열람석
 		
 		// 회원
-		int MenNo = dashboardDao.selectMen(); //여성회원
-		int womanNo = dashboardDao.selectWoman(); //남성회원
-		int todayMember = dashboardDao.selectTodayInsertMember(); //금일 등록 회원
+		int MenNo = dashboardDao.selectMenCount(); //여성회원
+		int womanNo = dashboardDao.selectWomanCount(); //남성회원
+		int todayMemberNo = dashboardDao.selectTodayInsertMemberCount(); //금일 등록 회원
+		int useTeensMemberNo = dashboardDao.selectUseTeensMemberCount(); // 이용중 10대
+		int useTeensMenMemberNo = dashboardDao.selectUseTeensMenMemberCount();// 이용중 10대 남자
 		List<Member> useMemberList = dashboardDao.selectUseMemberList(); //이용중 회원 목록
 		
 		// 등록경로-------------------------------------------
-		int pamphletNo = dashboardDao.selectPamphlet(); //전단지
-		int placardNo = dashboardDao.selectPlacard(); //플래카드
-		int introductionNo = dashboardDao.selectIntroduction(); //지인소개
-		int internetNo = dashboardDao.selectInternet(); //인터넷
-		int etctcNo = dashboardDao.selectEtc(); //기타
+		int pamphletNo = dashboardDao.selectPamphletCount(); //전단지
+		int placardNo = dashboardDao.selectPlacardCount(); //플래카드
+		int introductionNo = dashboardDao.selectIntroductionCount(); //지인소개
+		int internetNo = dashboardDao.selectInternetCount(); //인터넷
+		int etctcNo = dashboardDao.selectEtcCount(); //기타
 		
-		System.out.println("DashboardController-> selectMemberStatus()-> useMemberNo: "+useMemberNo);
-		System.out.println("DashboardController-> selectMemberStatus()-> absenceMemberNo: "+absenceMemberNo);
-		System.out.println("DashboardController-> selectMemberStatus()-> unpaidMemberNo: "+unpaidMemberNo);
+		//System.out.println("DashboardController-> selectMemberStatus()-> useMemberNo: "+useMemberNo);
+		//System.out.println("DashboardController-> selectMemberStatus()-> absenceMemberNo: "+absenceMemberNo);
+		//System.out.println("DashboardController-> selectMemberStatus()-> unpaidMemberNo: "+unpaidMemberNo);
 		
-		System.out.println("DashboardController-> selectMemberStatus()-> MenNo: "+MenNo);
-		System.out.println("DashboardController-> selectMemberStatus()-> womanNo: "+womanNo);
-		System.out.println("DashboardController-> selectMemberStatus()-> todayMember: "+todayMember);
-		System.out.println("DashboardController-> selectMemberStatus()-> useMemberList: "+useMemberList);
+		//System.out.println("DashboardController-> selectMemberStatus()-> MenNo: "+MenNo);
+		//System.out.println("DashboardController-> selectMemberStatus()-> womanNo: "+womanNo);
+		//System.out.println("DashboardController-> selectMemberStatus()-> todayMemberNo: "+todayMemberNo);
+		System.out.println("DashboardController-> selectMemberStatus()-> useTeensMemberNo: "+useTeensMemberNo);
+		System.out.println("DashboardController-> selectMemberStatus()-> useTeensMenMemberNo: "+useTeensMenMemberNo);
+		//System.out.println("DashboardController-> selectMemberStatus()-> useMemberList: "+useMemberList);
 		
-		System.out.println("DashboardController-> selectMemberStatus()-> pamphletNo: "+pamphletNo);
-		System.out.println("DashboardController-> selectMemberStatus()-> placardNo: "+placardNo);
-		System.out.println("DashboardController-> selectMemberStatus()-> introductionNo: "+introductionNo);
-		System.out.println("DashboardController-> selectMemberStatus()-> internetNo: "+internetNo);
-		System.out.println("DashboardController-> selectMemberStatus()-> etctcNo: "+etctcNo);
+		//System.out.println("DashboardController-> selectMemberStatus()-> pamphletNo: "+pamphletNo);
+		//System.out.println("DashboardController-> selectMemberStatus()-> placardNo: "+placardNo);
+		//System.out.println("DashboardController-> selectMemberStatus()-> introductionNo: "+introductionNo);
+		//System.out.println("DashboardController-> selectMemberStatus()-> internetNo: "+internetNo);
+		//System.out.println("DashboardController-> selectMemberStatus()-> etctcNo: "+etctcNo);
 		
 		model.addAttribute("useMemberNo", useMemberNo);
 		model.addAttribute("absenceMemberNo", absenceMemberNo);
@@ -76,7 +80,9 @@ public class DashboardController {
 		
 		model.addAttribute("MenNo", MenNo);
 		model.addAttribute("womanNo", womanNo);
-		model.addAttribute("todayMember", todayMember);
+		model.addAttribute("todayMemberNo", todayMemberNo);
+		model.addAttribute("useTeensMemberNo", useTeensMemberNo);
+		model.addAttribute("useTeensMenMemberNo", useTeensMenMemberNo);
 		model.addAttribute("useMemberList", useMemberList);
 		
 		model.addAttribute("pamphletNo", pamphletNo);
