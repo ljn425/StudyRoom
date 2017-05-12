@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.monorella.srf.branch.charges.ChargesMapper">
+  <!-- 요금제 등록 -->
+  	<insert id="insertCharges" parameterType="com.monorella.srf.branch.dto.Charges">
+  		<selectKey resultType="String" keyProperty="seat_charges_code" order="BEFORE">
+			SELECT CONCAT('seat_charges_code', MAX(CONVERT(SUBSTRING(seat_charges_code, 18), UNSIGNED))+1) as seat_charges_code
+			FROM seat_charges
+		</selectKey>
+  		INSERT INTO seat_charges(
+  			seat_charges_code
+  			, branch_owner_cd
+  			, seat_member_type
+  			, seat_charges_date
+  			, seat_charges_price)
+		VALUES (
+			#{seat_charges_code}
+			, #{branch_owner_cd}
+			, #{seat_member_type}
+			, #{seat_charges_date}
+			, #{seat_charges_price})
+  	</insert>
+  </mapper>
