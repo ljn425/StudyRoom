@@ -4,7 +4,35 @@
  
 <mapper namespace="com.monorella.srf.branch.staffboard.StaffBoardMapper">
 
+<!-- <select id="replayTotalBoard" parameterType="int" resultType="int">
+	SELECT count(*) FROM boardreply WHERE board_no = #{board_no}
+</select>
 
+<select id="totalStaffBoardReply" parameterType="int" resultType="kr.or.orange.service.Reply">
+	SELECT
+	 	re_no
+	 	, board_no
+	 	, re_user
+	 	, DATE_FORMAT(re_date, '%Y-%m-%d %h:%i:%s') re_date
+	 	, re_parent
+	 	, re_content
+	FROM boardreply WHERE board_no = #{board_no}
+</select>-->
+
+<insert id="insertStaffBoardReply" parameterType="com.monorella.srf.branch.dto.StaffBoardReply">
+	INSERT INTO branch_staffboardreply_tb(
+		staffboard_no
+		, staffboard_name
+		, staffboardreply_pw
+		, staffboardreply_date
+		, staffboardreply_content)
+		 VALUES (
+		  #{staffboard_no}
+		  , #{staffboard_name}
+		  , #{staffboardreply_pw}
+		  , NOW()
+		  , #{staffboardreply_content})
+</insert>
 
 <delete id="deleteStaffBoard" parameterType="com.monorella.srf.branch.dto.StaffBoard">
 	DELETE FROM branch_staffboard_tb 

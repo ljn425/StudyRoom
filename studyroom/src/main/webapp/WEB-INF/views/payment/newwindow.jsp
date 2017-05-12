@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
   <meta charset="utf-8">
@@ -12,6 +13,7 @@
 	String branch_owner_cd = request.getParameter("branch_owner_cd");
 	String room_cd = request.getParameter("room_cd");
 	String seat_cd = request.getParameter("seat_cd");
+	String member_cd = request.getParameter("member_cd");
 %>
 
  <HEAD>
@@ -39,15 +41,15 @@
               <div class="box box-primary">
                 <div class="container">
 				  <ul class="nav nav-tabs">
-				    <li><a data-toggle="tab" href="${pageContext.request.contextPath}/member1.jsp">회원가입</a></li>
-				    <li><a data-toggle="tab" href="${pageContext.request.contextPath}/getFrame.jsp">결제</a></li>
-				    <li><a data-toggle="tab" href="${pageContext.request.contextPath}/member2.jsp">회원정보</a></li>
+				    <li><a data-toggle="tab" href="${pageContext.request.contextPath}/payment/member1">회원가입</a></li>
+				    <li><a data-toggle="tab" href="${pageContext.request.contextPath}/payment/newwindow">결제</a></li>
+				    <li><a data-toggle="tab" href="${pageContext.request.contextPath}/payment/member2">회원정보</a></li>
 				  </ul>
 
                 <!-- form start -->
                 <form role="form">
                   <div class="box-body">
-                      <form name="myForm" name="postForm" method="post" action="/action_page.php">
+                      <form name="myForm" name="postForm" method="post" action="${pageContext.request.contextPath}/payment/paymentend">
 					    <div class="form-group">
 					    <label for="fname">결제코드&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 					    <input type="text" id="pay_cd" name="pay_cd" class="form-control" placeholder="<%=pay_cd%>" readonly>
@@ -66,6 +68,11 @@
 					    <div class="form-group">
 					    <label for="fname">열람석코드&nbsp;&nbsp;&nbsp;</label>
 					    <input type="text" id="seat_cd" name="seat_cd" class="form-control" placeholder="<%=seat_cd%>" readonly>
+					    </div>
+					    
+					    <div class="form-group">
+					    <label for="fname">회원코드&nbsp;&nbsp;&nbsp;</label>
+					    <input type="text" id="member_cd" name="member_cd" class="form-control" placeholder="<%=member_cd%>" readonly>
 					    </div>
 					    
 					    <div class="form-group">
