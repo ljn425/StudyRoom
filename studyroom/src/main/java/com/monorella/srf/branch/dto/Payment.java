@@ -5,6 +5,7 @@ public class Payment {
 	private String branch_owner_cd;
 	private String room_cd;
 	private String seat_cd;
+	private String member_cd;
 	private int pay_amount;
 	private int discount_amount;
 	private int total_amount;
@@ -34,6 +35,12 @@ public class Payment {
 	}
 	public void setSeat_cd(String seat_cd) {
 		this.seat_cd = seat_cd;
+	}
+	public String getMember_cd() {
+		return member_cd;
+	}
+	public void setMember_cd(String member_cd) {
+		this.member_cd = member_cd;
 	}
 	public int getPay_amount() {
 		return pay_amount;
@@ -69,7 +76,7 @@ public class Payment {
 	@Override
 	public String toString() {
 		return "Payment [pay_cd=" + pay_cd + ", branch_owner_cd=" + branch_owner_cd + ", room_cd=" + room_cd
-				+ ", seat_cd=" + seat_cd + ", pay_amount=" + pay_amount + ", discount_amount=" + discount_amount
+				+ ", seat_cd=" + seat_cd + ", member_cd=" + member_cd + ", pay_amount=" + pay_amount + ", discount_amount=" + discount_amount
 				+ ", total_amount=" + total_amount + ", pay_date=" + pay_date + ", pay_option=" + pay_option + "]";
 	}
 	

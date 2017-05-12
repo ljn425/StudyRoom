@@ -17,10 +17,19 @@
 				console.log('클릭');
 				var seat_cd = $(this).attr('value');
 				console.log(seat_cd);
-				window.open(contextPath+'/payment/newwindow?seat_cd='+seat_cd, '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=600,width=500,height=700');
+
+			    var branch_owner_cd = $("input[name=chk]:eq(0)").val();
+			    console.log(branch_owner_cd);
+			    var room_cd = $("input[name=chk]:eq(1)").val();
+			    console.log(room_cd);
+			    var member_cd = $("input[name=chk]:eq(2)").val();
+			    console.log(member_cd);
+
+				window.open(contextPath+'/payment/newwindow?branch_owner_cd='+branch_owner_cd+'&room_cd='+room_cd+'&seat_cd='+seat_cd+'&member_cd='+member_cd, '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=600,width=500,height=700');
 			});
 		});
 	</script>
+
 
 </head>
 <body class="skin-blue">
@@ -64,7 +73,10 @@
 						 	</div>
 						 </c:if> --%>
 						 <input type="hidden" class="get_seat" value="${s.seat_cd}"/>
-							<button class="btn bg-olive btn-flat margin seat_btn" value="${s.seat_cd}">
+							<button class="btn bg-olive btn-flat margin seat_btn" value="${s.seat_cd}">	
+								<input type="hidden" name="chk" id="chk" value="${s.branch_owner_cd}">
+								<input type="hidden" name="chk" id="chk" value="${s.room_cd}">
+								<input type="hidden" name="chk" id="chk" value="${s.member_cd}">
 								<p>열람석${s.seat_cnumber}</p>
 								<c:choose>
 								 <c:when test="${s.member_nm eq null}">
