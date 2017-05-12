@@ -15,12 +15,13 @@
 			var contextPath = '<c:out value='${pageContext.request.contextPath}'/>';
 			$('.seat_btn').click(function(){
 				console.log('클릭');
-				var test = $(this).attr('value');
-				console.log(test);
-				window.open(contextPath+'/payment/payment?room_cd='+test, '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=1000,left=700,width=500,height=500');
+				var seat_cd = $(this).attr('value');
+				console.log(seat_cd);
+				window.open(contextPath+'/payment/newwindow?seat_cd='+seat_cd, '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=600,width=500,height=700');
 			});
 		});
 	</script>
+
 </head>
 <body class="skin-blue">
     <div class="wrapper">
@@ -37,6 +38,7 @@
 	       ZakSim
 	      <small>Control panel</small>
 	    </h1>
+	    
 	    <ol class="breadcrumb">
 	      <li><a href="${pageContext.request.contextPath}/home/NewFile"><i class="fa fa-table"></i>Home</a></li>
 	      <li class="active">열람실현황</li>

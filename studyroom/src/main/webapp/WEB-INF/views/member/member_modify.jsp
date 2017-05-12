@@ -6,22 +6,43 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script>
-    $(document).ready(function(){
-        $('#modifyButton').click(function(){
-            if($('#branch_owner_cd').val()=='') {
-                alert('지점대표코드를 정확히 입력하세요');
-                $('#branch_owner_cd').focus();
-            } else if($('#staff_id').val()=='') {
-                alert('직원아이디를 입력하세요');
-                $('#staff_id').focus();
-            } else if($('#member_nm').val()=='') {
-                alert('이름을 입력하세요');
+	$(document).ready(function(){
+		//console.log("하이");
+		$('#modifyForm').click(function(){
+		var branch_owner_cd = $('#branch_owner_cd').val();
+		var member_regi_path = $('#member_regi_path').val();
+			if(branch_owner_cd == 'B0010'){
+	            alert('지점대표코드를 선택해 주세요');
+	            $('#branch_owner_cd').focus();
+			} else if($('#staff_id').val()=='') {
+                alert('직원아이디를 입력해주세요');
+                $('#staff_id').focus();    
+			} else if($('#member_nm').val()=='') {
+                alert('이름을 입력해주세요');
                 $('#member_nm').focus();
-            } else {
-                $('#modifyForm').submit();
-            }
-        });
-    });
+			} else if($('#member_sex').val()=='') {
+                alert('성별을 입력해주세요');
+                $('#member_sex').focus();    
+			} else if($('#member_tel').val()=='') {
+                alert('연락처를 입력해주세요');
+                $('#member_tel').focus();
+			} else if($('#member_addr').val()=='') {
+                alert('주소를 입력해주세요');
+                $('#member_addr').focus();
+			} else if($('#member_age').val()=='') {
+                alert('나이를 입력해주세요');
+                $('#member_age').focus();
+			} else if($('#member_seat_state').val()=='') {
+                alert('회원상태를 입력해주세요');
+                $('#member_seat_state').focus();
+			}  else if(member_regi_path == '설명'){
+                alert('등록경로를 선택해 주세요');
+                $('#member_regi_path').focus();
+			} else {
+				$('#modifyMember').submit();    
+			}
+		});          
+	});
 </script>
 <!-- 헤드 -->
 	<c:import url="../module2/head.jsp"/>
@@ -57,7 +78,7 @@
                 <div class="box-header">
                   <h3 class="box-title">독서실 회원 수정</h3>
                   </div>
-                  <form role="form" action="${pageContext.request.contextPath}/member/member_modify" method="post">
+                  <form role="form" id="modifyMember" action="${pageContext.request.contextPath}/member/member_modify" method="post">
 						<div class="box-body">
 						 <div class="form-group">
 							<label for="exampleInputmembercd">독서실회원코드</label>
@@ -105,7 +126,7 @@
 						<div class="form-group">
 							<label class="control-label" for="inputLarge">등록경로</label>
 							<select class="form-control" name="member_regi_path" id="member_regi_path" > 
-								<option value="기타" selected>등록 경로를 입력해 주세요.</option> 
+								<option value="설명" selected>&nbsp;</option> 
 								<option value="지인소개">지인소개</option> 
 								<option value="인터넷">인터넷</option> 
 								<option value="플래카드">플래카드</option> 
@@ -114,7 +135,7 @@
 							</select>
 						</div>
 						<div>
-        					<input class="btn btn-primary" type="submit" value="글수정"/>
+        					<input class="btn btn-primary" id="modifyForm" type="button" value="회원수정"/>
        					 	<input class="btn btn-primary" type="reset" value="초기화"/>
         				<a class="btn btn-primary" href="${pageContext.request.contextPath}/member/member_list">글목록</a>	
         				</div>

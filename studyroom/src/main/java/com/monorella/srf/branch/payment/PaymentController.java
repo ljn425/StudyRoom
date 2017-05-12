@@ -11,9 +11,11 @@ public class PaymentController {
 	
 	
 	
-	@RequestMapping(value="/payment/payment", method = RequestMethod.GET)
-	public String paymentFrom(@RequestParam(value="room_cd", required=true) String member_cd){
+	@RequestMapping(value="/payment/newwindow", method = RequestMethod.GET)
+	public String paymentFrom(
+			@RequestParam(value="seat_cd", required=true) String member_cd
+			){
 		System.out.println(member_cd);
-		return "payment/payment";
+		return "payment/newwindow";
 	}
 }
