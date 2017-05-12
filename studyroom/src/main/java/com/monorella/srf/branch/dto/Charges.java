@@ -5,7 +5,7 @@ public class Charges {
 	private String seat_charges_code; //요금제 코드
 	private String branch_owner_cd; //지점대표 코드
 	private String seat_member_type; // 회원 구분
-	private String seat_charges_date; // 기간별 요금
+	private String seat_charges_date; // 기간별 
 	private int seat_charges_price; // 요금 금액
 	
 	public String getSeat_charges_code() {

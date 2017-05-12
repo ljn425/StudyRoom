@@ -6,15 +6,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--   현재창에서 보낸 값 받기	 -->
 <%
-	String park = request.getParameter("park");
-	String jun = request.getParameter("jun");
-	String test = request.getParameter("test");
-// 	out.println("park = ["+park+"]");
-// 	out.println("<br>");
-// 	out.println("jun = ["+jun+"]");
-// 	out.println("<br>");
-// 	out.println("test = ["+test+"]");
+	String pay_cd = request.getParameter("pay_cd");
+	String branch_owner_cd = request.getParameter("branch_owner_cd");
+	String room_cd = request.getParameter("room_cd");
+	String seat_cd = request.getParameter("seat_cd");
 %>
 
  <HEAD>
@@ -23,12 +20,13 @@
   <META NAME="Author" CONTENT="">
   <META NAME="Keywords" CONTENT="">
   <META NAME="Description" CONTENT="">
-
+  
+<!--   다른창으로 값 넘기기	 -->
   <script type="text/javascript">
   function getSubmit() {
-    window.opener.name = "presensewindow"; // 부모창의 이름 설정
-    document.myForm.target = "presensewindow"; // 타켓을 부모창으로 설정
-    document.myForm.action = "presensewindow.jsp";
+    window.opener.name = "room_main"; // 부모창의 이름 설정
+    document.myForm.target = "room_main"; // 타켓을 부모창으로 설정
+    document.myForm.action = "room_main.jsp";
     document.myForm.submit();
     self.close();
 }
@@ -36,60 +34,80 @@
  </HEAD>
 
  <BODY>
-<div>
-<div class="container">
-  <ul class="nav nav-tabs">
-    <li><a data-toggle="tab" href="<%=request.getContextPath()%>/member1.jsp">회원가입</a></li>
-    <li><a data-toggle="tab" href="getFrame.jsp">결제</a></li>
-    <li><a data-toggle="tab" href="<%=request.getContextPath()%>/member2.jsp">회원정보</a></li>
-  </ul>
- 
-  <form name="myForm" name="postForm" method="post" action="/action_page.php">
-    <label for="fname">결제코드&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="pay_cd" name="pay_cd" placeholder="결제 코드" readonly>
-    <br>
-    
-    <label for="fname">지점대표코드</label>
-    <input type="text" id="branch_owner_cd" name="branch_owner_cd" placeholder="<%=park%>" readonly>
-    <br>
-    
-    <label for="fname">열람실코드&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="room_cd" name="room_cd" placeholder="<%=jun%>" readonly>
-    <br>
-    
-    <label for="fname">열람석코드&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="seat_cd" name="seat_cd" placeholder="<%=test%>" readonly>
-    <br>
-    
-    <label for="fname">결제금액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="pay_amount" name="pay_amount" placeholder="결제 금액">
-	<br>
-	
-    <label for="lname">할인금액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="discount_amount" name="discount_amount" placeholder="할인 금액">
-	<br>
-	
-    <label for="lname">총금액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="total_amount" name="total_amount" placeholder="총 금액">
-	<br>
-	
-    <label for="lname">결제날짜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="pay_date" name="pay_date" placeholder="결제 날짜">
-    <br>
-    
-    <label for="결제 방법">결제방법&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <select id="결제 방법" name="결제 방법">
-      <option value="카드">카드</option>
-      <option value="현금">현금</option>
-      <option value="자동이체">자동이체</option>
-    </select>
-    <br>
-    <input type="hidden" value="nice" name="niceValue">
-    <br>
-    <input type="submit" onclick="getSubmit()" value="결제">
-  </form>
-</div>
+        <div class="row">
+        <div class="col-md-6">
+              <div class="box box-primary">
+                <div class="container">
+				  <ul class="nav nav-tabs">
+				    <li><a data-toggle="tab" href="${pageContext.request.contextPath}/member1.jsp">회원가입</a></li>
+				    <li><a data-toggle="tab" href="${pageContext.request.contextPath}/getFrame.jsp">결제</a></li>
+				    <li><a data-toggle="tab" href="${pageContext.request.contextPath}/member2.jsp">회원정보</a></li>
+				  </ul>
 
+                <!-- form start -->
+                <form role="form">
+                  <div class="box-body">
+                      <form name="myForm" name="postForm" method="post" action="/action_page.php">
+					    <div class="form-group">
+					    <label for="fname">결제코드&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					    <input type="text" id="pay_cd" name="pay_cd" class="form-control" placeholder="<%=pay_cd%>" readonly>
+					    </div>
+					    
+					    <div class="form-group">
+					    <label for="fname">지점대표코드</label>
+					    <input type="text" id="branch_owner_cd" name="branch_owner_cd" class="form-control" placeholder="<%=branch_owner_cd%>" readonly>
+					    </div>
+					    
+					    <div class="form-group">
+					    <label for="fname">열람실코드&nbsp;&nbsp;&nbsp;</label>
+					    <input type="text" id="room_cd" name="room_cd" class="form-control" placeholder="<%=room_cd%>" readonly>
+					    </div>
+					    
+					    <div class="form-group">
+					    <label for="fname">열람석코드&nbsp;&nbsp;&nbsp;</label>
+					    <input type="text" id="seat_cd" name="seat_cd" class="form-control" placeholder="<%=seat_cd%>" readonly>
+					    </div>
+					    
+					    <div class="form-group">
+					    <label for="fname">결제금액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					    <input type="text" id="pay_amount" name="pay_amount" class="form-control" placeholder="결제 금액">
+					    </div>
+						
+						<div class="form-group">
+					    <label for="lname">할인금액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					    <input type="text" id="discount_amount" name="discount_amount" class="form-control" placeholder="할인 금액">
+						</div>
+						
+						<div class="form-group">
+					    <label for="lname">총금액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					    <input type="text" id="total_amount" name="total_amount" class="form-control" placeholder="총 금액">
+					    </div>
+						
+						<div class="form-group">
+					    <label for="lname">결제날짜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					    <input type="text" id="pay_date" name="pay_date" class="form-control" placeholder="결제 날짜">
+					    </div>					    
+					    
+					    <div class="form-group">
+					    <label for="결제 방법">결제방법&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					    <select id="결제 방법" name="결제 방법" class="form-control">
+					      <option value="카드">카드</option>
+					      <option value="현금">현금</option>
+					      <option value="자동이체">자동이체</option>
+					    </select>
+					    </div>
 
+					    <input type="hidden" value="nice" name="niceValue">
+
+					    <div class="box-footer">
+					       <button type="submit" class="btn btn-primary" onclick="getSubmit()" value="결제">결제</button>
+					    </div>
+					  </form>
+              		</div>
+             	</div>
+            </div>
+           </div>
  </BODY>
 </HTML>
+
+ 

@@ -42,7 +42,7 @@
 	  	  <!-- Main content -->
 	      <section class="content">
 	      	<div class="row">
-	      	  <div class="col-md-6">
+	      	  <div class="col-md-12">
 	      	  <!-- 테이블 -->
 	            <div class="box box-primary">
 	                <div class="box-header">
@@ -62,10 +62,10 @@
 	                    <tbody>
 	                      <c:forEach var="c" items="${chargeslist}" >
 		                      <tr>
-		                        <td><input type="text" name="seat_member_type" class="form-control text01" value="${c.seat_member_type}" readonly/></td>
-		                        <td><input type="text" name="seat_charges_date" class="form-control text02" value="${c.seat_charges_date}" readonly/></td>
-		                        <td><input type="text" name="seat_charges_price" class="form-control text03" value="${c.seat_charges_price}" readonly/></td>
-		                        <td><a href="#"><button id="update_btn"><i class="fa  fa-eraser"></i></button></a></td>
+		                        <td>${c.seat_member_type}</td>
+		                        <td>${c.seat_charges_date}</td>
+		                        <td>${c.seat_charges_price}</td>
+		                        <td><a href="#"><button><i class="fa  fa-eraser"></i></button></a></td>
 		                        <td><a href="${pageContext.request.contextPath}/charges/charges_delete?charges_code=${c.seat_charges_code}"><button><i class="fa  fa-times"></i></button></a></td>
 		                      </tr>
 	                      </c:forEach>
@@ -77,9 +77,9 @@
               
               <div class="col-md-6">
 	              <!-- 폼  테그 01 -->
-	              <div class="box box-warning">
+	              <div class="box box-danger">
 	                <div class="box-header">
-	                  <h3 class="box-title">요금설정</h3>
+	                  <h3 class="box-title">요금제 수정</h3>
 	                </div><!-- /.box-header -->
 	                <!-- form start -->
 	                <form action="${pageContext.request.contextPath}/charges/charges_pro" method="post">
@@ -137,18 +137,6 @@
           "bAutoWidth": false
         });
       });
-      
-      $('.text01').dblclick(function(){
-    	  console.log('클릭');
-    	  $(this).removeAttr('readonly');
-      });
-      $('.text01').blur(function(){
-    	  console.log('blur');
-    	  $(this).attr('readonly','readonly');
-      });
-    
-      
-     </script>
-    
+    </script>
 </body>
 </html>
