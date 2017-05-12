@@ -158,6 +158,10 @@
 		WHERE member_seat_state = "Y"
 		ORDER BY seat_cd ASC;
 	</select>
+	<!-- 당월 등록 회원 -->
+	<select id="selectMonthInsertMemberCount" resultType="int">
+		SELECT mn FROM month_insert WHERE m = MONTH(CURDATE());
+	</select>
 	<!-- 금일 등록 회원 -->
 	<select id="selectTodayInsertMemberCount" resultType="int">
 		SELECT COUNT(*)
