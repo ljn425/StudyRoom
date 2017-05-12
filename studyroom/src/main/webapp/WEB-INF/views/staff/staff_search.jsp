@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script>
 	$(document).ready(function(){
 		//console.log("하이");
@@ -17,21 +17,32 @@
 		});
 		
 	});
-</script>
-<!-- head -->
-	<c:import url="../module/head.jsp" />
+</script> -->
+<!-- 헤드 -->
+	<c:import url="../module2/head.jsp"/>
+	<!-- JS -->
+	<c:import url="../module2/jsscript.jsp" />
 </head>
-<body>
-<!-- top -->
-	<c:import url = "../module/top.jsp" />
-	
-	<!-- left -->
-	<div class="container-fluid" id="main">
-		<div class="row row-offcanvas row-offcanvas-left">
-			<c:import url = "../module/left.jsp" />
-	
-	<!-- main -->
-			<div class="col-md-9 col-lg-10 main">
+<body class="skin-blue">
+    <div class="wrapper">
+ <!-- 상단 -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- 왼쪽 -->
+ 	  <c:import url="../module2/left.jsp" />
+		
+	 <!-- 수정부분  -->
+      <div class="content-wrapper">
+		  <section class="content-header">
+		    <h1>
+		       ZakSim
+		      <small>Control panel</small>
+		    </h1>
+		    <ol class="breadcrumb">
+		      <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+		      <li class="active">직원</li>
+		    </ol>
+		  </section>
 <div class="table-responsive">
  <!-- 검색 -->
     <form id="searchFrom" action="${pageContext.request.contextPath}/staff/staff_search" method="post">
@@ -86,9 +97,6 @@
  </div>
 </div>
 </div>
-</div>
 
-<!--foot-->
-	<c:import url="../module/foot.jsp" />
 </body>
 </html>

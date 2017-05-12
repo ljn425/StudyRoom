@@ -42,19 +42,6 @@
         </section>
 
 		<!-- -----------------------내용!!!------------------------------ -->	
-		<input id="useMemberNo" type="hidden" value="${useMemberNo}"/>	
-		<input id="absenceMemberNo" type="hidden" value="${absenceMemberNo}"/>
-		<input id="unpaidMemberNo" type="hidden" value="${unpaidMemberNo}"/>
-		
-		<input id="pamphletNo" type="hidden" value="${pamphletNo}"/>	
-		<input id="placardNo" type="hidden" value="${placardNo}"/>
-		<input id="introductionNo" type="hidden" value="${introductionNo}"/>
-		<input id="internetNo" type="hidden" value="${internetNo}"/>	
-		<input id="etctcNo" type="hidden" value="${etctcNo}"/>
-		
-		<input id="MenNo" type="hidden" value="${MenNo}"/>	
-		<input id="womanNo" type="hidden" value="${womanNo}"/>
-		<input id="todayMember" type="hidden" value="${todayMember}"/>
 		
         <section class="content">
   
@@ -63,7 +50,7 @@
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>${todayMember}</h3>
+                  <h3>${todayMemberNo}</h3>
                   <p>금일 등록 회원</p>
                 </div>
                 <div class="icon">
@@ -222,10 +209,26 @@
         "use strict";
           // 변수 설정
           // 연령대 변수
-	      var useTeensMemberNo = '<c:out value='${useTeensMemberNo}'/>';
-	      useTeensMemberNo *= 1;
+	      var useTeensWomanMemberNo = '<c:out value='${useTeensWomanMemberNo}'/>';
+	      useTeensWomanMemberNo *= 1; // int변환
           var useTeensMenMemberNo = '<c:out value='${useTeensMenMemberNo}'/>';
           useTeensMenMemberNo *= 1;
+          var useTwentyWomanMemberNo = '<c:out value='${useTwentyWomanMemberNo}'/>';
+          useTwentyWomanMemberNo *= 1;
+          var useTwentyMenMemberNo = '<c:out value='${useTwentyMenMemberNo}'/>';
+          useTwentyMenMemberNo *= 1;
+          var useThirtyWomanMemberNo = '<c:out value='${useThirtyWomanMemberNo}'/>';
+          useThirtyWomanMemberNo *= 1;
+          var useThirtyMenMemberNo = '<c:out value='${useThirtyMenMemberNo}'/>';
+          useThirtyMenMemberNo *= 1;
+          var useFortyWomanMemberNo = '<c:out value='${useFortyWomanMemberNo}'/>';
+          useFortyWomanMemberNo *= 1;
+          var useFortyMenMemberNo = '<c:out value='${useFortyMenMemberNo}'/>';
+          useFortyMenMemberNo *= 1;
+          var useEtcWomanMemberNo = '<c:out value='${useEtcWomanMemberNo}'/>';
+          useEtcWomanMemberNo *= 1;
+          var useEtcMenMemberNo = '<c:out value='${useEtcMenMemberNo}'/>';
+          useEtcMenMemberNo *= 1;
            
       	//DONUT CHART
 		  var donut = new Morris.Donut({
@@ -245,13 +248,13 @@
 	        element: 'bar-chart',
 	        resize: true,
 	        data: [
-	          {y: '10대', a: useTeensMenMemberNo, b: useTeensMemberNo, c: useTeensMemberNo-useTeensMenMemberNo},
-	          {y: '20대', a: 1, b: 7, c: 10},
-	          {y: '30대', a: 4, b: 10, c: 15},
-	          {y: '40대', a: 5, b: 0, c: 10},
-	          {y: '기타', a: 4, b: 4, c: 10},
+	          {y: '10대', a: useTeensMenMemberNo, b: useTeensMenMemberNo+useTeensWomanMemberNo , c: useTeensWomanMemberNo},
+	          {y: '20대', a: useTwentyMenMemberNo, b: useTwentyMenMemberNo+useTwentyWomanMemberNo, c: useTwentyWomanMemberNo},
+	          {y: '30대', a: useThirtyMenMemberNo, b: useThirtyMenMemberNo+useThirtyWomanMemberNo, c: useThirtyWomanMemberNo},
+	          {y: '40대', a: useFortyMenMemberNo, b: useFortyMenMemberNo+useFortyWomanMemberNo, c: useFortyWomanMemberNo},
+	          {y: '기타', a: useEtcMenMemberNo, b: useEtcMenMemberNo+useEtcWomanMemberNo, c: useEtcWomanMemberNo},
 	        ],
-	        barColors: ['#1266FF', '#E5D85C', '#FF5E00'],
+	        barColors: ['#1266FF', '#E5D85C', '#FF3636'],
 	        xkey: 'y',
 	        ykeys: ['a', 'b', 'c'],
 	        labels: ['남자', '합계', '여자'],
