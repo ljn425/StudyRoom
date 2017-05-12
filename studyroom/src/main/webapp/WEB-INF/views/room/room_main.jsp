@@ -38,6 +38,7 @@
 	       ZakSim
 	      <small>Control panel</small>
 	    </h1>
+	    
 	    <ol class="breadcrumb">
 	      <li><a href="${pageContext.request.contextPath}/home/NewFile"><i class="fa fa-table"></i>Home</a></li>
 	      <li class="active">열람실현황</li>
