@@ -8,14 +8,14 @@
 <script>
 	$(document).ready(function(){
 		//console.log("하이");
-		$('#searchBtn').click(function(){
-			if($('#selectValue').val().length < 2){
-				alert("검색어는 2자 이상 입력하셔야 합니다.");
-			}else if($('#selectValue').val().length >= 2){
-				$('#searchFrom').submit();
-			}
+		$('#searchMember').click(function(){
+			if($('#searchForm').val()=='') {
+				alert("검색어를 입력해주세요.");
+				$('#searchForm').focus();
+			} else {
+                $('#searchBtn').submit();
+            }
 		});
-		
 	});
 </script>
 <!-- 헤드 -->
@@ -55,7 +55,7 @@
                   <div class="box-tools">
                   
                   <!-- 검색 -->
-		    <form id="searchMemberFrom" action="${pageContext.request.contextPath}/member/member_search" method="post">
+		    <form id="searchMember" action="${pageContext.request.contextPath}/member/member_search" method="post">
 			 <div class="form-group">
 			 <div class="row">
 			  <div class="col-sm-4">
@@ -68,7 +68,7 @@
 			  </select>
 			  </div>
 			   <div class="col-sm-6">
-			   		<input name="sv" id="selectValue" type="text" class="form-control" placeholder="검색을 입력하시오."/>
+			   		<input name="sv" id="searchForm" type="text" class="form-control" placeholder="검색을 입력하시오."/>
 			   </div>
 			   <div class="col-sm-2">
 			   		<button type="button" id="searchBtn" class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
@@ -81,6 +81,7 @@
                 </div><!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                   <table class="table">
+                  <thead>
                     <tr>
                       	<th>회원코드</th>
 		            	<th>이름</th>
@@ -90,6 +91,7 @@
 		                <th>나이</th>
 		                <th>회원상태</th>
             		  </tr>
+            		</thead>  
                     <tbody>
 
 				<c:forEach var="b" items="${list}">

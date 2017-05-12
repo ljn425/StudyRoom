@@ -3,39 +3,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script>
-	$(document).ready(function() {
-		$('#searchBtn').click(function(){
-			if($('#selectValue').val().length < 2){
-				alert("검색어를 2자이상 입력하시오");
-			}else if($('#selectValue').val().length >= 2){
-				$('#searchFrom').submit();
-			}
-		});
-	});
-</script>
 <!-- head -->
-	<c:import url="../module/head.jsp" />
+	 <!-- 헤드 -->
+	<c:import url="../module2/head.jsp"/>
+	<!-- JS -->
+	<c:import url="../module2/jsscript.jsp" />
 </head>
-<body>
-<!-- top -->
-	<c:import url = "../module/top.jsp" />
-	
-	<!-- left -->
-	<div class="container-fluid" id="main">
-		<div class="row row-offcanvas row-offcanvas-left">
-			<c:import url = "../module/left.jsp" />
-	
-	<!-- main -->
-			<div class="col-md-9 col-lg-10 main" id="wrap">
-	<br>
-	<h1>독서실 회원 검색 리스트</h1>
-	<br>
-  <table class="table table-hover">
+<body class="skin-blue">
+    <div class="wrapper">
+ <!-- 상단 -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- 왼쪽 -->
+ 	  <c:import url="../module2/left.jsp" />
+		
+	 <!-- 수정부분  -->
+      <div class="content-wrapper">
+		  <section class="content-header">
+		    <h1>
+		       StudyRoom
+		      <small>웹 기반 독서실 관리프로그램</small>
+		    </h1>
+		    <ol class="breadcrumb">
+		      <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+		      <li class="active">회원</li>
+		    </ol>
+		  </section>
+		  
+		   <section class="content">
+			
+			<div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">독서실 회원 검색결과</h3>
+                  <div class="box-tools">
+                  </div>
+                </div>
+   <table class="table table-hover">
    <thead>
    	   <tr>
-   	   	<th>독서실회원코드</th>
+   	   	<th>회원코드</th>
    	   	<th>이름</th>
         <th>성별</th>
         <th>연락처</th>
@@ -46,25 +54,25 @@
    </thead>
         <tbody>
 
-	<c:forEach var="s" items="${searchlist}">
-        <tr>
-           <td><a href="${pageContext.request.contextPath}/member/member_view?member_cd=${s.member_cd}">${s.member_cd}</a></td>
-           <td>${s.member_nm}</td>
-           <td>${s.member_sex}</td>
-           <td>${s.member_tel}</td>
-           <td>${s.member_addr}</td>
-           <td>${s.member_age}</td>
-           <td>${s.member_seat_state}</td>
-        </tr>
- 	</c:forEach>
-  </tbody>
-   
-  </table>
- </div>
-</div>
-</div>
-
-<!--foot-->
-	<c:import url="../module/foot.jsp" />
+		<c:forEach var="s" items="${searchlist}">
+	        <tr>
+	           <td><a href="${pageContext.request.contextPath}/member/member_view?member_cd=${s.member_cd}">${s.member_cd}</a></td>
+	           <td>${s.member_nm}</td>
+	           <td>${s.member_sex}</td>
+	           <td>${s.member_tel}</td>
+	           <td>${s.member_addr}</td>
+	           <td>${s.member_age}</td>
+	           <td>${s.member_seat_state}</td>
+	        </tr>
+	 	</c:forEach>
+	  </tbody>
+	  </table>
+	  <a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_list">== 뒤로가기 ==</a>
+     </div>
+    </div>
+   </div>
+   </section>
+   </div> 
+  </div>
 </body>
 </html>

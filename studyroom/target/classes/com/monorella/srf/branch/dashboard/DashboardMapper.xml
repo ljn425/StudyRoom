@@ -6,7 +6,6 @@
 <mapper namespace="com.monorella.srf.branch.dashboard.DashboardMapper">
 	
 	<!-- 등록경로 -->
-	
 	<!-- 전단지 -->
 	<select id="selectPamphletCount" resultType="int">
 		SELECT COUNT(*) 
@@ -40,7 +39,6 @@
 	
 	
 	<!-- 열람석 -->
-	
 	<!-- 미결제 열람석 -->
 	<select id="selectUnpaidSeatCount" resultType="int">
 		SELECT COUNT(*) 
@@ -61,16 +59,16 @@
 	</select>
 	
 	
-	
-	<!-- 이용중 10대 회원 -->
-	<select id="selectUseTeensMemberCount" resultType="int">
+	<!-- 연령대 -->
+	<!-- 이용중 10대 여자회원 -->
+	<select id="selectUseTeensWomanMemberCount" resultType="int">
 		SELECT COUNT(*)
 		FROM branch_member_tb 
 		WHERE member_seat_state = "Y"
 		AND member_age >= 10 
-		AND member_age <![CDATA[ < ]]> 20;
+		AND member_age <![CDATA[ < ]]> 20
+		AND member_sex="여자";
 	</select>
-	
 	<!-- 이용중 10대 남자 회원 -->
 	<select id="selectUseTeensMenMemberCount" resultType="int">
 		SELECT COUNT(*)
@@ -80,12 +78,79 @@
 		AND member_age <![CDATA[ < ]]> 20
 		AND member_sex="남자";
 	</select>
+	<!-- 이용중 20대 여자회원 -->
+	<select id="selectUseTwentyWomanMemberCount" resultType="int">
+		SELECT COUNT(*)
+		FROM branch_member_tb 
+		WHERE member_seat_state = "Y"
+		AND member_age >= 20 
+		AND member_age <![CDATA[ < ]]> 30
+		AND member_sex="여자";
+	</select>
+	<!-- 이용중 20대 남자 회원 -->
+	<select id="selectUseTwentyMenMemberCount" resultType="int">
+		SELECT COUNT(*)
+		FROM branch_member_tb 
+		WHERE member_seat_state = "Y"
+		AND member_age >= 20 
+		AND member_age <![CDATA[ < ]]> 30
+		AND member_sex="남자";
+	</select>
+	<!-- 이용중 30대 여자회원 -->
+	<select id="selectUseThirtyWomanMemberCount" resultType="int">
+		SELECT COUNT(*)
+		FROM branch_member_tb 
+		WHERE member_seat_state = "Y"
+		AND member_age >= 30 
+		AND member_age <![CDATA[ < ]]> 40
+		AND member_sex="여자";
+	</select>
+	<!-- 이용중 30대 남자 회원 -->
+	<select id="selectUseThirtyMenMemberCount" resultType="int">
+		SELECT COUNT(*)
+		FROM branch_member_tb 
+		WHERE member_seat_state = "Y"
+		AND member_age >= 30
+		AND member_age <![CDATA[ < ]]> 40
+		AND member_sex="남자";
+	</select>
+	<!-- 이용중 40대 여자회원 -->
+	<select id="selectUseFortyWomanMemberCount" resultType="int">
+		SELECT COUNT(*)
+		FROM branch_member_tb 
+		WHERE member_seat_state = "Y"
+		AND member_age >= 40 
+		AND member_age <![CDATA[ < ]]> 50
+		AND member_sex="여자";
+	</select>
+	<!-- 이용중 40대 남자 회원 -->
+	<select id="selectUseFortyMenMemberCount" resultType="int">
+		SELECT COUNT(*)
+		FROM branch_member_tb 
+		WHERE member_seat_state = "Y"
+		AND member_age >= 40 
+		AND member_age <![CDATA[ < ]]> 50
+		AND member_sex="남자";
+	</select>
+	<!-- 이용중 기타연령 여자회원 -->
+	<select id="selectUseEtcWomanMemberCount" resultType="int">
+		SELECT COUNT(*)
+		FROM branch_member_tb 
+		WHERE member_seat_state = "Y"
+		AND (member_age >= 50 OR member_age <![CDATA[ < ]]> 10)
+		AND member_sex="여자";
+	</select>
+	<!-- 이용중 기타연령 남자 회원 -->
+	<select id="selectUseEtcMenMemberCount" resultType="int">
+		SELECT COUNT(*)
+		FROM branch_member_tb 
+		WHERE member_seat_state = "Y"
+		AND (member_age >= 50 OR member_age <![CDATA[ < ]]> 10)
+		AND member_sex="남자";
+	</select>
 	
-	<!-- 이용중 20대 회원 -->
-	<!-- 이용중 30대 회원 -->
-	<!-- 이용중 40대 회원 -->
-	<!-- 이용중 기타연령 회원 -->
 	
+	<!-- 회원 -->
 	<!-- 이용중 회원 목록 -->
 	<select id="selectUseMemberList" parameterType="java.util.List" resultType="com.monorella.srf.branch.dto.Member">
 		SELECT seat_cd, member_nm, member_sex
@@ -93,14 +158,11 @@
 		WHERE member_seat_state = "Y"
 		ORDER BY seat_cd ASC;
 	</select>
-	
-	
-	<!-- 회원 -->
 	<!-- 금일 등록 회원 -->
 	<select id="selectTodayInsertMemberCount" resultType="int">
 		SELECT COUNT(*)
 		FROM branch_member_tb 
-		WHERE member_date = now();
+		WHERE member_date = CURRENT_DATE();
 	</select>
 	<!-- 여자 회원 -->
 	<select id="selectWomanCount" resultType="int">

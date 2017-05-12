@@ -15,12 +15,22 @@
 			var contextPath = '<c:out value='${pageContext.request.contextPath}'/>';
 			$('.seat_btn').click(function(){
 				console.log('클릭');
-				var test = $(this).attr('value');
-				console.log(test);
-				window.open(contextPath+'/payment/payment?room_cd='+test, '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=1000,left=700,width=500,height=500');
+				var seat_cd = $(this).attr('value');
+				console.log(seat_cd);
+
+			    var branch_owner_cd = $("input[name=chk]:eq(0)").val();
+			    console.log(branch_owner_cd);
+			    var room_cd = $("input[name=chk]:eq(1)").val();
+			    console.log(room_cd);
+			    var member_cd = $("input[name=chk]:eq(2)").val();
+			    console.log(member_cd);
+
+				window.open(contextPath+'/payment/newwindow?branch_owner_cd='+branch_owner_cd+'&room_cd='+room_cd+'&seat_cd='+seat_cd+'&member_cd='+member_cd, '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=600,width=500,height=700');
 			});
 		});
 	</script>
+
+
 </head>
 <body class="skin-blue">
     <div class="wrapper">
@@ -37,6 +47,7 @@
 	       ZakSim
 	      <small>Control panel</small>
 	    </h1>
+	    
 	    <ol class="breadcrumb">
 	      <li><a href="${pageContext.request.contextPath}/home/NewFile"><i class="fa fa-table"></i>Home</a></li>
 	      <li class="active">열람실현황</li>
@@ -56,12 +67,16 @@
 				<div class="row">			
 					<div class="col-sm-12">	
 						<c:forEach var="s" items="${seatlist}">
-						<%--  <c:choose>
-						 	<c:when test="${s.seat_cnumber}">
-						 	</c:when>
-						 </c:choose> --%>
+						<%--  <c:if test="${s.room_cd eq 'room_cd2'}">
+						 	<div>
+						 		다른 열람실 ${s.room_cd}
+						 	</div>
+						 </c:if> --%>
 						 <input type="hidden" class="get_seat" value="${s.seat_cd}"/>
-							<button class="btn bg-olive btn-flat margin seat_btn" value="${s.seat_cd}">
+							<button class="btn bg-olive btn-flat margin seat_btn" value="${s.seat_cd}">	
+								<input type="hidden" name="chk" id="chk" value="${s.branch_owner_cd}">
+								<input type="hidden" name="chk" id="chk" value="${s.room_cd}">
+								<input type="hidden" name="chk" id="chk" value="${s.member_cd}">
 								<p>열람석${s.seat_cnumber}</p>
 								<c:choose>
 								 <c:when test="${s.member_nm eq null}">
@@ -72,6 +87,7 @@
 								 </c:otherwise>
 								</c:choose>
 							</button>
+						
 						</c:forEach>			
 					</div>
 				</div><!-- row -->
