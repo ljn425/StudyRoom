@@ -32,7 +32,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1> 오늘의 현황
-            <small>preview sample</small>
+            <small>(${today})</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -117,7 +117,7 @@
 			 <!-- BAR CHART -->
               <div class="box box-success">
                 <div class="box-header">
-                  <h3 class="box-title"><b>연령대별(성별) 이용자</b></h3>
+                  <h3 class="box-title"><b>현재 연령대별(성별) 이용자</b></h3>
                 </div>
                 <div class="box-body chart-responsive">
                   <div class="chart" id="bar-chart" style="height: 300px;"></div>
