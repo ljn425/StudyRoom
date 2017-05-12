@@ -5,19 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script>
-	$(document).ready(function(){
-		//console.log("하이");
-		$('#searchBtn').click(function(){
-			if($('#selectValue').val().length < 2){
-				alert("검색어는 2자 이상 입력하셔야 합니다.");
-			}else if($('#selectValue').val().length >= 2){
-				$('#searchFrom').submit();
-			}
-		});
-	});
-</script>
 <!-- 헤드 -->
 	<c:import url="../module2/head.jsp"/>
 	<!-- JS -->
@@ -55,31 +42,31 @@
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                   <tr>
-                	<td>member_cd :</td>
+                	<td>독서실 회원코드 :</td>
                 	<td>${member.member_cd}</td>
 		          </tr>
 		          <tr>
-		            <td>member_nm :</td>
+		            <td>이름 :</td>
 		            <td>${member.member_nm}</td>
 		          </tr>
 		          <tr>
-		            <td>member_sex :</td>
+		            <td>성별 :</td>
 		            <td>${member.member_sex}</td>
 		          </tr>
 		          <tr>
-		             <td>member_tel :</td>
+		             <td>연락처 :</td>
 		             <td>${member.member_tel}</td>
 		          </tr>
 		          <tr>
-		             <td>member_addr :</td>
+		             <td>주소 :</td>
 		             <td>${member.member_addr}</td>
 		           </tr>
 		           <tr>
-		              <td>member_age :</td>
+		              <td>나이 :</td>
 		              <td>${member.member_age}</td>
 		           </tr>
 		           <tr>
-		              <td>member_seat_state :</td>
+		              <td>회원상태 :</td>
 		              <td>${member.member_seat_state}</td>
 		           </tr>
 		           </table>

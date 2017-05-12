@@ -3,6 +3,52 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		//console.log("하이");
+		$('#joinForm').click(function(){
+			var branch_owner_cd = $('#branch_owner_cd').val();
+			var member_regi_path = $('#member_regi_path').val();
+			if($('#member_cd').val().length < 11) {
+				alert("독서실 회원코드는  11자 이상이어야 합니다.");
+				$('#member_cd').focus();
+			}  else if(branch_owner_cd == 'B0010'){
+                alert('지점대표코드를 선택해 주세요');
+                $('#branch_owner_cd').focus();
+			}/*  else if(!$('#branch_owner_cd > option:selected').val == '0'){
+                alert('지점대표코드가 선택이 안되어있습니다.');
+                $('#branch_owner_cd').focus();
+			} */ else if($('#staff_id').val()=='') {
+                alert('직원아이디를 입력해주세요');
+                $('#staff_id').focus();
+			} else if($('#member_nm').val()=='') {
+                alert('이름을 입력해주세요');
+                $('#member_nm').focus();
+			} else if($('#member_sex').val()=='') {
+                alert('성별을 입력해주세요');
+                $('#member_sex').focus();    
+			} else if($('#member_tel').val()=='') {
+                alert('연락처를 입력해주세요');
+                $('#member_tel').focus();
+			} else if($('#member_addr').val()=='') {
+                alert('주소를 입력해주세요');
+                $('#member_addr').focus();
+			} else if($('#member_age').val()=='') {
+                alert('나이를 입력해주세요');
+                $('#member_age').focus();
+			} else if($('#member_seat_state').val()=='') {
+                alert('회원상태를 입력해주세요');
+                $('#member_regi_path').focus();
+			}  else if(member_regi_path == '설명'){
+                alert('등록경로를 선택해 주세요');
+                $('#member_regi_path').focus();
+			} else {
+				$('#insertMember').submit();    
+			}
+		});          
+	});
+</script>
     <!-- 헤드 -->
 	<c:import url="../module2/head.jsp"/>
 	<!-- JS -->
@@ -41,7 +87,7 @@
 					<h3 class="box-title">독서실 회원 등록</h3>
 					</div><!-- /.box-header -->
                 	<!-- form start -->
-					<form role="form" action="${pageContext.request.contextPath}/member/member_form" method="post">
+					<form role="form" id="insertMember" action="${pageContext.request.contextPath}/member/member_form" method="post">
 						<div class="box-body">
 						  <div class="form-group">
 							<label for="member_cd">독서실 회원코드</label>
@@ -50,7 +96,7 @@
 						<div class="form-group">
                       	   <label for="branch_owner_cd">지점 대표코드</label>
 							<select class="form-control" name="branch_owner_cd" id="branch_owner_cd" > 
-								<option value="B0010" selected>&nbsp;</option> 
+								<option value="B0010" selected>지점 대표코드를 입력해 주세요</option> 
 							     <option value="B0011">B011</option> 
 							     <option value="B0016">B016</option> 
 							     <option value="B0017">B017</option> 
@@ -89,7 +135,7 @@
 						<div class="form-group">
 							<label class="control-label" for="inputLarge">등록경로</label>
 							<select class="form-control" name="member_regi_path" id="member_regi_path" > 
-								<option value="기타" selected>등록 경로를 입력해 주세요.</option> 
+								<option value="설명" selected>등록경로를 입력해 주세요</option> 
 								<option value="지인소개">지인소개</option> 
 								<option value="인터넷">인터넷</option> 
 								<option value="플래카드">플래카드</option> 
@@ -99,8 +145,8 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" class="btn btn-primary">글입력</button>
-                   			<button type="reset" class="btn btn-primary">초기화</button>
+							<input class="btn btn-primary" id="joinForm" type="button" value="회원등록"/>
+                   			<input class="btn btn-primary" type="reset" value="초기화"/>
                			</div>
                 </form>
               </div><!-- /.box -->
