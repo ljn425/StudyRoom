@@ -10,10 +10,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.monorella.srf.branch.dto.StaffBoard;
+import com.monorella.srf.branch.dto.StaffBoardReply;
 @Controller
 public class StaffBoardController {
 	@Autowired
 	private StaffBoardDao staffboardDao;
+	
+	//공지사항 댓글
+	@RequestMapping(value="/boardReply", method = RequestMethod.POST)
+	public String insertStaffBoardReply(Model model ,StaffBoardReply staffboardreply){
+		System.out.println(staffboardreply);
+			//model.addAttribute("staffboardreply", staffboardreply);
+		return "redirect:/staffboard/staffboard_view";
+	}
 	
 	//공지사항 검색
 			@RequestMapping(value="/staffboard/staffboard_search" , method = {RequestMethod.POST})
@@ -61,10 +70,19 @@ public class StaffBoardController {
 			}
 	
 	// 공지사항 상세 내용 요청
-		@RequestMapping(value="/staffboard/staffboard_view", method = RequestMethod.GET)
+		@RequestMapping(value="/staffboard/staffboard_view", method = RequestMethod.GET )
 		public String StaffBoardView(Model model 
 								,@RequestParam(value="staffboard_no")int staffboard_no){
 			System.out.println("StaffBoardController ->StaffBoardView()" );
+		/*	int totalReply = staffboardDao.totalStaffBoardReply(staffboard_no);*/
+			/*List<StaffBoardReply> replylist = staffboardDao.selectStaffBoardReplyList(staffboard_no);*/
+			
+				
+				//셀렉하고
+				/*model.addAttribute("replylist", replylist);*/
+				//조회
+			/*	model.addAttribute("totalReply", totalReply);*/
+			
 			StaffBoard staffboard = staffboardDao.getStaffBoard(staffboard_no);
 			model.addAttribute("staffboard", staffboard);
 			return "staffboard/staffboard_view";

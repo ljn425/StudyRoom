@@ -7,6 +7,13 @@ public class StaffBoard {
 	private String staffboard_content;
 	private String staff_name;
 	private String staffboard_date;
+	private int staffboard_recnt;
+	public int getStaffboard_recnt() {
+		return staffboard_recnt;
+	}
+	public void setStaffboard_recnt(int staffboard_recnt) {
+		this.staffboard_recnt = staffboard_recnt;
+	}
 	public int getStaffboard_no() {
 		return staffboard_no;
 	}
@@ -47,6 +54,7 @@ public class StaffBoard {
 	public String toString() {
 		return "StaffBoard [staffboard_no=" + staffboard_no + ", staffboard_pw=" + staffboard_pw + ", staffboard_title="
 				+ staffboard_title + ", staffboard_content=" + staffboard_content + ", staff_name=" + staff_name
-				+ ", staffboard_date=" + staffboard_date + "]";
+				+ ", staffboard_date=" + staffboard_date + ", staffboard_recnt=" + staffboard_recnt + "]";
 	}
+	
 }
