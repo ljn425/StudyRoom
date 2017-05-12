@@ -9,10 +9,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.monorella.srf.branch.dto.StaffBoard;
+import com.monorella.srf.branch.dto.StaffBoardReply;
 @Repository
 public class StaffBoardDao {
 	@Autowired
     private SqlSessionTemplate sqlSessionTemplate;
+	
+	 // 댓글 목록
+  
+    public List<StaffBoardReply> selectStaffBoardReplyList(int staffboard_no) {
+        return sqlSessionTemplate.selectList("com.monorella.srf.branch.staffboard.StaffBoardMapper.selectStaffBoardReplyList", staffboard_no);
+    }
+    // 댓글 작성
+   
+    public void insertStaffBoardReply(StaffBoardReply staffboardreply){
+		sqlSessionTemplate.insert("com.monorella.srf.branch.staffboard.StaffBoardMapper.insertStaffBoardReply", staffboardreply);
+	}
+    // 게시판에 댓글 수 보이게 
+    public int totalStaffBoardReply(int staffboard_no){
+		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.staffboard.StaffBoardMapper.totalStaffBoardReply", staffboard_no);
+	}
+	
+
 	
 	 //공지사항 검색 메서드
 	 public List<StaffBoard> searchStaffBoard(String so, String sv){
