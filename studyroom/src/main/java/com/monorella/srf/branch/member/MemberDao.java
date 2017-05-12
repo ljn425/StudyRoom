@@ -16,6 +16,12 @@ public class MemberDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
+	// 신규회원알림 메서드
+	public Member newMember(String member_date) {
+		System.out.println("8st getMemberList");
+		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.member.MemberMapper.newMember", member_date);
+	}
+	
 	// 회원삭제 메서드
     public int removeMember(String member_cd, String branch_owner_cd) {
     	Member member = new Member();

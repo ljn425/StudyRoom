@@ -54,19 +54,19 @@
           <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-people-outline"></i></span>
                 <div class="info-box-content">
-                  <span class="info-box-text">총 회원 수</span>
-                  <span class="info-box-number">11354847 <small>명</small></span>
+                  <h3 class="info-box-text">총 회원</h3>
+                  <span class="info-box-number">${MemberNo} <small>명</small></span>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-                <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+                <span class="info-box-icon bg-red"><i class="ion ion-ios-people-outline"></i></span>
                 <div class="info-box-content">
-                  <span class="info-box-text">당월 신규 회원 수</span>
-                  <span class="info-box-number">7777 <small>명</small></span>
+                  <h3 class="info-box-text"><b>${month}월</b> 등록 회원</h3>
+                  <span class="info-box-number">${monthMemberNo} <small>명</small></span>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
@@ -78,17 +78,17 @@
               <div class="info-box">
                 <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
                 <div class="info-box-content">
-                  <span class="info-box-text">당월 매출</span>
+                  <h3 class="info-box-text"><b>${month}월</b> 매출</h3>
                   <span class="info-box-number">12000000000 <small>원</small></span>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-                <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+                <span class="info-box-icon bg-yellow"><i class="ion ion ion-ios-cart-outline"></i></span>
                 <div class="info-box-content">
-                  <span class="info-box-text">당월 지출</span>
-                  <span class="info-box-number"><b>1200 <small>원</small></span>
+                  <h3 class="info-box-text"><b>${month}월</b> 지출</h3>
+                  <span class="info-box-number">1200 <small>원</small></span>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
@@ -219,9 +219,15 @@
                <div class="box-body">
                  <div class="row">
                    <div class="col-md-8">
-                     <div class="chart-responsive">
-                       <canvas id="pieChart" height="150"></canvas>
-                     </div><!-- ./chart-responsive -->
+                    <div class="box box-primary">
+		                <div class="box-header">
+		                  <i class="fa fa-bar-chart-o"></i>
+		                  <h3 class="box-title">Donut Chart</h3>
+		                </div>
+		                <div class="box-body">
+		                  <div id="donut-chart" style="height: 150px;"></div>
+		                </div><!-- /.box-body-->
+		             </div><!-- /.box -->
                    </div><!-- /.col -->
                    <div class="col-md-4">
                      <ul class="chart-legend clearfix">
@@ -357,11 +363,49 @@
     <script src="${pageContext.request.contextPath}/resources/js/dashboard2.js" type="text/javascript"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="${pageContext.request.contextPath}/resources/dist/js/demo.js" type="text/javascript"></script>
+    <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+    <script src="${pageContext.request.contextPath}/resources/plugins/flot/jquery.flot.pie.min.js" type="text/javascript"></script>
     
     <!-- Page script -->
     <!-- /resources/dist/js/pages/dashboard2.js 경로 따라가면 차트 내용 수정 가능 -->
     <script type="text/javascript">
-    	
+      $(function () {
+
+    	  /*
+           * DONUT CHART
+           * -----------
+           */
+
+          var donutData = [
+            {label: "Series2", data: 30, color: "#3c8dbc"},
+            {label: "Series3", data: 20, color: "#0073b7"},
+            {label: "Series4", data: 50, color: "#00c0ef"}
+          ];
+          $.plot("#donut-chart", donutData, {
+            series: {
+              pie: {
+                show: true,
+                radius: 1,
+                innerRadius: 0.5,
+                label: {
+                  show: true,
+                  radius: 2 / 3,
+                  formatter: labelFormatter,
+                  threshold: 0.1
+                }
+
+              }
+            },
+            legend: {
+              show: false
+            }
+          });
+          /*
+           * END DONUT CHART
+           */
+
+      });
+      
     </script>
   </body>
 </html>

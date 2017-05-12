@@ -17,6 +17,17 @@ public class MemberController {
 	@Autowired
 	private MemberDao memberDao;
 
+	// 신규 회원 알림 요청
+	@RequestMapping(value="/module2/left", method = RequestMethod.GET)
+	public String newMember(Model model
+			, @RequestParam(value="member_date", required=true) String member_date) {
+		System.out.println("/module2/left 요청");
+		Member member = memberDao.newMember(member_date);
+		model.addAttribute("member", member);
+		return "module2/left";
+		
+	}
+	
 	// 회원 삭제 폼 요청
 	@RequestMapping(value="/member/member_remove", method = RequestMethod.GET)
 	public String memberRemove(@RequestParam(value="member_cd", required=true) String member_cd){
@@ -135,6 +146,5 @@ public class MemberController {
 	public String member_form() {
 		System.out.println("member_form 요청");
 		return "member/member_form";
-		
 	}
 }
