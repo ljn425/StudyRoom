@@ -4,6 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.monorella.srf.branch.room.RoomMapper">
+  	<!-- 열람석 삭제하기 -->
+  	<delete id="deleteSeat" parameterType="String">
+  		DELETE FROM branch_saet_tb WHERE room_cd=#{room_cd}
+  	</delete>
+  	<!-- 열람실 삭제하기 -->
+  	<delete id="deleteRoom" parameterType="String">
+  		DELETE FROM branch_room_tb WHERE room_cd=#{room_cd}
+  	</delete>
+  	
   	<!-- 열람석 정보가져오기 -->
     <select id="selectSeat" resultType="com.monorella.srf.branch.dto.Seat">
     	SELECT 
