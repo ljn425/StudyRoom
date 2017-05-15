@@ -10,7 +10,7 @@
 		$('#joinForm').click(function(){
 			var branch_owner_cd = $('#branch_owner_cd').val();
 			var member_regi_path = $('#member_regi_path').val();
-			if($('#member_cd').val().length < 11) {
+			if($('#member_cd').val().length < 20) {
 				alert("독서실 회원코드는  11자 이상이어야 합니다.");
 				$('#member_cd').focus();
 			} else if($('#branch_owner_cd').val()=='') {
@@ -87,12 +87,8 @@
 					<h3 class="box-title">독서실 회원 등록</h3>
 					</div><!-- /.box-header -->
                 	<!-- form start -->
-					<form role="form" id="insertMember" action="${pageContext.request.contextPath}/member/member_form" method="post">
-						<div class="box-body">
-						  <div class="form-group">
-							<label for="member_cd">독서실 회원코드</label>
-							<input type="text" class="form-control" id="member_cd" name="member_cd" placeholder="독서실회원코드를 입력해주세요">
-						</div>
+					<form role="form" id="insertMember" action="${pageContext.request.contextPath}/member/member_pro" method="post">
+						<div class="box-body">	
 						<div class="form-group">
                       	   <label class="control-label" for="inputLarge">지점대표코드</label>
 							<input type="text" class="form-control" value="${sessionScope.branchOwner.branch_owner_cd}" name="branch_owner_cd" readonly>
@@ -138,8 +134,8 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<input class="btn btn-primary" id="joinForm" type="button" value="회원등록"/>
-                   			<input class="btn btn-primary" type="reset" value="초기화"/>
+							<button type="submit" class="btn btn-primary">회원등록</button>
+                   			<button type="reset" class="btn btn-primary">초기화</button>
                			</div>
                 </form>
               </div><!-- /.box -->
