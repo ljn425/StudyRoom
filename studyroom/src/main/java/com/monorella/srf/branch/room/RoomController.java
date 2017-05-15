@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,14 +18,46 @@ import com.monorella.srf.branch.dto.SeatRowCol;
 public class RoomController {
 	@Autowired
 	private RoomDao roomDao;
-	
-	
+			
+	//열람실 배치도 상세보기
+	@RequestMapping(value="/room/room_view" , method = RequestMethod.GET)
+	public String room_view(Room room, Model model){
+		System.out.println("room_view()");
+		System.out.println(room);
+		List<Seat> seatlist = roomDao.selectRoomSeat(room);
+		
+		model.addAttribute("seatlist", seatlist);
+		model.addAttribute("room", room);
+		
+		
+		
+		return "room/room_view";
+	}
 	
 	//열람실 배치도 등록
 	@RequestMapping(value="/room/room_placement" , method = RequestMethod.POST)
 	public String room_placement(SeatRowCol seatrowcol){
-		System.out.println("seats :" + seatrowcol);
-		return "";
+		System.out.println(seatrowcol);
+		String[] seat_col = seatrowcol.getSeat_col().split(",");
+		String[] seat_row = seatrowcol.getSeat_row().split(",");
+	/*	
+	    for(String col : seat_col){
+			System.out.println(col);
+		}
+		for(String row : seat_row){
+			System.out.println(row);
+		}
+	*/
+		for(int i=0; i<seatrowcol.getSeat_cnumber().size(); i++){
+			Seat seat = new Seat();
+			seat.setRoom_cd(seatrowcol.getRoom_cd().get(i));
+			seat.setSeat_cnumber(seatrowcol.getSeat_cnumber().get(i));
+			seat.setSeat_col(Integer.parseInt(seat_col[i+1]));
+			seat.setSeat_row(Integer.parseInt(seat_row[i+1]));
+			System.out.println("번호 :" + seat.getSeat_cnumber() +", row : "+ seat.getSeat_row() + ", col: " + seat.getSeat_col());
+			roomDao.modifyRoomSeat(seat);
+		}
+		return "redirect:/room/room_main";
 	}
 	
 	

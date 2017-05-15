@@ -7,7 +7,6 @@ public class StaffBoardReply {
 	    private String staffboardreply_content;    // 댓글 내용
 	    private String staffboard_name;        // 댓글 작성자
 	    private String staffboardreply_date;        // 댓글 작성일자
-	    private String staffboardreply_updatedate;    // 댓글 수정일자
 		public int getStaffboardreply_no() {
 			return staffboardreply_no;
 		}
@@ -44,18 +43,12 @@ public class StaffBoardReply {
 		public void setStaffboardreply_date(String staffboardreply_date) {
 			this.staffboardreply_date = staffboardreply_date;
 		}
-		public String getStaffboardreply_updatedate() {
-			return staffboardreply_updatedate;
-		}
-		public void setStaffboardreply_updatedate(String staffboardreply_updatedate) {
-			this.staffboardreply_updatedate = staffboardreply_updatedate;
-		}
 		@Override
 		public String toString() {
 			return "StaffBoardReply [staffboardreply_no=" + staffboardreply_no + ", staffboard_no=" + staffboard_no
 					+ ", staffboardreply_pw=" + staffboardreply_pw + ", staffboardreply_content="
 					+ staffboardreply_content + ", staffboard_name=" + staffboard_name + ", staffboardreply_date="
-					+ staffboardreply_date + ", staffboardreply_updatedate=" + staffboardreply_updatedate + "]";
+					+ staffboardreply_date + "]";
 		}
 		
 }

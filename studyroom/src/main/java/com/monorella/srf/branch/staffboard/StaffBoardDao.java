@@ -23,6 +23,7 @@ public class StaffBoardDao {
     // 댓글 작성
    
     public void insertStaffBoardReply(StaffBoardReply staffboardreply){
+    	System.out.println("StaffBoardDao->insertStaffBoardReply()->"+staffboardreply);
 		sqlSessionTemplate.insert("com.monorella.srf.branch.staffboard.StaffBoardMapper.insertStaffBoardReply", staffboardreply);
 	}
     // 게시판에 댓글 수 보이게 
@@ -62,7 +63,7 @@ public class StaffBoardDao {
 
 	// 한개의 게시글 내용보기
     public StaffBoard getStaffBoard(int staffboard_no) {
-    	System.out.println("StaffBoardDao->getStaffBoard -> staffboard_no:" + staffboard_no);
+    	System.out.println("StaffBoardDao->getStaffBoard -> staffboard_title:" + staffboard_no);
         return sqlSessionTemplate.selectOne("com.monorella.srf.branch.staffboard.StaffBoardMapper.getStaffBoard",staffboard_no);
     }
  

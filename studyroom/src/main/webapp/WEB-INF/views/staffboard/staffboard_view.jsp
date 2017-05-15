@@ -58,7 +58,7 @@
     <a class="btn btn-default" href="${pageContext.request.contextPath}/staffboard/staffboard_modify?staffboard_no=${staffboard.staffboard_no}">수정</a>
     <a class="btn btn-default" href="${pageContext.request.contextPath}/staffboard/staffboard_delete?staffboard_no=${staffboard.staffboard_no}">삭제</a>
     <a class="btn btn-default" href="${pageContext.request.contextPath}/staffboard/staffboard_list">글목록</a>
-    <hr>
+ 
          <div>
          	댓글 수 : ${totalReply}
          </div>
@@ -66,11 +66,11 @@
          <c:forEach var="staffboardreply" items="${replylist}">
          	<div>${staffboardreply.staffboard_name} ${staffboardreply.staffboardreply_date}</div>
          	<div>${staffboardreply.staffboardreply_content}</div>
-         	<hr/>
+         	
          </c:forEach>
          </div>
-         <hr/>
-         <form action="${pageContext.request.contextPath}/boardReply" method="post">
+       
+         <form action="${pageContext.request.contextPath}/staffboard/staffboard_reply" method="post">
          <input type="hidden" name="staffboardreply_no" value="${staffboardreply_no}">
          <span>이름 <input class="textBar" name="staffboard_name" type="text"/> </span>
 	     <span>비밀번호 <input class="textBar" name="staffboardreply_pw" type="password"/></span>

@@ -44,6 +44,7 @@ public class ChargesController {
 			chares.setSeat_charges_code("charges_code1");
 		}else{
 			//
+			System.out.println("code 길이 :" + code.length());
 			int subcode = Integer.parseInt(code.substring(code.length()-1))+1;                                                   
 			System.out.println(subcode);
 			String charescode = "charges_code" + subcode;

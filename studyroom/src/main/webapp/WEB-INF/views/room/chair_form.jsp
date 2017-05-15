@@ -123,59 +123,39 @@
 		
 		var contextPath = '<c:out value='${pageContext.request.contextPath}'/>';
 		console.log(contextPath);
+		
+		//등록버튼 클릭시
 		$('#add_btn').click(function() {
+			//value값 초기화
+			$('#seat_row').val('200');
+			$('#seat_col').val('200');
 			
 			var coulum_size = $('.column').size() // 행(가로) 길이
 			console.log('coulum_size :' + coulum_size);
-			var myArray = new Array( new Array(8), new Array(8));
 			
+			//var myArray = new Array( new Array(8), new Array(8));
 			
-			
-			
-						
+			//가로길이 만큼 반복 실행 
 			 for(var i = 0; i< coulum_size; i++){
+				//세로길이 구함
 				var children_size = $('.column')[i].children.length; //열(세로) 길이
+				//열에 해당하는 class를 구함
 				var column_row = $('.column')[i].children;
 				console.log(i+'번쨰 children_size :' + children_size);
 				console.log(column_row);
 				
 				for(var k=0; k<children_size; k++){
-					//console.log(column_row[k]);	
-					//console.log(i+'각 열 숫자 :' + column_row[k]);		
-					
 					var column_num = column_row[k].getElementsByClassName('column_num');
 					var column_i = column_row[k].getElementsByClassName('column_i');
 					
-					//$('.column_i').val(i);
 					column_i.value = i;
 					column_num.value = k;
+					$('#seat_row').val($('#seat_row').val()+','+column_i.value); //~번째   ex) 0번째 0열
+					$('#seat_col').val($('#seat_col').val()+','+column_num.value); // ~~열  ex) 0행 1행 (0,0) (1,0)
 					console.log(i+"번재 "+column_num.value+"열 " );
-					column_row[k].getElementsByClassName('column_num').value = column_num.value;
-					
-					//$('.column')[i].children[k].filter('.column_num').val(k);
-					//column_row[k][1].value(k);
-// 					console.log("column_num.length : " + column_num.length);
-// 					for(var j=0; j<column_num.length; j++){
-// 						console.log(column_num);
-// 						column_num[j].value= j;
-// 						console.log("몇번째 : " + column_num[j].value);
-// 					}
-					//column_row[k].getElementsByClassName('column_num')[0].value = k
-					//console.log("몇번째 : " + column_row[k][1].val());
-					
-					
 					console.log('좌석번호 : ' + column_row[k].innerText);
-					/* if(typeof column_row[k].innerText != undefined){
-						myArray[i][k] = column_row[k].innerText;
-					} */
 				}
-				 
 			} 
-			/* for(var key in myArray){
-				console.log(key + ' : ' +myArray[key]);
-			} */
-			
-			
 		 var result = confirm('정말로 이 배치도로 등록 하시겠습니까?');
 		 if(result) { 
 			console.log('yes');
@@ -242,8 +222,9 @@
 				<c:forEach var="s" items="${seat}" >
 					<div class="column">
 						<div class="portlet">
-						 	<input type="hidden" class="column_i" name="seat_row">
-							<input type="hidden" class="column_num" name="seat_col">
+						 	<input type="hidden" class="column_i" id="seat_row" name="seat_row">
+							<input type="hidden" class="column_num" id="seat_col" name="seat_col">
+							<input type="hidden" name="room_cd" value="${s.room_cd}">
 							<div class="portlet-header "><input type="hidden" name="seat_cnumber" class="seat_cnum" value="${s.seat_cnumber}">${s.seat_cnumber}</div>
 							<div class="portlet-content"><input type="text" value="빈좌석" readonly></div>
 						</div>
@@ -283,6 +264,7 @@
 	</section><!-- content -->
    </div><!-- content-wrapper -->
   </div><!-- wrapper -->
+  <c:import url="../module2/jsscript.jsp" />
 </body>
 </html>
 

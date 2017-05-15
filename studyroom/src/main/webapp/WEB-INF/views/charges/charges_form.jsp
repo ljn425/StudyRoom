@@ -125,7 +125,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="${pageContext.request.contextPath}/resources/dist/js/demo.js" type="text/javascript"></script>
     <!-- page script -->
-    <script type="text/javascript">
+    <script>
       $(function () {
         $("#example1").dataTable();
         $('#example2').dataTable({
@@ -138,11 +138,11 @@
         });
       });
       
-      $('.text01').dblclick(function(){
+      $('.text01, text02, text03').dblclick(function(){
     	  console.log('클릭');
     	  $(this).removeAttr('readonly');
       });
-      $('.text01').blur(function(){
+      $('.text01, text02, text03').blur(function(){
     	  console.log('blur');
     	  $(this).attr('readonly','readonly');
       });
