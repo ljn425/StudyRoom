@@ -55,7 +55,7 @@
 		  </section>
 <div class="container">
     <h1>공지사항 수정</h1> 
-    <form class="form-horizontal" action="${pageContext.request.contextPath}/staffboard/staffboard_modify" method="post">
+    <form class="form-horizontal" action="${pageContext.request.contextPath}/staffboard/staffboard_modify_pro" method="post">
 		
 		 <div class="form-group">staffboard_no :
             <input class="form-control" name="staffboard_no" value="${staffboard.staffboard_no}" type="text" readonly="readonly"/>
