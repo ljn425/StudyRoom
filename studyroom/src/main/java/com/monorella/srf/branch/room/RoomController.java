@@ -21,9 +21,11 @@ public class RoomController {
 	
 	//열람실 배치도 상세보기
 	@RequestMapping(value="/room/room_view" , method = RequestMethod.GET)
-	public String room_view(){
+	public String room_view(Room room){
 		System.out.println("room_view()");
-		return "";
+		System.out.println(room);
+		
+		return "room/room_view";
 	}
 	
 	//열람실 배치도 등록

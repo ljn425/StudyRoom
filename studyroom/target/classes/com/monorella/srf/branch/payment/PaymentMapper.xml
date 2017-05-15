@@ -12,8 +12,9 @@
 			, pay_amount
 			, discount_amount
 			, total_amount
-			, pay_date
-			, pay_option)
+			)
+			<!-- , pay_date -->
+			<!-- , pay_option) -->
 		VALUES(
 			#{pay_cd}
 			, #{branch_owner_cd}
@@ -23,8 +24,8 @@
 			, #{pay_amount}
 			, #{discount_amount}
 			, #{total_amount}
-			, #{pay_date}
-			, #{pay_option}
+			<!-- , now() -->
+			<!-- , #{pay_option} -->
 
 		)
 	</insert>

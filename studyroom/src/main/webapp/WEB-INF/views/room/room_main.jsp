@@ -60,7 +60,7 @@
 	  <div class="col-md-9 col-lg-10 main" id="wrap">		
 			<button class="btn bg-purple margin">열람실 전체</button>
 			<c:forEach var="r" items="${roomlist}">
-				<a href="${pageContext.request.contextPath}/room/room_view?room_cd=${s.room_cd}"><button class="btn bg-purple margin">열람실 ${r.room_nm}</button></a>
+				<a href="${pageContext.request.contextPath}/room/room_view?room_cd=${r.room_cd}&room_nm=${r.room_nm}"><button class="btn bg-purple margin">열람실 ${r.room_nm}</button></a>
 			</c:forEach>
 			<div class="container text-left con">
 			<hr>

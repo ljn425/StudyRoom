@@ -15,6 +15,12 @@ public class RoomDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
+	//열람실별 열람석 조회
+	public List<Seat> selectRoomSeat(Room room){
+		return sqlSessionTemplate.selectList("", room);
+	}
+	
+	
 	//열람실 열람석 배치
 	public int modifyRoomSeat(Seat seat){
 		System.out.println("modifyRoomSeat()");
