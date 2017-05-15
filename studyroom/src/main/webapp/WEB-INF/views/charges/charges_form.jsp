@@ -65,7 +65,7 @@
 		                        <td><input type="text" name="seat_member_type" class="form-control text01" value="${c.seat_member_type}" readonly/></td>
 		                        <td><input type="text" name="seat_charges_date" class="form-control text02" value="${c.seat_charges_date}" readonly/></td>
 		                        <td><input type="text" name="seat_charges_price" class="form-control text03" value="${c.seat_charges_price}" readonly/></td>
-		                        <td><a href="#"><button id="update_btn"><i class="fa  fa-eraser"></i></button></a></td>
+		                        <td><a href="${pageContext.request.contextPath}/charges/charges_update?charges_code=${c.seat_charges_code}"><button id="update_btn"><i class="fa  fa-eraser"></i></button></a></td>
 		                        <td><a href="${pageContext.request.contextPath}/charges/charges_delete?charges_code=${c.seat_charges_code}"><button><i class="fa  fa-times"></i></button></a></td>
 		                      </tr>
 	                      </c:forEach>

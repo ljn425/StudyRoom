@@ -120,6 +120,11 @@ public class DashboardDao {
 	
 	
 	//----------------------------------------------------회원-------------------------------------------------
+	//당월 등록회원
+	public int selectMonthInsertMemberCount(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMonthInsertMemberCount");
+		return row;
+	}
 	//금일 등록회원
 	public int selectTodayInsertMemberCount(){
 		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectTodayInsertMemberCount");
@@ -137,7 +142,7 @@ public class DashboardDao {
 	}
 	//전체 회원
 	public int selectMemberCount() {
-		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMemberCountCount");
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMemberCount");
 		return row;
 	}
 }

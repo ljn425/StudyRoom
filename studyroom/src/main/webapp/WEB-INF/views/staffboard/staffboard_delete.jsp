@@ -47,7 +47,7 @@
 		  </section>
 <div class="container">
 <h1>공지사항 삭제</h1>
-        <form  class="form-inline" id="removeForm" action="${pageContext.request.contextPath}/staffboard/staffboard_delete" method="post">
+        <form  class="form-inline" id="removeForm" action="${pageContext.request.contextPath}/staffboard/staffboard_delete_pro" method="post">
             <input name="staffboard_no" value="${param.staffboard_no}" type="hidden"/>
             <div class="form-group">
                 <label for="staffboard_pw">비밀번호확인 :</label>

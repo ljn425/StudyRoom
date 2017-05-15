@@ -18,18 +18,44 @@ public class DashboardController {
 	@Autowired
 	DashboardDao dashboardDao;
 	
+	// test
+	@RequestMapping(value="/test" , method = RequestMethod.GET)
+	public String test(){
+		return "/dashboard/test";
+	}
+	
 	// 메뉴 - 통계 폼
 	@RequestMapping(value="/dashboard/all_status" , method = RequestMethod.GET)
 	public String selectAllStatus(Model model){
 		System.out.println("DashboardController-> selectAllStatus()");
 		
-		// 오늘 날짜
+		// 오늘 날짜 및 해당 월 구하기
 		Date today = new Date();
 	    SimpleDateFormat simpleToday = new SimpleDateFormat("yyyy-MM-dd");
-	    //System.out.println("현재날짜 : "+ simpleToday.format(today));
-		
-	    model.addAttribute("today", simpleToday.format(today));
+	    SimpleDateFormat month = new SimpleDateFormat("M");
 	    
+	    // 회원
+	    int monthMemberNo = dashboardDao.selectMonthInsertMemberCount(); // 당월 가입 회원 수
+	    int MemberNo = dashboardDao.selectMemberCount(); //전체 회원 수
+ 		int MenNo = dashboardDao.selectMenCount(); //여성회원
+ 		int womanNo = dashboardDao.selectWomanCount(); //남성회원
+ 		
+ 		//System.out.println("DashboardController-> selectTodayStatus()-> simpleToday: "+ simpleToday.format(today));
+ 		//System.out.println("DashboardController-> selectTodayStatus()-> month: "+ month.format(today));
+	    
+		//System.out.println("DashboardController-> selectTodayStatus()-> monthMemberNo: "+monthMemberNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> MemberNo: "+MemberNo);
+ 		//System.out.println("DashboardController-> selectTodayStatus()-> womanNo: "+womanNo);
+ 		//System.out.println("DashboardController-> selectTodayStatus()-> womanNo: "+womanNo);
+ 		
+	    model.addAttribute("today", simpleToday.format(today));
+	    model.addAttribute("month", month.format(today));
+	    
+	    model.addAttribute("monthMemberNo", monthMemberNo);
+	    model.addAttribute("MemberNo", MemberNo);
+	    model.addAttribute("MenNo", MenNo);
+		model.addAttribute("womanNo", womanNo);
+		
 		return "dashboard/all_status";
 	}
 	
