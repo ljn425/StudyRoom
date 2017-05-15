@@ -47,7 +47,7 @@
               <a href="#">
                 <i class="fa fa-edit"></i> <span>회원</span>
                 <i class="fa fa-angle-left pull-right"></i>
-                <small class="label pull-right bg-red">5</small>
+                <small class="label pull-right bg-red">new</small>
               </a>
               <ul class="treeview-menu">
                 <li><a href="${pageContext.request.contextPath}/member/member_form"><i class="fa fa-circle-o"></i> 회원 등록</a></li>

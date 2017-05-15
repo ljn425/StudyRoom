@@ -1,319 +1,113 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!doctype html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <title>jQuery UI Sortable - Portlets</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="/lib/jquery-1.12.2.min.js"></script>
-  
-  <style>
-  body {
-    min-width: 520px;
-  }
-  .column {
-    width: 170px;
-    float: left;
-    padding-bottom: 100px;
-  }
-  .portlet {
-    margin: 0 1em 1em 0;
-    padding: 0.3em;
-  }
-  .portlet-header {
-    padding: 0.2em 0.3em;
-    margin-bottom: 0.5em;
-    position: relative;
-  }
-  .portlet-toggle {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    margin-top: -8px;
-  }
-  .portlet-content {
-    padding: 0.4em;
-  }
-  .portlet-placeholder {
-    border: 1px dotted black;
-    margin: 0 1em 1em 0;
-    height: 50px;
-  }
-  </style>
+<!-- í—¤ë“œ -->
+<c:import url="../module2/head.jsp"/>
+
 <style>
-* {
-    box-sizing: border-box;
+.column {
+	width: 170px;
+	float: left;
+	padding-bottom: 100px;
 }
-.menu {
-    width: 75%;
-    float: left;
-    padding: 15px;
-    border: 1px solid red;
+
+.portlet {
+	margin: 0 1em 1em 0;
+	padding: 0.3em;
+	border: 1px solid;
 }
-.main {
-    width: 25%;
-    float: left;
-    padding: 15px;
-    border: 1px solid red;
+
+.portlet-header {
+	background-color: orange;
+	padding: 0.2em 0.3em;
+	margin-bottom: 0.5em;
+	position: relative;
+}
+
+.portlet-toggle {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	margin-top: -8px;
+}
+
+.portlet-content {
+	padding: 0.4em;
+}
+
+.portlet-placeholder {
+	border: 1px dotted black;
+	margin: 0 1em 1em 0;
+	height: 50px;
+}
+
+.ui-state-default {
+	border: 1px dotted;
+}
+
+#sortable {
+	inline: blokc;
+}
+
+.space{
+	background-color : black;
 }
 </style>
-  <script>
-  $( function() {
-    $( ".column" ).sortable({
-      connectWith: ".column",
-      handle: ".portlet-header",
-      cancel: ".portlet-toggle",
-      placeholder: "portlet-placeholder ui-corner-all"
-    });
-    
-    $( ".portlet" )
-      .addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
-      .find( ".portlet-header" )
-        .addClass( "ui-widget-header ui-corner-all" )
-        .prepend( "<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>");
- 
-    $( ".portlet-toggle" ).on( "click", function() {
-      var icon = $( this );
-      icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
-      icon.closest( ".portlet" ).find( ".portlet-content" ).toggle();
-    });
-    
-    $( function() {
-        $( "#sortable" ).sortable({
-          placeholder: "ui-state-highlight"
-        });
-        $( "#sortable" ).disableSelection();
-      } );
-    
-    var downScreenX, downScreenY;
-    
-    $('#sortable > li').mousedown(function(e){
-    	downScreenX = e.screenX;
-    	downScreenY = e.screenY;
-    }).mouseup(function(e){    	
-    	var screenX = e.screenX;
-    	var screenY = e.screenY;
-    	if(downScreenX !== undefined && downScreenY !== undefined){
-    		if(downScreenX != screenX || downScreenY  != screenY){
-    			var memberName = $(this).text();
-    			var copyPortlet = $('#copyPortlet').clone();
-    			copyPortlet.find('.portlet-content').text(memberName);
-    			$('.column').eq(0).prepend(copyPortlet.html());    			  			
-    		}
-    	}
-    })
-    
-  } );
-  </script>
-  
 </head>
-
 <body>
-<div class="menu">
-<div class="column1"> 
-</div>
-<div class="column2">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column"> 
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column"> 
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column"> 
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column"> 
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column">
-</div>
-<div class="column"> 
-</div>
-<div class="column" id="test" value="Mickey Mouse">
-<p>Name: <input type="text" id="test" value="Mickey Mouse"></p>
-<button>Show Value</button>
-</div>
-<div  id="divId" class="column">
-<p>aavasvavad</p>
-
-</div>
-</div>
-
-<script>
-$(document).ready(function(){
-    $("button").mouseup(function(){
-        alert("Value: " + $("#test").val());
-    });
-});
-</script>
-
-<script>
-var p = $('#divId');
-var position = p.position();
-$("p:last").text( "left: " + position.left + ", top: " + position.top );
-</script>
-
-<div class="main">
-<div style="clear: both; width: 80px;">	
-	<ol id="sortable" type="I">
-		<li class="ui-state-default"><i class="fa fa-plus-square-o" style="font-size:48px;color:red"></i></li>
-	</ol>
-</div>
-</div>
-
-<div id="copyPortlet" style="display: none;">
-<div class="column"> 
-	<div class="portlet">
-		  <div class="portlet-header">1</div>
-		  <div class="portlet-content"></div>
-		  <div class="portlet-content"></div>
-		  <button type="button" class="btn btn-info btn-sg" data-toggle="modal" data-target="#myModal1">È¸¿øÁ¤º¸</button>
-		  <button type="button" class="btn btn-info btn-sg" data-toggle="modal" data-target="#myModal2">°áÁ¦</button>
-			<div class="container">
-			 <!-- Modal -->
-			  <div class="modal fade" id="myModal1" role="dialog">
-			    <div class="modal-dialog modal-sm">
-			      <div class="modal-content">
-			        <div class="modal-header">
-			          <button type="button" class="close" data-dismiss="modal">&times;</button>
-			          <h4 class="modal-title">È¸¿ø µî·Ï</h4>
-				          <div class="container">
-						  <ul class="list-inline">
-						    <li><a href="#">Home</a></li>
-						    <li><a href="#">Menu 1</a></li>
-						    <li><a href="#">Menu 2</a></li>
-						  </ul>
-						 </div>
-			        </div>
-			        <div class="modal-body">
-						<form action="/action_page.php">
-							<input name="firstname" Placeholder="ÁÂ¼®">
-							<input name="firstname" Placeholder="ÀÌ¸§">
-							<input name="firstname" Placeholder="°¡ÀÔÀÏ">
-							<input name="firstname" Placeholder="Á¾·áÀÏ">
-							<input name="firstname" Placeholder="ÀüÈ­¹øÈ£">
-							<input name="firstname" Placeholder="¼ºº°">
-							<input name="firstname" Placeholder="ÀÌ¸ÞÀÏ"></br>
-							<input type="submit" value="ÀÔ·Â">
-						</form>
-			        </div>
-			        <div class="modal-footer">
-			          <button type="button" class="btn btn-default" data-dismiss="modal">´Ý±â</button>
-			        </div>
-			      </div>
-			    </div>
-			  </div>
-			</div> 
-			<div class="container">
-			 <!-- Modal -->
-			  <div class="modal fade" id="myModal2" role="dialog">
-			    <div class="modal-dialog modal-sm">
-			      <div class="modal-content">
-			        <div class="modal-header">
-			          <button type="button" class="close" data-dismiss="modal">&times;</button>
-			          <h4 class="modal-title">°áÁ¦ µî·Ï</h4>
-			        </div>
-			        <div class="modal-body">
-						<form action="/action_page.php">
-							<input name="firstname" Placeholder="±Ý¾×">
-							<input name="firstname" Placeholder="°áÁ¦¹æ¹ý">
-							<input name="firstname" Placeholder="°áÁ¦±â°£">
-							<input name="firstname" Placeholder="°áÁ¦¿©ºÎ">
-							<input name="firstname" Placeholder="°¡ÀÔ"></br>
-							<input type="submit" value="ÀÔ·Â">
-						</form>
-			        </div>
-			        <div class="modal-footer">
-			          <button type="button" class="btn btn-default" data-dismiss="modal">´Ý±â</button>
-			        </div>
-			      </div>
-			    </div>
-			  </div>
-			</div> 
-		</div>
-	</div>
-</div>
+<body class="skin-blue">
+    <div class="wrapper">
+      <!-- ìƒë‹¨ -->
+      <c:import url="../module2/top.jsp"/>
+      
+      <!-- ì™¼ìª½ -->
+ 	  <c:import url="../module2/left.jsp" />
+	
+	<!-- ì˜¤ë¥¸ìª½ -->
+     <div class="content-wrapper">
+	  <section class="content-header">
+	    <h1>
+	       ZakSim
+	      <small>Control panel</small>
+	    </h1>
+	    <ol class="breadcrumb">
+	      <li><a href="${pageContext.request.contextPath}/home/NewFile"><i class="fa fa-dashboard"></i>Home</a></li>
+	      <li class="active">ì—´ëžŒì‹¤í˜„í™©</li>
+	    </ol>
+	  </section> 
+	  	
+	<!-- Main content -->
+      <section class="content">
+		<div class="row">
+            <div class="col-xs-12">
+            	<div class="col-xs-9">
+            		<c:forEach var="s" items="${seatlist}">
+	            		 <div class="column">
+							<div class="portlet">
+							 	<input type="hidden" class="column_i" id="seat_row" name="seat_row">
+								<input type="hidden" class="column_num" id="seat_col" name="seat_col">
+								<div class="portlet-header "><input type="hidden" name="seat_cnumber" class="seat_cnum" value="${s.seat_cnumber}">${s.seat_cnumber}</div>
+								<div class="portlet-content"><input type="text" value="${s.member_nm}, ${s.seat_row}, ${s.seat_col}" readonly></div>
+							</div>
+						</div> 
+					</c:forEach>
+					<%-- 
+						<div>
+							${s.seat_cnumber}<br/>
+							${s.seat_row}<br/>
+							${s.seat_col}<br/>
+							${s.member_nm}<br/>
+						</div> 
+					--%>
+				</div>
+            </div><!-- col-xs-12 -->
+        </div><!-- row -->
+      </section><!-- content -->
+      
+      </div><!--content-wrapper  -->
+   </div><!-- wrapper -->
+	<c:import url="../module2/jsscript.jsp" />
 </body>
 </html>
-
-

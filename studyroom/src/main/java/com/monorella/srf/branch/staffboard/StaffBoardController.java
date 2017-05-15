@@ -17,11 +17,11 @@ public class StaffBoardController {
 	private StaffBoardDao staffboardDao;
 	
 	//공지사항 댓글
-	@RequestMapping(value="/boardReply", method = RequestMethod.POST)
+	@RequestMapping(value="/staffboard/staffboard_reply", method = RequestMethod.POST)
 	public String insertStaffBoardReply(Model model ,StaffBoardReply staffboardreply){
-		System.out.println(staffboardreply);
-			//model.addAttribute("staffboardreply", staffboardreply);
-		return "redirect:/staffboard/staffboard_view";
+		System.out.println("StaffBoardController->insertStaffBoardReply()" + model + staffboardreply);
+			model.addAttribute("staffboardreply", staffboardreply);
+		return "staffboard/staffboard_view";
 	}
 	
 	//공지사항 검색
@@ -44,7 +44,7 @@ public class StaffBoardController {
 				return "staffboard/staffboard_delete";
 			}
 			// 직원 삭제 요청
-			@RequestMapping(value ="/staffboard/staffboard_delete", method = RequestMethod.POST)
+			@RequestMapping(value ="/staffboard/staffboard_delete_pro", method = RequestMethod.POST)
 			public String StaffBoardDelete(@RequestParam(value="staffboard_no")int staffboard_no
 									,@RequestParam(value="staffboard_pw")String staffboard_pw){
 				staffboardDao.deleteStaffBoard(staffboard_no, staffboard_pw);
@@ -62,7 +62,7 @@ public class StaffBoardController {
 			}
 			
 			// 공지사항 수정 요청
-			@RequestMapping(value ="/staffboard/staffboard_modify", method = RequestMethod.POST)
+			@RequestMapping(value ="/staffboard/staffboard_modify_pro", method = RequestMethod.POST)
 			public String StaffBoardmodify(StaffBoard staffboard){
 				System.out.println("StaffBoardController->staffboard()");
 				staffboardDao.modifyStaffBoard(staffboard);
@@ -74,8 +74,8 @@ public class StaffBoardController {
 		public String StaffBoardView(Model model 
 								,@RequestParam(value="staffboard_no")int staffboard_no){
 			System.out.println("StaffBoardController ->StaffBoardView()" );
-		/*	int totalReply = staffboardDao.totalStaffBoardReply(staffboard_no);*/
-			/*List<StaffBoardReply> replylist = staffboardDao.selectStaffBoardReplyList(staffboard_no);*/
+		/*	int totalReply = staffboardDao.totalStaffBoardReply(staffboard_title);*/
+			/*List<StaffBoardReply> replylist = staffboardDao.selectStaffBoardReplyList(staffboard_title);*/
 			
 				
 				//셀렉하고
