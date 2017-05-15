@@ -25,13 +25,13 @@
   
 <!--   다른창으로 값 넘기기	 -->
   <script type="text/javascript">
-  function getSubmit() {
+  /* function getSubmit() {
     window.opener.name = "room_main"; // 부모창의 이름 설정
     document.myForm.target = "room_main"; // 타켓을 부모창으로 설정
     document.myForm.action = "room_main.jsp";
     document.myForm.submit();
     self.close();
-}
+} */
 </script>
  </HEAD>
 
@@ -47,32 +47,31 @@
 				  </ul>
 
                 <!-- form start -->
-                <form role="form">
                   <div class="box-body">
                       <form name="myForm" name="postForm" method="post" action="${pageContext.request.contextPath}/payment/paymentend">
 					    <div class="form-group">
 					    <label for="fname">결제코드&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-					    <input type="text" id="pay_cd" name="pay_cd" class="form-control" placeholder="<%=pay_cd%>" readonly>
+					    <input type="text" id="pay_cd" name="pay_cd" class="form-control">
 					    </div>
 					    
 					    <div class="form-group">
 					    <label for="fname">지점대표코드</label>
-					    <input type="text" id="branch_owner_cd" name="branch_owner_cd" class="form-control" placeholder="<%=branch_owner_cd%>" readonly>
+					    <input type="text" id="branch_owner_cd" name="branch_owner_cd" class="form-control" value="${branch_owner_cd}" readonly>
 					    </div>
 					    
 					    <div class="form-group">
 					    <label for="fname">열람실코드&nbsp;&nbsp;&nbsp;</label>
-					    <input type="text" id="room_cd" name="room_cd" class="form-control" placeholder="<%=room_cd%>" readonly>
+					    <input type="text" id="room_cd" name="room_cd" class="form-control" value="${room_cd}" readonly>
 					    </div>
 					    
 					    <div class="form-group">
 					    <label for="fname">열람석코드&nbsp;&nbsp;&nbsp;</label>
-					    <input type="text" id="seat_cd" name="seat_cd" class="form-control" placeholder="<%=seat_cd%>" readonly>
+					    <input type="text" id="seat_cd" name="seat_cd" class="form-control" value="${seat_cd}" readonly>
 					    </div>
 					    
 					    <div class="form-group">
 					    <label for="fname">회원코드&nbsp;&nbsp;&nbsp;</label>
-					    <input type="text" id="member_cd" name="member_cd" class="form-control" placeholder="<%=member_cd%>" readonly>
+					    <input type="text" id="member_cd" name="member_cd" class="form-control">
 					    </div>
 					    
 					    <div class="form-group">
@@ -113,6 +112,7 @@
               		</div>
              	</div>
             </div>
+           </div>
            </div>
  </BODY>
 </HTML>

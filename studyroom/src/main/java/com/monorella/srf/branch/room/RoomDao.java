@@ -15,6 +15,18 @@ public class RoomDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
+	//열람실별 열람석 조회
+	public List<Seat> selectRoomSeat(Room room){
+		return sqlSessionTemplate.selectList("", room);
+	}
+	
+	
+	//열람실 열람석 배치
+	public int modifyRoomSeat(Seat seat){
+		System.out.println("modifyRoomSeat()");
+		return sqlSessionTemplate.update("com.monorella.srf.branch.room.RoomMapper.modifyRoomSeat", seat);
+	}
+	
 	//열람석 삭제
 	public int deleteSeat(String room_cd){
 		System.out.println("deleteSeat()");
@@ -41,7 +53,6 @@ public class RoomDao {
 	
 	//열람석 insert
 	public int insertSeat(Seat seat){
-		System.out.print("열람석");
 		return sqlSessionTemplate.insert("com.monorella.srf.branch.room.RoomMapper.insertSeat", seat);
 	}
 	
