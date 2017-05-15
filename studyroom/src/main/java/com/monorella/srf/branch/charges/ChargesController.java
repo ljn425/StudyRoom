@@ -17,6 +17,11 @@ public class ChargesController {
 	private ChargesDao chargesDao;
 	
 	
+	//요금제 수정
+	@RequestMapping(value="/charges/charges_update" , method= RequestMethod.POST)
+	public String chargesUpdate(@RequestParam(value="charges_code", required=true) String charges_code){
+		return "redirect:/charges/charges_form";                                                                                                                                                                                                                                                         
+	}
 	
 	//요금제 삭제
 	@RequestMapping(value="/charges/charges_delete" , method= RequestMethod.GET)
@@ -31,10 +36,14 @@ public class ChargesController {
 	public String chargesPro(Charges chares){
 		System.out.println("요금제 등록 폼");
 		System.out.println(chares);
+		
+		//코드 MAX select
 		String code = chargesDao.selectChargesCode();
-		if(code == null){
+		
+		if(code == null){ 
 			chares.setSeat_charges_code("charges_code1");
 		}else{
+			//
 			int subcode = Integer.parseInt(code.substring(code.length()-1))+1;                                                   
 			System.out.println(subcode);
 			String charescode = "charges_code" + subcode;

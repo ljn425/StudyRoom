@@ -15,6 +15,18 @@ public class RoomDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
+	//열람석 삭제
+	public int deleteSeat(String room_cd){
+		System.out.println("deleteSeat()");
+		return sqlSessionTemplate.delete("com.monorella.srf.branch.room.RoomMapper.deleteSeat", room_cd);
+	}
+	
+	//열람실 삭제
+	public int deleteRoom(String room_cd){
+		System.out.println("deleteRoom()");
+		return sqlSessionTemplate.delete("com.monorella.srf.branch.room.RoomMapper.deleteRoom", room_cd);
+	}
+	
 	//열람석 select
 	public List<Seat> selectSeat(){
 		System.out.println("selectSeat()");

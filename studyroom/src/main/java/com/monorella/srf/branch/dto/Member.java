@@ -10,6 +10,7 @@ public class Member {
 	private String member_sex;
 	private String member_tel;
 	private String member_addr;
+	private String member_date;
 	private String member_regi_date;
 	private String member_end_date;
 	private String member_regi_path;
@@ -68,6 +69,12 @@ public class Member {
 	}
 	public void setMember_addr(String member_addr) {
 		this.member_addr = member_addr;
+	}
+	public String getMember_date() {
+		return member_date;
+	}
+	public void setMember_date(String member_date) {
+		this.member_date = member_date;
 	}
 	public String getMember_regi_date() {
 		return member_regi_date;

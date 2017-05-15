@@ -6,16 +6,46 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.monorella.srf.branch.dto.Room;
 import com.monorella.srf.branch.dto.Seat;
+import com.monorella.srf.branch.dto.SeatRowCol;
 
 @Controller
 public class RoomController {
 	@Autowired
 	private RoomDao roomDao;
+	
+	
+	
+	//열람실 배치도 등록
+	@RequestMapping(value="/room/room_placement" , method = RequestMethod.POST)
+	public String room_placement(SeatRowCol seatrowcol){
+		System.out.println("seats :" + seatrowcol);
+		return "";
+	}
+	
+	
+	//열람실 삭제
+	@RequestMapping(value="/room/room_delete" , method = RequestMethod.GET)
+	public String room_Delete(@RequestParam(value="room_cd", required=true) String room_cd){
+		
+		System.out.println("room_cd :" + room_cd);
+		try{
+			System.out.println("열람실 & 열람석 삭제");
+			roomDao.deleteSeat(room_cd);
+			roomDao.deleteRoom(room_cd);
+		
+			return "redirect:/room/room_form";
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return "redirect:/room/room_form";
+	}
 	
 	//열람실 등록
 	@RequestMapping(value="/room/room_pro", method = RequestMethod.POST)

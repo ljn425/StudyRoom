@@ -13,13 +13,13 @@
 			if($('#member_cd').val().length < 11) {
 				alert("독서실 회원코드는  11자 이상이어야 합니다.");
 				$('#member_cd').focus();
-			}  else if(branch_owner_cd == 'B0010'){
+			} else if($('#branch_owner_cd').val()=='') {
                 alert('지점대표코드를 선택해 주세요');
                 $('#branch_owner_cd').focus();
-			}/*  else if(!$('#branch_owner_cd > option:selected').val == '0'){
+		  /*} else if(!$('#branch_owner_cd > option:selected').val == '0'){
                 alert('지점대표코드가 선택이 안되어있습니다.');
-                $('#branch_owner_cd').focus();
-			} */ else if($('#staff_id').val()=='') {
+                $('#branch_owner_cd').focus(); */
+			} else if($('#staff_id').val()=='') {
                 alert('직원아이디를 입력해주세요');
                 $('#staff_id').focus();
 			} else if($('#member_nm').val()=='') {
@@ -94,15 +94,8 @@
 							<input type="text" class="form-control" id="member_cd" name="member_cd" placeholder="독서실회원코드를 입력해주세요">
 						</div>
 						<div class="form-group">
-                      	   <label for="branch_owner_cd">지점 대표코드</label>
-							<select class="form-control" name="branch_owner_cd" id="branch_owner_cd" > 
-								<option value="B0010" selected>지점 대표코드를 입력해 주세요</option> 
-							     <option value="B0011">B011</option> 
-							     <option value="B0016">B016</option> 
-							     <option value="B0017">B017</option> 
-							     <option value="B0018">B018</option> 
-							     <option value="B0019">B019</option>
-							</select>
+                      	   <label class="control-label" for="inputLarge">지점대표코드</label>
+							<input type="text" class="form-control" value="${sessionScope.branchOwner.branch_owner_cd}" name="branch_owner_cd" readonly>
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="inputLarge">직원 아이디</label>

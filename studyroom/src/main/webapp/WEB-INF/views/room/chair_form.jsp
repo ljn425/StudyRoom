@@ -118,13 +118,69 @@
 			$('#charNum2').html("");
 		});
 		
+		
+		
+		
 		var contextPath = '<c:out value='${pageContext.request.contextPath}'/>';
 		console.log(contextPath);
 		$('#add_btn').click(function() {
+			
+			var coulum_size = $('.column').size() // 행(가로) 길이
+			console.log('coulum_size :' + coulum_size);
+			var myArray = new Array( new Array(8), new Array(8));
+			
+			
+			
+			
+						
+			 for(var i = 0; i< coulum_size; i++){
+				var children_size = $('.column')[i].children.length; //열(세로) 길이
+				var column_row = $('.column')[i].children;
+				console.log(i+'번쨰 children_size :' + children_size);
+				console.log(column_row);
+				
+				for(var k=0; k<children_size; k++){
+					//console.log(column_row[k]);	
+					//console.log(i+'각 열 숫자 :' + column_row[k]);		
+					
+					var column_num = column_row[k].getElementsByClassName('column_num');
+					var column_i = column_row[k].getElementsByClassName('column_i');
+					
+					//$('.column_i').val(i);
+					column_i.value = i;
+					column_num.value = k;
+					console.log(i+"번재 "+column_num.value+"열 " );
+					column_row[k].getElementsByClassName('column_num').value = column_num.value;
+					
+					//$('.column')[i].children[k].filter('.column_num').val(k);
+					//column_row[k][1].value(k);
+// 					console.log("column_num.length : " + column_num.length);
+// 					for(var j=0; j<column_num.length; j++){
+// 						console.log(column_num);
+// 						column_num[j].value= j;
+// 						console.log("몇번째 : " + column_num[j].value);
+// 					}
+					//column_row[k].getElementsByClassName('column_num')[0].value = k
+					//console.log("몇번째 : " + column_row[k][1].val());
+					
+					
+					console.log('좌석번호 : ' + column_row[k].innerText);
+					/* if(typeof column_row[k].innerText != undefined){
+						myArray[i][k] = column_row[k].innerText;
+					} */
+				}
+				 
+			} 
+			/* for(var key in myArray){
+				console.log(key + ' : ' +myArray[key]);
+			} */
+			
+			
 		 var result = confirm('정말로 이 배치도로 등록 하시겠습니까?');
 		 if(result) { 
 			console.log('yes');
-			location.replace(contextPath+'/dashboard/today_status'); 
+			$('#col_form').submit();
+			//location.replace(contextPath+'/dashboard/today_status'); 
 		   }else{ 
 			 
 		   }
@@ -138,6 +194,8 @@
 				 
 			   } 
 		 });
+		 
+		 
 	});
 </script>
 </head>
@@ -175,15 +233,23 @@
              </div><!-- col-xs-12 -->  
              </div>
 				<h1></h1>
-			<div class="col-xs-9">	
-				<c:forEach var="s" items="${seat}">
+			<div class="col-xs-9">
+			<form action="${pageContext.request.contextPath}/room/room_placement" id="col_form" method="post">
+				<c:forEach var="s" items="${seat}" end="5">
+					<div class="column">
+					</div>
+				</c:forEach>
+				<c:forEach var="s" items="${seat}" >
 					<div class="column">
 						<div class="portlet">
-							<div class="portlet-header">${s.seat_cnumber}</div>
-							<div class="portlet-content">빈좌석</div>
+						 	<input type="hidden" class="column_i" name="seat_row">
+							<input type="hidden" class="column_num" name="seat_col">
+							<div class="portlet-header "><input type="hidden" name="seat_cnumber" class="seat_cnum" value="${s.seat_cnumber}">${s.seat_cnumber}</div>
+							<div class="portlet-content"><input type="text" value="빈좌석" readonly></div>
 						</div>
 					</div>
-				</c:forEach>	
+				</c:forEach>
+			</form>		
 			</div>
 			<div class="col-xs-3">
 				<div id="copyPortlet" style="display: none;">
