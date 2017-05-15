@@ -17,9 +17,8 @@ public class RoomDao {
 	
 	//열람실별 열람석 조회
 	public List<Seat> selectRoomSeat(Room room){
-		return sqlSessionTemplate.selectList("", room);
+		return sqlSessionTemplate.selectList("com.monorella.srf.branch.room.RoomMapper.selectRoomSeat", room);
 	}
-	
 	
 	//열람실 열람석 배치
 	public int modifyRoomSeat(Seat seat){
