@@ -32,13 +32,13 @@ public class PaymentController {
 	}
 	
 	@RequestMapping(value="/payment/member1", method = RequestMethod.GET)
-	public String paymentpro(){
+	public String payment(){
 		return "payment/member1";
 	}
 	
 	// 입력 post 요청
 	@RequestMapping(value="/payment/paymentend", method = RequestMethod.POST)
-	public String payment(Payment payment){
+	public String paymentpro(Payment payment){
 		System.out.println("post 요청");
 		paymentDao.insertPayment(payment);
 		return "payment/paymentend";
