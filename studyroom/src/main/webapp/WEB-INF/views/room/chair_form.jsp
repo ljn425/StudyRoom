@@ -264,6 +264,7 @@
 	</section><!-- content -->
    </div><!-- content-wrapper -->
   </div><!-- wrapper -->
+  <c:import url="../module2/jsscript.jsp" />
 </body>
 </html>
 

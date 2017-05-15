@@ -17,8 +17,8 @@
 	  		 ,  bs.seat_row
 	  		 ,  bs.seat_col
 	  		 ,  bm.member_nm
-		FROM branch_saet_tb bs JOIN branch_member_tb bm ON bs.seat_cd = bm.seat_cd 
-		WHERE room_cd = 'room_cd2';
+		FROM branch_saet_tb bs LEFT JOIN branch_member_tb bm ON bs.seat_cd = bm.seat_cd 
+		WHERE room_cd = #{room_cd};
   	</select>
   
   	<!-- 열람석 배치하기 -->

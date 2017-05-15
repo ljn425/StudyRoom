@@ -18,12 +18,18 @@ import com.monorella.srf.branch.dto.SeatRowCol;
 public class RoomController {
 	@Autowired
 	private RoomDao roomDao;
-	
+			
 	//열람실 배치도 상세보기
 	@RequestMapping(value="/room/room_view" , method = RequestMethod.GET)
-	public String room_view(Room room){
+	public String room_view(Room room, Model model){
 		System.out.println("room_view()");
 		System.out.println(room);
+		List<Seat> seatlist = roomDao.selectRoomSeat(room);
+		
+		model.addAttribute("seatlist", seatlist);
+		model.addAttribute("room", room);
+		
+		
 		
 		return "room/room_view";
 	}
