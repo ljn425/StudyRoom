@@ -30,36 +30,78 @@
 		    </ol>
 		  </section>
 <div class="table-responsive">
- <!-- 검색 -->
-    <form id="searchFrom" action="${pageContext.request.contextPath}/staffboard/staffboard_search" method="post">
-	 <div class="form-group">
-	 <div class="row">
-	  <div class="col-sm-3">
-	  </div>
-	  <div class="col-sm-2">
-	   <select name="so" class="form-control" id="sel1">
-	    <option value="staffboard_title">제목</option>
-	    <option value="staff_name">작성자</option>
-	  </select>
-	  </div>
-	   <div class="col-sm-3">
-	   		<input name="sv" id="selectValue" type="text" class="form-control" placeholder="검색어를 입력해주세요."/>
-	   </div>
-	   <div class="col-sm-4">
-	   		<button type="button" id="searchBtn" class="btn btn-default">검색</button>
-	   </div>
-	   </div>
-	</div>
-	</form>
+
+	
+	<div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">직원 공지사항</h3>
+                  <div class="box-tools">
+                    <div class="input-group">
+                     <!-- 검색 -->
+			    <form id="searchFrom" action="${pageContext.request.contextPath}/staffboard/staffboard_search" method="post">
+				 <div class="form-group">
+				 <div class="row">
+				  <div class="col-sm-3">
+				  </div>
+				  <div class="col-sm-2">
+				   <select name="so" class="form-control" id="sel1">
+				    <option value="staffboard_title">제목</option>
+				    <option value="staff_name">작성자</option>
+				  </select>
+				  </div>
+				   <div class="col-sm-3">
+				   		<input name="sv" id="selectValue" type="text" class="form-control" placeholder="검색어를 입력해주세요."/>
+				   </div>
+				   <div class="col-sm-4">
+				   		<button type="button" id="searchBtn" class="btn btn-sm btn-default"><i class="fa fa-search"></i>검색</button>
+				   </div>
+				   </div>
+				</div>
+				</form>
+                      <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+                      <div class="input-group-btn">
+                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                  <table class="table table-hover">
+                    <thead>
+                     <tr>
+		            	<th>공지사항 번호</th>
+		                <th>공지사항 제목</th>
+		                <th>작성자</th>
+		                <th>등록일</th>
+		            </tr>
+		            </thead>
+                       <tbody>
+
+				<c:forEach var="s" items="${list}">
+			                <tr>
+			                    <td>${s.staffboard_no}</td>
+			                    <td><a href="${pageContext.request.contextPath}/staffboard/staffboard_view?staffboard_no=${s.staffboard_no}">${s.staffboard_title}</a></td>
+			                    <td>${s.staff_name}</td>
+			                    <td>${s.staffboard_date}</td>
+			                </tr>
+			 	</c:forEach>
+			        </tbody>
+                  </table>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div>
+          </div>
 
     <div>전체행의 수 : ${staffboard_content}</div>
     <table class="table">
         <thead>
             <tr>
-            	<th>staffboard_no</th>
-                <th>staffboard_title</th>
-                <th>staff_name</th>
-                <th>staffboard_date</th>
+            	<th>공지사항 번호</th>
+                <th>공지사항 제목</th>
+                <th>작성자</th>
+                <th>등록일</th>
             </tr>
         </thead>
         <tbody>

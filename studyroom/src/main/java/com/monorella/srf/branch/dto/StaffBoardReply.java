@@ -7,7 +7,8 @@ public class StaffBoardReply {
 	    private String staffboardreply_content;    // 댓글 내용
 	    private String staffboard_name;        // 댓글 작성자
 	    private String staffboardreply_date;        // 댓글 작성일자
-		public int getStaffboardreply_no() {
+		
+	    public int getStaffboardreply_no() {
 			return staffboardreply_no;
 		}
 		public void setStaffboardreply_no(int staffboardreply_no) {

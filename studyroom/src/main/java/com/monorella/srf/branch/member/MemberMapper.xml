@@ -92,13 +92,16 @@
 		FROM branch_member_tb
 		ORDER BY inout_num DESC
 		LIMIT #{beginRow}, #{pagePerRow}
-	</select>	
-
+	</select>
 
 	<select id="selectMemberCount" resultType="int">
         SELECT COUNT(*) FROM branch_member_tb
     </select>
 	
+ 	 <select id="selectMemberCode" resultType="String">
+  		SELECT MAX(member_cd) FROM branch_member_tb
+  	</select>
+  	
 	<insert id="insertMember" parameterType="com.monorella.srf.branch.dto.Member">
 		INSERT INTO branch_member_tb(
 			member_cd
@@ -126,7 +129,7 @@
 			, #{member_sex}
 			, #{member_tel}
 			, #{member_addr}
-			, #{member_date}
+			, now()
 			, #{member_regi_date}
 			, #{member_end_date}
 			, #{member_regi_path}

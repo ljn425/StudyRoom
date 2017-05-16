@@ -21,12 +21,11 @@ public class StaffBoardDao {
         return sqlSessionTemplate.selectList("com.monorella.srf.branch.staffboard.StaffBoardMapper.selectStaffBoardReplyList", staffboard_no);
     }
     // 댓글 작성
-   
     public void insertStaffBoardReply(StaffBoardReply staffboardreply){
     	System.out.println("StaffBoardDao->insertStaffBoardReply()->"+staffboardreply);
 		sqlSessionTemplate.insert("com.monorella.srf.branch.staffboard.StaffBoardMapper.insertStaffBoardReply", staffboardreply);
 	}
-    // 게시판에 댓글 수 보이게 
+   // 게시판에 댓글 수 보이게 
     public int totalStaffBoardReply(int staffboard_no){
 		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.staffboard.StaffBoardMapper.totalStaffBoardReply", staffboard_no);
 	}
