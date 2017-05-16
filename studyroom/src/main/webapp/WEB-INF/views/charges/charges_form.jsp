@@ -62,10 +62,24 @@
 	                    <tbody>
 	                      <c:forEach var="c" items="${chargeslist}" >
 		                      <tr>
-		                        <td><input type="text" name="seat_member_type" class="form-control text01" value="${c.seat_member_type}" readonly/></td>
-		                        <td><input type="text" name="seat_charges_date" class="form-control text02" value="${c.seat_charges_date}" readonly/></td>
-		                        <td><input type="text" name="seat_charges_price" class="form-control text03" value="${c.seat_charges_price}" readonly/></td>
-		                        <td><a href="${pageContext.request.contextPath}/charges/charges_update?charges_code=${c.seat_charges_code}"><button id="update_btn"><i class="fa  fa-eraser"></i></button></a></td>
+		                        <td>
+		                        	<form class="modify_form">
+		                        		<input type="hidden" name="seat_charges_code" value="${c.seat_charges_code}"/>
+		                       	 		<input type="text" name="seat_member_type" class="form-control text01" value="${c.seat_member_type}" readonly/>
+		                        	</form>
+		                        </td>
+		                        <td>
+		                        	<form class="modify_form">
+		                        		<input type="text" name="seat_charges_date" class="form-control text02" value="${c.seat_charges_date}" readonly/>
+		                        	</form>
+		                        </td>
+		                        <td>
+		                        	<form class="modify_form">
+		                        		<input type="text" name="seat_charges_price" class="form-control text03" value="${c.seat_charges_price}" readonly/>
+		                        	</form>		
+		                        </td>
+		                       		
+		                        <td><button id="update_btn"><i class="fa  fa-eraser"></i></button></td>
 		                        <td><a href="${pageContext.request.contextPath}/charges/charges_delete?charges_code=${c.seat_charges_code}"><button><i class="fa  fa-times"></i></button></a></td>
 		                      </tr>
 	                      </c:forEach>
@@ -138,17 +152,37 @@
         });
       });
       
-      $('.text01, text02, text03').dblclick(function(){
+      
+      
+      $('.text01, .text02, .text03').dblclick(function(){
     	  console.log('클릭');
     	  $(this).removeAttr('readonly');
       });
-      $('.text01, text02, text03').blur(function(){
+      $('.text01, .text02, .text03').blur(function(){
     	  console.log('blur');
     	  $(this).attr('readonly','readonly');
       });
     
+      $(document).on('click','#update_btn',function(){
+    	  console.log('클릭');
+    	  var parms = "";
+    	  parms += $(this).parent().parent().find('.modify_form').serialize();
+    	  console.log(parms);
+    	  $.ajax({
+    		  type : 'post',
+    		  url : '${pageContext.request.contextPath}/charges/charges_update',
+    		  data : parms, 
+    		  contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+    		  success : function(data){
+    			  console.log(data);
+    			  if(data == 1){
+    				  console.log('성공')  
+    			  }
+    		  }
+    	  });
+    	  
+      });
       
      </script>
-    
 </body>
 </html>

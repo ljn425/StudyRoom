@@ -5,6 +5,15 @@
   
   <mapper namespace="com.monorella.srf.branch.charges.ChargesMapper">
   
+  <!-- 요금제 수정 -->
+  <update id="modifyCharges" parameterType="map">
+  	UPDATE seat_charges
+		SET
+			seat_member_type= #{seat_member_type},
+			seat_charges_date= #{seat_charges_date},
+			seat_charges_price= #{seat_charges_price}
+		WHERE seat_charges_code= #{seat_charges_code}
+  </update>
   
   <!-- 요금제 코드 COUNT -->
   <select id="selectChargesCode" resultType="int">
