@@ -1,29 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>ZacSIM Dashboard</title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-  	<!-- Bootstrap 3.3.2 -->
-    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Ionicons -->
-    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- Morris chart -->
-    <link href="${pageContext.request.contextPath}/resources/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
-    <!-- jvectormap -->
-    <link href="${pageContext.request.contextPath}/resources/plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-    <!-- Daterange picker -->
-    <link href="${pageContext.request.contextPath}/resources/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
-    <!-- Theme style -->
-    <link href="${pageContext.request.contextPath}/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-    <!-- AdminLTE Skins. Choose a skin from the css/skins 
-         folder instead of downloading all of them to reduce the load. -->
-    <link href="${pageContext.request.contextPath}/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-
+ 	<!-- Bootstrap 3.3.2 -->
+   <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+   <!-- Font Awesome Icons -->
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+   <!-- Ionicons -->
+   <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+   <!-- Morris chart -->
+   <link href="${pageContext.request.contextPath}/resources/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+   <!-- Theme style -->
+   <link href="${pageContext.request.contextPath}/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+   <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+   <link href="${pageContext.request.contextPath}/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+   
 </head>
 <body class="skin-blue">
     <div class="wrapper">
@@ -46,7 +40,7 @@
           </ol>
         </section>
 
-		<!-- -----------------------내용!!!------------------------------ -->	
+		<!-- ------------------------내용!!!------------------------------ -->	
 		
         <section class="content">
   
@@ -93,116 +87,6 @@
               </div><!-- /.info-box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
-		  <!-- 매출 회계 그래프 -->
-          <div class="row">
-            <div class="col-md-12">
-              <div class="box">
-              
-                <div class="box-header with-border">
-                  <h3 class="box-title"><b>월 매출 추이</b></h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <div class="btn-group">
-                      <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i></button>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                      </ul>
-                    </div>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div><!-- /.box-header -->
-                
-                <div class="box-body">
-                  <div class="row">
-                  
-                    <div class="col-md-8">
-                      <p class="text-center">
-                        <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
-                      </p>
-                      <div class="chart-responsive">
-                        <!-- Sales Chart Canvas -->
-                        <canvas id="salesChart" height="180"></canvas>
-                      </div><!-- /.chart-responsive -->
-                    </div><!-- /.col -->
-                    
-                    <div class="col-md-4">
-                      <p class="text-center">
-                        <strong>Goal Completion</strong>
-                      </p>
-                      <div class="progress-group">
-                        <span class="progress-text">Add Products to Cart</span>
-                        <span class="progress-number"><b>160</b>/200</span>
-                        <div class="progress sm">
-                          <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
-                        </div>
-                      </div><!-- /.progress-group -->
-                      <div class="progress-group">
-                        <span class="progress-text">Complete Purchase</span>
-                        <span class="progress-number"><b>310</b>/400</span>
-                        <div class="progress sm">
-                          <div class="progress-bar progress-bar-red" style="width: 80%"></div>
-                        </div>
-                      </div><!-- /.progress-group -->
-                      <div class="progress-group">
-                        <span class="progress-text">Visit Premium Page</span>
-                        <span class="progress-number"><b>480</b>/800</span>
-                        <div class="progress sm">
-                          <div class="progress-bar progress-bar-green" style="width: 80%"></div>
-                        </div>
-                      </div><!-- /.progress-group -->
-                      <div class="progress-group">
-                        <span class="progress-text">Send Inquiries</span>
-                        <span class="progress-number"><b>250</b>/500</span>
-                        <div class="progress sm">
-                          <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>
-                        </div>
-                      </div><!-- /.progress-group -->
-                    </div><!-- /.col -->
-                  
-                  </div><!-- /.row -->
-                </div><!-- ./box-body -->
-                
-                <div class="box-footer">
-                  <div class="row">
-                    <div class="col-sm-3 col-xs-6">
-                      <div class="description-block border-right">
-                        <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
-                        <h5 class="description-header">$35,210.43</h5>
-                        <span class="description-text">TOTAL REVENUE</span>
-                      </div><!-- /.description-block -->
-                    </div><!-- /.col -->
-                    <div class="col-sm-3 col-xs-6">
-                      <div class="description-block border-right">
-                        <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
-                        <h5 class="description-header">$10,390.90</h5>
-                        <span class="description-text">TOTAL COST</span>
-                      </div><!-- /.description-block -->
-                    </div><!-- /.col -->
-                    <div class="col-sm-3 col-xs-6">
-                      <div class="description-block border-right">
-                        <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
-                        <h5 class="description-header">$24,813.53</h5>
-                        <span class="description-text">TOTAL PROFIT</span>
-                      </div><!-- /.description-block -->
-                    </div><!-- /.col -->
-                    <div class="col-sm-3 col-xs-6">
-                      <div class="description-block">
-                        <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
-                        <h5 class="description-header">1200</h5>
-                        <span class="description-text">GOAL COMPLETIONS</span>
-                      </div><!-- /.description-block -->
-                    </div>
-                  </div><!-- /.row -->
-                </div><!-- /.box-footer -->
-              
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->  
-          
           
 		  <!-- 원형 차트 3개 -->
           <div class="row">
@@ -210,124 +94,105 @@
             <div class="col-md-4">
              <div class="box box-default">
                <div class="box-header with-border">
+               	 <i class="fa fa-bar-chart-o"></i>
+                 <h3 class="box-title"><b>회원 성비</b></h3>
+                 <div class="box-tools pull-right">
+                   <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                   <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                 </div>
+               </div><!-- /.box-header -->
+               <div class="box-body">  
+	            <div id="sex" style="height: 250px;"></div>
+               </div><!-- /.box-body -->
+              </div><!-- /.box -->
+             </div><!-- /.col -->
+            
+            <div class="col-md-4">
+             <div class="box box-default">
+               <div class="box-header with-border">
+               	 <i class="fa fa-bar-chart-o"></i>
                  <h3 class="box-title"><b>회원 등록 경로</b></h3>
                  <div class="box-tools pull-right">
                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                  </div>
                </div><!-- /.box-header -->
-               <div class="box-body">
-                 <div class="row">
-                   <div class="col-md-8">
-                    <div class="box box-primary">
-		                <div class="box-header">
-		                  <i class="fa fa-bar-chart-o"></i>
-		                  <h3 class="box-title">Donut Chart</h3>
-		                </div>
-		                <div class="box-body">
-		                  <div id="donut-chart" style="height: 150px;"></div>
-		                </div><!-- /.box-body-->
-		             </div><!-- /.box -->
-                   </div><!-- /.col -->
-                   <div class="col-md-4">
-                     <ul class="chart-legend clearfix">
-                       <li><i class="fa fa-circle-o text-red"></i> 인터넷</li>
-                       <li><i class="fa fa-circle-o text-green"></i> 지인소개</li>
-                       <li><i class="fa fa-circle-o text-yellow"></i> js파일 내용을</li>
-                       <li><i class="fa fa-circle-o text-aqua"></i> 옮겨야 하는데</li>
-                       <li><i class="fa fa-circle-o text-light-blue"></i> 옮기면</li>
-                       <li><i class="fa fa-circle-o text-gray"></i> 오류가 뜨네..</li>
-                     </ul>
-                   </div><!-- /.col -->
-                 </div><!-- /.row -->
+               <div class="box-body">  
+	            <div id="path" style="height: 250px;"></div>
                </div><!-- /.box-body -->
-               <div class="box-footer no-padding">
-                 <ul class="nav nav-pills nav-stacked">
-                   <li><a href="#">United States of America <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                   <li><a href="#">India <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a></li>
-                   <li><a href="#">China <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
-                 </ul>
-              </div><!-- /.footer -->
-             </div><!-- /.box -->
+              </div><!-- /.box -->
             </div><!-- /.col -->
             
             <div class="col-md-4">
              <div class="box box-default">
                <div class="box-header with-border">
-                 <h3 class="box-title"><b>독서실 주 이용 목적</b></h3>
+               	 <i class="fa fa-bar-chart-o"></i>
+                 <h3 class="box-title"><b>주 이용 목적</b></h3>
                  <div class="box-tools pull-right">
                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                  </div>
                </div><!-- /.box-header -->
-               <div class="box-body">
-                 <div class="row">
-                   <div class="col-md-8">
-                     <div class="chart-responsive">
-                       <canvas id="pieChart2" height="150"></canvas>
-                     </div><!-- ./chart-responsive -->
-                   </div><!-- /.col -->
-                   <div class="col-md-4">
-                     <ul class="chart-legend clearfix">
-                       <li><i class="fa fa-circle-o text-red"></i> Chrome</li>
-                       <li><i class="fa fa-circle-o text-green"></i> IE</li>
-                       <li><i class="fa fa-circle-o text-yellow"></i> FireFox</li>
-                       <li><i class="fa fa-circle-o text-aqua"></i> Safari</li>
-                       <li><i class="fa fa-circle-o text-light-blue"></i> Opera</li>
-                       <li><i class="fa fa-circle-o text-gray"></i> Navigator</li>
-                     </ul>
-                   </div><!-- /.col -->
-                 </div><!-- /.row -->
+               <div class="box-body">  
+	            <div id="purpose" style="height: 250px;"></div>
                </div><!-- /.box-body -->
-               <div class="box-footer no-padding">
-                 <ul class="nav nav-pills nav-stacked">
-                   <li><a href="#">United States of America <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                   <li><a href="#">India <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a></li>
-                   <li><a href="#">China <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
-                 </ul>
-               </div><!-- /.footer -->
-             </div><!-- /.box -->
+              </div><!-- /.box -->
             </div><!-- /.col -->
-            
-            <div class="col-md-4">
-             <div class="box box-default">
-               <div class="box-header with-border">
-                 <h3 class="box-title"><b>성비</b></h3>
-                 <div class="box-tools pull-right">
-                   <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                   <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                 </div>
-               </div><!-- /.box-header -->
-               <div class="box-body">
-                 <div class="row">
-                   <div class="col-md-8">
-                     <div class="chart-responsive">
-                       <canvas id="pieChart3" height="150"></canvas>
-                     </div><!-- ./chart-responsive -->
-                   </div><!-- /.col -->
-                   <div class="col-md-4">
-                     <ul class="chart-legend clearfix">
-                       <li><i class="fa fa-circle-o text-red"></i> Chrome</li>
-                       <li><i class="fa fa-circle-o text-green"></i> IE</li>
-                       <li><i class="fa fa-circle-o text-yellow"></i> FireFox</li>
-                       <li><i class="fa fa-circle-o text-aqua"></i> Safari</li>
-                       <li><i class="fa fa-circle-o text-light-blue"></i> Opera</li>
-                       <li><i class="fa fa-circle-o text-gray"></i> Navigator</li>
-                     </ul>
-                   </div><!-- /.col -->
-                 </div><!-- /.row -->
-               </div><!-- /.box-body -->
-               <div class="box-footer no-padding">
-                 <ul class="nav nav-pills nav-stacked">
-                   <li><a href="#">United States of America <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                   <li><a href="#">India <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a></li>
-                   <li><a href="#">China <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
-                 </ul>
-               </div><!-- /.footer -->
-             </div><!-- /.box -->
-           </div><!-- /.col -->
           
           </div><!-- /.row -->
+          <!-- 원형 차트 3개 end-->
+          
+          	<!-- 범위 그래프 차트 -->
+				<!-- <div class="row"> //누적합산그래프
+					<div class="col-md-12">
+						<div class="box box-default">
+							<div class="box-header with-border">
+								<i class="fa fa-bar-chart-o"></i>
+								<h3 class="box-title">
+									<b>분기별 등록자 추이</b>
+								</h3>
+								<div class="box-tools pull-right">
+									<button class="btn btn-box-tool" data-widget="collapse">
+										<i class="fa fa-minus"></i>
+									</button>
+									<button class="btn btn-box-tool" data-widget="remove">
+										<i class="fa fa-times"></i>
+									</button>
+								</div>
+							</div>
+							/.box-header
+
+							<div class="box-body chart-responsive">
+								<div class="chart" id="revenue-chart" style="height: 300px;"></div>
+							</div>
+							/.box-body
+						</div>
+					</div>
+				</div> -->
+				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="box box-default">
+							<div class="box-header with-border">
+								<i class="fa fa-bar-chart-o"></i>
+								<h3 class="box-title">
+									<b>월별 등록자 추이</b>
+								</h3>
+								<div class="box-tools pull-right">
+									<button class="btn btn-box-tool" data-widget="collapse">
+										<i class="fa fa-minus"></i>
+									</button>
+								</div>
+							</div>
+							
+							<div class="box-body">
+			                	<canvas id="areaChart" height="250"></canvas>
+			                </div><!-- /.box-body -->
+						</div>
+					</div>
+				</div>
+				
+				<!-- 범위 그래프 차트 end -->
           
         </section><!-- /.content -->
 
@@ -345,67 +210,262 @@
     <script src="${pageContext.request.contextPath}/resources/plugins/jQuery/jQuery-2.1.3.min.js"></script>
     <!-- Bootstrap 3.3.2 JS -->
     <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- FastClick -->
-    <script src="${pageContext.request.contextPath}/resources/plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="${pageContext.request.contextPath}/resources/dist/js/app.min.js" type="text/javascript"></script>
-    <!-- daterangepicker -->
-    <script src="${pageContext.request.contextPath}/resources/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
-    <!-- datepicker -->
-    <script src="${pageContext.request.contextPath}/resources/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!-- iCheck -->
-    <script src="${pageContext.request.contextPath}/resources/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-    <!-- SlimScroll 1.3.0 -->
-    <script src="${pageContext.request.contextPath}/resources/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-    <!-- ChartJS 1.0.1 -->
-    <script src="${pageContext.request.contextPath}/resources/plugins/chartjs/Chart.min.js" type="text/javascript"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="${pageContext.request.contextPath}/resources/js/dashboard2.js" type="text/javascript"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="${pageContext.request.contextPath}/resources/dist/js/demo.js" type="text/javascript"></script>
-    <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
-    <script src="${pageContext.request.contextPath}/resources/plugins/flot/jquery.flot.pie.min.js" type="text/javascript"></script>
+    <!-- Morris.js charts -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/plugins/morris/morris.min.js" type="text/javascript"></script>
+    	<!-- ChartJS 1.0.1 -->
+    <script src="${pageContext.request.contextPath}/resources/plugins/chartjs/Chart.min.js" type="text/javascript"></script>
     
     <!-- Page script -->
-    <!-- /resources/dist/js/pages/dashboard2.js 경로 따라가면 차트 내용 수정 가능 -->
     <script type="text/javascript">
       $(function () {
+    	 
+		var MenNo = '<c:out value='${MenNo}'/>';
+		MenNo *= 1; // int변환
+		var womanNo = '<c:out value='${womanNo}'/>';
+		womanNo *= 1;
+		
+    	// 회원 성비
+		var donut = new Morris.Donut({
+		    element: 'sex',
+		    resize: true,
+		    colors: ["#6D6CFF", "#f56954"],
+		    data: [
+		      {label: "남성", value: MenNo},
+		      {label: "여성", value: womanNo}
+		    ],
+		    hideHover: 'auto'
+		});
+    	
+		var pamphletNo = '<c:out value='${pamphletNo}'/>';
+		pamphletNo *= 1; // int변환
+		var placardNo = '<c:out value='${placardNo}'/>';
+		placardNo *= 1;
+		var introductionNo = '<c:out value='${introductionNo}'/>';
+		introductionNo *= 1;
+		var internetNo = '<c:out value='${internetNo}'/>';
+		internetNo *= 1;
+		var etctcNo = '<c:out value='${etctcNo}'/>';
+		etctcNo *= 1;
+		
+		// 회원 등록 경로
+		var donut = new Morris.Donut({
+		    element: 'path',
+		    resize: true,
+		    colors: ["#6D6CFF", "#f56954", "#00a65a", "#FFE400", "#3c8dbc"],
+		    data: [
+		      {label: "지인소개", value: introductionNo},
+		      {label: "인터넷", value: internetNo},
+		      {label: "플래카드", value: placardNo},
+		      {label: "전단지", value: pamphletNo},
+		      {label: "기타", value: etctcNo}
+		    ],
+		    hideHover: 'auto'
+		});
+		// 주 이용 목적
+		var donut = new Morris.Donut({
+		    element: 'purpose',
+		    resize: true,
+		    colors: ["#3c8dbc", "#f56954", "#00a65a"],
+		    data: [
+		      {label: "201호", value: 12},
+		      {label: "202호", value: 30},
+		      {label: "203호", value: 20}
+		    ],
+		    hideHover: 'auto'
+		});
+		
+		/* // 분기별 등록자 추이(아이템들끼리 누적 합산되는 그래프)
+        var area = new Morris.Area({
+          element: 'revenue-chart',
+          resize: true,
+          data: [
+        	  {y: '2016 Q1', item1: 2666},
+              {y: '2016 Q2', item1: 2778},
+              {y: '2016 Q3', item1: 4912},
+              {y: '2016 Q4', item1: 3767},
+              {y: '2017 Q1', item1: 6810},
+              {y: '2017 Q2', item1: 5670},
+              {y: '2017 Q3', item1: 4820},
+              {y: '2017 Q4', item1: 15073} 
+          ],
+          xkey: 'y',
+          ykeys: ['item1'],
+          labels: ['등록자 수'],
+          lineColors: ['#3c8dbc'],
+          hideHover: 'auto'
+        }); */
+		
+        var januaryInsertNo = '<c:out value='${januaryInsertNo}'/>';
+        januaryInsertNo *= 1; // int변환
+		var februaryInsertNo = '<c:out value='${februaryInsertNo}'/>';
+		februaryInsertNo *= 1;
+		var marchInsertNo = '<c:out value='${marchInsertNo}'/>';
+		marchInsertNo *= 1;
+		var aprilInsertNo = '<c:out value='${aprilInsertNo}'/>';
+		aprilInsertNo *= 1;
+		var mayInsertNo = '<c:out value='${mayInsertNo}'/>';
+		mayInsertNo *= 1;
+		var juneInsertNo = '<c:out value='${juneInsertNo}'/>';
+		juneInsertNo *= 1; 
+		var julyInsertNo = '<c:out value='${julyInsertNo}'/>';
+		julyInsertNo *= 1;
+		var augustInsertNo = '<c:out value='${augustInsertNo}'/>';
+		augustInsertNo *= 1;
+		var septemberInsertNo = '<c:out value='${septemberInsertNo}'/>';
+		septemberInsertNo *= 1;
+		var octoberInsertNo = '<c:out value='${octoberInsertNo}'/>';
+		octoberInsertNo *= 1;
+		var novemberInsertNo = '<c:out value='${novemberInsertNo}'/>';
+		novemberInsertNo *= 1; 
+		var decemberInsertNo = '<c:out value='${decemberInsertNo}'/>';
+		decemberInsertNo *= 1;
+        
+		var januaryInsertMenNo = '<c:out value='${januaryInsertMenNo}'/>';
+        januaryInsertMenNo *= 1; // int변환
+		var februaryInsertMenNo = '<c:out value='${februaryInsertMenNo}'/>';
+		februaryInsertMenNo *= 1;
+		var marchInsertMenNo = '<c:out value='${marchInsertMenNo}'/>';
+		marchInsertMenNo *= 1;
+		var aprilInsertMenNo = '<c:out value='${aprilInsertMenNo}'/>';
+		aprilInsertMenNo *= 1;
+		var mayInsertMenNo = '<c:out value='${mayInsertMenNo}'/>';
+		mayInsertMenNo *= 1;
+		var juneInsertMenNo = '<c:out value='${juneInsertMenNo}'/>';
+		juneInsertMenNo *= 1; 
+		var julyInsertMenNo = '<c:out value='${julyInsertMenNo}'/>';
+		julyInsertMenNo *= 1;
+		var augustInsertMenNo = '<c:out value='${augustInsertMenNo}'/>';
+		augustInsertMenNo *= 1;
+		var septemberInsertMenNo = '<c:out value='${septemberInsertMenNo}'/>';
+		septemberInsertMenNo *= 1;
+		var octoberInsertMenNo = '<c:out value='${octoberInsertMenNo}'/>';
+		octoberInsertMenNo *= 1;
+		var novemberInsertMenNo = '<c:out value='${novemberInsertMenNo}'/>';
+		novemberInsertMenNo *= 1; 
+		var decemberInsertMenNo = '<c:out value='${decemberInsertMenNo}'/>';
+		decemberInsertMenNo *= 1;
+		
+        // 월별 등록자 추이
+        var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
+        // This will get the first returned node in the jQuery collection.
+        var areaChart = new Chart(areaChartCanvas);
 
-    	  /*
-           * DONUT CHART
-           * -----------
-           */
-
-          var donutData = [
-            {label: "Series2", data: 30, color: "#3c8dbc"},
-            {label: "Series3", data: 20, color: "#0073b7"},
-            {label: "Series4", data: 50, color: "#00c0ef"}
-          ];
-          $.plot("#donut-chart", donutData, {
-            series: {
-              pie: {
-                show: true,
-                radius: 1,
-                innerRadius: 0.5,
-                label: {
-                  show: true,
-                  radius: 2 / 3,
-                  formatter: labelFormatter,
-                  threshold: 0.1
-                }
-
-              }
+        var areaChartData = {
+          labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ],
+          datasets: [
+    	  	{
+              label: "합계",
+              fillColor: "#BFFFB8", // 그래프 바탕
+              strokeColor: "#BFFFB8", //위 쪽 그래프 구분선
+              pointColor: "#1DDB16", //점
+              pointStrokeColor: "#FFF", //점 테두리
+              pointHighlightFill: "#BFFFB8", // 마우스 오버시 점
+              pointHighlightStroke: "#1DDB16", // 마우스 오버시 점 테두리
+              data: [januaryInsertNo
+            	  , februaryInsertNo
+            	  , marchInsertNo
+            	  , aprilInsertNo
+            	  , mayInsertNo
+            	  , juneInsertNo
+            	  , julyInsertNo
+            	  , augustInsertNo
+            	  , septemberInsertNo
+            	  , octoberInsertNo
+            	  , novemberInsertNo
+            	  , decemberInsertNo]
             },
-            legend: {
-              show: false
+            {
+           	  label: "남성",
+              fillColor: "#C7C6FF", // 그래프 바탕
+              strokeColor: "#C7C6FF", //그래프 구분선
+              pointColor: "#3736FF", //점
+              pointStrokeColor: "#FFF", //점 테두리
+              pointHighlightFill: "#C7C6FF", // 마우스 오버시 점
+              pointHighlightStroke: "#3736FF", // 마우스 오버시 점 테두리
+              data: [januaryInsertMenNo
+            	  , februaryInsertMenNo
+            	  , marchInsertMenNo
+            	  , aprilInsertMenNo
+            	  , mayInsertMenNo
+            	  , juneInsertMenNo
+            	  , julyInsertMenNo
+            	  , augustInsertMenNo
+            	  , septemberInsertMenNo
+            	  , octoberInsertMenNo
+            	  , novemberInsertMenNo
+            	  , decemberInsertMenNo]
+            },
+            {
+              label: "여성",
+              fillColor: "#FFC6C6", // 그래프 바탕
+              strokeColor: "#FFC6C6", //위 쪽 그래프 구분선
+              pointColor: "#FF4848", //점
+              pointStrokeColor: "#FFF", //점 테두리
+              pointHighlightFill: "#FFC6C6", // 마우스 오버시 점
+              pointHighlightStroke: "#FF4848", // 마우스 오버시 점 테두리
+              data: [januaryInsertNo-januaryInsertMenNo
+            	  , februaryInsertNo-februaryInsertMenNo
+            	  , marchInsertNo-marchInsertMenNo
+            	  , aprilInsertNo-aprilInsertMenNo
+            	  , mayInsertNo-mayInsertMenNo
+            	  , juneInsertNo-juneInsertMenNo
+            	  , julyInsertNo-julyInsertMenNo
+            	  , augustInsertNo-augustInsertMenNo
+            	  , septemberInsertNo-septemberInsertMenNo
+            	  , octoberInsertNo-octoberInsertMenNo
+            	  , novemberInsertNo-novemberInsertMenNo
+            	  , decemberInsertNo-decemberInsertMenNo]
             }
-          });
-          /*
-           * END DONUT CHART
-           */
+          ]
+        };
+
+        var areaChartOptions = {
+		  showLabel: true,
+          //Boolean - 가로 세로 값
+          showScale: true,
+          //Boolean - 가로 세로 격자 눈금 
+          scaleShowGridLines: false,
+          //String - Colour of the grid lines
+          scaleGridLineColor: "4B0000",
+          //Number - Width of the grid lines
+          scaleGridLineWidth: 0,
+          //Boolean - Whether to show horizontal lines (except X axis)
+          scaleShowHorizontalLines: true,
+          //Boolean - Whether to show vertical lines (except Y axis)
+          scaleShowVerticalLines: true,
+          //Boolean - Whether the line is curved between points
+          bezierCurve: true, // 굴곡 줄래? 말래?
+          //Number - 그래프 굴곡 표현도
+          bezierCurveTension: 0.3, 
+          //Boolean - 값 마다 점 표시
+          pointDot: true, 
+          //Number - 점 크기
+          pointDotRadius: 4, 
+          //Number - 점 테두리
+          pointDotStrokeWidth: 1,
+          //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+          pointHitDetectionRadius: 20,
+          //Boolean - Whether to show a stroke for datasets
+          datasetStroke: false,
+          //Number - 그래프 선 굵기
+          datasetStrokeWidth: 3,
+          //Boolean - 그래프 배경색
+          datasetFill: false,
+          //Boolean - 그래프 확대?
+          maintainAspectRatio: false,
+          //Boolean - whether to make the chart responsive to window resizing
+          responsive: true
+        };
+
+        //Create the line chart
+        areaChart.Line(areaChartData, areaChartOptions);
 
       });
-      
     </script>
   </body>
 </html>

@@ -29,25 +29,91 @@ public class DashboardController {
 	public String selectAllStatus(Model model){
 		System.out.println("DashboardController-> selectAllStatus()");
 		
-		// 오늘 날짜 및 해당 월 구하기
+		// 오늘 날짜 및 해당 월 구하기 -----------------------------------------------------------
 		Date today = new Date();
 	    SimpleDateFormat simpleToday = new SimpleDateFormat("yyyy-MM-dd");
 	    SimpleDateFormat month = new SimpleDateFormat("M");
 	    
-	    // 회원
+	    // 회원----------------------------------------------------------------------------
 	    int monthMemberNo = dashboardDao.selectMonthInsertMemberCount(); // 당월 가입 회원 수
 	    int MemberNo = dashboardDao.selectMemberCount(); //전체 회원 수
  		int MenNo = dashboardDao.selectMenCount(); //여성회원
  		int womanNo = dashboardDao.selectWomanCount(); //남성회원
  		
+ 		// 등록경로------------------------------------------------------------
+		int pamphletNo = dashboardDao.selectPamphletCount(); //전단지
+		int placardNo = dashboardDao.selectPlacardCount(); //플래카드
+		int introductionNo = dashboardDao.selectIntroductionCount(); //지인소개
+		int internetNo = dashboardDao.selectInternetCount(); //인터넷
+		int etctcNo = dashboardDao.selectEtcCount(); //기타
+		
+		// 월별 등록자 수
+		int januaryInsertNo = dashboardDao.selectJanuaryInsertMember();
+		int februaryInsertNo = dashboardDao.selectFebruaryInsertMember();
+		int marchInsertNo = dashboardDao.selectMarchInsertMember();
+		int aprilInsertNo = dashboardDao.selectAprilInsertMember();
+		int mayInsertNo = dashboardDao.selectMayInsertMember();
+		int juneInsertNo = dashboardDao.selectJuneInsertMember();
+		int julyInsertNo = dashboardDao.selectJulyInsertMember();
+		int augustInsertNo = dashboardDao.selectAugustInsertMember();
+		int septemberInsertNo = dashboardDao.selectSeptemberInsertMember();
+		int octoberInsertNo = dashboardDao.selectOctoberInsertMember();
+		int novemberInsertNo = dashboardDao.selectNovemberInsertMember();
+		int decemberInsertNo = dashboardDao.selectDecemberInsertMember();
+		
+		int januaryInsertMenNo = dashboardDao.selectJanuaryInsertMenMember();
+		int februaryInsertMenNo = dashboardDao.selectFebruaryInsertMenMember();
+		int marchInsertMenNo = dashboardDao.selectMarchInsertMenMember();
+		int aprilInsertMenNo = dashboardDao.selectAprilInsertMenMember();
+		int mayInsertMenNo = dashboardDao.selectMayInsertMenMember();
+		int juneInsertMenNo = dashboardDao.selectJuneInsertMenMember();
+		int julyInsertMenNo = dashboardDao.selectJulyInsertMenMember();
+		int augustInsertMenNo = dashboardDao.selectAugustInsertMenMember();
+		int septemberInsertMenNo = dashboardDao.selectSeptemberInsertMenMember();
+		int octoberInsertMenNo = dashboardDao.selectOctoberInsertMenMember();
+		int novemberInsertMenNo = dashboardDao.selectNovemberInsertMenMember();
+		int decemberInsertMenNo = dashboardDao.selectDecemberInsertMenMember();
+		
  		//System.out.println("DashboardController-> selectTodayStatus()-> simpleToday: "+ simpleToday.format(today));
  		//System.out.println("DashboardController-> selectTodayStatus()-> month: "+ month.format(today));
 	    
 		//System.out.println("DashboardController-> selectTodayStatus()-> monthMemberNo: "+monthMemberNo);
 		//System.out.println("DashboardController-> selectTodayStatus()-> MemberNo: "+MemberNo);
+ 		//System.out.println("DashboardController-> selectTodayStatus()-> MenNo: "+MenNo);
  		//System.out.println("DashboardController-> selectTodayStatus()-> womanNo: "+womanNo);
- 		//System.out.println("DashboardController-> selectTodayStatus()-> womanNo: "+womanNo);
- 		
+		
+		//System.out.println("DashboardController-> selectTodayStatus()-> pamphletNo: "+pamphletNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> placardNo: "+placardNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> introductionNo: "+introductionNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> internetNo: "+internetNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> etctcNo: "+etctcNo);
+		
+		//System.out.println("DashboardController-> selectTodayStatus()-> januaryInsertNo: "+januaryInsertNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> februaryInsertNo: "+februaryInsertNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> marchInsertNo: "+marchInsertNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> aprilInsertNo: "+aprilInsertNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> mayInsertNo: "+mayInsertNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> juneInsertNo: "+juneInsertNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> julyInsertNo: "+julyInsertNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> augustInsertNo: "+augustInsertNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> septemberInsertNo: "+septemberInsertNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> octoberInsertNo: "+octoberInsertNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> novemberInsertNo: "+novemberInsertNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> decemberInsertNo: "+decemberInsertNo);
+		
+		//System.out.println("DashboardController-> selectTodayStatus()-> januaryInsertMenNo: "+januaryInsertMenNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> februaryInsertMenNo: "+februaryInsertMenNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> marchInsertMenNo: "+marchInsertMenNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> aprilInsertMenNo: "+aprilInsertMenNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> mayInsertMenNo: "+mayInsertMenNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> juneInsertMenNo: "+juneInsertMenNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> julyInsertMenNo: "+julyInsertMenNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> augustInsertMenNo: "+augustInsertMenNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> septemberInsertMenNo: "+septemberInsertMenNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> octoberInsertMenNo: "+octoberInsertMenNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> novemberInsertMenNo: "+novemberInsertMenNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> decemberInsertMenNo: "+decemberInsertMenNo);
+		
 	    model.addAttribute("today", simpleToday.format(today));
 	    model.addAttribute("month", month.format(today));
 	    
@@ -55,6 +121,39 @@ public class DashboardController {
 	    model.addAttribute("MemberNo", MemberNo);
 	    model.addAttribute("MenNo", MenNo);
 		model.addAttribute("womanNo", womanNo);
+		
+		model.addAttribute("pamphletNo", pamphletNo);
+		model.addAttribute("placardNo", placardNo);
+		model.addAttribute("introductionNo", introductionNo);
+		model.addAttribute("internetNo", internetNo);
+		model.addAttribute("etctcNo", etctcNo);
+		
+		model.addAttribute("januaryInsertNo", januaryInsertNo);
+		model.addAttribute("februaryInsertNo", februaryInsertNo);
+		model.addAttribute("marchInsertNo", marchInsertNo);
+		model.addAttribute("aprilInsertNo", aprilInsertNo);
+		model.addAttribute("mayInsertNo", mayInsertNo);
+		model.addAttribute("juneInsertNo", juneInsertNo);
+		model.addAttribute("julyInsertNo", julyInsertNo);
+		model.addAttribute("augustInsertNo", augustInsertNo);
+		model.addAttribute("septemberInsertNo", septemberInsertNo);
+		model.addAttribute("octoberInsertNo", octoberInsertNo);
+		model.addAttribute("novemberInsertNo", novemberInsertNo);
+		model.addAttribute("decemberInsertNo", decemberInsertNo);
+		
+		model.addAttribute("januaryInsertMenNo", januaryInsertMenNo);
+		model.addAttribute("februaryInsertMenNo", februaryInsertMenNo);
+		model.addAttribute("marchInsertMenNo", marchInsertMenNo);
+		model.addAttribute("aprilInsertMenNo", aprilInsertMenNo);
+		model.addAttribute("mayInsertMenNo", mayInsertMenNo);
+		model.addAttribute("juneInsertMenNo", juneInsertMenNo);
+		model.addAttribute("julyInsertMenNo", julyInsertMenNo);
+		model.addAttribute("augustInsertMenNo", augustInsertMenNo);
+		model.addAttribute("septemberInsertMenNo", septemberInsertMenNo);
+		model.addAttribute("octoberInsertMenNo", octoberInsertMenNo);
+		model.addAttribute("novemberInsertMenNo", novemberInsertMenNo);
+		model.addAttribute("decemberInsertMenNo", decemberInsertMenNo);
+		
 		
 		return "dashboard/all_status";
 	}
