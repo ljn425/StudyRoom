@@ -157,16 +157,6 @@
 	                    </tr>
                     </c:forEach>
                     </tbody>
-                    <tfoot>
-                      <tr>
-                        <th>열람실</th>
-                        <th>열람석</th>
-                        <th>이름</th>
-                        <th>성별</th>
-                        <th>입실 시간</th>
-                        <th>호출 메세지</th>
-                      </tr>
-                    </tfoot>
                   </table>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->

@@ -141,6 +141,38 @@ public class MemberController {
 		return "redirect:/member/member_list";
 	}
 	
+	// 독서실 회원 코드 자동 증가 요청
+	@RequestMapping(value="/member/member_pro" , method= RequestMethod.POST)
+	public String memberPro(Member member) {
+		System.out.println("회원코드 자동증가 폼");
+		System.out.println(member);
+			
+		//코드 MAX select
+		String code = memberDao.selectMemberCode();
+			
+		if(code == null){ 
+			member.setMember_cd("member_cd01");
+			
+		}else{
+			int buscode = Integer.parseInt(code.substring(code.length()-1))+3;
+			System.out.println(buscode);
+			String membercode = "member_cd" + buscode;
+			member.setMember_cd(membercode);
+		}
+			
+		int result = memberDao.insertMember(member);
+			
+		if(result == 1){
+			System.out.println("회원코드 자동증가 완료");
+			return "redirect:/member/member_form";
+			
+		}else{
+			System.out.println("회원코드 자동증가 실패");
+		}
+			
+		return "redirect:/member/member_form";
+	}
+	
 	// 폼 요청
 	@RequestMapping(value="/member/member_form", method = RequestMethod.GET)
 	public String member_form() {

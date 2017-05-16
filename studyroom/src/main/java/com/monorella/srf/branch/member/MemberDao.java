@@ -63,11 +63,15 @@ public class MemberDao {
 		return sqlSessionTemplate.selectList("com.monorella.srf.branch.member.MemberMapper.selectMemberList", map);
 	}
 	
-
 	public int selectMemberCount() {
 		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.member.MemberMapper.selectMemberCount");
 		System.out.println("2st getMemberList");
 		return row;
+	}
+	
+	//회원코드 자동증가 메서드
+	public String selectMemberCode(){
+		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.member.MemberMapper.selectMemberCode");
 	}
 	
 	// 회원추가 메서드

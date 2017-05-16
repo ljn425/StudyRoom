@@ -5,9 +5,19 @@
   
   <mapper namespace="com.monorella.srf.branch.charges.ChargesMapper">
   
-  <!-- 요금제 코드 자동증가 -->
-  <select id="selectChargesCode" resultType="String">
-  	SELECT MAX(seat_charges_code) FROM seat_charges
+  <!-- 요금제 수정 -->
+  <update id="modifyCharges" parameterType="map">
+  	UPDATE seat_charges
+		SET
+			seat_member_type= #{seat_member_type},
+			seat_charges_date= #{seat_charges_date},
+			seat_charges_price= #{seat_charges_price}
+		WHERE seat_charges_code= #{seat_charges_code}
+  </update>
+  
+  <!-- 요금제 코드 COUNT -->
+  <select id="selectChargesCode" resultType="int">
+  	SELECT COUNT(seat_charges_code) FROM seat_charges
   </select>
   
   <!-- 요금제 삭제 -->
@@ -26,7 +36,27 @@
 	  	ORDER BY seat_charges_code DESC 
   </select>
   
-  <!-- 요금제 등록 -->
+  <!-- 요금제 자동등록 -->
+  	<insert id="insertAutoCharges" parameterType="com.monorella.srf.branch.dto.Charges">
+  		<selectKey resultType="String" keyProperty="seat_charges_code" order="BEFORE">
+  			SELECT CONCAT('seat_charges_code', MAX(CONVERT(SUBSTRING(seat_charges_code, 18), UNSIGNED))+1) AS seat_charges_code
+  			FROM seat_charges 
+  		</selectKey>
+  		INSERT INTO seat_charges(
+  			seat_charges_code
+  			, branch_owner_cd
+  			, seat_member_type
+  			, seat_charges_date
+  			, seat_charges_price)
+		VALUES (
+			#{seat_charges_code}
+			, #{branch_owner_cd}
+			, #{seat_member_type}
+			, #{seat_charges_date}
+			, #{seat_charges_price})
+  	</insert>
+  	
+  	<!-- 요금제 등록 -->
   	<insert id="insertCharges" parameterType="com.monorella.srf.branch.dto.Charges">
   		INSERT INTO seat_charges(
   			seat_charges_code

@@ -18,7 +18,14 @@ import com.monorella.srf.branch.dto.SeatRowCol;
 public class RoomController {
 	@Autowired
 	private RoomDao roomDao;
-			
+	
+	//열람실 현황 
+	@RequestMapping(value="/room/room_management" , method = RequestMethod.GET)
+	public String room_management(){
+		System.out.println("room_management()");
+		return "";
+	}
+	
 	//열람실 배치도 상세보기
 	@RequestMapping(value="/room/room_view" , method = RequestMethod.GET)
 	public String room_view(Room room, Model model){
