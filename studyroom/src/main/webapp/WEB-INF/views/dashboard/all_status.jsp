@@ -26,7 +26,7 @@
       <!-- 왼쪽 -->
  	  <c:import url="../module2/left.jsp" />
       
-	  <!-- ---------------------내용 바로 위----------------------------- -->
+	  <!-- -----------------------내용 바로 위----------------------------- -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">

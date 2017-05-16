@@ -21,16 +21,15 @@
           </form> -->
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
-          <!-- active -->
           <ul class="sidebar-menu">
             <li class="header">메인 메뉴</li>
-            <li class="treeview">
+            <li class="active treeview">
               <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="tree"><a href="${pageContext.request.contextPath}/dashboard/today_status"><i class="fa fa-circle-o"></i> 오늘의 현황</a></li>
-                <li class="tree"><a href="${pageContext.request.contextPath}/dashboard/all_status"><i class="fa fa-circle-o"></i> 통계</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/dashboard/today_status"><i class="fa fa-circle-o"></i> 오늘의 현황</a></li>
+                <li><a href="${pageContext.request.contextPath}/dashboard/all_status"><i class="fa fa-circle-o"></i> 통계</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -61,9 +60,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="tree"><a href="${pageContext.request.contextPath}/room/room_form"><i class="fa fa-circle-o"></i>열람실 등록</a></li>
-                <li class="tree"><a href="${pageContext.request.contextPath}/room/room_main"><i class="fa fa-circle-o"></i>열람실 관리</a></li>
-                <li class="tree"><a href="${pageContext.request.contextPath}/room/room_main"><i class="fa fa-circle-o"></i>열람실 현황</a></li>
+                <li><a href="${pageContext.request.contextPath}/room/room_form"><i class="fa fa-circle-o"></i>열람실 등록</a></li>
+                <li><a href="${pageContext.request.contextPath}/room/room_main"><i class="fa fa-circle-o"></i>열람실 현황</a></li>
               </ul>
             </li>
             <li>
@@ -79,7 +77,7 @@
               </a>
             </li>
             
-            <li ><a href="${pageContext.request.contextPath}/charges/charges_form"><i class="fa fa-book"></i> 요금제 설정</a></li>
+            <li><a href="${pageContext.request.contextPath}/charges/charges_form"><i class="fa fa-book"></i> 요금제 설정</a></li>
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-danger"></i> Important</a></li>
             <li><a href="#"><i class="fa fa-circle-o text-warning"></i> Warning</a></li>
