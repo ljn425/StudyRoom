@@ -70,7 +70,7 @@
 						 <input type="hidden" class="get_seat" value="${s.seat_cd}"/>
 	  					 <input type="hidden" name="chk" id="chk" value="${s.branch_owner_cd}">
 						 <input type="hidden" name="chk" id="chk" value="${s.room_cd}">
-						 <input type="hidden" name="chk" id="chk" value="${s.member_cd}">	
+						 <input type="hidden" name="chk" id="chk" value="${s.member_cd}">
 						 <button class="btn bg-olive btn-flat margin seat_btn" value="${s.seat_cd}">	
 							<p>열람석${s.seat_cnumber}</p>
 								<c:choose>
