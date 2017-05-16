@@ -44,12 +44,11 @@
    <thead>
    	   <tr>
    	   	<th>회원코드</th>
-   	   	<th>이름</th>
-        <th>성별</th>
-        <th>연락처</th>
-        <th>주소</th>
-        <th>나이</th>
-        <th>회원상태</th>
+		<th>이름</th>
+		<th>성별</th>
+		<th>주소</th>
+		<th>나이</th>
+		<th>회원상태</th>
        </tr>
    </thead>
         <tbody>
@@ -59,7 +58,6 @@
 	           <td><a href="${pageContext.request.contextPath}/member/member_view?member_cd=${s.member_cd}">${s.member_cd}</a></td>
 	           <td>${s.member_nm}</td>
 	           <td>${s.member_sex}</td>
-	           <td>${s.member_tel}</td>
 	           <td>${s.member_addr}</td>
 	           <td>${s.member_age}</td>
 	           <td>${s.member_seat_state}</td>

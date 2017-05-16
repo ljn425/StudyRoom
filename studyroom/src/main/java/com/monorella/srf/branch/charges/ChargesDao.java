@@ -14,11 +14,11 @@ public class ChargesDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	//요금코드 MAX값 가져오기
-	public String selectChargesCode(){
+	//요금제 code select
+	public int selectChargesCode(){
 		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.charges.ChargesMapper.selectChargesCode");
 	}
-	
+
 	//요금제 update
 	public int updateCharges(String charges_code){
 		return sqlSessionTemplate.update("");
@@ -34,12 +34,16 @@ public class ChargesDao {
 		return sqlSessionTemplate.selectList("com.monorella.srf.branch.charges.ChargesMapper.selectCharges");
 	}
 	
+	//요금제 자동등록
+	public int insertAutoCharges(Charges charges){
+		System.out.println("insertAutoCharges");
+		return sqlSessionTemplate.insert("com.monorella.srf.branch.charges.ChargesMapper.insertAutoCharges", charges);
+				
+	}
+	
 	//요금제 등록
-	public int insertCharges(Charges chares){
-		System.out.println("insertCharge");
-
-		                                                                                                                                                                                                                                                                                                                                                                             
-		System.out.println(chares.getSeat_charges_code());
-		return sqlSessionTemplate.insert("com.monorella.srf.branch.charges.ChargesMapper.insertCharges", chares);
+	public int insertCharges(Charges charges){
+		System.out.println("insertCharge");                                                                                                                                                                                                                                                                                                                                        
+		return sqlSessionTemplate.insert("com.monorella.srf.branch.charges.ChargesMapper.insertCharges", charges);
 	}
 }

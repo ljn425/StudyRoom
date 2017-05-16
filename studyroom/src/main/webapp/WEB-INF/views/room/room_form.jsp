@@ -33,11 +33,11 @@
       <div class="content-wrapper">
 	  <section class="content-header">
 	    <h1>
-	       ZakSim
-	      <small>Control panel</small>
+	       	열람실
+	      <small>등록</small>
 	    </h1>
 	    <ol class="breadcrumb">
-	      <li><a href="${pageContext.request.contextPath}/home/NewFile"><i class="fa fa-table"></i>Home</a></li>
+	      <li><a href="${pageContext.request.contextPath}/dashboard/today_status"><i class="fa fa-table"></i>Home</a></li>
 	      <li class="active">열람실</li>
 	    </ol>
 	  </section>

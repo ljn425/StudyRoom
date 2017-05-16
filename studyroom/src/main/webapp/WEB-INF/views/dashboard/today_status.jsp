@@ -42,7 +42,7 @@
         </section>
 
 		<!-- -----------------------내용!!!------------------------------ -->	
-		
+		<!-- http://ionicons.com/ -->
         <section class="content">
   
            <div class="row">
@@ -54,7 +54,7 @@
                   <p>금일 등록 회원</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-bag"></i>
+                  <i class="ion ion-person-add"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
@@ -67,9 +67,9 @@
                   <p>이용중 열람석</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
+                  <i class="ion ion-android-checkbox-outline"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#example1" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
@@ -80,7 +80,7 @@
                   <p>부재중 열람석</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-person-add"></i>
+                  <i class="ion ion-coffee"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
@@ -93,7 +93,7 @@
                   <p>미결제 열람석</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="ion ion-social-usd"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
@@ -157,16 +157,6 @@
 	                    </tr>
                     </c:forEach>
                     </tbody>
-                    <tfoot>
-                      <tr>
-                        <th>열람실</th>
-                        <th>열람석</th>
-                        <th>이름</th>
-                        <th>성별</th>
-                        <th>입실 시간</th>
-                        <th>호출 메세지</th>
-                      </tr>
-                    </tfoot>
                   </table>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
@@ -202,6 +192,8 @@
 	<!-- DATA TABES SCRIPT -->
     <script src="${pageContext.request.contextPath}/resources/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/resources/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <!-- 페이지 내 href 경로 이동-->
+    <script src="${pageContext.request.contextPath}/resources/js/templatemo-script.js"></script>
     
     <!-- Page script -->
      <script type="text/javascript">
