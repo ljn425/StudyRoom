@@ -25,9 +25,6 @@ public class PaymentController {
 		model.addAttribute("room_cd", room_cd);
 		model.addAttribute("seat_cd", seat_cd);
 		model.addAttribute("member_cd", member_cd);
-		
-		
-		System.out.println(member_cd);
 		return "payment/newwindow";
 	}
 	
@@ -40,7 +37,16 @@ public class PaymentController {
 	@RequestMapping(value="/payment/paymentend", method = RequestMethod.POST)
 	public String paymentpro(Payment payment){
 		System.out.println("post 요청");
-		paymentDao.insertPayment(payment);
+		int result = paymentDao.insertPayment(payment);
+		if(result == 1){
+			//성공시
+			paymentDao.modifyPaymentSeat(payment);
+			paymentDao.modifyPaymentMember(payment);
+
+		}else{
+			//실패시 
+			
+		}
 		return "payment/paymentend";
 	}
 }

@@ -10,8 +10,9 @@ public class Payment {
 	private int discount_amount;
 	private int total_amount;
 	private String pay_date;
+	private String pay_due;
 	private String pay_option;
-	
+	private String member_nm;
 	public String getPay_cd() {
 		return pay_cd;
 	}
@@ -66,19 +67,31 @@ public class Payment {
 	public void setPay_date(String pay_date) {
 		this.pay_date = pay_date;
 	}
+	public String getPay_due() {
+		return pay_due;
+	}
+	public void setPay_due(String pay_due) {
+		this.pay_due = pay_due;
+	}
 	public String getPay_option() {
 		return pay_option;
 	}
 	public void setPay_option(String pay_option) {
 		this.pay_option = pay_option;
 	}
-	
+	public String getMember_nm() {
+		return member_nm;
+	}
+	public void setMember_nm(String member_nm) {
+		this.member_nm = member_nm;
+	}
 	@Override
 	public String toString() {
 		return "Payment [pay_cd=" + pay_cd + ", branch_owner_cd=" + branch_owner_cd + ", room_cd=" + room_cd
-				+ ", seat_cd=" + seat_cd + ", member_cd=" + member_cd + ", pay_amount=" + pay_amount + ", discount_amount=" + discount_amount
-				+ ", total_amount=" + total_amount + ", pay_date=" + pay_date + ", pay_option=" + pay_option + "]";
+				+ ", seat_cd=" + seat_cd + ", member_cd=" + member_cd + ", pay_amount=" + pay_amount
+				+ ", discount_amount=" + discount_amount + ", total_amount=" + total_amount + ", pay_date=" + pay_date
+				+ ", pay_due=" + pay_due + ", pay_option=" + pay_option + ", member_nm=" + member_nm + "]";
 	}
 	
-	
+
 }
