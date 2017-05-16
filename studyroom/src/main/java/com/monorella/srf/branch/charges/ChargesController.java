@@ -33,30 +33,31 @@ public class ChargesController {
 	
 	//요금제 등록
 	@RequestMapping(value="/charges/charges_pro" , method= RequestMethod.POST)
-	public String chargesPro(Charges chares){
+	public String chargesPro(Charges charges){
 		System.out.println("요금제 등록 폼");
-		System.out.println(chares);
+		System.out.println(charges);
 		
-		//코드 MAX select
-		String code = chargesDao.selectChargesCode();
+		//코드 MAX select 
+		int code = chargesDao.selectChargesCode();
 		
-		if(code == null){ 
-			chares.setSeat_charges_code("charges_code1");
+		if(code == 0){ 
+			charges.setSeat_charges_code("seat_charges_code1");
+			chargesDao.insertCharges(charges);
 		}else{
-			//
-			System.out.println("code 길이 :" + code.length());
+			
+			/*System.out.println("code 길이 :" + code.length());
 			int subcode = Integer.parseInt(code.substring(code.length()-1))+1;                                                   
 			System.out.println(subcode);
-			String charescode = "charges_code" + subcode;
-			chares.setSeat_charges_code(charescode);
-		}
-		
-		int result = chargesDao.insertCharges(chares);
-		if(result == 1){
-			System.out.println("요금제 등록 성공");
-			return "redirect:/charges/charges_form";
-		}else{
-			System.out.println("요금제 등록 실패");
+			String charescode = "charges_code100" + subcode;
+			chares.setSeat_charges_code(charescode);*/
+			
+			int result = chargesDao.insertAutoCharges(charges);
+			if(result == 1){
+				System.out.println("요금제 등록 성공");
+				return "redirect:/charges/charges_form";
+			}else{
+				System.out.println("요금제 등록 실패");
+			}
 		}
 		return "redirect:/charges/charges_form";
 	}
