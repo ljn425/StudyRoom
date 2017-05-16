@@ -70,18 +70,17 @@
          </c:forEach>
          </div>
        
-         <form action="${pageContext.request.contextPath}/staffboard/staffboard_reply" method="post">
-         <input type="hidden" name="staffboardreply_no" value="${staffboardreply_no}">
-         <span>이름 <input class="textBar" name="staffboard_name" type="text"/> </span>
-	     <span>비밀번호 <input class="textBar" name="staffboardreply_pw" type="password"/></span>
-          <div>
-	     	<textarea name="staffboardreply_content" rows="3" cols="50"></textarea><button id="reply_btn" type="submit" class="btn btn-default">답변</button>
-	     </div>
-		</form>
-		<%-- <c:if test=>
-			for
-		</c:if> --%>
-    
+         <form action="${pageContext.request.contextPath}/staffboard/staffboard_reply_pro" method="post">
+	        <%-- <input type="hidden" name="staffboardreply_no" value="${staffboardreply_no}"> --%>
+	        <input type="hidden" name="staffboard_no" value="${staffboard.staffboard_no}">
+	        <span>이름 <input class="textBar" name="staffboard_name" type="text"/> </span>
+		    <span>비밀번호 <input class="textBar" name="staffboardreply_pw" type="password"/></span>
+		    <div>
+		     	<textarea name="staffboardreply_content" rows="3" cols="50"></textarea>
+		    </div>
+		    <button id="reply_btn" type="submit" class="btn btn-default">답변</button>
+		 </form>
+		
 </div>
 </div>
 </div>
