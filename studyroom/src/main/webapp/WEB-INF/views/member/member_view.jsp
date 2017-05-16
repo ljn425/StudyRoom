@@ -54,20 +54,24 @@
 		            <td>${member.member_sex}</td>
 		          </tr>
 		          <tr>
-		             <td>연락처 :</td>
-		             <td>${member.member_tel}</td>
+		            <td>연락처 :</td>
+		            <td>${member.member_tel}</td>
 		          </tr>
 		          <tr>
-		             <td>주소 :</td>
-		             <td>${member.member_addr}</td>
+		            <td>나이 :</td>
+		            <td>${member.member_age}</td>
+		          </tr>
+		          <tr>
+		             <td>가입일 :</td>
+		             <td>${member.member_date}</td>
 		           </tr>
 		           <tr>
-		              <td>나이 :</td>
-		              <td>${member.member_age}</td>
+		              <td>등록경로 :</td>
+		              <td>${member.member_regi_path}</td>
 		           </tr>
 		           <tr>
-		              <td>회원상태 :</td>
-		              <td>${member.member_seat_state}</td>
+		              <td>이용목적 :</td>
+		              <td>${member.member_use_pur}</td>
 		           </tr>
 		           </table>
 		           <a class="btn btn-default" href="${pageContext.request.contextPath}/member/member_modify?member_cd=${member.member_cd}">회원 수정</a>
