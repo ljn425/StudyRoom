@@ -14,7 +14,130 @@ public class DashboardDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
+	//----------------------------------------------------월별 등록자 수-------------------------------------------------
+	//1월
+	public int selectJanuaryInsertMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectJanuaryInsertMember");
+		return row;
+	}
+	//2월
+	public int selectFebruaryInsertMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectFebruaryInsertMember");
+		return row;
+	}
+	//3월
+	public int selectMarchInsertMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMarchInsertMember");
+		return row;
+	}
+	//4월
+	public int selectAprilInsertMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectAprilInsertMember");
+		return row;
+	}
+	//5월
+	public int selectMayInsertMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMayInsertMember");
+		return row;
+	}
+	//6월
+	public int selectJuneInsertMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectJuneInsertMember");
+		return row;
+	}
+	//7월
+	public int selectJulyInsertMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectJulyInsertMember");
+		return row;
+	}
+	//8월
+	public int selectAugustInsertMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectAugustInsertMember");
+		return row;
+	}
+	//9월
+	public int selectSeptemberInsertMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectSeptemberInsertMember");
+		return row;
+	}
+	//10월
+	public int selectOctoberInsertMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectOctoberInsertMember");
+		return row;
+	}
+	//11월
+	public int selectNovemberInsertMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectNovemberInsertMember");
+		return row;
+	}
+	//12월
+	public int selectDecemberInsertMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectDecemberInsertMember");
+		return row;
+	}
 	
+	//1월 남자
+	public int selectJanuaryInsertMenMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectJanuaryInsertMenMember");
+		return row;
+	}
+	//2월 남자
+	public int selectFebruaryInsertMenMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectFebruaryInsertMenMember");
+		return row;
+	}
+	//3월 남자
+	public int selectMarchInsertMenMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMarchInsertMenMember");
+		return row;
+	}
+	//4월 남자
+	public int selectAprilInsertMenMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectAprilInsertMenMember");
+		return row;
+	}
+	//5월 남자
+	public int selectMayInsertMenMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectMayInsertMenMember");
+		return row;
+	}
+	//6월 남자
+	public int selectJuneInsertMenMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectJuneInsertMenMember");
+		return row;
+	}
+	//7월 남자
+	public int selectJulyInsertMenMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectJulyInsertMenMember");
+		return row;
+	}
+	//8월 남자
+	public int selectAugustInsertMenMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectAugustInsertMenMember");
+		return row;
+	}
+	//9월 남자
+	public int selectSeptemberInsertMenMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectSeptemberInsertMenMember");
+		return row;
+	}
+	//10월 남자
+	public int selectOctoberInsertMenMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectOctoberInsertMenMember");
+		return row;
+	}
+	//11월 남자
+	public int selectNovemberInsertMenMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectNovemberInsertMenMember");
+		return row;
+	}
+	//12월 남자
+	public int selectDecemberInsertMenMember(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectDecemberInsertMenMember");
+		return row;
+	}
+	
+
 	//----------------------------------------------------회원 등록 경로-------------------------------------------------
 	// 전단지
 	public int selectPamphletCount(){
