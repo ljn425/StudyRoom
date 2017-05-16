@@ -120,7 +120,7 @@ public class RoomController {
 		System.out.println("chair_form 요청");
 		return "room/chair_form";
 	}
-	//열람실 현황
+	//열람실 관리
 	@RequestMapping(value="/room/room_main", method = RequestMethod.GET)
 	public String room_main(Model model){
 		List<Seat> seatlist = roomDao.selectSeat();

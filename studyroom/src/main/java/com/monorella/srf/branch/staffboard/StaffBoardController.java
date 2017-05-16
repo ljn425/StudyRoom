@@ -11,21 +11,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.monorella.srf.branch.dto.StaffBoard;
 import com.monorella.srf.branch.dto.StaffBoardReply;
+
 @Controller
 public class StaffBoardController {
 	@Autowired
 	private StaffBoardDao staffboardDao;
 	
-	//공지사항 댓글
-	@RequestMapping(value="/staffboard/staffboard_reply", method = RequestMethod.POST)
+	//공지사항 댓글	
+	@RequestMapping(value="/staffboard/staffboard_reply_pro", method = RequestMethod.POST)
 	public String insertStaffBoardReply(Model model ,StaffBoardReply staffboardreply){
-		System.out.println("StaffBoardController->insertStaffBoardReply()" + model + staffboardreply);
-			model.addAttribute("staffboardreply", staffboardreply);
-		return "staffboard/staffboard_view";
+		System.out.println("StaffBoardController->insertStaffBoardReply->" + model + staffboardreply);
+		staffboardDao.insertStaffBoardReply(staffboardreply);
+		model.addAttribute("staffboardreply", staffboardreply);
+		return "redirect:/staffboard/staffboard_view?staffboard_no="+staffboardreply.getStaffboard_no();
 	}
 	
 	//공지사항 검색
-			@RequestMapping(value="/staffboard/staffboard_search" , method = {RequestMethod.POST})
+			@RequestMapping(value="/staffboard/staffboard_search" , method = RequestMethod.POST)
 			public String StaffBoardSearch(Model model
 					, @RequestParam("so") String so
 					, @RequestParam("sv") String sv){
@@ -72,21 +74,17 @@ public class StaffBoardController {
 	// 공지사항 상세 내용 요청
 		@RequestMapping(value="/staffboard/staffboard_view", method = RequestMethod.GET )
 		public String StaffBoardView(Model model 
-								,@RequestParam(value="staffboard_no")int staffboard_no){
+								,@RequestParam(value="staffboard_no",required=false, defaultValue="0")int staffboard_no){
 			System.out.println("StaffBoardController ->StaffBoardView()" );
-		/*	int totalReply = staffboardDao.totalStaffBoardReply(staffboard_title);*/
-			/*List<StaffBoardReply> replylist = staffboardDao.selectStaffBoardReplyList(staffboard_title);*/
-			
-				
-				//셀렉하고
-				/*model.addAttribute("replylist", replylist);*/
-				//조회
-			/*	model.addAttribute("totalReply", totalReply);*/
-			
 			StaffBoard staffboard = staffboardDao.getStaffBoard(staffboard_no);
-			model.addAttribute("staffboard", staffboard);
+			int totalReply = staffboardDao.totalStaffBoardReply(staffboard_no);
+			List<StaffBoardReply> replylist = staffboardDao.selectStaffBoardReplyList(staffboard_no);
+				model.addAttribute("replylist", replylist);
+				model.addAttribute("totalReply", totalReply);
+				model.addAttribute("staffboard", staffboard);
 			return "staffboard/staffboard_view";
 		}
+		
 		
 	// 리스트요청
 		@RequestMapping(value = "/staffboard/staffboard_list", method = RequestMethod.GET)
@@ -124,6 +122,7 @@ public class StaffBoardController {
 		    if(nextPage > lastPage){
 		    	nextPage = lastPage;
 		    }
+		    
 			model.addAttribute("startPage", startPage);
 			model.addAttribute("currentPage", currentPage);
 			model.addAttribute("staffboardCount", staffboardCount);

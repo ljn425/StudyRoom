@@ -7,32 +7,19 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!--   현재창에서 보낸 값 받기	 -->
-<%
-	String pay_cd = request.getParameter("pay_cd");
-	String branch_owner_cd = request.getParameter("branch_owner_cd");
-	String room_cd = request.getParameter("room_cd");
-	String seat_cd = request.getParameter("seat_cd");
-	String member_cd = request.getParameter("member_cd");
-%>
 
  <HEAD>
   <TITLE> New Document </TITLE>
-  <META NAME="Generator" CONTENT="EditPlus">
-  <META NAME="Author" CONTENT="">
-  <META NAME="Keywords" CONTENT="">
-  <META NAME="Description" CONTENT="">
-  
-<!--   다른창으로 값 넘기기	 -->
-  <script type="text/javascript">
-  /* function getSubmit() {
-    window.opener.name = "room_main"; // 부모창의 이름 설정
-    document.myForm.target = "room_main"; // 타켓을 부모창으로 설정
-    document.myForm.action = "room_main.jsp";
-    document.myForm.submit();
-    self.close();
-} */
+
+<script language="javascript">
+
+function MovePage() {
+window.opener.top.location.href="member1.jsp"
+window.close()
+}
+
 </script>
+
  </HEAD>
 
  <BODY>
@@ -41,7 +28,7 @@
               <div class="box box-primary">
                 <div class="container">
 				  <ul class="nav nav-tabs">
-				    <li><a data-toggle="tab" href="${pageContext.request.contextPath}/payment/member1">회원가입</a></li>
+				    <li><a data-toggle="tab" href="javascript:MovePage();">회원가입</a></li>
 				    <li><a data-toggle="tab" href="${pageContext.request.contextPath}/payment/newwindow">결제</a></li>
 				    <li><a data-toggle="tab" href="${pageContext.request.contextPath}/payment/member2">회원정보</a></li>
 				  </ul>
@@ -49,10 +36,6 @@
                 <!-- form start -->
                   <div class="box-body">
                       <form name="myForm" name="postForm" method="post" action="${pageContext.request.contextPath}/payment/paymentend">
-					    <div class="form-group">
-					    <label for="fname">결제코드&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-					    <input type="text" id="pay_cd" name="pay_cd" class="form-control">
-					    </div>
 					    
 					    <div class="form-group">
 					    <label for="fname">지점대표코드</label>
@@ -71,12 +54,12 @@
 					    
 					    <div class="form-group">
 					    <label for="fname">회원코드&nbsp;&nbsp;&nbsp;</label>
-					    <input type="text" id="member_cd" name="member_cd" class="form-control">
+					    <input type="text" id="member_cd" name="member_cd" class="form-control" value="${member_cd}" readonly>
 					    </div>
 					    
 					    <div class="form-group">
-					    <label for="fname">결제금액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-					    <input type="text" id="pay_amount" name="pay_amount" class="form-control" placeholder="결제 금액">
+					    <label for="fname">회원요금&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					    <input type="text" id="pay_amount" name="pay_amount" class="form-control" placeholder="회원요금">
 					    </div>
 						
 						<div class="form-group">
@@ -85,13 +68,18 @@
 						</div>
 						
 						<div class="form-group">
-					    <label for="lname">총금액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-					    <input type="text" id="total_amount" name="total_amount" class="form-control" placeholder="총 금액">
+					    <label for="lname">결제금액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					    <input type="text" id="total_amount" name="total_amount" class="form-control" placeholder="결제금액">
 					    </div>
 						
 						<div class="form-group">
-					    <label for="lname">결제날짜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-					    <input type="text" id="pay_date" name="pay_date" class="form-control" placeholder="결제 날짜">
+					    <label for="lname">결제일&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					    <input type="date" id="pay_date" name="pay_date" class="form-control" placeholder="결제일">
+					    </div>	
+					    
+					    <div class="form-group">
+					    <label for="lname">해지일&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					    <input type="date" id="pay_due" name="pay_due" class="form-control" placeholder="해지일">
 					    </div>					    
 					    
 					    <div class="form-group">
