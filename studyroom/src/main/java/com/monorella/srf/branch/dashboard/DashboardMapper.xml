@@ -5,6 +5,166 @@
 
 <mapper namespace="com.monorella.srf.branch.dashboard.DashboardMapper">
 	
+	<!-- 월별 가입자 수 -->
+	<!-- 1월 -->
+	<select id="selectJanuaryInsertMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-01-01' AND member_date <![CDATA[ < ]]> '2017-02-01';
+	</select>
+	<!-- 2월 -->
+	<select id="selectFebruaryInsertMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-02-01' AND member_date <![CDATA[ < ]]> '2017-03-01';
+	</select>
+	<!-- 3월 -->
+	<select id="selectMarchInsertMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-03-01' AND member_date <![CDATA[ < ]]> '2017-04-01';
+	</select>
+	<!-- 4월 -->
+	<select id="selectAprilInsertMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-04-01' AND member_date <![CDATA[ < ]]> '2017-05-01';
+	</select>
+	<!-- 5월 -->
+	<select id="selectMayInsertMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-05-01' AND member_date <![CDATA[ < ]]> '2017-06-01';
+	</select>
+	<!-- 6월 -->
+	<select id="selectJuneInsertMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-06-01' AND member_date <![CDATA[ < ]]> '2017-07-01';
+	</select>
+	<!-- 7월 -->
+	<select id="selectJulyInsertMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-07-01' AND member_date <![CDATA[ < ]]> '2017-08-01';
+	</select>
+	<!-- 8월 -->
+	<select id="selectAugustInsertMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-08-01' AND member_date <![CDATA[ < ]]> '2017-09-01';
+	</select>
+	<!-- 9월 -->
+	<select id="selectSeptemberInsertMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-09-01' AND member_date <![CDATA[ < ]]> '2017-10-01';
+	</select>
+	<!-- 10월 -->
+	<select id="selectOctoberInsertMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-10-01' AND member_date <![CDATA[ < ]]> '2017-11-01';
+	</select>
+	<!-- 11월 -->
+	<select id="selectNovemberInsertMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-11-01' AND member_date <![CDATA[ < ]]> '2017-12-01';
+	</select>
+	<!-- 12월 -->
+	<select id="selectDecemberInsertMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-12-01' AND member_date <![CDATA[ < ]]> '2018-01-01';
+	</select>
+
+	<!-- 1월 남자-->
+	<select id="selectJanuaryInsertMenMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-01-01' AND member_date <![CDATA[ < ]]> '2017-02-01'
+		AND member_sex = '남자';
+	</select>
+	<!-- 2월 남자 -->
+	<select id="selectFebruaryInsertMenMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-02-01' AND member_date <![CDATA[ < ]]> '2017-03-01'
+		AND member_sex = '남자';
+	</select>
+	<!-- 3월 남자 -->
+	<select id="selectMarchInsertMenMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-03-01' AND member_date <![CDATA[ < ]]> '2017-04-01'
+		AND member_sex = '남자';
+	</select>
+	<!-- 4월 남자 -->
+	<select id="selectAprilInsertMenMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-04-01' AND member_date <![CDATA[ < ]]> '2017-05-01'
+		AND member_sex = '남자';
+	</select>
+	<!-- 5월 남자 -->
+	<select id="selectMayInsertMenMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-05-01' AND member_date <![CDATA[ < ]]> '2017-06-01'
+		AND member_sex = '남자';
+	</select>
+	<!-- 6월 남자 -->
+	<select id="selectJuneInsertMenMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-06-01' AND member_date <![CDATA[ < ]]> '2017-07-01'
+		AND member_sex = '남자';
+	</select>
+	<!-- 7월 남자 -->
+	<select id="selectJulyInsertMenMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-07-01' AND member_date <![CDATA[ < ]]> '2017-08-01'
+		AND member_sex = '남자';
+	</select>
+	<!-- 8월 남자 -->
+	<select id="selectAugustInsertMenMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-08-01' AND member_date <![CDATA[ < ]]> '2017-09-01'
+		AND member_sex = '남자';
+	</select>
+	<!-- 9월 남자 -->
+	<select id="selectSeptemberInsertMenMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-09-01' AND member_date <![CDATA[ < ]]> '2017-10-01'
+		AND member_sex = '남자';
+	</select>
+	<!-- 10월 남자 -->
+	<select id="selectOctoberInsertMenMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-10-01' AND member_date <![CDATA[ < ]]> '2017-11-01'
+		AND member_sex = '남자';
+	</select>
+	<!-- 11월 남자 -->
+	<select id="selectNovemberInsertMenMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-11-01' AND member_date <![CDATA[ < ]]> '2017-12-01'
+		AND member_sex = '남자';
+	</select>
+	<!-- 12월 남자 -->
+	<select id="selectDecemberInsertMenMember" resultType="int" >
+		SELECT COUNT(*) 
+		FROM branch_member_tb 
+		WHERE member_date >= '2017-12-01' AND member_date <![CDATA[ < ]]> '2017-01-01'
+		AND member_sex = '남자';
+	</select>	
+	
+	
 	<!-- 등록경로 -->
 	<!-- 전단지 -->
 	<select id="selectPamphletCount" resultType="int">
@@ -160,7 +320,7 @@
 	</select>
 	<!-- 당월 등록 회원 -->
 	<select id="selectMonthInsertMemberCount" resultType="int">
-		SELECT mn FROM month_insert WHERE m = MONTH(CURDATE());
+		SELECT insert_no FROM month_member_insert WHERE month = MONTH(CURDATE());
 	</select>
 	<!-- 금일 등록 회원 -->
 	<select id="selectTodayInsertMemberCount" resultType="int">
