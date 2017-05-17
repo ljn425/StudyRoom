@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.monorella.srf.branch.dto.Room;
 import com.monorella.srf.branch.dto.Seat;
 import com.monorella.srf.branch.dto.SeatRowCol;
+import org.json.*;
 
 @Controller
 public class RoomController {
@@ -33,6 +34,23 @@ public class RoomController {
 		System.out.println(room);
 		List<Seat> seatlist = roomDao.selectRoomSeat(room);
 		
+		JSONObject obj = new JSONObject();
+		JSONArray personArray = new JSONArray();
+		JSONObject personInfo = new JSONObject();
+		
+		personInfo.put("name", "송강호");
+		personInfo.put("age", "25");
+		
+		personArray.put(personInfo);
+		
+		personInfo = new JSONObject();
+		personInfo.put("name", "전지현");
+		personInfo.put("age", "21");
+		
+		personArray.put(personInfo);
+		obj.put("persons", personArray);
+		
+		System.out.println(obj);
 		
 		/*for(int i=0; i<seatlist.size(); i++){
 			int[][] table = {{seatlist.get(i).getSeat_col()}
