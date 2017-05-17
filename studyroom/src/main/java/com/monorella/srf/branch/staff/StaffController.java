@@ -49,7 +49,7 @@ public class StaffController {
 		@RequestMapping(value="staff/staff_modify", method = RequestMethod.GET)
 		public String staffModify(Model model 
 								,@RequestParam(value="staff_id", required=true)String staff_id){
-			System.out.println("요놈3");
+			System.out.println("StaffController->staffModify()->staff_id:"+staff_id);
 			Staff staff= staffDao.getStaff(staff_id);
 			model.addAttribute("staff", staff);
 			return "staff/staff_modify";
@@ -58,7 +58,7 @@ public class StaffController {
 		// 직원 수정 요청
 		@RequestMapping(value ="staff/staff_modify", method = RequestMethod.POST)
 		public String staffModify(Staff staff){
-			System.out.println("요놈4");
+			System.out.println("StaffController->staffModify()->"+staff);
 			staffDao.modifyStaff(staff);
 			return "redirect:/staff/staff_view?staff_id="+staff.getStaff_id();
 		}
@@ -67,7 +67,7 @@ public class StaffController {
 		@RequestMapping(value="staff/staff_view", method = RequestMethod.GET)
 		public String StaffView(Model model 
 								,@RequestParam(value="staff_id")String staff_id){
-			System.out.println("요놈2");
+			System.out.println("StaffController->StaffView()" + staff_id);
 			Staff staff = staffDao.getStaff(staff_id);
 			model.addAttribute("staff", staff);
 			return "staff/staff_view";

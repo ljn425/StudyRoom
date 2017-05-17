@@ -73,8 +73,10 @@
               </a>
             </li>
             <li id="attendance">
-              <a href="${pageContext.request.contextPath}/calendar/calendar"> 
-              <i class="fa  fa-calendar"></i> <span>일정</span></a>
+
+              <a href="${pageContext.request.contextPath}/calendar/calendar">
+                <i class="fa fa-calendar"></i> <span>일정</span>
+              </a>
             </li>
             <li id="attendance">
               <a href="${pageContext.request.contextPath}/attendance/attendance_form">
