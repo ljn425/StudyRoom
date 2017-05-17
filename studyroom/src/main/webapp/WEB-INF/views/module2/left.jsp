@@ -67,15 +67,19 @@
               </ul>
             </li>
             <li>
-              <a href="#">
-                <i class="fa fa-calendar"></i> <span>일정</span>
-                <small class="label pull-right bg-red">3</small>
-              </a>
-            </li>
-            <li>
               <a href="${pageContext.request.contextPath}/staffboard/staffboard_list">
                 <i class="fa fa-envelope"></i> <span>공지사항</span>
                 <small class="label pull-right bg-yellow">12</small>
+              </a>
+            </li>
+            <li id="attendance">
+              <a href="#">
+                <i class="fa  fa-calendar"></i> <span>일정</span>
+              </a>
+            </li>
+            <li id="attendance">
+              <a href="${pageContext.request.contextPath}/attendance/attendance_form">
+                <i class="fa fa-bell-o"></i> <span>출결번호</span>
               </a>
             </li>
             
@@ -84,6 +88,7 @@
             <li><a href="#"><i class="fa fa-circle-o text-danger"></i> Important</a></li>
             <li><a href="#"><i class="fa fa-circle-o text-warning"></i> Warning</a></li>
             <li><a href="#"><i class="fa fa-circle-o text-info"></i> Information</a></li>
+       
           </ul>
         </section>
         <!-- /.sidebar -->
