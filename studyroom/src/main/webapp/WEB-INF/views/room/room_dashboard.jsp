@@ -3,9 +3,8 @@
 <!DOCTYPE>
 <html>
 <head>
-<!-- 헤드 -->
+	<!-- 헤드 -->
 	<c:import url="../module2/head.jsp"/>
-
 </head>
 <body class="skin-blue">
     <div class="wrapper">
@@ -71,7 +70,7 @@
 			              <div class="box">
 			                <div class="box-header">
 			                    <ul class="nav nav-tabs">
-								    <li class="active"><a data-toggle="tab" href="#home">입실 [3] </a></li>
+								    <li class="active"><a data-toggle="tab" href="#home">입실</a></li>
 								    <li><a data-toggle="tab" href="#menu1">퇴실 </a></li>
 								    <li><a data-toggle="tab" href="#menu2">만료 </a></li>
 								  </ul>

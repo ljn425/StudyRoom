@@ -33,6 +33,15 @@ public class RoomController {
 		System.out.println(room);
 		List<Seat> seatlist = roomDao.selectRoomSeat(room);
 		
+		
+		/*for(int i=0; i<seatlist.size(); i++){
+			int[][] table = {{seatlist.get(i).getSeat_col()}
+							,{seatlist.get(i).getSeat_row()}};	
+			int j=0;
+			System.out.println(table[i][j]);
+			j++;
+		}*/
+		
 		model.addAttribute("seatlist", seatlist);
 		model.addAttribute("room", room);
 	
