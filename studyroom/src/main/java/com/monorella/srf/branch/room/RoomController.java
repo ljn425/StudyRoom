@@ -20,6 +20,8 @@ public class RoomController {
 	@Autowired
 	private RoomDao roomDao;
 	
+	
+	
 	//열람실 현황 보기
 	@RequestMapping(value="/room/room_dashboard" , method = RequestMethod.GET)
 	public String room_dashboard(){
@@ -33,14 +35,18 @@ public class RoomController {
 		System.out.println("room_view()");
 		System.out.println(room);
 		List<Seat> seatlist = roomDao.selectRoomSeat(room);
+		System.out.println(seatlist.get(0).getSeat_row());
 		
+		/*//제일 상위 객체
 		JSONObject obj = new JSONObject();
+		//Person의 JSON정보를 담을 Array 선언
 		JSONArray personArray = new JSONArray();
+		//Person의 한명 정보가 들어갈 JSONObject 선언
 		JSONObject personInfo = new JSONObject();
-		
+		//정보 입력
 		personInfo.put("name", "송강호");
 		personInfo.put("age", "25");
-		
+		//Array에 입력
 		personArray.put(personInfo);
 		
 		personInfo = new JSONObject();
@@ -49,17 +55,24 @@ public class RoomController {
 		
 		personArray.put(personInfo);
 		obj.put("persons", personArray);
+		//전체 입력한 값 확인
+		System.out.println(obj);*/
 		
-		System.out.println(obj);
 		
-		/*for(int i=0; i<seatlist.size(); i++){
-			int[][] table = {{seatlist.get(i).getSeat_col()}
-							,{seatlist.get(i).getSeat_row()}};	
-			int j=0;
-			System.out.println(table[i][j]);
-			j++;
-		}*/
+		JSONObject seat = new JSONObject();
+		JSONArray seatArray = new JSONArray();
+		JSONObject seatRowCol = new JSONObject();
 		
+		
+		String row = seatlist.get(0).getSeat_row()+"";
+		String col = seatlist.get(0).getSeat_col()+"";
+		seatRowCol.put("row", row);
+		seatRowCol.put("col", col);
+		seatArray.put(seatRowCol);
+		seat.put("seat", seatArray);
+		System.out.println(seat);
+		
+				
 		model.addAttribute("seatlist", seatlist);
 		model.addAttribute("room", room);
 	

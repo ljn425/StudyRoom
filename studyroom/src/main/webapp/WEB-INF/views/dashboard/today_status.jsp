@@ -19,6 +19,7 @@
   <link href="${pageContext.request.contextPath}/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
   <!-- DATA TABLES -->
   <link href="${pageContext.request.contextPath}/resources/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+  
 </head>
 <body class="skin-blue">
     <div class="wrapper">
@@ -89,7 +90,7 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>${pamphletNo}</h3>
+                  <h3>${unpaidMemberNo}</h3>
                   <p>미결제 열람석</p>
                 </div>
                 <div class="icon">
