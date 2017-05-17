@@ -19,7 +19,7 @@ public class MemberController {
 
 	// 신규 회원 알림 요청
 	@RequestMapping(value="/module2/left", method = RequestMethod.GET)
-	public String newMember(Model model
+	public String MemberNew(Model model
 			, @RequestParam(value="member_date", required=true) String member_date) {
 		System.out.println("/module2/left 요청");
 		Member member = memberDao.newMember(member_date);
@@ -29,14 +29,14 @@ public class MemberController {
 	
 	// 회원 삭제 폼 요청
 	@RequestMapping(value="/member/member_remove", method = RequestMethod.GET)
-	public String memberRemove(@RequestParam(value="member_cd", required=true) String member_cd){
+	public String MemberRemove(@RequestParam(value="member_cd", required=true) String member_cd){
 		System.out.println("/member/member_remove 요청");
 		return "member/member_remove";
 	}
 	
 	// 회원 삭제 요청
 	@RequestMapping(value ="/member/member_remove", method = RequestMethod.POST)
-	public String memberRemove(@RequestParam(value="member_cd") String member_cd
+	public String MemberRemove(@RequestParam(value="member_cd") String member_cd
 			, @RequestParam(value="branch_owner_cd") String branch_owner_cd) {
 		memberDao.removeMember(member_cd, branch_owner_cd);
 		System.out.println("삭제 완료");
@@ -45,18 +45,17 @@ public class MemberController {
 	
 	// 회원 수정 폼 요청
 	@RequestMapping(value="/member/member_modify", method = RequestMethod.GET)
-	public String memberModify(Model model
+	public String MemberModify(Model model
 			, @RequestParam(value="member_cd", required=true) String member_cd) {
 		System.out.println("/member/member_modify2 요청");
 		Member member = memberDao.getMember(member_cd);
 		model.addAttribute("member", member);
 		return "member/member_modify";	
-		
 	}
 	
 	// 회원 수정 요청
 	@RequestMapping(value ="/member/member_modify", method = RequestMethod.POST)
-	public String boardModify(Member member){
+	public String MemberModify(Member member){
 		System.out.println("/member/member_modify1 요청");
 		memberDao.modifyMember(member);
 		return "redirect:/member/member_view?member_cd="+member.getMember_cd();		
@@ -85,7 +84,7 @@ public class MemberController {
 		model.addAttribute("sv", sv);
 		return "member/member_search";
 	}
-	
+
 	// 리스트 및 페이징 요청
 	@RequestMapping(value="/member/member_list", method = RequestMethod.GET)
 	public String selectMemberList(Model model
@@ -136,7 +135,7 @@ public class MemberController {
 	
 	// 독서실 회원 코드 자동 증가 및 POST 요청
 	@RequestMapping(value="/member/member_pro", method= RequestMethod.POST)
-	public String memberPro(Member member) {
+	public String MemberPro(Member member) {
 		System.out.println("회원코드 자동증가 폼");
 		System.out.println(member);
 			
@@ -161,7 +160,7 @@ public class MemberController {
 
 	// 회원 등록 폼
 	@RequestMapping(value="/member/member_form", method = RequestMethod.GET)
-	public String member_form(Model model) {
+	public String MemberForm(Model model) {
 		System.out.println("member_form 요청");
 		List<Member> memberlist = memberDao.selectMember();
 		model.addAttribute("memberlist", memberlist);
