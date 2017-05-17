@@ -9,7 +9,7 @@
             <div class="pull-left info">
               <p>${sessionScope.branchOwner.branch_owner_nm} <a href="#"><i class="fa fa-circle text-success"></i> Online</a></p>
             </div>
-          </div>
+          </div> 
           <!-- search form -->
           <!-- <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
