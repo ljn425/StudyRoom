@@ -45,21 +45,33 @@
 		      <li class="active">직원</li>
 		    </ol>
 		  </section>
-<div class="container">
-<h1>공지사항 삭제</h1>
+<!-- Main content -->
+      <section class="content">
+      <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- general form elements -->
+              <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title">공지사항 삭제</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
         <form  class="form-inline" id="removeForm" action="${pageContext.request.contextPath}/staffboard/staffboard_delete_pro" method="post">
             <input name="staffboard_no" value="${param.staffboard_no}" type="hidden"/>
             <div class="form-group">
                 <label for="staffboard_pw">비밀번호확인 :</label>
                 <input class="form-control" id="staffboard_pw" name="staffboard_pw" type="password">
             </div>
-            <div>
-       		 <input type="submit" value="글입력"/>
-        	<input type="reset" value="초기화"/>
+           <div class="box-footer">
+              <button type="submit" class="btn btn-primary">글입력</button>
+              <button type="reset" class="btn btn-primary">초기화</button>
    		 </div>
-  
         </form>
+       </div>
+       </div>  
     </div>
+    </section>
+   
     </div>   
 </div>
 </body>
