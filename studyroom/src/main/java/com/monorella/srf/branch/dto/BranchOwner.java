@@ -4,7 +4,7 @@ public class BranchOwner {
 
 	private String branch_owner_cd; //지점대표코드
 	private String owner_num;       //사업자번호
-	private String branch_owner_nm; //지점명
+	private String branch_nm; //지점명
 	private String branch_owner_id; //아이디
 	private String branch_owner_pw; //비밀번호
 	private String branch_owner_addr; // 주소
@@ -24,11 +24,11 @@ public class BranchOwner {
 	public void setOwner_num(String owner_num) {
 		this.owner_num = owner_num;
 	}
-	public String getBranch_owner_nm() {
-		return branch_owner_nm;
+	public String getBranch_nm() {
+		return branch_nm;
 	}
-	public void setBranch_owner_nm(String branch_owner_nm) {
-		this.branch_owner_nm = branch_owner_nm;
+	public void setBranch_nm(String branch_nm) {
+		this.branch_nm = branch_nm;
 	}
 	public String getBranch_owner_id() {
 		return branch_owner_id;
@@ -69,11 +69,10 @@ public class BranchOwner {
 	
 	@Override
 	public String toString() {
-		return "BranchOwner [branch_owner_cd=" + branch_owner_cd + ", owner_num=" + owner_num + ", branch_owner_nm="
-				+ branch_owner_nm + ", branch_owner_id=" + branch_owner_id + ", branch_owner_pw=" + branch_owner_pw
+		return "BranchOwner [branch_owner_cd=" + branch_owner_cd + ", owner_num=" + owner_num + ", branch_nm="
+				+ branch_nm + ", branch_owner_id=" + branch_owner_id + ", branch_owner_pw=" + branch_owner_pw
 				+ ", branch_owner_addr=" + branch_owner_addr + ", owner_nm=" + owner_nm + ", branch_owner_tel="
 				+ branch_owner_tel + ", branch_owner_in_date=" + branch_owner_in_date + "]";
 	}
-	
 	
 }
