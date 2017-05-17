@@ -29,4 +29,9 @@ public class PaymentDao {
 		System.out.println("Seat member modify");
 		return sqlSessionTemplate.update("com.monorella.srf.branch.payment.PaymentMapper.modifyPaymentMember", payment);
 	}
+	// newwindetail.jsp 요청
+	public Member detailMember(String member_cd) {
+		System.out.println("windetailMember"+member_cd);
+        return sqlSessionTemplate.selectOne("com.monorella.srf.branch.payment.PaymentMapper.detailMember", member_cd);
+    }
 }

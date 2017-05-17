@@ -5,20 +5,20 @@
   
 <mapper namespace="com.monorella.srf.branch.member.MemberMapper">
 	<!-- 신규회원 알림 -->
-	<select id="newMember" resultType="String" parameterType="com.monorella.srf.branch.dto.Member">
+	<select id="MemberNew" resultType="String" parameterType="com.monorella.srf.branch.dto.Member">
 		SELECT count(*) FROM branch_member_tb
 		WHERE member_date = #{member_date}
 	</select>
 	
 	<!-- 회원 삭제 -->
-	<delete id="removeMember" parameterType="com.monorella.srf.branch.dto.Member">
+	<delete id="MemberRemove" parameterType="com.monorella.srf.branch.dto.Member">
 		DELETE FROM branch_member_tb 
 		WHERE member_cd = #{member_cd} 
 		AND branch_owner_cd = #{branch_owner_cd}
 	</delete>
 	
 	<!-- 회원 수정 -->
-	<update id="modifyMember" parameterType="com.monorella.srf.branch.dto.Member">
+	<update id="MemberModify" parameterType="com.monorella.srf.branch.dto.Member">
 		UPDATE branch_member_tb 
             SET branch_owner_cd = #{branch_owner_cd}
             , branch_owner_cd = #{branch_owner_cd}
@@ -55,7 +55,7 @@
 	</select>
 
 	<!-- 회원 검색 -->
-	<select id="searchMember" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
+	<select id="MemberSearch" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.Member">
 		SELECT
 			 member_cd
 			 , member_nm AS member_nm
@@ -142,12 +142,13 @@
 			, member_sex
 			, member_tel
 			, member_addr
+			, member_age
 			, member_date
 			, member_regi_date
 			, member_end_date
+			, member_seat_state
 			, member_regi_path
-			, member_age
-			, member_seat_state)
+			, member_use_pur)
 		VALUES(
 			#{member_cd}
 			, #{branch_owner_cd}
@@ -158,12 +159,13 @@
 			, #{member_sex}
 			, #{member_tel}
 			, #{member_addr}
-			, now()
-			, now()
-			, now()
-			, #{member_regi_path}
 			, #{member_age}
+			, now()
+			, now()
+			, now()
 			, #{member_seat_state}
+			, #{member_regi_path}
+			, #{member_use_pur}
 		)	
   	</insert>
  	
@@ -184,12 +186,13 @@
 			, member_sex
 			, member_tel
 			, member_addr
+			, member_age
 			, member_date
 			, member_regi_date
 			, member_end_date
+			, member_seat_state
 			, member_regi_path
-			, member_age
-			, member_seat_state)
+			, member_use_pur)
 		VALUES(
 			#{member_cd}
 			, #{branch_owner_cd}
@@ -200,12 +203,13 @@
 			, #{member_sex}
 			, #{member_tel}
 			, #{member_addr}
-			, now()
-			, now()
-			, now()
-			, #{member_regi_path}
 			, #{member_age}
+			, now()
+			, now()
+			, now()
 			, #{member_seat_state}
+			, #{member_regi_path}
+			, #{member_use_pur}
 		)
 	</insert>		
 </mapper>

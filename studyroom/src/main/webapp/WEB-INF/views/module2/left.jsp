@@ -7,7 +7,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left info">
-              <p>${sessionScope.branchOwner.branch_owner_nm} <a href="#"><i class="fa fa-circle text-success"></i> Online</a></p>
+              <p>${sessionScope.branchOwner.branch_nm} <a href="#"><i class="fa fa-circle text-success"></i> Online</a></p>
             </div>
           </div> 
           <!-- search form -->
@@ -73,6 +73,7 @@
               </a>
             </li>
             <li id="attendance">
+
               <a href="${pageContext.request.contextPath}/calendar/calendar">
                 <i class="fa fa-calendar"></i> <span>일정</span>
               </a>

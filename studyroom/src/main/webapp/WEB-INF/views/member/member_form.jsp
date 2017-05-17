@@ -130,7 +130,7 @@
 								<label class="control-label" for="inputLarge">주 이용 목적</label>
 								<select class="form-control" name="member_use_pur" id="member_use_pur" > 
 									<option value="설명" selected>이용목적을 선택해 주세요</option> 
-									<option value="토익">토익</option> 
+									<option value="외국어">외국어</option> 
 									<option value="수능">수능</option> 
 									<option value="자격증">자격증</option> 
 									<option value="공무원">공무원</option> 
