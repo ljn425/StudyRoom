@@ -19,6 +19,7 @@
   <link href="${pageContext.request.contextPath}/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
   <!-- DATA TABLES -->
   <link href="${pageContext.request.contextPath}/resources/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+  
 </head>
 <body class="skin-blue">
     <div class="wrapper">
@@ -42,7 +43,7 @@
         </section>
 
 		<!-- -----------------------내용!!!------------------------------ -->	
-		
+		<!-- http://ionicons.com/ -->
         <section class="content">
   
            <div class="row">
@@ -54,7 +55,7 @@
                   <p>금일 등록 회원</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-bag"></i>
+                  <i class="ion ion-person-add"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
@@ -67,9 +68,9 @@
                   <p>이용중 열람석</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
+                  <i class="ion ion-android-checkbox-outline"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#example1" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
@@ -80,7 +81,7 @@
                   <p>부재중 열람석</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-person-add"></i>
+                  <i class="ion ion-coffee"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
@@ -89,11 +90,11 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>${pamphletNo}</h3>
+                  <h3>${unpaidMemberNo}</h3>
                   <p>미결제 열람석</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="ion ion-social-usd"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
@@ -192,6 +193,8 @@
 	<!-- DATA TABES SCRIPT -->
     <script src="${pageContext.request.contextPath}/resources/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/resources/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <!-- 페이지 내 href 경로 이동-->
+    <script src="${pageContext.request.contextPath}/resources/js/templatemo-script.js"></script>
     
     <!-- Page script -->
      <script type="text/javascript">

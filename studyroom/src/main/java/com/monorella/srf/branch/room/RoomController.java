@@ -19,11 +19,11 @@ public class RoomController {
 	@Autowired
 	private RoomDao roomDao;
 	
-	//열람실 현황 
-	@RequestMapping(value="/room/room_management" , method = RequestMethod.GET)
-	public String room_management(){
-		System.out.println("room_management()");
-		return "";
+	//열람실 현황 보기
+	@RequestMapping(value="/room/room_dashboard" , method = RequestMethod.GET)
+	public String room_dashboard(){
+		System.out.println("room_dashboard()");
+		return "room/room_dashboard";
 	}
 	
 	//열람실 배치도 상세보기
@@ -33,11 +33,18 @@ public class RoomController {
 		System.out.println(room);
 		List<Seat> seatlist = roomDao.selectRoomSeat(room);
 		
+		
+		/*for(int i=0; i<seatlist.size(); i++){
+			int[][] table = {{seatlist.get(i).getSeat_col()}
+							,{seatlist.get(i).getSeat_row()}};	
+			int j=0;
+			System.out.println(table[i][j]);
+			j++;
+		}*/
+		
 		model.addAttribute("seatlist", seatlist);
 		model.addAttribute("room", room);
-		
-		
-		
+	
 		return "room/room_view";
 	}
 	
@@ -127,7 +134,7 @@ public class RoomController {
 		System.out.println("chair_form 요청");
 		return "room/chair_form";
 	}
-	//열람실 현황
+	//열람실 관리
 	@RequestMapping(value="/room/room_main", method = RequestMethod.GET)
 	public String room_main(Model model){
 		List<Seat> seatlist = roomDao.selectSeat();

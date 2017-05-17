@@ -1,7 +1,6 @@
 package com.monorella.srf.branch.charges;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,21 +18,13 @@ public class ChargesController {
 	
 	
 	//요금제 수정
-	@RequestMapping(value="/charges/charges_update" , method= RequestMethod.POST)
-	public String chargesUpdate(@RequestParam Map<String,Object> map){
-		System.out.println("요금제 수정");
-		System.out.println(map.get("seat_member_type") + "-" + map.get("seat_charges_date") + "-" + map.get("seat_charges_price")+"-"+map.get("seat_charges_code"));
-		int result = chargesDao.updateCharges(map);
-		if(result == 1){
-			System.out.println("update 성공");
-		}
-		
-		
+	@RequestMapping(value="/charges/charges_update", method= RequestMethod.POST)
+	public String chargesUpdate(@RequestParam(value="charges_code", required=true) String charges_code){
 		return "redirect:/charges/charges_form";                                                                                                                                                                                                                                                         
 	}
 	
 	//요금제 삭제
-	@RequestMapping(value="/charges/charges_delete" , method= RequestMethod.GET)
+	@RequestMapping(value="/charges/charges_delete", method= RequestMethod.GET)
 	public String chargesDelete(@RequestParam(value="charges_code", required=true) String charges_code){
 		System.out.println("charges_code :" + charges_code);
 		chargesDao.deleteCharges(charges_code);
@@ -41,7 +32,7 @@ public class ChargesController {
 	}
 	
 	//요금제 등록
-	@RequestMapping(value="/charges/charges_pro" , method= RequestMethod.POST)
+	@RequestMapping(value="/charges/charges_pro", method= RequestMethod.POST)
 	public String chargesPro(Charges charges){
 		System.out.println("요금제 등록 폼");
 		System.out.println(charges);
@@ -72,7 +63,7 @@ public class ChargesController {
 	}
 	
 	//요금제 설정 폼
-	@RequestMapping(value="/charges/charges_form" , method= RequestMethod.GET)
+	@RequestMapping(value="/charges/charges_form", method= RequestMethod.GET)
 	public String chargesFrom(Model model){
 		System.out.println("요금제 설정 폼");
 		List<Charges> chargeslist = chargesDao.selectCharges();

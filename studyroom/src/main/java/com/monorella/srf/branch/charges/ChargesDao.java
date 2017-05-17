@@ -1,7 +1,6 @@
 package com.monorella.srf.branch.charges;
 
 import java.util.List;
-import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +18,10 @@ public class ChargesDao {
 	public int selectChargesCode(){
 		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.charges.ChargesMapper.selectChargesCode");
 	}
-	
+
 	//요금제 update
-	public int updateCharges(Map<String,Object> map){
-		return sqlSessionTemplate.update("com.monorella.srf.branch.charges.ChargesMapper.modifyCharges", map);
+	public int updateCharges(String charges_code){
+		return sqlSessionTemplate.update("");
 	}
 	
 	//요금제 delete

@@ -7,9 +7,9 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left info">
-              <p>${sessionScope.branchOwner.branch_owner_nm} <a href="#"><i class="fa fa-circle text-success"></i> Online</a></p>
+              <p>${sessionScope.branchOwner.branch_nm} <a href="#"><i class="fa fa-circle text-success"></i> Online</a></p>
             </div>
-          </div>
+          </div> 
           <!-- search form -->
           <!-- <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
@@ -29,8 +29,8 @@
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="tree"><a href="${pageContext.request.contextPath}/dashboard/today_status"><i class="fa fa-circle-o"></i> 오늘의 현황</a></li>
-                <li class="tree"><a href="${pageContext.request.contextPath}/dashboard/all_status"><i class="fa fa-circle-o"></i> 통계</a></li>
+                <li><a href="${pageContext.request.contextPath}/dashboard/today_status"><i class="fa fa-circle-o"></i> 오늘의 현황</a></li>
+                <li><a href="${pageContext.request.contextPath}/dashboard/all_status"><i class="fa fa-circle-o"></i> 통계</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -61,16 +61,10 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="tree"><a href="${pageContext.request.contextPath}/room/room_form"><i class="fa fa-circle-o"></i>열람실 등록</a></li>
-                <li class="tree"><a href="${pageContext.request.contextPath}/room/room_main"><i class="fa fa-circle-o"></i>열람실 관리</a></li>
-                <li class="tree"><a href="${pageContext.request.contextPath}/room/room_main"><i class="fa fa-circle-o"></i>열람실 현황</a></li>
+                <li><a href="${pageContext.request.contextPath}/room/room_form"><i class="fa fa-circle-o"></i>열람실 등록</a></li>
+                <li><a href="${pageContext.request.contextPath}/room/room_main"><i class="fa fa-circle-o"></i>열람실 관리</a></li>
+                <li><a href="${pageContext.request.contextPath}/room/room_dashboard"><i class="fa fa-circle-o"></i>열람실 현황</a></li>
               </ul>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-calendar"></i> <span>일정</span>
-                <small class="label pull-right bg-red">3</small>
-              </a>
             </li>
             <li>
               <a href="${pageContext.request.contextPath}/staffboard/staffboard_list">
@@ -78,12 +72,22 @@
                 <small class="label pull-right bg-yellow">12</small>
               </a>
             </li>
+            <li id="attendance">
+              <a href="${pageContext.request.contextPath}/calendar/calendar"> 
+              <i class="fa  fa-calendar"></i> <span>일정</span></a>
+            </li>
+            <li id="attendance">
+              <a href="${pageContext.request.contextPath}/attendance/attendance_form">
+                <i class="fa fa-bell-o"></i> <span>출결번호</span>
+              </a>
+            </li>
             
-            <li ><a href="${pageContext.request.contextPath}/charges/charges_form"><i class="fa fa-book"></i> 요금제 설정</a></li>
+            <li><a href="${pageContext.request.contextPath}/charges/charges_form"><i class="fa fa-book"></i> 요금제 설정</a></li>
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-danger"></i> Important</a></li>
             <li><a href="#"><i class="fa fa-circle-o text-warning"></i> Warning</a></li>
             <li><a href="#"><i class="fa fa-circle-o text-info"></i> Information</a></li>
+       
           </ul>
         </section>
         <!-- /.sidebar -->

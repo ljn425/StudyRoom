@@ -10,12 +10,13 @@ public class Member {
 	private String member_sex;
 	private String member_tel;
 	private String member_addr;
+	private int member_age;
 	private String member_date;
 	private String member_regi_date;
 	private String member_end_date;
-	private String member_regi_path;
-	private int member_age;
 	private String member_seat_state;
+	private String member_regi_path;
+	private String member_use_pur;
 	public String getMember_cd() {
 		return member_cd;
 	}
@@ -70,6 +71,12 @@ public class Member {
 	public void setMember_addr(String member_addr) {
 		this.member_addr = member_addr;
 	}
+	public int getMember_age() {
+		return member_age;
+	}
+	public void setMember_age(int member_age) {
+		this.member_age = member_age;
+	}
 	public String getMember_date() {
 		return member_date;
 	}
@@ -88,31 +95,32 @@ public class Member {
 	public void setMember_end_date(String member_end_date) {
 		this.member_end_date = member_end_date;
 	}
-	public String getMember_regi_path() {
-		return member_regi_path;
-	}
-	public void setMember_regi_path(String member_regi_path) {
-		this.member_regi_path = member_regi_path;
-	}
-	public int getMember_age() {
-		return member_age;
-	}
-	public void setMember_age(int member_age) {
-		this.member_age = member_age;
-	}
 	public String getMember_seat_state() {
 		return member_seat_state;
 	}
 	public void setMember_seat_state(String member_seat_state) {
 		this.member_seat_state = member_seat_state;
 	}
+	public String getMember_regi_path() {
+		return member_regi_path;
+	}
+	public void setMember_regi_path(String member_regi_path) {
+		this.member_regi_path = member_regi_path;
+	}
+	public String getMember_use_pur() {
+		return member_use_pur;
+	}
+	public void setMember_use_pur(String member_use_pur) {
+		this.member_use_pur = member_use_pur;
+	}
 	@Override
 	public String toString() {
 		return "Member [member_cd=" + member_cd + ", branch_owner_cd=" + branch_owner_cd + ", staff_id=" + staff_id
 				+ ", seat_cd=" + seat_cd + ", inout_num=" + inout_num + ", member_nm=" + member_nm + ", member_sex="
-				+ member_sex + ", member_tel=" + member_tel + ", member_addr=" + member_addr + ", member_regi_date="
-				+ member_regi_date + ", member_end_date=" + member_end_date + ", member_regi_path=" + member_regi_path
-				+ ", member_age=" + member_age + ", member_seat_state=" + member_seat_state + "]";
-	}	
+				+ member_sex + ", member_tel=" + member_tel + ", member_addr=" + member_addr + ", member_age="
+				+ member_age + ", member_date=" + member_date + ", member_regi_date=" + member_regi_date
+				+ ", member_end_date=" + member_end_date + ", member_seat_state=" + member_seat_state
+				+ ", member_regi_path=" + member_regi_path + ", member_use_pur=" + member_use_pur + "]";
+	}
+}	
 	
-}

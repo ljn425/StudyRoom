@@ -5,6 +5,38 @@
 
 <mapper namespace="com.monorella.srf.branch.dashboard.DashboardMapper">
 	
+	<!-- 주 이용 목적 -->
+	<!-- 토익 -->
+	<select id="selectPurposeLanguage" resultType="int" >
+		SELECT COUNT(*)
+		FROM branch_member_tb
+		WHERE member_use_pur = "외국어"
+	</select>
+	<!-- 수능 -->
+	<select id="selectPurposeCSAT" resultType="int" >
+		SELECT COUNT(*)
+		FROM branch_member_tb
+		WHERE member_use_pur = "수능"
+	</select>
+	<!-- 공무원 -->
+	<select id="selectPurposePublicOfficial" resultType="int" >
+		SELECT COUNT(*)
+		FROM branch_member_tb
+		WHERE member_use_pur = "공무원"
+	</select>
+	<!-- 자격증 -->
+	<select id="selectPurposeLicense" resultType="int" >
+		SELECT COUNT(*)
+		FROM branch_member_tb
+		WHERE member_use_pur = "자격증"
+	</select>
+	<!-- 기타 -->
+	<select id="selectPurposeEtc" resultType="int" >
+		SELECT COUNT(*)
+		FROM branch_member_tb
+		WHERE member_use_pur = "기타"
+	</select>
+	
 	<!-- 월별 가입자 수 -->
 	<!-- 1월 -->
 	<select id="selectJanuaryInsertMember" resultType="int" >
@@ -203,7 +235,7 @@
 	<select id="selectUnpaidSeatCount" resultType="int">
 		SELECT COUNT(*) 
 		FROM branch_saet_tb 
-		WHERE colseat_state = "미결제"
+		WHERE seat_appoint = "N"
 	</select>
 	<!-- 부재중 열람석 -->
 	<select id="selectAbsenceSeatCount" resultType="int">

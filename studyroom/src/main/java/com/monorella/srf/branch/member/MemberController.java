@@ -25,7 +25,6 @@ public class MemberController {
 		Member member = memberDao.newMember(member_date);
 		model.addAttribute("member", member);
 		return "module2/left";
-		
 	}
 	
 	// 회원 삭제 폼 요청
@@ -74,7 +73,7 @@ public class MemberController {
 	}
 	
 	//회원 검색 요청
-	@RequestMapping(value="/member/member_search" , method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/member/member_search", method = {RequestMethod.GET, RequestMethod.POST})
 	public String MemberSearch(Model model
 			, @RequestParam("so") String so
 			, @RequestParam("sv") String sv){
@@ -93,9 +92,12 @@ public class MemberController {
             , @RequestParam(value="currentPage", required=false, defaultValue="1") int currentPage) {
 		System.out.println("/member/member_list 요청");
 		
+		if(currentPage < 1){
+			currentPage = 1;
+            }
 		int joinCount = 0;
 		joinCount = memberDao.selectMemberCount();
-		int pagePerRow = 5;
+		int pagePerRow = 10;
 		List<Member> list = memberDao.selectMemberList(currentPage, pagePerRow);
 		int lastPage = (int)(Math.ceil(joinCount / pagePerRow));
 		if(joinCount%pagePerRow != 0) {
@@ -103,10 +105,10 @@ public class MemberController {
 		}
 		
 		int countPage = 5;
-		int startPage = ((currentPage - 1)/5)*5+1;
+		int startPage = ((currentPage - 1)/10)*10+1;
 		int endPage = startPage + countPage-1;
-		int nextPage = ((currentPage - 1)/5)*5+2;
-		int previousPage = ((currentPage - 1)/5)*5-5+1;
+		int nextPage = ((currentPage - 1)/10)*10+2;
+		int previousPage = ((currentPage - 1)/10)*10-10+1;
 		
 		if(previousPage <= 0) {
 			previousPage = 1;
@@ -132,51 +134,37 @@ public class MemberController {
 		return "member/member_list";
 	}
 	
-	// 입력 post 요청
-	@RequestMapping(value="/member/member_form", method = RequestMethod.POST)
-	public String insertMember(Member member) {
-		System.out.println("post 요청");
-		System.out.println(member);
-		memberDao.insertMember(member);
-		return "redirect:/member/member_list";
-	}
-	
-	// 독서실 회원 코드 자동 증가 요청
-	@RequestMapping(value="/member/member_pro" , method= RequestMethod.POST)
+	// 독서실 회원 코드 자동 증가 및 POST 요청
+	@RequestMapping(value="/member/member_pro", method= RequestMethod.POST)
 	public String memberPro(Member member) {
 		System.out.println("회원코드 자동증가 폼");
 		System.out.println(member);
 			
 		//코드 MAX select
-		String code = memberDao.selectMemberCode();
+		int code = memberDao.selectMemberCode();
 			
-		if(code == null){ 
-			member.setMember_cd("member_cd01");
+		if(code == 0){ 
+			member.setMember_cd("member_cd1");
+			memberDao.insertMember(member);
 			
-		}else{
-			int buscode = Integer.parseInt(code.substring(code.length()-1))+3;
-			System.out.println(buscode);
-			String membercode = "member_cd" + buscode;
-			member.setMember_cd(membercode);
+		} else {
+			int result = memberDao.autoMemberCode(member);
+			if(result == 1) {
+				System.out.println("요금제 등록 성공");
+				return "redirect:/member/member_form";
+			} else {
+				System.out.println("요금제 등록 실패");
+			}
 		}
-			
-		int result = memberDao.insertMember(member);
-			
-		if(result == 1){
-			System.out.println("회원코드 자동증가 완료");
-			return "redirect:/member/member_form";
-			
-		}else{
-			System.out.println("회원코드 자동증가 실패");
-		}
-			
 		return "redirect:/member/member_form";
 	}
-	
-	// 폼 요청
+
+	// 회원 등록 폼
 	@RequestMapping(value="/member/member_form", method = RequestMethod.GET)
-	public String member_form() {
+	public String member_form(Model model) {
 		System.out.println("member_form 요청");
+		List<Member> memberlist = memberDao.selectMember();
+		model.addAttribute("memberlist", memberlist);
 		return "member/member_form";
 	}
 }
