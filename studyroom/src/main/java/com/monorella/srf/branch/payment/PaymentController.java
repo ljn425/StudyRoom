@@ -40,9 +40,9 @@ public class PaymentController {
 	// newwindetail.jsp 요청
 	@RequestMapping(value="/payment/newwindetail", method = RequestMethod.GET)
 	public String newwindetail(Model model 
-			, @RequestParam(value="member_cd")String member_cd){
-		System.out.println(member_cd);
-		Member member = paymentDao.detailMember(member_cd);
+			, @RequestParam(value="member_nm")String member_nm){
+		System.out.println(member_nm);
+		Member member = paymentDao.detailMember(member_nm);
 		System.out.println("member: "+ member);
 		model.addAttribute("member", member);
 		return "payment/newwindetail";
