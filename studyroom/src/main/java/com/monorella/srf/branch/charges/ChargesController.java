@@ -18,13 +18,13 @@ public class ChargesController {
 	
 	
 	//요금제 수정
-	@RequestMapping(value="/charges/charges_update" , method= RequestMethod.POST)
+	@RequestMapping(value="/charges/charges_update", method= RequestMethod.POST)
 	public String chargesUpdate(@RequestParam(value="charges_code", required=true) String charges_code){
 		return "redirect:/charges/charges_form";                                                                                                                                                                                                                                                         
 	}
 	
 	//요금제 삭제
-	@RequestMapping(value="/charges/charges_delete" , method= RequestMethod.GET)
+	@RequestMapping(value="/charges/charges_delete", method= RequestMethod.GET)
 	public String chargesDelete(@RequestParam(value="charges_code", required=true) String charges_code){
 		System.out.println("charges_code :" + charges_code);
 		chargesDao.deleteCharges(charges_code);
@@ -32,7 +32,7 @@ public class ChargesController {
 	}
 	
 	//요금제 등록
-	@RequestMapping(value="/charges/charges_pro" , method= RequestMethod.POST)
+	@RequestMapping(value="/charges/charges_pro", method= RequestMethod.POST)
 	public String chargesPro(Charges charges){
 		System.out.println("요금제 등록 폼");
 		System.out.println(charges);
@@ -63,7 +63,7 @@ public class ChargesController {
 	}
 	
 	//요금제 설정 폼
-	@RequestMapping(value="/charges/charges_form" , method= RequestMethod.GET)
+	@RequestMapping(value="/charges/charges_form", method= RequestMethod.GET)
 	public String chargesFrom(Model model){
 		System.out.println("요금제 설정 폼");
 		List<Charges> chargeslist = chargesDao.selectCharges();

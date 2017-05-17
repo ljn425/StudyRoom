@@ -8,12 +8,12 @@
 <script>
 	$(document).ready(function(){
 		//console.log("하이");
-		$('#searchMember').click(function(){
+		$('#searchBtn').click(function(){
 			if($('#searchForm').val()=='') {
 				alert("검색어를 입력해주세요.");
 				$('#searchForm').focus();
 			} else {
-                $('#searchBtn').submit();
+                $('#searchMember').submit();
             }
 		});
 	});
@@ -63,6 +63,7 @@
 			    <option value="member_cd">CODE</option>
 					<option value="member_nm">이름</option>
 					<option value="member_sex">성별</option>
+					<option value="member_sex">주소</option>
 				    <option value="member_age">나이</option>
 				    <option value="member_seat_state">회원상태</option>
 			  </select>
@@ -86,7 +87,6 @@
                       	<th>회원코드</th>
 		            	<th>이름</th>
 		           	    <th>성별</th>
-		                <th>연락처</th>
 		                <th>주소</th>
 		                <th>나이</th>
 		                <th>회원상태</th>
@@ -99,7 +99,6 @@
 			                    <td><a href="${pageContext.request.contextPath}/member/member_view?member_cd=${b.member_cd}">${b.member_cd}</a></td>
 			                    <td>${b.member_nm}</td>
 			                    <td>${b.member_sex}</td>
-			                    <td>${b.member_tel}</td>
 			                    <td>${b.member_addr}</td>
 			                    <td>${b.member_age}</td>
 			                    <td>${b.member_seat_state}</td>

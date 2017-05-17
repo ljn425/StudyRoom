@@ -15,6 +15,7 @@
   <delete id="deleteCharges" parameterType="String">
   		DELETE FROM seat_charges WHERE seat_charges_code=#{charges_code}
   </delete>
+  
   <!-- 요금제 조회 -->
   <select id="selectCharges" resultType="com.monorella.srf.branch.dto.Charges">
 	  	SELECT
