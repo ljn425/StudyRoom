@@ -34,20 +34,27 @@ public class DashboardController {
 	    SimpleDateFormat simpleToday = new SimpleDateFormat("yyyy-MM-dd");
 	    SimpleDateFormat month = new SimpleDateFormat("M");
 	    
+	    // 주 이용 목적
+	    int languageNo = dashboardDao.selectPurposeLanguage(); //외국어
+	    int CSATNo = dashboardDao.selectPurposeCSAT(); //수능
+ 		int publicOfficialNo = dashboardDao.selectPurposePublicOfficial(); //공무원
+ 		int licenseNo = dashboardDao.selectPurposeLicense(); //자격증
+ 		int purposeEtcNo = dashboardDao.selectPurposeEtc(); //기타
+	    
 	    // 회원----------------------------------------------------------------------------
 	    int monthMemberNo = dashboardDao.selectMonthInsertMemberCount(); // 당월 가입 회원 수
 	    int MemberNo = dashboardDao.selectMemberCount(); //전체 회원 수
- 		int MenNo = dashboardDao.selectMenCount(); //여성회원
- 		int womanNo = dashboardDao.selectWomanCount(); //남성회원
+ 		int MenNo = dashboardDao.selectMenCount(); //남성
+ 		int womanNo = dashboardDao.selectWomanCount(); //여성
  		
  		// 등록경로------------------------------------------------------------
 		int pamphletNo = dashboardDao.selectPamphletCount(); //전단지
 		int placardNo = dashboardDao.selectPlacardCount(); //플래카드
 		int introductionNo = dashboardDao.selectIntroductionCount(); //지인소개
 		int internetNo = dashboardDao.selectInternetCount(); //인터넷
-		int etctcNo = dashboardDao.selectEtcCount(); //기타
+		int pathEtcNo = dashboardDao.selectEtcCount(); //기타
 		
-		// 월별 등록자 수
+		// 월별 등록자 수----------------------------------------------------------
 		int januaryInsertNo = dashboardDao.selectJanuaryInsertMember();
 		int februaryInsertNo = dashboardDao.selectFebruaryInsertMember();
 		int marchInsertNo = dashboardDao.selectMarchInsertMember();
@@ -77,6 +84,12 @@ public class DashboardController {
  		//System.out.println("DashboardController-> selectTodayStatus()-> simpleToday: "+ simpleToday.format(today));
  		//System.out.println("DashboardController-> selectTodayStatus()-> month: "+ month.format(today));
 	    
+		//System.out.println("DashboardController-> selectTodayStatus()-> languageNo: "+languageNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> CSATNo: "+CSATNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> publicOfficialNo: "+publicOfficialNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> licenseNo: "+licenseNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> purposeEtcNo: "+purposeEtcNo);
+		
 		//System.out.println("DashboardController-> selectTodayStatus()-> monthMemberNo: "+monthMemberNo);
 		//System.out.println("DashboardController-> selectTodayStatus()-> MemberNo: "+MemberNo);
  		//System.out.println("DashboardController-> selectTodayStatus()-> MenNo: "+MenNo);
@@ -86,7 +99,7 @@ public class DashboardController {
 		//System.out.println("DashboardController-> selectTodayStatus()-> placardNo: "+placardNo);
 		//System.out.println("DashboardController-> selectTodayStatus()-> introductionNo: "+introductionNo);
 		//System.out.println("DashboardController-> selectTodayStatus()-> internetNo: "+internetNo);
-		//System.out.println("DashboardController-> selectTodayStatus()-> etctcNo: "+etctcNo);
+		//System.out.println("DashboardController-> selectTodayStatus()-> pathEtcNo: "+pathEtcNo);
 		
 		//System.out.println("DashboardController-> selectTodayStatus()-> januaryInsertNo: "+januaryInsertNo);
 		//System.out.println("DashboardController-> selectTodayStatus()-> februaryInsertNo: "+februaryInsertNo);
@@ -117,6 +130,12 @@ public class DashboardController {
 	    model.addAttribute("today", simpleToday.format(today));
 	    model.addAttribute("month", month.format(today));
 	    
+	    model.addAttribute("languageNo", languageNo);
+		model.addAttribute("CSATNo", CSATNo);
+		model.addAttribute("publicOfficialNo", publicOfficialNo);
+		model.addAttribute("licenseNo", licenseNo);
+		model.addAttribute("purposeEtcNo", purposeEtcNo);
+	    
 	    model.addAttribute("monthMemberNo", monthMemberNo);
 	    model.addAttribute("MemberNo", MemberNo);
 	    model.addAttribute("MenNo", MenNo);
@@ -126,7 +145,7 @@ public class DashboardController {
 		model.addAttribute("placardNo", placardNo);
 		model.addAttribute("introductionNo", introductionNo);
 		model.addAttribute("internetNo", internetNo);
-		model.addAttribute("etctcNo", etctcNo);
+		model.addAttribute("pathEtcNo", pathEtcNo);
 		
 		model.addAttribute("januaryInsertNo", januaryInsertNo);
 		model.addAttribute("februaryInsertNo", februaryInsertNo);
@@ -173,7 +192,7 @@ public class DashboardController {
 		int absenceMemberNo = dashboardDao.selectAbsenceSeatCount(); //부재중 열람석 
 		int unpaidMemberNo = dashboardDao.selectUnpaidSeatCount(); // 미결제 열람석
 		
-		// 이용중 회원
+		// 이용중 회원----------------------------------------------------------------------------
 		int useTeensWomanMemberNo = dashboardDao.selectUseTeensWomanMemberCount(); // 이용중 10대 여자
 		int useTeensMenMemberNo = dashboardDao.selectUseTeensMenMemberCount();     // 이용중 10대 남자
 		int useTwentyWomanMemberNo = dashboardDao.selectUseTwentyWomanMemberCount(); // 이용중 20대 여자
@@ -186,17 +205,9 @@ public class DashboardController {
 		int useEtcMenMemberNo = dashboardDao.selectUseEtcMenMemberCount();     // 이용중 기타연령 남자
 		List<Member> useMemberList = dashboardDao.selectUseMemberList(); //이용중 회원 목록
 		
-		// 회원
-		int MenNo = dashboardDao.selectMenCount(); //여성회원
-		int womanNo = dashboardDao.selectWomanCount(); //남성회원
+		// 회원-------------------------------------------------------------------------------
 		int todayMemberNo = dashboardDao.selectTodayInsertMemberCount(); //금일 등록 회원
-		
-		// 등록경로-------------------------------------------
-		int pamphletNo = dashboardDao.selectPamphletCount(); //전단지
-		int placardNo = dashboardDao.selectPlacardCount(); //플래카드
-		int introductionNo = dashboardDao.selectIntroductionCount(); //지인소개
-		int internetNo = dashboardDao.selectInternetCount(); //인터넷
-		int etctcNo = dashboardDao.selectEtcCount(); //기타
+
 		
 		//System.out.println("DashboardController-> selectTodayStatus()-> useMemberNo: "+useMemberNo);
 		//System.out.println("DashboardController-> selectTodayStatus()-> absenceMemberNo: "+absenceMemberNo);
@@ -214,15 +225,8 @@ public class DashboardController {
 		//System.out.println("DashboardController-> selectTodayStatus()-> useEtcMenMemberNo: "+useEtcMenMemberNo);
 		//System.out.println("DashboardController-> selectTodayStatus()-> useMemberList: "+useMemberList);
 		
-		//System.out.println("DashboardController-> selectTodayStatus()-> MenNo: "+MenNo);
-		//System.out.println("DashboardController-> selectTodayStatus()-> womanNo: "+womanNo);
 		//System.out.println("DashboardController-> selectTodayStatus()-> todayMemberNo: "+todayMemberNo);
 		
-		//System.out.println("DashboardController-> selectTodayStatus()-> pamphletNo: "+pamphletNo);
-		//System.out.println("DashboardController-> selectTodayStatus()-> placardNo: "+placardNo);
-		//System.out.println("DashboardController-> selectTodayStatus()-> introductionNo: "+introductionNo);
-		//System.out.println("DashboardController-> selectTodayStatus()-> internetNo: "+internetNo);
-		//System.out.println("DashboardController-> selectTodayStatus()-> etctcNo: "+etctcNo);
 		
 		model.addAttribute("today", simpleToday.format(today));
 		
@@ -242,16 +246,8 @@ public class DashboardController {
 		model.addAttribute("useEtcMenMemberNo", useEtcMenMemberNo);
 		model.addAttribute("useMemberList", useMemberList);
 		
-		model.addAttribute("MenNo", MenNo);
-		model.addAttribute("womanNo", womanNo);
 		model.addAttribute("todayMemberNo", todayMemberNo);
-		
-		model.addAttribute("pamphletNo", pamphletNo);
-		model.addAttribute("placardNo", placardNo);
-		model.addAttribute("introductionNo", introductionNo);
-		model.addAttribute("internetNo", internetNo);
-		model.addAttribute("etctcNo", etctcNo);
-		
+				
 		return "dashboard/today_status";
 	}
 }

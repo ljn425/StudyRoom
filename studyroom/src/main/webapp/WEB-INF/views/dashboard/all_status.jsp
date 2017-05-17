@@ -216,19 +216,18 @@
     <!-- Morris.js charts -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/plugins/morris/morris.min.js" type="text/javascript"></script>
-    	<!-- ChartJS 1.0.1 -->
+    <!-- ChartJS 1.0.1 -->
     <script src="${pageContext.request.contextPath}/resources/plugins/chartjs/Chart.min.js" type="text/javascript"></script>
     
     <!-- Page script -->
     <script type="text/javascript">
       $(function () {
-    	 
-		var MenNo = '<c:out value='${MenNo}'/>';
+		
+    	// 회원 성비
+    	var MenNo = '<c:out value='${MenNo}'/>';
 		MenNo *= 1; // int변환
 		var womanNo = '<c:out value='${womanNo}'/>';
 		womanNo *= 1;
-		
-    	// 회원 성비
 		var donut = new Morris.Donut({
 		    element: 'sex',
 		    resize: true,
@@ -240,6 +239,7 @@
 		    hideHover: 'auto'
 		});
     	
+		// 회원 등록 경로
 		var pamphletNo = '<c:out value='${pamphletNo}'/>';
 		pamphletNo *= 1; // int변환
 		var placardNo = '<c:out value='${placardNo}'/>';
@@ -248,10 +248,8 @@
 		introductionNo *= 1;
 		var internetNo = '<c:out value='${internetNo}'/>';
 		internetNo *= 1;
-		var etctcNo = '<c:out value='${etctcNo}'/>';
-		etctcNo *= 1;
-		
-		// 회원 등록 경로
+		var pathEtcNo = '<c:out value='${pathEtcNo}'/>';
+		pathEtcNo *= 1;
 		var donut = new Morris.Donut({
 		    element: 'path',
 		    resize: true,
@@ -261,19 +259,32 @@
 		      {label: "인터넷", value: internetNo},
 		      {label: "플래카드", value: placardNo},
 		      {label: "전단지", value: pamphletNo},
-		      {label: "기타", value: etctcNo}
+		      {label: "기타", value: pathEtcNo}
 		    ],
 		    hideHover: 'auto'
 		});
+		
 		// 주 이용 목적
+		var languageNo = '<c:out value='${languageNo}'/>';
+		languageNo *= 1; // int변환
+		var CSATNo = '<c:out value='${CSATNo}'/>';
+		CSATNo *= 1;
+		var publicOfficialNo = '<c:out value='${publicOfficialNo}'/>';
+		publicOfficialNo *= 1;
+		var licenseNo = '<c:out value='${licenseNo}'/>';
+		licenseNo *= 1;
+		var purposeEtcNo = '<c:out value='${purposeEtcNo}'/>';
+		purposeEtcNo *= 1;
 		var donut = new Morris.Donut({
 		    element: 'purpose',
 		    resize: true,
-		    colors: ["#3c8dbc", "#f56954", "#00a65a"],
+		    colors: ["#FFE400", "#f56954", "#00a65a", "#6D6CFF", "#3c8dbc"],
 		    data: [
-		      {label: "201호", value: 12},
-		      {label: "202호", value: 30},
-		      {label: "203호", value: 20}
+		      {label: "외국어", value: languageNo},
+		      {label: "수능", value: CSATNo},
+		      {label: "공무원", value: publicOfficialNo},
+		      {label: "자격증", value: licenseNo},
+		      {label: "기타", value: purposeEtcNo}
 		    ],
 		    hideHover: 'auto'
 		});
@@ -299,6 +310,7 @@
           hideHover: 'auto'
         }); */
 		
+        // 월별 등록자 추이
         var januaryInsertNo = '<c:out value='${januaryInsertNo}'/>';
         januaryInsertNo *= 1; // int변환
 		var februaryInsertNo = '<c:out value='${februaryInsertNo}'/>';
@@ -348,8 +360,7 @@
 		novemberInsertMenNo *= 1; 
 		var decemberInsertMenNo = '<c:out value='${decemberInsertMenNo}'/>';
 		decemberInsertMenNo *= 1;
-		
-        // 월별 등록자 추이
+        
         var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
         // This will get the first returned node in the jQuery collection.
         var areaChart = new Chart(areaChartCanvas);
