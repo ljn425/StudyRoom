@@ -24,8 +24,16 @@
 			    console.log(room_cd);
 			    var member_cd = $("input[name=chk]:eq(2)").val();
 			    console.log(member_cd);
+			    
+			    var width=500, height=800;
+			    var left = (screen.availWidth - width)/2;
+			    var top = (screen.availHeight - height)/2;
+			    var specs = "width=" + width;
+			    specs += ",height=" + height;
+			    specs += ",left=" + left;
+			    specs += ",top=" + top;
 
-				window.open(contextPath+'/payment/newwindow?branch_owner_cd='+branch_owner_cd+'&room_cd='+room_cd+'&seat_cd='+seat_cd+'&member_cd='+member_cd, '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=600,width=500,height=700');
+				window.open(contextPath+'/payment/newwinpayment?branch_owner_cd='+branch_owner_cd+'&room_cd='+room_cd+'&seat_cd='+seat_cd+'&member_cd='+member_cd, '_blank', specs);
 			});
 		});
 	</script>
