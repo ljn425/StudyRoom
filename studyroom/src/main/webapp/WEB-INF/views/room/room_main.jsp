@@ -46,12 +46,12 @@
       <div class="content-wrapper">
 	  <section class="content-header">
 	    <h1>
-	       ZakSim
-	      <small>Control panel</small>
+	       	열람실
+	      <small>관리</small>
 	    </h1>
 	    
 	    <ol class="breadcrumb">
-	      <li><a href="${pageContext.request.contextPath}/home/NewFile"><i class="fa fa-table"></i>Home</a></li>
+	      <li><a href="${pageContext.request.contextPath}/dashboard/today_status"><i class="fa fa-table"></i>Home</a></li>
 	      <li class="active">열람실관리</li>
 	    </ol>
 	  </section>
@@ -86,37 +86,15 @@
 				</c:forEach>			
 			</div>
 			<hr>
-<<<<<<< HEAD
+
 			</c:forEach>
-=======
-				<div class="row">			
-					<div class="col-sm-12">	
-						<c:forEach var="s" items="${seatlist}">
-						 <input type="hidden" class="get_seat" value="${s.seat_cd}"/>
-	  					 <input type="hidden" name="chk" id="chk" value="${s.branch_owner_cd}">
-						 <input type="hidden" name="chk" id="chk" value="${s.room_cd}">
-						 <input type="hidden" name="chk" id="chk" value="${s.member_cd}">
-						 <button class="btn bg-olive btn-flat margin seat_btn" value="${s.seat_cd}">	
-							<p>열람석${s.seat_cnumber}</p>
-								<c:choose>
-								 <c:when test="${s.member_nm eq null}">
-									<p> [빈좌석]</p>
-								 </c:when>
-								 <c:otherwise>
-								 	<p> [${s.member_nm}]</p>
-								 </c:otherwise>
-								</c:choose>
-							</button>
-						</c:forEach>			
-					</div>
-				</div><!-- row -->
-			</div><!-- container text-left con -->
->>>>>>> branch 'master' of https://github.com/ljn425/StudyRoom.git
-		</div><!-- col-md-9 col-lg-10 main -->
-	   </div>
-	 </section><!-- content -->
-    </div><!-- content-wrapper -->
-  </div><!-- wrapper -->
+	
+				
+				</div> <!-- col-md-9 col-lg-10 main -->
+			</div><!-- row -->
+			</section><!-- content -->
+		</div><!-- content-wrapper -->
+	   </div><!-- wrapper -->
 
 <c:import url="../module2/jsscript.jsp" />
 </body>

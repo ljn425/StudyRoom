@@ -14,6 +14,34 @@ public class DashboardDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
+	//----------------------------------------------------주 이용 목적--------------------------------------------------
+	//토익
+	public int selectPurposeLanguage(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectPurposeLanguage");
+		return row;
+	}
+	//수능
+	public int selectPurposeCSAT(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectPurposeCSAT");
+		return row;
+	}
+	//공무원
+	public int selectPurposePublicOfficial(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectPurposePublicOfficial");
+		return row;
+	}
+	//자격증
+	public int selectPurposeLicense(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectPurposeLicense");
+		return row;
+	}
+	//기타
+	public int selectPurposeEtc(){
+		int row = sqlSessionTemplate.selectOne("com.monorella.srf.branch.dashboard.DashboardMapper.selectPurposeEtc");
+		return row;
+	}
+	
+	
 	//----------------------------------------------------월별 등록자 수-------------------------------------------------
 	//1월
 	public int selectJanuaryInsertMember(){
