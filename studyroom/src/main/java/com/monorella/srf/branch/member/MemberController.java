@@ -92,9 +92,12 @@ public class MemberController {
             , @RequestParam(value="currentPage", required=false, defaultValue="1") int currentPage) {
 		System.out.println("/member/member_list 요청");
 		
+		if(currentPage < 1){
+			currentPage = 1;
+            }
 		int joinCount = 0;
 		joinCount = memberDao.selectMemberCount();
-		int pagePerRow = 5;
+		int pagePerRow = 10;
 		List<Member> list = memberDao.selectMemberList(currentPage, pagePerRow);
 		int lastPage = (int)(Math.ceil(joinCount / pagePerRow));
 		if(joinCount%pagePerRow != 0) {
@@ -102,10 +105,10 @@ public class MemberController {
 		}
 		
 		int countPage = 5;
-		int startPage = ((currentPage - 1)/5)*5+1;
+		int startPage = ((currentPage - 1)/10)*10+1;
 		int endPage = startPage + countPage-1;
-		int nextPage = ((currentPage - 1)/5)*5+2;
-		int previousPage = ((currentPage - 1)/5)*5-5+1;
+		int nextPage = ((currentPage - 1)/10)*10+2;
+		int previousPage = ((currentPage - 1)/10)*10-10+1;
 		
 		if(previousPage <= 0) {
 			previousPage = 1;

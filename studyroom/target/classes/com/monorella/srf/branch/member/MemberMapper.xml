@@ -142,12 +142,13 @@
 			, member_sex
 			, member_tel
 			, member_addr
+			, member_age
 			, member_date
 			, member_regi_date
 			, member_end_date
+			, member_seat_state
 			, member_regi_path
-			, member_age
-			, member_seat_state)
+			, member_use_pur)
 		VALUES(
 			#{member_cd}
 			, #{branch_owner_cd}
@@ -158,12 +159,13 @@
 			, #{member_sex}
 			, #{member_tel}
 			, #{member_addr}
-			, now()
-			, now()
-			, now()
-			, #{member_regi_path}
 			, #{member_age}
+			, now()
+			, now()
+			, now()
 			, #{member_seat_state}
+			, #{member_regi_path}
+			, #{member_use_pur}
 		)	
   	</insert>
  	
@@ -184,12 +186,13 @@
 			, member_sex
 			, member_tel
 			, member_addr
+			, member_age
 			, member_date
 			, member_regi_date
 			, member_end_date
+			, member_seat_state
 			, member_regi_path
-			, member_age
-			, member_seat_state)
+			, member_use_pur)
 		VALUES(
 			#{member_cd}
 			, #{branch_owner_cd}
@@ -200,12 +203,13 @@
 			, #{member_sex}
 			, #{member_tel}
 			, #{member_addr}
-			, now()
-			, now()
-			, now()
-			, #{member_regi_path}
 			, #{member_age}
+			, now()
+			, now()
+			, now()
 			, #{member_seat_state}
+			, #{member_regi_path}
+			, #{member_use_pur}
 		)
 	</insert>		
 </mapper>
