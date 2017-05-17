@@ -11,7 +11,7 @@
 	
 	<script>
 		$(document).ready(function(){
-			console.log('안녕');
+
 			var contextPath = '<c:out value='${pageContext.request.contextPath}'/>';
 			$('.seat_btn').click(function(){
 				console.log('클릭');
@@ -96,7 +96,7 @@
 			</div><!-- container text-left con -->
 		</div><!-- col-md-9 col-lg-10 main -->
 	 </section><!-- content -->
-    </div><!-- content-wrapper -->
+    </div><!-- content-wrapper --> 
   </div><!-- wrapper -->
   
 <c:import url="../module2/jsscript.jsp" />
