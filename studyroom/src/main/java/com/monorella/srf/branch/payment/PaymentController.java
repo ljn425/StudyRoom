@@ -53,14 +53,17 @@ public class PaymentController {
 	public String paymentpro(Payment payment){
 		System.out.println("post 요청");
 		int result = paymentDao.insertPayment(payment);
+		System.out.println("post 요청");
 		if(result == 1){
 			//성공시
 			paymentDao.modifyPaymentSeat(payment);
 			paymentDao.modifyPaymentMember(payment);
+			paymentDao.modifyPaymentinout(payment);
+			
+			paymentDao.modifyPaymentinoutup(payment);
 		}else{
 			//실패시 			
 		}
 		return "payment/paymentend";
-	}
-
+		}
 }

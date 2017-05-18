@@ -27,6 +27,7 @@
 			, #{pay_date} 
 			, #{pay_due}
 			<!-- , #{pay_option} -->
+			
 
 		)
 	</insert>
@@ -45,6 +46,24 @@
             , member_date = CURRENT_DATE()
             , member_regi_date = now()
             , member_end_date = #{pay_date}
+        WHERE member_cd = #{member_cd}
+    </update>
+    
+    <insert id="modifyPaymentinout" parameterType="com.monorella.srf.branch.dto.Payment">
+		INSERT INTO branch_inout_tb(
+ 			member_cd
+			, seat_cd
+			)
+			VALUES(
+ 			#{member_cd}
+			, #{seat_cd}
+		)
+    </insert>
+    
+    <update id="modifyPaymentinoutup" parameterType="com.monorella.srf.branch.dto.Payment">
+		UPDATE branch_member_tb 
+            SET 
+            inout_num = #{inout_num}
         WHERE member_cd = #{member_cd}
     </update>
     

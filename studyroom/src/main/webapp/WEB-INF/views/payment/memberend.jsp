@@ -31,7 +31,7 @@ $(document).ready(function(){
 							value="newwindetail?member_cd=member_cd6" class="link">상세정보</a></li>
 					</ul>
 				</div>
-				<h2>결제가 완료되었습니다.</h2>
+				<h2>회원가입이 완료되었습니다.</h2>
 			</div>
 		</div>
 	</div>

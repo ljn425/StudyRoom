@@ -29,6 +29,16 @@ public class PaymentDao {
 		System.out.println("Seat member modify");
 		return sqlSessionTemplate.update("com.monorella.srf.branch.payment.PaymentMapper.modifyPaymentMember", payment);
 	}
+	//열람실 출결 번호 수정 메서드
+	public int modifyPaymentinout(Payment payment) {
+		System.out.println("Seat member modify");
+		return sqlSessionTemplate.update("com.monorella.srf.branch.payment.PaymentMapper.modifyPaymentinout", payment);
+	}
+	//열람실 출결 번호 멤버테이블 업데이트 메서드
+	public int modifyPaymentinoutup(Payment payment) {
+		System.out.println("Seat member modify");
+		return sqlSessionTemplate.update("com.monorella.srf.branch.payment.PaymentMapper.modifyPaymentinout", payment);
+	}
 	// newwindetail.jsp 요청
 	public Member detailMember(String member_nm) {
 		System.out.println("windetailMember"+member_nm);

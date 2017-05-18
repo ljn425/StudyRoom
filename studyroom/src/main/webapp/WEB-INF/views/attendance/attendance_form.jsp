@@ -32,7 +32,7 @@
 			<div class="row">
 				<div class="col-md-12">
 	              <!-- Danger box -->
-	              <div class="box box-solid bg-red">
+	              <div class="box box-solid bg-blue">
 	                <div class="box-header">
 	                  <h3 class="box-title">출결번호창</h3>
 	                </div>
