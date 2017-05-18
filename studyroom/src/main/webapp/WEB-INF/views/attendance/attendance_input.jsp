@@ -21,8 +21,8 @@
 		                  <form>
 		                  	<div class="form-group">
 		                      <label for="exampleInputPassword1">출결번호</label>
-		                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="회원의 출결번호를 입력해주세요.">
-		                      <button class="btn btn-block btn-info btn-flat">확인</button>
+		                      <input type="password" class="form-control" id="inout_num" name="inout_num" value="0023">
+		                      <button type="button" class="btn btn-block btn-info btn-flat" id="check_btn">확인</button>
 		                    </div>
 		                  </form>
 		                </div><!-- /.box-body -->
@@ -44,6 +44,41 @@
 		</div>
 	</div>		
 	<!-- JS -->
-	<c:import url="../module2/jsscript.jsp" />			
+	<c:import url="../module2/jsscript.jsp" />
+	<script>
+		$('#check_btn').click(function(){
+			console.log('확인 클릭');
+			var num = $('#inout_num').val();
+			console.log('num : '+ num);
+			
+			//현재 DATE 구하기  
+		      var now = new Date();
+		      var year= now.getFullYear();
+		      var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
+		      var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
+		              
+		      var now_date = year + '-' + mon + '-' + day;
+		      console.log('now_date :' + now_date);
+			
+			var attendancData = {"inout_num":num, "now_date":now_date};
+			
+			$.ajax({
+				url:'${pageContext.request.contextPath}/attendance/attendance_pro',
+				type:'POST',
+				data:attendancData,
+				success:function(data){
+					console.log(data.name + '성공');
+				},
+				error:function(XHR, textStatus, error){
+					alert("에러발생~ \n" + textStatus + " :" + error);
+					
+				}
+			});
+			
+		});
+			
+			
+	</script>
+		
 </body>
 </html>

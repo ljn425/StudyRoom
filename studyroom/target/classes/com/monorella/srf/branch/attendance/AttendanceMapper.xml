@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.monorella.srf.branch.attendance.AttendanceMapper">
+  	
+  	<!-- 입퇴실 테이블 insert -->
+  	<insert id="insertSeatTime" >
+  	
+  	</insert>
+  	
+  	<!-- 입퇴실 수정 처리 -->
+  	<update id="modifySeatState" parameterType="java.util.Map">
+  		UPDATE branch_saet_tb
+			SET
+				colseat_state=#{seat_state}
+		WHERE seat_cd=#{seat_cd}
+  	</update>
+  	
+  	<!-- 입퇴실 여부 체크 -->
+  	<select id="selectSeatState" parameterType="com.monorella.srf.branch.dto.Member" resultType="String">
+  		SELECT
+  		 	colseat_state
+  		FROM branch_saet_tb
+  		WHERE seat_cd = #{seat_cd}
+  	</select>
+  	
+  	<!-- 출결번호 체크 -->
+  	<select id="selectInoutNum" parameterType="String" resultType="com.monorella.srf.branch.dto.Member">
+  		SELECT 
+  			member_nm
+  			, member_cd
+  			, seat_cd
+  		FROM branch_member_tb
+  		WHERE inout_num = #{inout_num} AND member_seat_state= 'Y'
+  	</select>
+  	
+  </mapper>
