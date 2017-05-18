@@ -60,7 +60,7 @@
 			, member_age 
 			, member_seat_state
 			FROM branch_member_tb 
-			WHERE member_cd = #{member_cd}
+			WHERE member_nm = #{member_nm}
 	</select>
     
 </mapper>
