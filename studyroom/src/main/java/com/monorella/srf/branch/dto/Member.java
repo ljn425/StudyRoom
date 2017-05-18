@@ -12,11 +12,12 @@ public class Member {
 	private String member_addr;
 	private int member_age;
 	private String member_date;
-	private String member_regi_date;
+	private String member_regi_date; 
 	private String member_end_date;
 	private String member_seat_state;
 	private String member_regi_path;
 	private String member_use_pur;
+
 	public String getMember_cd() {
 		return member_cd;
 	}

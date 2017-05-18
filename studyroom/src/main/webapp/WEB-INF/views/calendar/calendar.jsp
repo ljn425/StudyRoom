@@ -8,6 +8,7 @@
 <c:import url="../module2/head.jsp" />
 <!-- JS -->
 <c:import url="../module2/jsscript.jsp" />
+
 </head>
 <body class="skin-blue">
 	<div class="wrapper">

@@ -75,10 +75,10 @@
 								<c:forEach var="staffboardreply" items="${replylist}">
 									<div>${staffboardreply.staffboard_name} ${staffboardreply.staffboardreply_date}</div>
 									<div>${staffboardreply.staffboardreply_content}</div>
-
+									<hr>
 								</c:forEach>
 							</div>
-
+							
 							<form action="${pageContext.request.contextPath}/staffboard/staffboard_reply_pro"method="post">
 								<%-- <input type="hidden" name="staffboardreply_no" value="${staffboardreply_no}"> --%>
 								<input type="hidden" name="staffboard_no"

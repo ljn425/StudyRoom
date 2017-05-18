@@ -56,14 +56,15 @@
                   <h3 class="box-title">직원 삭제</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action="${pageContext.request.contextPath}/staff/staff_delete" method="post">
+                <form role="form" action="${pageContext.request.contextPath}/staff/staff_delete_pro" method="post">
                   <div class="box-body">
                     <div class="form-group">   
             <!-- boardPw와 함께 boardNo값도 숨겨서(hidden값으로) 넘김 -->
             <input name="staff_id" value="${param.staff_id}" type="hidden"/>
+            <input name="branch_owner_cd" value="${param.branch_owner_cd}" type="hidden"/>
             <div class="form-group">
             <label for="exampleInputFile">비밀번호확인</label>
-                      <input type="password" class="form-control" id="staff_pw" name="staff_pw" placeholder="비밀번호를 입력해주세요">                
+                      <input type="password" class="form-control" id="branch_owner_pw" name="branch_owner_pw" placeholder="비밀번호를 입력해주세요">                
                     </div>
             </div>
             <div class="box-footer">
