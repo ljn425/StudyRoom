@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
 import com.monorella.srf.branch.dto.StaffBoard;
 import com.monorella.srf.branch.dto.StaffBoardReply;
 @Repository
@@ -67,7 +68,16 @@ public class StaffBoardDao {
     }
  
 	
-	// 공지사항 목록 메서드
+	// 회원리스트 메서드
+	public List<StaffBoard> selectStaffBoardList(int currentPage, int pagePerRow) {
+		System.out.println("StaffBoardDao-> selectStaffBoardList-> currentPage: " + currentPage 
+				+"pagePerRow: "+pagePerRow);
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("beginRow", (currentPage-1)*pagePerRow);
+		map.put("pagePerRow", pagePerRow);
+		return sqlSessionTemplate.selectList("com.monorella.srf.branch.staffboard.StaffBoardMapper.selectStaffBoardList", map);
+	}
+	/*// 공지사항 목록 메서드
 		public List<StaffBoard> getStaffBoardList(int currentPage, int pagePerRow){
 			System.out.println("StaffBoardDao-> getStaffBoardList-> currentPage: " + currentPage 
 					+"pagePerRow: "+pagePerRow);
@@ -78,7 +88,7 @@ public class StaffBoardDao {
 			return sqlSessionTemplate.selectList("com.monorella.srf.branch.staffboard.StaffBoardMapper.getStaffBoardList"
 												, map);
 			
-		}
+		}*/
 		
 		//전체 공지사항의 수를 구하는 메서드
 		public int getStaffBoardCount(){

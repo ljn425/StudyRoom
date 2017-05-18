@@ -29,8 +29,10 @@
 		      <li class="active">직원</li>
 		    </ol>
 		  </section>
-<div class="table-responsive">
-
+		  
+<!-- <div class="table-responsive"> -->
+ <section class="content">
+			<div class="col-md-9 col-lg-12 main" id="wrap">
 	
 	<div class="row">
             <div class="col-xs-12">
@@ -38,14 +40,12 @@
                 <div class="box-header">
                   <h3 class="box-title">직원 공지사항</h3>
                   <div class="box-tools">
-                    <div class="input-group">
+                 
                      <!-- 검색 -->
 			    <form id="searchFrom" action="${pageContext.request.contextPath}/staffboard/staffboard_search" method="post">
 				 <div class="form-group">
 				 <div class="row">
-				  <div class="col-sm-3">
-				  </div>
-				  <div class="col-sm-2">
+				  <div class="col-sm-4">
 				   <select name="so" class="form-control" id="sel1">
 				    <option value="staffboard_title">제목</option>
 				    <option value="staff_name">작성자</option>
@@ -55,20 +55,16 @@
 				   		<input name="sv" id="selectValue" type="text" class="form-control" placeholder="검색어를 입력해주세요."/>
 				   </div>
 				   <div class="col-sm-4">
-				   		<button type="button" id="searchBtn" class="btn btn-sm btn-default"><i class="fa fa-search"></i>검색</button>
+				   		<button type="submit" id="searchBtn" class="btn btn-sm btn-default"><i class="fa fa-search"></i>검색</button>
 				   </div>
 				   </div>
 				</div>
 				</form>
-                      <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
-                      <div class="input-group-btn">
-                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                      </div>
                     </div>
-                  </div>
                 </div><!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                  <table class="table table-hover">
+
+                  <table class="table ">
                     <thead>
                      <tr>
 		            	<th>공지사항 번호</th>
@@ -88,47 +84,46 @@
 			                </tr>
 			 	</c:forEach>
 			        </tbody>
-                  </table>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div>
-          </div>
-
-    <div>전체행의 수 : ${staffboard_content}</div>
-    <table class="table">
-        <thead>
-            <tr>
-            	<th>공지사항 번호</th>
-                <th>공지사항 제목</th>
-                <th>작성자</th>
-                <th>등록일</th>
-            </tr>
-        </thead>
-        <tbody>
-
-	<c:forEach var="s" items="${list}">
-                <tr>
-                    <td>${s.staffboard_no}</td>
-                    <td><a href="${pageContext.request.contextPath}/staffboard/staffboard_view?staffboard_no=${s.staffboard_no}">${s.staffboard_title}</a></td>
-                    <td>${s.staff_name}</td>
-                    <td>${s.staffboard_date}</td>
-                </tr>
- 	</c:forEach>
-        </tbody>
-    </table>
-    </div>
-      
-    <div>
+                  </table>    
+                   <div>
         <a href="${pageContext.request.contextPath}/staffboard/staffboard_form">공지사항 입력</a>
 
-
+<nav aria-label="Page navigation example">
+				    <ul class="pagination justify-content-center">
+				        <c:if test="${currentPage > 1}">
+				            <li class="page-item">
+				            	<a class="page-link" href="${pageContext.request.contextPath}/staffboard/staffboard_list?currentPage=${currentPage-1}" aria-label="Previous">
+				            		<span aria-hidden="true">&laquo;</span>
+				            		<span class="sr-only">Previous</span>
+				            	</a>
+				            </li>	
+				        </c:if>
+				        <c:forEach var="i" begin="${startPage}" end="${endPage}" step="1">
+							<c:if test="${i == currentPage}">
+								<li class="page-item"><a class="page-link" href="#">${i}</a></li>
+							</c:if>
+							<c:if test="${i != currentPage}">
+								<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/staffboard/staffboard_list?currentPage=${i}">${i}</a></li>
+							</c:if>
+						</c:forEach>
+						
+				        <c:if test="${currentPage < lastPage}">
+				            <li class="page-item">
+				            	<a class="page-link" href="${pageContext.request.contextPath}/staffboard/staffboard_list?currentPage=${currentPage+1}" aria-label="Next">
+				            		<span aria-hidden="true">&raquo;</span>
+				        			<span class="sr-only">Next</span>
+				            	</a>	
+				            </li>	
+				        </c:if>
+					 </ul>
+					</nav>
+ <%-- 	
 	<c:if test="${currentPage > 1}">
 	
 		<span><a href="${pageContext.request.contextPath}/staffboard/staffboard_list?currentPage=${previousPage}"><span class="glyphicon glyphicon-chevron-left"></span></a></span>
          <span><a href="${pageContext.request.contextPath}/staffboard/staffboard_list?currentPage=${currentPage-1}">이전</a></span>
      </c:if>    
 
- 
  <c:forEach var="i" begin="${startPage}" end="${endPage}" step="1"> 
  	<c:choose>
  		<c:when test="${i == currentPage}">
@@ -144,10 +139,23 @@
             <span><a href="${pageContext.request.contextPath}/staffboard/staffboard_list?currentPage=${currentPage+1}">다음</a></span>
            <span><a href="${pageContext.request.contextPath}/staffboard/staffboard_list?currentPage=${nextPage}"><span class="glyphicon glyphicon-chevron-right"></span></a></span>
             
-		</c:if>
+		</c:if> --%>
 	
-    </div>
+    </div>      
+</div><!-- /.box-body -->
+</div><!-- /.box -->
 </div>
 </div>
+</div>
+
+</section><!-- /.content -->
+</div>
+
+</div><!-- /.content-wrapper -->
+
 </body>
 </html>
+
+
+      
+    

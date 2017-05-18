@@ -27,6 +27,7 @@
 			, #{pay_date} 
 			, #{pay_due}
 			<!-- , #{pay_option} -->
+			
 
 		)
 	</insert>
@@ -35,11 +36,10 @@
 		UPDATE branch_saet_tb 
             SET 
             seat_appoint = 'Y'
-            , colseat_state = 'Y'
         WHERE seat_cd = #{seat_cd}
     </update>
     
-    	<update id="modifyPaymentMember" parameterType="com.monorella.srf.branch.dto.Payment">
+    <update id="modifyPaymentMember" parameterType="com.monorella.srf.branch.dto.Payment">
 		UPDATE branch_member_tb 
             SET 
             seat_cd = #{seat_cd}
@@ -48,5 +48,54 @@
             , member_end_date = #{pay_date}
         WHERE member_cd = #{member_cd}
     </update>
+    
+    <select id="paycddetail" parameterType="com.monorella.srf.branch.dto.Payment" resultType="int">
+		SELECT 
+			pay_cd 
+			FROM branch_pay_tb 
+			WHERE seat_cd = #{seat_cd}
+	</select>
+	
+    <insert id="insertPaymentinout" parameterType="com.monorella.srf.branch.dto.Payment">
+		INSERT INTO branch_inout_tb(
+ 			member_cd
+			, seat_cd
+			, pay_cd
+			)
+			VALUES(
+ 			#{member_cd}
+			, #{seat_cd}
+			, #{pay_cd}
+		)
+    </insert>
+    
+    <select id="inoutingdetail" parameterType="com.monorella.srf.branch.dto.Payment" resultType="int">
+		SELECT 
+			inout_num 
+			FROM branch_inout_tb 
+			WHERE seat_cd = #{seat_cd}
+	</select>
+	
+    <update id="Paymentinoutup" parameterType="com.monorella.srf.branch.dto.Member">
+		UPDATE branch_member_tb 
+            SET 
+            inout_num = #{inout_num}
+        WHERE member_cd = #{member_cd}
+    </update>
+    
+	<select id="detailMember" parameterType="String" resultType="com.monorella.srf.branch.dto.Member">
+		SELECT 
+			member_cd 
+			, branch_owner_cd 
+			, staff_id 
+			, member_nm 
+			, member_sex 
+			, member_tel 
+			, member_addr
+			, member_age 
+			, member_seat_state
+			FROM branch_member_tb 
+			WHERE member_nm = #{member_nm}
+	</select>
     
 </mapper>

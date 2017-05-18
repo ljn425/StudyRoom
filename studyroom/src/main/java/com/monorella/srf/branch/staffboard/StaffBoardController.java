@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import com.monorella.srf.branch.dto.StaffBoard;
 import com.monorella.srf.branch.dto.StaffBoardReply;
 
@@ -86,7 +87,52 @@ public class StaffBoardController {
 		}
 		
 		
-	// 리스트요청
+		// 리스트 및 페이징 요청
+		@RequestMapping(value="/staffboard/staffboard_list", method = RequestMethod.GET)
+		public String StaffBoardList(Model model
+	            , @RequestParam(value="currentPage", required=false, defaultValue="1") int currentPage) {
+			System.out.println("StaffBoardController -> StaffBoardList()");
+			
+			int joinCount = 0;
+			joinCount = staffboardDao.getStaffBoardCount();
+			int pagePerRow = 5;
+			List<StaffBoard> list = staffboardDao.selectStaffBoardList(currentPage, pagePerRow);
+			int lastPage = (int)(Math.ceil(joinCount / pagePerRow));
+			if(joinCount%pagePerRow != 0) {
+				lastPage++;
+			}
+			
+			int countPage = 5;
+			int startPage = ((currentPage - 1)/5)*5+1;
+			int endPage = startPage + countPage-1;
+			int nextPage = ((currentPage - 1)/5)*5+2;
+			int previousPage = ((currentPage - 1)/5)*5-5+1;
+			
+			if(previousPage <= 0) {
+				previousPage = 1;
+			}
+			
+			if(endPage > lastPage) {
+				previousPage = 1;
+			}
+			
+			if(nextPage > lastPage) {
+				nextPage = lastPage;
+			}
+			
+			model.addAttribute("joinCount", joinCount);
+			model.addAttribute("list", list);
+			model.addAttribute("currentPage", currentPage);
+			model.addAttribute("startPage", startPage);
+			model.addAttribute("endPage", endPage);
+			model.addAttribute("nextPage", nextPage);
+			model.addAttribute("previousPage", previousPage);
+			model.addAttribute("lastPage", lastPage);
+			
+			return "staffboard/staffboard_list";
+		}
+		
+	/*// 리스트요청
 		@RequestMapping(value = "/staffboard/staffboard_list", method = RequestMethod.GET)
 		public String StaffBoardList(Model model 
 								, @RequestParam(value="currentPage", required=false, defaultValue="1") int currentPage){
@@ -94,9 +140,6 @@ public class StaffBoardController {
 			int staffboardCount = staffboardDao.getStaffBoardCount();
 			int pagePerRow = 10;
 			int lastPage = (int)(Math.ceil(staffboardCount / pagePerRow));
-			/*반올림 : Math.round()
-			올림 : Math.ceil()
-			내림 : Math.floor()*/
 			List<StaffBoard> list = staffboardDao.getStaffBoardList(currentPage, pagePerRow);
 			  
 		    //페이지를 10씩 끊어서 
@@ -122,7 +165,7 @@ public class StaffBoardController {
 		    if(nextPage > lastPage){
 		    	nextPage = lastPage;
 		    }
-		    
+		    model.addAttribute("pagePerRow", pagePerRow);
 			model.addAttribute("startPage", startPage);
 			model.addAttribute("currentPage", currentPage);
 			model.addAttribute("staffboardCount", staffboardCount);
@@ -132,7 +175,7 @@ public class StaffBoardController {
 			model.addAttribute("nextPage", nextPage);
 			model.addAttribute("previousPage", previousPage);
 			return "staffboard/staffboard_list";
-		}
+		}*/
 	
 	// 입력 폼 요청
 		@RequestMapping(value = "/staffboard/staffboard_form", method = RequestMethod.GET)
