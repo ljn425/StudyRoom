@@ -138,11 +138,11 @@
         });
       });
       
-      $('.text01, text02, text03').dblclick(function(){
+      $('.text01, .text02, .text03').dblclick(function(){
     	  console.log('클릭');
     	  $(this).removeAttr('readonly');
       });
-      $('.text01, text02, text03').blur(function(){
+      $('.text01, .text02, .text03').blur(function(){
     	  console.log('blur');
     	  $(this).attr('readonly','readonly');
       });
