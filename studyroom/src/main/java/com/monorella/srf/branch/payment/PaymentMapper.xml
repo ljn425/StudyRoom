@@ -49,18 +49,34 @@
         WHERE member_cd = #{member_cd}
     </update>
     
-    <insert id="modifyPaymentinout" parameterType="com.monorella.srf.branch.dto.Payment">
+    <select id="paycddetail" parameterType="com.monorella.srf.branch.dto.Payment" resultType="int">
+		SELECT 
+			pay_cd 
+			FROM branch_pay_tb 
+			WHERE seat_cd = #{seat_cd}
+	</select>
+	
+    <insert id="insertPaymentinout" parameterType="com.monorella.srf.branch.dto.Payment">
 		INSERT INTO branch_inout_tb(
  			member_cd
 			, seat_cd
+			, pay_cd
 			)
 			VALUES(
  			#{member_cd}
 			, #{seat_cd}
+			, #{pay_cd}
 		)
     </insert>
     
-    <update id="modifyPaymentinoutup" parameterType="com.monorella.srf.branch.dto.Payment">
+    <select id="inoutingdetail" parameterType="com.monorella.srf.branch.dto.Payment" resultType="int">
+		SELECT 
+			inout_num 
+			FROM branch_inout_tb 
+			WHERE seat_cd = #{seat_cd}
+	</select>
+	
+    <update id="Paymentinoutup" parameterType="com.monorella.srf.branch.dto.Member">
 		UPDATE branch_member_tb 
             SET 
             inout_num = #{inout_num}
