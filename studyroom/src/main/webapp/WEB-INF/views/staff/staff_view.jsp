@@ -43,33 +43,33 @@
      <table class="table">
          <tbody>
              <tr>
-                <td>staff_id :</td>
+                <td>직원 아이디 :</td>
                 <td>${staff.staff_id}</td>
                </tr>
             <tr>
-                   <td>branch_owner_cd :</td>
+                   <td>지점 대표코드 :</td>
                    <td>${staff.branch_owner_cd}</td>
             </tr>
             <tr>
-                   <td>staff_name :</td>
+                   <td>직원이름 :</td>
                    <td>${staff.staff_name}</td>
             </tr>
             <tr>
-                   <td>staff_tel :</td>
+                   <td>직원 전화번호 :</td>
                    <td>${staff.staff_tel}</td>
             </tr>
             <tr>
-                   <td>staff_addr :</td>
-                   <td>${staff.staff_addr}</td>
+                   <td>직원 상세주소  :</td>
+                   <td>${staff.staff_addr} ${staff.staff_detail_addr }</td>
             </tr>
               <tr>
-                   <td>staff_in_date :</td>
+                   <td>직원 가입날짜 :</td>
                    <td>${staff.staff_in_date}</td>
             </tr>
         </tbody>
     </table>
-    <a class="btn btn-default" href="${pageContext.request.contextPath}/staff/staff_modify?staff_id=${staff.staff_id}">수정</a>
-    <a class="btn btn-default" href="${pageContext.request.contextPath}/staff/staff_delete?staff_id=${staff.staff_id}">삭제</a>
+    <a class="btn btn-default" href="${pageContext.request.contextPath}/staff/staff_modify_pwform">수정</a>
+    <a class="btn btn-default" href="${pageContext.request.contextPath}/staff/staff_delete?staff_id=${staff.staff_id}&branch_owner_cd=${staff.branch_owner_cd}">삭제</a>
     <a class="btn btn-default" href="${pageContext.request.contextPath}/staff/staff_list">글목록</a>
 </div>
 </div>

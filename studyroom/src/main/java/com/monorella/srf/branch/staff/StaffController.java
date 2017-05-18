@@ -9,7 +9,6 @@ import java.util.List;
 
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -20,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.monorella.srf.branch.dto.BranchOwner;
 import com.monorella.srf.branch.dto.Staff;
 @Controller
 public class StaffController {
@@ -32,31 +32,55 @@ public class StaffController {
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
 	// 직원 삭제 폼 요청(비밀번호 입력 폼)
-		@RequestMapping(value="staff/staff_delete", method = RequestMethod.GET)
-		public String staffDelete(@RequestParam(value="staff_id", required=true)String staff_id){
+		@RequestMapping(value="/staff/staff_delete", method = RequestMethod.GET)
+		public String staffDelete(@RequestParam(value="staff_id", required=true)String staff_id
+								,@RequestParam(value="branch_owner_cd", required=true)String branch_owner_cd){
+			System.out.println("StaffController->staffDelete()->"+staff_id+branch_owner_cd);
 			return "staff/staff_delete";
 		}
 		// 직원 삭제 요청
-		@RequestMapping(value ="staff/staff_delete", method = RequestMethod.POST)
-		public String staffDelete(@RequestParam(value="staff_id")String staff_id
-								,@RequestParam(value="staff_pw")String staff_pw){
-			staffDao.deleteStaff(staff_id, staff_pw);
+		@RequestMapping(value ="/staff/staff_delete_pro", method = RequestMethod.POST)
+		public String staffDeletepro(@RequestParam(value="staff_id")String staff_id
+								,@RequestParam(value="branch_owner_cd")String branch_owner_cd
+								,@RequestParam(value="branch_owner_pw")String branch_owner_pw){
+			System.out.println("StaffController->staffDeletepro()->"+staff_id+branch_owner_cd+branch_owner_pw);
+			BranchOwner owner = staffDao.checkBranchOwner(branch_owner_cd, branch_owner_pw);
+			if(owner == null){
+				System.out.println("비번이 일치하지 않습니다");
+				return "redirect:/staff/staff_delete";
+			}else{
+				System.out.println("비밀번호 일치");
+				staffDao.deleteStaff(staff_id);
+			}
 			return "redirect:/staff/staff_list";
 		}
 	
+		//직원수정 비밀번호폼
+		@RequestMapping(value ="/staff/staff_modify_pwform",  method = RequestMethod.GET)
+		public String staffmodifypwFrom(@RequestParam(value="staff_id", required=true)String staff_id){ 
+			return "staff/staff_modify_pwform";
+		}
+		
+		//직원수정 비밀번호 처리
+		@RequestMapping(value = "/staff/staff_modify_pwform_pro", method = RequestMethod.POST)
+		public String staffmodifypwFromPro(@RequestParam(value="staff_id")String staff_id
+										,@RequestParam(value="staff_pw")String staff_pw){
+			 staffDao.modifypwStaff(staff_id, staff_pw);
+			return "reairect:/staff/staff_modify";
+		}
 
 	// 직원 수정 폼 요청
-		@RequestMapping(value="staff/staff_modify", method = RequestMethod.GET)
+		@RequestMapping(value="/staff/staff_modify", method = RequestMethod.GET)
 		public String staffModify(Model model 
 								,@RequestParam(value="staff_id", required=true)String staff_id){
 			System.out.println("StaffController->staffModify()->staff_id:"+staff_id);
-			Staff staff= staffDao.getStaff(staff_id);
+			Staff staff= staffDao.viewStaff(staff_id);
 			model.addAttribute("staff", staff);
 			return "staff/staff_modify";
 		}
 		
 		// 직원 수정 요청
-		@RequestMapping(value ="staff/staff_modify", method = RequestMethod.POST)
+		@RequestMapping(value ="/staff/staff_modify", method = RequestMethod.POST)
 		public String staffModify(Staff staff){
 			System.out.println("StaffController->staffModify()->"+staff);
 			staffDao.modifyStaff(staff);
@@ -64,18 +88,18 @@ public class StaffController {
 		}
 
 	// 글 상세 내용 요청
-		@RequestMapping(value="staff/staff_view", method = RequestMethod.GET)
+		@RequestMapping(value="/staff/staff_view", method = RequestMethod.GET)
 		public String StaffView(Model model 
 								,@RequestParam(value="staff_id")String staff_id){
 			System.out.println("StaffController->StaffView()" + staff_id);
-			Staff staff = staffDao.getStaff(staff_id);
+			Staff staff = staffDao.viewStaff(staff_id);
 			model.addAttribute("staff", staff);
 			return "staff/staff_view";
 		}
 	
 
 	//게시판 검색
-		@RequestMapping(value="staff/staff_search" , method = {RequestMethod.GET, RequestMethod.POST})
+		@RequestMapping(value="/staff/staff_search" , method = {RequestMethod.GET, RequestMethod.POST})
 		public String StaffSearch(Model model
 				, @RequestParam("so") String so
 				, @RequestParam("sv") String sv){
@@ -90,10 +114,10 @@ public class StaffController {
 	// 직원 리스트 요청 
 	@RequestMapping(value = "/staff/staff_list", method = RequestMethod.GET)
 	public String StaffList(Model model){
-		System.out.println("StaffController-> StaffList()");
-		List<Staff> list = staffDao.getStaffList();
+		System.out.println("StaffController-> selectStaffList()");
+		List<Staff> list = staffDao.selectStaffList();
 		Staff staff = list.get(0);
-		System.out.println(staff.getStaff_in_date()+"<<<<<get getStaff_in_date() 요놈");
+		System.out.println(staff.getStaff_in_date()+"<<<<<get getStaff_in_date()");
 		model.addAttribute("list", list);
 		return "staff/staff_list";
 		
