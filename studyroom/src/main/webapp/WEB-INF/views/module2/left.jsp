@@ -73,12 +73,6 @@
               </a>
             </li>
             <li id="attendance">
-
-              <a href="${pageContext.request.contextPath}/calendar/calendar">
-                <i class="fa fa-calendar"></i> <span>일정</span>
-              </a>
-            </li>
-            <li id="attendance">
               <a href="${pageContext.request.contextPath}/attendance/attendance_form">
                 <i class="fa fa-bell-o"></i> <span>출결번호</span>
               </a>
