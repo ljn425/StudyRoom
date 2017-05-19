@@ -46,6 +46,7 @@
             , member_date = CURRENT_DATE()
             , member_regi_date = now()
             , member_end_date = #{pay_date}
+            , member_seat_state = 'Y'
         WHERE member_cd = #{member_cd}
     </update>
     

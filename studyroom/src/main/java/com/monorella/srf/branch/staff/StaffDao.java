@@ -19,8 +19,11 @@ public class StaffDao {
 	 public BranchOwner checkBranchOwner(String branch_owner_cd, String branch_owner_pw){
 		 System.out.println("StaffDao->checkBranchOwner():" +branch_owner_cd+branch_owner_pw);
 		 BranchOwner owner = new BranchOwner();
+		 System.out.println("StaffDao->BranchOwner()-->"+owner);
 		 owner.setBranch_owner_cd(branch_owner_cd);
+		 System.out.println("setBranch_owner_cd()->"+branch_owner_cd);
 		 owner.setBranch_owner_pw(branch_owner_pw);
+		 System.out.println("setBranch_owner_pw()->"+branch_owner_pw);
 		 return sqlSessionTemplate.selectOne("com.monorella.srf.branch.staff.StaffMapper.checkBranchOwner", owner); 
 	 }
 	 
@@ -28,15 +31,17 @@ public class StaffDao {
 	    public int deleteStaff(String staff_id) {
 	    	System.out.println("StaffDao->deleteStaff()->" +staff_id);
 	    	Staff staff = new Staff();
+	    	System.out.println("Staff()->"+staff);
 	    	staff.setStaff_id(staff_id);
+	    	System.out.println("setStaff_id()->"+staff_id);
 	        return sqlSessionTemplate.delete("com.monorella.srf.branch.staff.StaffMapper.deleteStaff",staff);
 	    }
 	
 	  // 수정 비밀번호  
-		public Staff modifypwStaff(String staff_id, String staff_pw){
+		public Staff modifypwStaff(String staff_id){
+			System.out.println("StaffDao->modifypwStaff->"+staff_id);
 			Staff staff = new Staff();
 	    	staff.setStaff_id(staff_id);
-	    	staff.setStaff_pw(staff_pw);
 			return sqlSessionTemplate.selectOne("com.monorella.srf.branch.staff.StaffMapper.modifypwStaff", staff);
 		}
 	// 글수정 메서드 

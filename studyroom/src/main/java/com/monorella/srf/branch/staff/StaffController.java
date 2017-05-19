@@ -45,6 +45,7 @@ public class StaffController {
 								,@RequestParam(value="branch_owner_pw")String branch_owner_pw){
 			System.out.println("StaffController->staffDeletepro()->"+staff_id+branch_owner_cd+branch_owner_pw);
 			BranchOwner owner = staffDao.checkBranchOwner(branch_owner_cd, branch_owner_pw);
+			System.out.println("staffDeletepro->checkBranchOwner()->"+owner);
 			if(owner == null){
 				System.out.println("비번이 일치하지 않습니다");
 				return "redirect:/staff/staff_delete";
@@ -64,9 +65,18 @@ public class StaffController {
 		//직원수정 비밀번호 처리
 		@RequestMapping(value = "/staff/staff_modify_pwform_pro", method = RequestMethod.POST)
 		public String staffmodifypwFromPro(@RequestParam(value="staff_id")String staff_id
-										,@RequestParam(value="staff_pw")String staff_pw){
-			 staffDao.modifypwStaff(staff_id, staff_pw);
-			return "reairect:/staff/staff_modify";
+										,@RequestParam(value="branch_owner_cd")String branch_owner_cd
+										,@RequestParam(value="branch_owner_pw")String branch_owner_pw){
+			System.out.println("StaffController->staffmodifypwFromPro()->"+staff_id+branch_owner_cd+branch_owner_pw);
+			BranchOwner owner = staffDao.checkBranchOwner(branch_owner_cd, branch_owner_pw);
+			if(owner == null){
+				System.out.println("비번이 일치하지 않습니다");
+				return "redirect:staff/staff_modify_pwform";
+			}else{
+				System.out.println("비밀번호일치");
+				staffDao.modifypwStaff(staff_id);
+			}
+			return "redirect:/staff/staff_modify?staff_id="+staff_id;
 		}
 
 	// 직원 수정 폼 요청
