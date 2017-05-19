@@ -38,9 +38,6 @@
 	                </div>
 	                <div class="box-body">
 	                  	출결번호 입력창: <button class="btn bg-orange btn-flat margin" id="input_btn">클릭해주세요.</button>
-	                  <p>
-	             		출결번호를 외부기기 점검 혹은 고장시 위 버튼을 클릭시 출결번호를 입력할 수 있는 창이 생성됩니다.
-	                  </p>
 	                </div><!-- /.box-body -->
 	              </div><!-- /.box -->
 	            </div><!-- /.col -->

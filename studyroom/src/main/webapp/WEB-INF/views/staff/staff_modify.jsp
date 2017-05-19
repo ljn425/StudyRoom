@@ -96,12 +96,11 @@
 									</div>
 									<div class="form-group">
 										<label for="exampleInputFile">직원 주소</label> 
-										<!-- <input type="text" class="form-control" id="staff_addr" name="staff_addr" placeholder="주소를 입력해주세요"> -->
 									<div>
-										<input type="text" value="${staff.staff_postcode}" name="staff_postcode" placeholder="우편번호">
+										<input type="text" id="staff_postcode" value="${staff.staff_postcode}" name="staff_postcode" placeholder="우편번호">
 										<input type="button"  onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-										<input type="text" value="${staff.staff_addr}" name="staff_addr" class="form-control" placeholder="주소">
-										<input type="text" value="${staff.staff_detail_addr}" name="staff_detail_addr" class="form-control"  placeholder="상세주소">
+										<input type="text" id="staff_addr" value="${staff.staff_addr}" name="staff_addr" class="form-control" placeholder="주소">
+										<input type="text" id="staff_detail_addr" value="${staff.staff_detail_addr}" name="staff_detail_addr" class="form-control"  placeholder="상세주소">
 									</div>	
 										<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 										<script>
@@ -135,18 +134,18 @@
 										                    }
 										                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
 										                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
-										                }
-										
-										                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-										                document.getElementById('staff_postcode').value = data.zonecode; //5자리 새우편번호 사용
+										                }											
+																						
+														// 우편번호와 주소 정보를 해당 필드에 넣는다.
+										                 document.getElementById('staff_postcode').value = data.zonecode; //5자리 새우편번호 사용
 										                document.getElementById('staff_addr').value = fullAddr;
 										
 										                // 커서를 상세주소 필드로 이동한다.
-										                document.getElementById('staff_detail_addr').focus();
+										                document.getElementById('staff_detail_addr').focus(); 
 										            }
 										        }).open();
 										    }
-										</script>	
+										</script>
 								</div>
 								<!-- /.box-body -->
 
@@ -165,57 +164,6 @@
 			</section>
 		</div>
 	</div>
-
-
-	<%-- <div class="container">
-    <h1>직원 수정</h1> 
-    <form class="form-horizontal" action="${pageContext.request.contextPath}/staff/staff_modify" method="post">
-		
-		<div class="form-group has-success">
-		  <label class="control-label" for="inputLarge">직원아이디</label>
-		  <input type="text" class="form-control"  value="${staff.staff_id}" name="staff_id" readonly>
-		</div>
-		<div class="form-group has-success">
-		  <label class="control-label" for="inputLarge">지점 대표코드</label>
-		  <SELECT class="form-control" name="branch_owner_cd" id="branch_owner_cd" > 
-		     <option value="B0010" selected>&nbsp;</option> 
-		     <option value="B0011">B011</option> 
-		     <option value="B0016">B016</option> 
-		     <option value="B0017">B017</option> 
-		     <option value="B0018">B018</option> 
-		     <option value="B0019">B019</option> 
-		    </SELECT>
-		</div>
-		<div class="form-group has-success">
-		  <label class="control-label" for="inputLarge">직원 비밀번호</label>
-		  <input type="password" class="form-control" id="staff_pw" name="staff_pw" placeholder="비밀번호를 입력해주세요">
-		</div>
-		<div class="form-group has-success">
-		  <label class="control-label" for="inputLarge">직원 이름</label>
-		  <input type="text" class="form-control" value="${staff.staff_name}" name="staff_name" placeholder="이름을 입력해주세요">
-		</div>
-		<div class="form-group has-success">
-		  <label class="control-label" for="inputLarge">직원 연락처</label>
-		  <input type="text" class="form-control" value="${staff.staff_tel}" name="staff_tel" placeholder="연락처를 입력해주세요">
-		</div>
-		<div class="form-group has-success">
-		  <label class="control-label" for="inputLarge">직원 주소</label>
-		  <input type="text" class="form-control" value="${staff.staff_addr}" name="staff_addr" placeholder="주소를 입력해주세요">
-		</div>
-		<div class="form-group has-success">
-		  <label class="control-label" for="inputLarge">직원 가입일</label>
-		  <input type="date" class="form-control" value="${staff.staff_in_date}" name="staff_in_date">
-		</div>
-		<div>
-        <input type="submit" value="글수정"/>
-        <input type="reset" value="초기화"/>
-        <a class="btn btn-default" href="${pageContext.request.contextPath}/staff/staff_list">글목록</a>
-   		 </div>
-    </form>
-</div>
-</div>
-</div> --%>
-
 </body>
 </html>
 

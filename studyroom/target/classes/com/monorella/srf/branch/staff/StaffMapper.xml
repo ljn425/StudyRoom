@@ -14,13 +14,13 @@
 	WHERE staff_id=#{staff_id} 
 	</delete>
 	
-<select id="modifypwStaff" parameterType="com.monorella.srf.branch.dto.Staff" >
+<select id="modifypwStaff" resultType="com.monorella.srf.branch.dto.Staff" >
 		SELECT
-		staff_id
-		, branch_owner_cd
-		, staff_name
-		, staff_tel
-		, staff_addr
+		staff_id 
+		,branch_owner_cd 
+		, staff_name 
+		, staff_tel 
+		, staff_addr 
 		, staff_detail_addr
 		, staff_in_date 
 		FROM branch_staff_tb

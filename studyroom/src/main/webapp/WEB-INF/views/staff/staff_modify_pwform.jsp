@@ -36,20 +36,22 @@
 						<!-- general form elements -->
 						<div class="box box-primary">
 							<div class="box-header">
-								<h3 class="box-title">직원 삭제</h3>
+								<h3 class="box-title">직원 수정</h3>
 							</div>
 							<!-- /.box-header -->
 							<!-- form start -->
 							<form id="modifyForm" role="form" action="${pageContext.request.contextPath}/staff/staff_modify_pwform_pro" method="post">
 								      <div class="form-group">   			
 					            <input name="staff_id" value="${param.staff_id}" type="hidden"/>
+					             <input name="branch_owner_cd" value="${param.branch_owner_cd}" type="hidden"/>
 								<div class="form-group">
 									<label for="password">비밀번호</label> 
-									<input type="password" class="form-control" name="staff_pw" id="staff_pw">
+									<input type="password" class="form-control" id="branch_owner_pw" name="branch_owner_pw" placeholder="비밀번호를 입력해주세요">
 								</div>
 								</div>
 								<div class="box-footer">
-									<a class="btn btn-primary" href="${pageContext.request.contextPath}/staff/staff_modify?staff_id=${staff.staff_id}">확인</a>
+									<button type="submit" class="btn btn-primary">글입력</button>
+									<%-- <a class="btn btn-primary" href="${pageContext.request.contextPath}/staff/staff_modify?staff_id=${staff.staff_id}">확인</a> --%>
 									<button type="reset" class="btn btn-primary">초기화</button>
 								</div>
 							</form>

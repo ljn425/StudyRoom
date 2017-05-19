@@ -68,7 +68,7 @@
             </tr>
         </tbody>
     </table>
-    <a class="btn btn-default" href="${pageContext.request.contextPath}/staff/staff_modify_pwform">수정</a>
+    <a class="btn btn-default" href="${pageContext.request.contextPath}/staff/staff_modify_pwform?staff_id=${staff.staff_id}&branch_owner_cd=${staff.branch_owner_cd}">수정</a>
     <a class="btn btn-default" href="${pageContext.request.contextPath}/staff/staff_delete?staff_id=${staff.staff_id}&branch_owner_cd=${staff.branch_owner_cd}">삭제</a>
     <a class="btn btn-default" href="${pageContext.request.contextPath}/staff/staff_list">글목록</a>
 </div>
