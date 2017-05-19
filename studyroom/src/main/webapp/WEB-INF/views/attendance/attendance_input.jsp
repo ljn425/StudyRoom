@@ -32,10 +32,10 @@
 		              <!-- Warning box -->
 		              <div class="box box-solid bg-yellow">
 		                <div class="box-header">
-		                  <h3 class="box-title"></h3>
+		                  <h3 class="box-title" id="input_date"></h3>
 		                </div>
-		                <div class="box-body">
-							홍길동님의 입실처리가 완료되었습니다.
+		                <div class="box-body" id="input_status">
+							
 		                </div><!-- /.box-body -->
 		              </div><!-- /.box -->
 		            </div><!-- /.col -->
@@ -56,9 +56,15 @@
 		      var year= now.getFullYear();
 		      var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
 		      var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
-		              
 		      var now_date = year + '-' + mon + '-' + day;
 		      console.log('now_date :' + now_date);
+		      
+		    //현재 시간 구하기 
+		      var now_time = now.getHours();
+			  now_time += ':' + now.getMinutes();
+              now_time += ':' + now.getSeconds(); 
+		      
+              console.log('now_time :' + now_time);
 			
 			var attendancData = {"inout_num":num, "now_date":now_date};
 			
@@ -66,11 +72,14 @@
 				url:'${pageContext.request.contextPath}/attendance/attendance_pro',
 				type:'POST',
 				data:attendancData,
+				
 				success:function(data){
-					console.log(data.name + '성공');
+					console.log(now_date + ' , ' + now_time + ', ' + data.name + '님이 ,'+ data.status + '처리 되었습니다.');
+					$('#input_date').html(now_date +' '+ now_time);
+					$('#input_status').html('<h3>'+ data.name + '님이 ' + data.status + '하셨습니다. </h3>');
 				},
 				error:function(XHR, textStatus, error){
-					alert("에러발생~ \n" + textStatus + " :" + error);
+					alert('출결번호가 일치하지 않거나 결제된 열람석이 존재하지 않습니다. [' + textStatus + ' :' + error+ ']');
 					
 				}
 			});

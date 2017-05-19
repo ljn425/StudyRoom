@@ -22,16 +22,15 @@
 			    console.log(branch_owner_cd);
 			    var room_cd = $("input[name=chk]:eq(1)").val();
 			    console.log(room_cd);
-			    var member_cd = $("#hi").val();
+			    var member_cd = $("input[name=chk]:eq(2)").val();
 			    console.log(member_cd);
 			    
-			    var windetail = $("#windetail").text();
+			    var windetail = $(this).find('.windetail').text();
 			    console.log(windetail);
-			    var windetailon = $("#windetailon").text();
+			    var windetailon = $(this).find('.windetailon').text();
 			    console.log(windetailon);
 			    
-			    if (windetail=='[빈좌석]'){
-			    	alert('빈좌석이네'+windetail);
+			    if (windetail==("빈좌석")){		    	
 			    var width=500, height=800;
 			    var left = (screen.availWidth - width)/2;
 			    var top = (screen.availHeight - height)/2;
@@ -42,7 +41,6 @@
 
 				window.open(contextPath+'/payment/newwinpayment?branch_owner_cd='+branch_owner_cd+'&room_cd='+room_cd+'&seat_cd='+seat_cd+'&member_cd='+member_cd, '_blank', specs);
 			    } else {
-			    	alert('회원이네');
 				    var width=500, height=800;
 				    var left = (screen.availWidth - width)/2;
 				    var top = (screen.availHeight - height)/2;
@@ -100,15 +98,15 @@
 					 <input type="hidden" class="get_seat" value="${s.seat_cd}"/>
 	 				 <input type="hidden" name="chk" id="chk" value="${s.branch_owner_cd}">
 					 <input type="hidden" name="chk" id="chk" value="${s.room_cd}">
-					 <input type="hidden" name="chk" id="hi" value="${s.member_cd}">	
+					 <input type="hidden" name="chk" id="chk" value="${s.member_cd}">	
 					 <button class="btn bg-olive btn-flat margin seat_btn" value="${s.seat_cd}">	
 						<p>열람석${s.seat_cnumber}</p>
 							<c:choose>
 							 <c:when test="${s.member_nm eq null}">
-								<p id="windetail">[빈좌석]</p>
+								<p class="windetail">빈좌석</p>
 							 </c:when>
 							 <c:otherwise>
-							 	<p id="windetailon">[${s.member_nm}]</p>
+							 	<p class="windetailon">${s.member_nm}</p>
 							 </c:otherwise>
 							</c:choose>
 						</button>

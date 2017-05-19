@@ -8,12 +8,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.monorella.srf.branch.dto.Member;
+import com.monorella.srf.branch.dto.SeatTime;
 
 @Controller
 public class AttendanceDao {
 
 	@Autowired 
 	private SqlSessionTemplate sqlSessionTemplate;
+	
+	//퇴실 시간 입력
+	public int modifySeatOutTime(SeatTime seattime){
+		return sqlSessionTemplate.update("com.monorella.srf.branch.attendance.AttendanceMapper.modifySeatOutTime",seattime);
+	}
+	
+	//입퇴실 테이블 한명의 정보 select
+	public SeatTime selectSeatTimeCd(Member member, String now_date){
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("seat_cd", member.getSeat_cd());
+		map.put("now_date", now_date);
+		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.attendance.AttendanceMapper.selectSeatTimeCd", map);
+	}
+	
+	//입실 시간 insert
+	public int insertSeatInTime(Member member){
+		return sqlSessionTemplate.insert("com.monorella.srf.branch.attendance.AttendanceMapper.insertSeatinTime", member);
+	}
 	
 	//입퇴실 수정
 	public int modifySeatState(String seat_state, Member member){

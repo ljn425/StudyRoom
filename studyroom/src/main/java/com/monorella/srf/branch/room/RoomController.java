@@ -21,13 +21,15 @@ public class RoomController {
 	@Autowired
 	private RoomDao roomDao;
 	
-	
-	
 	//열람실 현황 보기
 	@RequestMapping(value="/room/room_dashboard" , method = RequestMethod.GET)
 	public String room_dashboard(Model model){
 		System.out.println("room_dashboard()");
+		
 		List<RoomDashboard> roomdashlist = roomDao.selectRoomDashBoardNow();
+		for(RoomDashboard rl : roomdashlist){
+			System.out.println(rl);
+		}
 		model.addAttribute("roomdashlist", roomdashlist);
 		return "room/room_dashboard";
 	}

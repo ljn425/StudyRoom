@@ -33,7 +33,7 @@ $(document).ready(function(){
 
                 <!-- form start -->
                   <div class="box-body">
-                  <h3 class="box-title">독서실 상세 정보</h3>
+                  <h3 class="box-title">회원 결제창</h3>
                       <form name="myForm" name="postForm" method="post" action="${pageContext.request.contextPath}/payment/paymentend">					    
 					    <div class="form-group">
 					    <label for="fname">지점대표코드</label>

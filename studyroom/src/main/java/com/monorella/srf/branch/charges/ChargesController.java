@@ -2,7 +2,12 @@ package com.monorella.srf.branch.charges;
 
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,12 +21,43 @@ public class ChargesController {
 	@Autowired
 	private ChargesDao chargesDao;
 	
-	
 	//요금제 수정
 	@RequestMapping(value="/charges/charges_update", method= RequestMethod.POST)
-	public String chargesUpdate(@RequestParam(value="charges_code", required=true) String charges_code){
+	public String chargesUpdate(Charges charges){
+		
+		
+		System.out.println(charges);
+		int result = chargesDao.modifyCharges(charges);
+		System.out.println("result :" + result);
+		if(result == 1){
+			System.out.println("요금제 수정 성공");
+			return "redirect:/charges/charges_form"; 
+		}else{
+			System.out.println("실패");
+		}
 		return "redirect:/charges/charges_form";                                                                                                                                                                                                                                                         
 	}
+	
+/*	@RequestMapping(value="/charges/charges_update", method= RequestMethod.POST)
+	public ResponseEntity<String> chargesUpdate2(Charges charges){
+		
+		JSONObject jsonMain = new JSONObject();
+		
+		jsonMain.put("", "");
+		
+		JSONArray jsonArray = new JSONArray();
+		JSONObject jsonSub;
+		for (int i = 0; i <100; i++) {
+			jsonSub = new JSONObject();
+			jsonSub.put("", "");
+			jsonArray.put(jsonSub);
+		}
+		jsonMain.put("list", jsonArray);
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+	    responseHeaders.add("Content-Type", "text/html; charset=UTF-8");
+	    return new ResponseEntity<String>(jsonMain.toString(), responseHeaders, HttpStatus.OK);                                                                                                                                                                                                                                                 
+	}*/
 	
 	//요금제 삭제
 	@RequestMapping(value="/charges/charges_delete", method= RequestMethod.GET)

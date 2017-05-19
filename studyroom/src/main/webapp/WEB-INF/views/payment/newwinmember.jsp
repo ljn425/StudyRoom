@@ -33,8 +33,12 @@ $(document).ready(function(){
                 <!-- form start -->
                   <div class="box-body">
       					<h3 class="box-title">독서실 회원 등록</h3>
-					<form name="myForm" name="postForm" action="${pageContext.request.contextPath}/member/member_pro" method="post">
+					<form name="myForm" name="postForm" role="form" id="insertMember" action="${pageContext.request.contextPath}/member/paymember_pro" method="post">
 						<div class="box-body">	
+						<div class="form-group">
+	                      	   <label class="control-label" for="inputLarge">지점대표코드</label>
+								<input type="text" class="form-control" value="${sessionScope.branchOwner.branch_owner_cd}" name="branch_owner_cd" readonly>
+							</div>
 						<div class="form-group">
 							<label class="control-label" for="inputLarge">직원 아이디</label>
 							<input type="text" class="form-control" id="staff_id" name="staff_id" placeholder="직원아이디를 입력해주세요">
@@ -73,6 +77,17 @@ $(document).ready(function(){
 								<option value="전단지">전단지</option> 
 								<option value="기타">기타</option> 
 							</select>
+							</div>
+													<div class="form-group">
+								<label class="control-label" for="inputLarge">주 이용 목적</label>
+								<select class="form-control" name="member_use_pur" id="member_use_pur" > 
+									<option value="설명" selected>이용목적을 선택해 주세요</option> 
+									<option value="외국어">외국어</option> 
+									<option value="수능">수능</option> 
+									<option value="자격증">자격증</option> 
+									<option value="공무원">공무원</option> 
+									<option value="기타">기타</option> 
+								</select>
 							</div>
 						</div>
 						<div class="box-footer">

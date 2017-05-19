@@ -42,8 +42,7 @@
 	              </div><!-- /.box -->
 	            </div><!-- /.col -->
 			</div><!-- row -->
-		</section><!-- content -->
-        
+	     </section><!-- content -->
         </div><!--content-wrapper -->
        </div><!-- wrapper --> 
 	
@@ -52,7 +51,7 @@
 	<script>
 		$('#input_btn').click(function(){
 			console.log('#input_btn 클릭');
-			window.open('${pageContext.request.contextPath}/attendance/attendance_input', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=600,width=500,height=700');
+			window.open('${pageContext.request.contextPath}/attendance/attendance_input', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=600,width=500,height=400');
 		});
 	</script>
 	

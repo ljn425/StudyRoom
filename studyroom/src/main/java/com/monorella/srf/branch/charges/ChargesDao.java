@@ -19,9 +19,9 @@ public class ChargesDao {
 		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.charges.ChargesMapper.selectChargesCode");
 	}
 
-	//요금제 update
-	public int updateCharges(String charges_code){
-		return sqlSessionTemplate.update("");
+	//요금제 modify
+	public int modifyCharges(Charges charges){
+		return sqlSessionTemplate.update("com.monorella.srf.branch.charges.ChargesMapper.modifyCharges", charges);
 	}
 	
 	//요금제 delete

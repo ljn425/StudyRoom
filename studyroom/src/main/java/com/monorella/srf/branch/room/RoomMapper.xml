@@ -18,7 +18,8 @@
 			, brd.room_personnel
 			, br.room_nm
 		FROM branch_room_dashboard_tb brd
-		INNER JOIN branch_room_tb br ON brd.room_cd = br.room_cd;
+		INNER JOIN branch_room_tb br ON brd.room_cd = br.room_cd
+		ORDER BY brd.room_cd ASC
   	</select>
   	
   	<!-- 열람실 현황 초기화 입력데이터 조회 -->
@@ -33,6 +34,8 @@
 		FROM branch_saet_tb
 		WHERE room_cd = #{room_cd} LIMIT 1
   	</select>
+  	
+  	<!-- 열람실 코드 전체 가져오기  -->
   	
   	<!-- 열람실 코드 가져오기 -->
   	<select id="selectRoomCd" resultType="String">
