@@ -93,6 +93,7 @@ $(document).ready(function(){
 						<div class="box-footer">
 							<button type="submit" class="btn btn-primary" onclick="getSubmit()" value="회원등록">회원등록</button>
                    			<button type="reset" class="btn btn-primary">초기화</button>
+                   			<input type="button" class="btn btn-primary" value="창닫기" onclick="window.close()">
                			</div>
                 </form>
            
