@@ -93,6 +93,7 @@ $(document).ready(function(){
 
 					    <div class="box-footer">
 					       <button type="submit" class="btn btn-primary" onclick="getSubmit()" value="결제">결제</button>
+						   <input type="button" class="btn btn-primary" value="창닫기" onclick="window.close()">				   
 					    </div>
 					  </form>
               		</div>

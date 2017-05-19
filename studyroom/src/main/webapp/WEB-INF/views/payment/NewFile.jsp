@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 	$(document).on('click','.save',function(){
  		var selectValue = $(this).parent().parent().find('.boardCategoryNo').val();
  		var priceValue = $(this).parent().parent().find('.testTotalPrice').val();
