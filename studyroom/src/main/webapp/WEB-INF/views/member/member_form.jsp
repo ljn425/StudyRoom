@@ -4,8 +4,6 @@
 <html>
 <head>
 
-<!-- iCheck for checkboxes and radio inputs -->
-<link href="../../plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script>
 	$(document).ready(function(){
@@ -65,8 +63,8 @@
       <div class="content-wrapper">
 		  <section class="content-header">
 		    <h1>
-		       StudyRoom
-		      <small>웹 기반 독서실 관리프로그램</small>
+		                독서실 회원
+		      <small>등록</small>
 		    </h1>
 		    <ol class="breadcrumb">
 		      <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>

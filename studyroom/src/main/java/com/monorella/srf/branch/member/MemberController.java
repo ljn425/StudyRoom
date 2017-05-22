@@ -146,7 +146,7 @@ public class MemberController {
 			member.setMember_cd("member_cd1");
 			memberDao.insertMember(member);
 
-		} else {
+		} else {	
 			int result = memberDao.autoMemberCode(member);
 			if(result == 1) {
 				System.out.println("요금제 등록 성공");
@@ -156,6 +156,15 @@ public class MemberController {
 			}
 		}
 		return "redirect:/member/member_form";		
+	}
+
+	// 회원 입퇴실 폼 요청
+	@RequestMapping(value="/member/member_exit", method= RequestMethod.GET)
+	public String ExitMember(Model model) {
+		System.out.println("member_exit 요청");
+		List<Member> memberlist = memberDao.selectMember();
+		model.addAttribute("memberlist", memberlist);
+		return "member/member_exit";
 	}
 
 	// 독서실 회원 코드 자동 증가 및 POST 요청 
@@ -184,7 +193,7 @@ public class MemberController {
 		return "redirect:/payment/memberend";		
 	}
 
-	// 회원 등록 폼
+	// 회원 등록 폼 요청
 	@RequestMapping(value="/member/member_form", method = RequestMethod.GET)
 	public String MemberForm(Model model) {
 		System.out.println("member_form 요청");

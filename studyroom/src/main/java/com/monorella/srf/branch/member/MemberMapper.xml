@@ -5,7 +5,6 @@
   
 <mapper namespace="com.monorella.srf.branch.member.MemberMapper">
 
-
 	<!-- 신규회원 알림 -->
 	<select id="MemberNew" resultType="String" parameterType="com.monorella.srf.branch.dto.Member">
 		SELECT count(*) FROM branch_member_tb
@@ -127,7 +126,7 @@
 	<select id="selectMemberCount" resultType="int">
         SELECT COUNT(*) FROM branch_member_tb
     </select>
-	
+
  	<!-- 요금제 자동등록 -->
   	<insert id="autoMemberCode" parameterType="com.monorella.srf.branch.dto.Member">
   		<selectKey resultType="String" keyProperty="member_cd" order="BEFORE">
