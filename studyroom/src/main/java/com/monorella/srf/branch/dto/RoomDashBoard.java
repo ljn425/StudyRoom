@@ -1,7 +1,7 @@
 package com.monorella.srf.branch.dto;
 
 //열람실 현황
-public class RoomDashboard {
+public class RoomDashBoard {
 	private	String room_dash_cd; //열람실 현황코드
 	private	String room_cd; //열람실 코드
 	private	int seat_in; //입실 인원 수
@@ -69,7 +69,7 @@ public class RoomDashboard {
 	
 	@Override
 	public String toString() {
-		return "RoomDashboard [room_dash_cd=" + room_dash_cd + ", room_cd=" + room_cd + ", seat_in=" + seat_in
+		return "RoomDashBoard [room_dash_cd=" + room_dash_cd + ", room_cd=" + room_cd + ", seat_in=" + seat_in
 				+ ", seat_out=" + seat_out + ", pay_seat=" + pay_seat + ", notpay_seat=" + notpay_seat + ", room_out="
 				+ room_out + ", room_personnel=" + room_personnel + ", room_nm=" + room_nm + "]";
 	}

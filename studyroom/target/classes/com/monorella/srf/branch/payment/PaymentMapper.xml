@@ -1,7 +1,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.monorella.srf.branch.payment.PaymentMapper">
-
+	
+	
+	<!-- 열람실 결제 현황 select  -->
+	
+	
+	
+	<!-- 결제 입력 -->
 	<insert id="insertPayment" parameterType="com.monorella.srf.branch.dto.Payment">
 		INSERT INTO branch_pay_tb(
  			branch_owner_cd
@@ -12,7 +18,7 @@
 			, discount_amount
 			, total_amount
 			, pay_date
-			, pay_due
+			, pay_option
 			)
 			
 			<!-- , pay_option) -->
@@ -24,8 +30,8 @@
 			, #{pay_amount}
 			, #{discount_amount}
 			, #{total_amount}
-			, #{pay_date} 
-			, #{pay_due}
+			, now() 
+			, #{pay_option}
 			<!-- , #{pay_option} -->
 			
 

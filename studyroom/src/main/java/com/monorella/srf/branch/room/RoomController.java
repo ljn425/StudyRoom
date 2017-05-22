@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.monorella.srf.branch.dto.Room;
-import com.monorella.srf.branch.dto.RoomDashboard;
+import com.monorella.srf.branch.dto.RoomDashBoard;
 import com.monorella.srf.branch.dto.Seat;
 import com.monorella.srf.branch.dto.SeatRowCol;
 import org.json.*;
@@ -25,9 +25,12 @@ public class RoomController {
 	@RequestMapping(value="/room/room_dashboard" , method = RequestMethod.GET)
 	public String room_dashboard(Model model){
 		System.out.println("room_dashboard()");
-		
-		List<RoomDashboard> roomdashlist = roomDao.selectRoomDashBoardNow();
-		for(RoomDashboard rl : roomdashlist){
+		//열람실 모든 코드 조회
+		//List<Room> roomCdlist = roomDao.selectRoomAllCd();
+		//RoomDashBoard roomdash = roomDao.selectRoomDashBoard(roomCdlist.get(0).getRoom_cd());
+
+		List<RoomDashBoard> roomdashlist = roomDao.selectRoomDashBoardNow();
+		for(RoomDashBoard rl : roomdashlist){
 			System.out.println(rl);
 		}
 		model.addAttribute("roomdashlist", roomdashlist);
@@ -148,7 +151,7 @@ public class RoomController {
 				seatli.add(seat);
 			}
 			//열람실 현황 데이터 
-			RoomDashboard roomdash = new RoomDashboard();
+			RoomDashBoard roomdash = new RoomDashBoard();
 			//열람실 코드 조회
 			String room_cd = roomDao.selectRoomCd();
 			System.out.println("room_cd : " + room_cd);

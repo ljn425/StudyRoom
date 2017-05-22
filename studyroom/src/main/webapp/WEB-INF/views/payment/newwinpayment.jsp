@@ -4,7 +4,7 @@
 <html>
   <head>
   	<!-- 헤드 -->
-	<c:import url="../module2/head.jsp"/>
+	<c:import url="../module2/advanced_css.jsp"/>
  </head>
  <body class="skin-blue">
 	<div class="row">
@@ -36,17 +36,24 @@
 					    </div>
 					    
 					    <div class="form-group">
-					    <label for="fname">회원코드&nbsp;&nbsp;&nbsp;</label>
+					    <label for="fname">회원코드&nbsp;</label>
 					    <input type="text" id="member_cd" name="member_cd" class="form-control" value="${member_cd}">
 					    </div>
 					    
 					    <div class="form-group">
 					    <label for="fname">회원요금&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-					    <input type="text" id="pay_amount" name="pay_amount" class="form-control">
+					    <label>
+					    		학생 	<input type="radio" name="r3" class="flat-red" checked/>
+	                    </label>
+	                    <label>
+	                      		일반 <input type="radio" name="r3" class="flat-red"/>
+	                    </label>
+					    	<input type="text" id="pay_amount" name="pay_amount" class="form-control">
 					    </div>
 						
 						<div class="form-group">
 					    <label for="lname">할인금액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					    
 					    <input type="text" id="discount_amount" name="discount_amount" class="form-control">
 						</div>
 						
@@ -57,7 +64,7 @@
 
 					    <div class="form-group">
 					    <label for="결제 방법">결제방법&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-					    <select id="결제 방법" name="결제 방법" class="form-control">
+					    <select id="결제 방법" name="pay_option" class="form-control">
 					      <option value="카드">카드</option>
 					      <option value="현금">현금</option>
 					      <option value="자동이체">자동이체</option>
@@ -76,7 +83,23 @@
             
 		 </div><!-- col-md-12 -->
 	</div><!-- row -->
-              
+    <!-- JS -->
+    <c:import url="../module2/jsscript.jsp" />
+	<script>
+		//라디오박스 css
+	    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+	      checkboxClass: 'icheckbox_flat-green',
+	      radioClass: 'iradio_flat-green'
+	    });
+		
+		$('#discount_amount').blur(function(){
+			console.log('요금 테스트');
+			var pay = $('#pay_amount').val() *1;
+			var discount = $('#discount_amount').val() *1;
+			var total = pay - discount;
+			$('#total_amount').val(total);
+		});
+	</script>
  </body>
 </html>
 

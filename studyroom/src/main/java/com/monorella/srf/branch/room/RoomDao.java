@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.monorella.srf.branch.dto.Room;
-import com.monorella.srf.branch.dto.RoomDashboard;
+import com.monorella.srf.branch.dto.RoomDashBoard;
 import com.monorella.srf.branch.dto.Seat;
 
 @Repository
@@ -16,13 +16,33 @@ public class RoomDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
+	//열람석 code 전체 조회 
+	public List<Room> selectRoomAllCd(){
+		return sqlSessionTemplate.selectList("com.monorella.srf.branch.room.RoomMapper.selectRoomAllCd");
+	}
+	
+	//열람석 code에 일치하는 열람실 Code 조회
+	public String selectRoomCdeqSeatCd(int seat_cd){
+		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.room.RoomMapper.selectRoomCdeqSeatCd", seat_cd);
+	}
+	
+	//열람실 입실 현황 modify
+	public int modifySeatRoomDashBoard(RoomDashBoard roomDashBoard){
+		return sqlSessionTemplate.update("com.monorella.srf.branch.room.RoomMapper.modifySeatRoomDashBoard", roomDashBoard);
+	}
+	
+	//열람실 결제& 미결제 현황  modify
+	public int modifyRoomDashBoard(RoomDashBoard roomDashboard){
+		return sqlSessionTemplate.update("com.monorella.srf.branch.room.RoomMapper.modifyRoomDashBoard", roomDashboard);
+	}
+	
 	//열람실 현황 조회
-	public List<RoomDashboard> selectRoomDashBoardNow(){
+	public List<RoomDashBoard> selectRoomDashBoardNow(){
 		return sqlSessionTemplate.selectList("com.monorella.srf.branch.room.RoomMapper.selctRoomDashBoardNow");
 	}
 	
 	//열람실 현황 입력데이터 조회
-	public RoomDashboard selectRoomDashBoard(String room_cd){
+	public RoomDashBoard selectRoomDashBoard(String room_cd){
 		return sqlSessionTemplate.selectOne("com.monorella.srf.branch.room.RoomMapper.selectRoomDashBoard", room_cd);
 	}
 	
@@ -72,7 +92,7 @@ public class RoomDao {
 	}
 	
 	//열람실 현황 insert
-	public int insertRoomDashBoard(RoomDashboard roomdash){
+	public int insertRoomDashBoard(RoomDashBoard roomdash){
 		return sqlSessionTemplate.insert("com.monorella.srf.branch.room.RoomMapper.insertRoomDashBoard", roomdash);
 	}
 	

@@ -9,14 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.monorella.srf.branch.dto.Member;
 import com.monorella.srf.branch.dto.Payment;
-import com.monorella.srf.branch.dto.RoomDashBoard;
-import com.monorella.srf.branch.room.RoomDao;
 
-@Controller
-public class PaymentController {
+
+public class PaymentController2 {
 		
 	@Autowired PaymentDao paymentDao;
-	@Autowired RoomDao roomDao;
 	//결제 form
 	@RequestMapping(value="/payment/newwinpayment", method = RequestMethod.GET)
 	public String paymentFrom(Model model,
@@ -40,7 +37,7 @@ public class PaymentController {
 		return "payment/newwinmember";
 	}
 	
-	// 상세정보 요청
+	// newwindetail.jsp 요청
 	@RequestMapping(value="/payment/newwindetail", method = RequestMethod.GET)
 	public String newwindetail(Model model 
 			, @RequestParam(value="member_nm")String member_nm){
@@ -51,9 +48,9 @@ public class PaymentController {
 		return "payment/newwindetail";
 	}
 	
-	// 결제완료
+	// 입력 post 요청
 	@RequestMapping(value="/payment/paymentend", method = RequestMethod.POST)
-	public String paymentpro(Payment payment, Member member, Model model){
+	public String paymentpro(Payment payment, Member member){
 		System.out.println("paymentpro 요청");
 		int result = paymentDao.insertPayment(payment);
 		System.out.println("insertPayment 요청");
@@ -78,17 +75,6 @@ public class PaymentController {
 			System.out.println("Paymentinoutupmember 요청"+ member);
 			paymentDao.Paymentinoutup(member);
 			System.out.println("Paymentinoutupmember 요청"+ member);
-			
-			//열람실현황 조회
-			RoomDashBoard roomdash = roomDao.selectRoomDashBoard(payment.getRoom_cd());
-			System.out.println(roomdash);
-			//열람실현황 수정
-			roomDao.modifyRoomDashBoard(roomdash);
-			
-			
-			//출결번호
-			model.addAttribute("inouting", inouting);
-			
 		}else{
 			//실패시 			
 		}
