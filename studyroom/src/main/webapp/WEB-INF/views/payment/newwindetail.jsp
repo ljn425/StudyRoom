@@ -40,7 +40,7 @@ $(document).ready(function(){
         <div class="box box-primary">
            <div class="container">
 				  <ul class="nav nav-tabs">
-				    <li><a data-toggle="tab" value="newwinmember" class="link">회원가입</a></li>
+				    <!-- <li><a data-toggle="tab" value="newwinmember" class="link">회원가입</a></li> -->
 				    <li><a data-toggle="tab" id="getval" class="link" onclick="getParentText()">결제</a></li>				    
 				    <li><a data-toggle="tab" value="newwindetail?member_cd=member_cd6" class="link">상세정보</a></li>
 				  </ul>
