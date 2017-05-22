@@ -3,29 +3,48 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.monorella.srf.branch.staff.StaffMapper">
 
+<select id="checkBranchOwner" parameterType="com.monorella.srf.branch.dto.BranchOwner" resultType="com.monorella.srf.branch.dto.BranchOwner">
+	SELECT * FROM branch_owner_tb 
+	WHERE branch_owner_cd = #{branch_owner_cd} 
+	AND branch_owner_pw= #{branch_owner_pw}
+</select>
+
 <delete id="deleteStaff" parameterType="com.monorella.srf.branch.dto.Staff">
 	DELETE FROM branch_staff_tb 
 	WHERE staff_id=#{staff_id} 
-	AND staff_pw=#{staff_pw}
 	</delete>
+	
+<select id="modifypwStaff" resultType="com.monorella.srf.branch.dto.Staff" >
+		SELECT
+		staff_id 
+		,branch_owner_cd 
+		, staff_name 
+		, staff_tel 
+		, staff_addr 
+		, staff_detail_addr
+		, staff_in_date 
+		FROM branch_staff_tb
+	    WHERE staff_id = #{staff_id}
+</select>
 	
 <update id="modifyStaff" parameterType="com.monorella.srf.branch.dto.Staff">
 	UPDATE branch_staff_tb SET branch_owner_cd=#{branch_owner_cd}
 	, staff_name=#{staff_name} 
 	, staff_tel=#{staff_tel}
 	, staff_addr=#{staff_addr}
-	, staff_in_date=#{staff_in_date}
+	, staff_detail_addr=#{staff_detail_addr}
 	WHERE staff_id=#{staff_id} 
 	AND staff_pw=#{staff_pw}
 	</update>
 	
-<select id="getStaff" parameterType="String" resultType="com.monorella.srf.branch.dto.Staff">
+<select id="viewStaff" parameterType="String" resultType="com.monorella.srf.branch.dto.Staff">
 	SELECT 
 	staff_id 
 	,branch_owner_cd 
 	, staff_name 
 	, staff_tel 
 	, staff_addr 
+	, staff_detail_addr
 	, staff_in_date 
 	FROM branch_staff_tb 
 	WHERE staff_id=#{staff_id}
@@ -38,6 +57,7 @@
 		 , staff_name 
 		 , staff_tel 
 		 , staff_addr
+		 , staff_in_date
 		 FROM branch_staff_tb
 		  <if test="sv !=null and sv != ''">
 		 	<if test="so.equals('staff_id')">
@@ -55,10 +75,13 @@
 		<if test="so.equals('staff_addr')">
 			WHERE staff_addr like concat('%',#{sv},'%')
 		</if>
+		<if test="so.equals('staff_in_date')">
+			WHERE staff_in_date like concat('%',#{sv},'%')
+		</if>
 		</if> 
 </select>
 
-  <select id="getStaffList" resultType="com.monorella.srf.branch.dto.Staff">
+  <select id="selectStaffList" resultType="com.monorella.srf.branch.dto.Staff">
   	SELECT
   	staff_id
   	, branch_owner_cd 
@@ -96,7 +119,9 @@
 		, staff_pw
 		, staff_name
 		, staff_tel
+		, staff_postcode
 		, staff_addr
+		, staff_detail_addr
 		, staff_in_date) 
 	VALUES(
 		#{staff_id}
@@ -104,8 +129,10 @@
 		, #{staff_pw}
 		, #{staff_name}
 		, #{staff_tel}
+		, #{staff_postcode}
 		, #{staff_addr}
-		, #{staff_in_date}
+		, #{staff_detail_addr}
+		, now()
 	)
 	</insert>
   </mapper>

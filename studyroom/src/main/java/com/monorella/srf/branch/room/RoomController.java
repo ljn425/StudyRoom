@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.monorella.srf.branch.dto.Room;
+import com.monorella.srf.branch.dto.RoomDashboard;
 import com.monorella.srf.branch.dto.Seat;
 import com.monorella.srf.branch.dto.SeatRowCol;
+import org.json.*;
 
 @Controller
 public class RoomController {
@@ -21,8 +23,14 @@ public class RoomController {
 	
 	//열람실 현황 보기
 	@RequestMapping(value="/room/room_dashboard" , method = RequestMethod.GET)
-	public String room_dashboard(){
+	public String room_dashboard(Model model){
 		System.out.println("room_dashboard()");
+		
+		List<RoomDashboard> roomdashlist = roomDao.selectRoomDashBoardNow();
+		for(RoomDashboard rl : roomdashlist){
+			System.out.println(rl);
+		}
+		model.addAttribute("roomdashlist", roomdashlist);
 		return "room/room_dashboard";
 	}
 	
@@ -32,16 +40,44 @@ public class RoomController {
 		System.out.println("room_view()");
 		System.out.println(room);
 		List<Seat> seatlist = roomDao.selectRoomSeat(room);
+		System.out.println(seatlist.get(0).getSeat_row());
+		
+		/*//제일 상위 객체
+		JSONObject obj = new JSONObject();
+		//Person의 JSON정보를 담을 Array 선언
+		JSONArray personArray = new JSONArray();
+		//Person의 한명 정보가 들어갈 JSONObject 선언
+		JSONObject personInfo = new JSONObject();
+		//정보 입력
+		personInfo.put("name", "송강호");
+		personInfo.put("age", "25");
+		//Array에 입력
+		personArray.put(personInfo);
+		
+		personInfo = new JSONObject();
+		personInfo.put("name", "전지현");
+		personInfo.put("age", "21");
+		
+		personArray.put(personInfo);
+		obj.put("persons", personArray);
+		//전체 입력한 값 확인
+		System.out.println(obj);*/
 		
 		
-		/*for(int i=0; i<seatlist.size(); i++){
-			int[][] table = {{seatlist.get(i).getSeat_col()}
-							,{seatlist.get(i).getSeat_row()}};	
-			int j=0;
-			System.out.println(table[i][j]);
-			j++;
-		}*/
+		JSONObject seat = new JSONObject();
+		JSONArray seatArray = new JSONArray();
+		JSONObject seatRowCol = new JSONObject();
 		
+		
+		String row = seatlist.get(0).getSeat_row()+"";
+		String col = seatlist.get(0).getSeat_col()+"";
+		seatRowCol.put("row", row);
+		seatRowCol.put("col", col);
+		seatArray.put(seatRowCol);
+		seat.put("seat", seatArray);
+		System.out.println(seat);
+		
+				
 		model.addAttribute("seatlist", seatlist);
 		model.addAttribute("room", room);
 	
@@ -111,6 +147,17 @@ public class RoomController {
 				roomDao.insertSeat(seat);
 				seatli.add(seat);
 			}
+			//열람실 현황 데이터 
+			RoomDashboard roomdash = new RoomDashboard();
+			//열람실 코드 조회
+			String room_cd = roomDao.selectRoomCd();
+			System.out.println("room_cd : " + room_cd);
+			//열람실 현황 입력데이터 조회
+			roomdash = roomDao.selectRoomDashBoard(room_cd);
+			System.out.println(roomdash);
+			//열람실 현황 입력 초기화
+			roomDao.insertRoomDashBoard(roomdash);
+			
 			model.addAttribute("room", room);
 			model.addAttribute("seat", seatli);
 			return "room/chair_form";

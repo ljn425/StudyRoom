@@ -40,9 +40,9 @@ public class PaymentController {
 	// newwindetail.jsp 요청
 	@RequestMapping(value="/payment/newwindetail", method = RequestMethod.GET)
 	public String newwindetail(Model model 
-			, @RequestParam(value="member_cd")String member_cd){
-		System.out.println(member_cd);
-		Member member = paymentDao.detailMember(member_cd);
+			, @RequestParam(value="member_nm")String member_nm){
+		System.out.println(member_nm);
+		Member member = paymentDao.detailMember(member_nm);
 		System.out.println("member: "+ member);
 		model.addAttribute("member", member);
 		return "payment/newwindetail";
@@ -50,17 +50,34 @@ public class PaymentController {
 	
 	// 입력 post 요청
 	@RequestMapping(value="/payment/paymentend", method = RequestMethod.POST)
-	public String paymentpro(Payment payment){
-		System.out.println("post 요청");
+	public String paymentpro(Payment payment, Member member){
+		System.out.println("paymentpro 요청");
 		int result = paymentDao.insertPayment(payment);
+		System.out.println("insertPayment 요청");
 		if(result == 1){
 			//성공시
 			paymentDao.modifyPaymentSeat(payment);
+			//결제코드 조회
+			int resulting = paymentDao.paycddetail(payment);
+			System.out.println("resulting :" + resulting);			
+			payment.setPay_cd(resulting);			
+			//출결번호 테이블 insert
+			paymentDao.insertPaymentinout(payment);
+			//멤버테이블 요일 update
 			paymentDao.modifyPaymentMember(payment);
+			System.out.println("modifyPaymentMemberresulting 요청");
+			System.out.println("modifyPaymentMembermember 요청"+ member);
+			//inout 코드 조회
+			int inouting = paymentDao.inoutingdetail(payment);
+			System.out.println("inouting :" + inouting);
+			
+			member.setInout_num(inouting);
+			System.out.println("Paymentinoutupmember 요청"+ member);
+			paymentDao.Paymentinoutup(member);
+			System.out.println("Paymentinoutupmember 요청"+ member);
 		}else{
 			//실패시 			
 		}
 		return "payment/paymentend";
-	}
-
+		}
 }

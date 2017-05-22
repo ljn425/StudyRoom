@@ -155,9 +155,35 @@ public class MemberController {
 				System.out.println("요금제 등록 실패");
 			}
 		}
-		return "redirect:/member/member_form";
+		return "redirect:/member/member_form";		
 	}
 
+	// 독서실 회원 코드 자동 증가 및 POST 요청 
+	// 열람실 window창에서 필요한 내용이니 지우지 말 것
+	@RequestMapping(value="/member/paymember_pro", method= RequestMethod.POST)
+	public String PayMemberPro(Member member) {
+		System.out.println("회원코드 자동증가 폼pay");
+		System.out.println(member);
+			
+		//코드 MAX select
+		int code = memberDao.selectMemberCode();
+			
+		if(code == 0){ 
+			member.setMember_cd("member_cd1");
+			memberDao.insertMember(member);
+			
+		} else {
+			int result = memberDao.autoMemberCode(member);
+			if(result == 1) {
+				System.out.println("요금제 등록 성공pay");
+				return "payment/memberend";
+			} else {
+				System.out.println("요금제 등록 실패");
+			}
+		}
+		return "redirect:/payment/memberend";		
+	}
+	
 	// 회원 등록 폼
 	@RequestMapping(value="/member/member_form", method = RequestMethod.GET)
 	public String MemberForm(Model model) {

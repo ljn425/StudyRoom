@@ -13,7 +13,7 @@
 	 	staffboardreply_no
 	 	, staffboard_no
 	 	, staffboard_name
-	 	, NOW() <!-- DATE_FORMAT(staffboardreply_date, '%Y-%m-%d') staffboardreply_date -->
+	 	, DATE_FORMAT(staffboardreply_date, '%Y-%m-%d') staffboardreply_date
 	 	, staffboardreply_content
 	FROM branch_staffboardreply_tb WHERE staffboard_no = #{staffboard_no}
 </select>
@@ -81,7 +81,7 @@
 		</if> 
 </select>
 
-<select id="getStaffBoardList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.StaffBoard">
+<select id="selectStaffBoardList" parameterType="java.util.Map" resultType="com.monorella.srf.branch.dto.StaffBoard">
 	SELECT 
 		staffboard_no
 		, staffboard_title

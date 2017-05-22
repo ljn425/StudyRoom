@@ -9,15 +9,30 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <HEAD>
   <TITLE> New Document </TITLE>
+
 <script type="text/javascript">
 $(document).ready(function(){
-	var contextPath = '<c:out value='${pageContext.request.contextPath}'/>';	
-	$('.link').click(function(){
+	var contextPath = '<c:out value='${pageContext.request.contextPath}'/>';
+	
+    var bocd = opener.document.getElementById("bocd").value;
+    console.log('bocd = ' + bocd);
+    var rcd = opener.document.getElementById("rcd").value;
+    console.log('rcd = ' + rcd);
+    var mcd = opener.document.getElementById("mcd").value;
+    console.log('mcd = ' + mcd);
+    var scd = opener.document.getElementById("scd").value;
+    console.log('scd = ' + scd);
+    var all = 'newwinpayment?branch_owner_cd='+bocd+'&room_cd='+rcd+'&seat_cd='+mcd+'&member_cd='+scd;
+    console.log('all = ' + all);
+    
+    $('.link').click(function(){
+    $(this).prop("value", all);
 	var linkpage = $(this).attr('value');	
     window.open(contextPath+'/payment/'+linkpage, '_self');
 	});
 });
 </script>
+
  </HEAD>
   <BODY>
     <div class="row">
@@ -26,13 +41,14 @@ $(document).ready(function(){
            <div class="container">
 				  <ul class="nav nav-tabs">
 				    <li><a data-toggle="tab" value="newwinmember" class="link">회원가입</a></li>
-				    <li><a data-toggle="tab" value="newwinpayment" class="link">결제</a></li>				    
+				    <li><a data-toggle="tab" id="getval" class="link" onclick="getParentText()">결제</a></li>				    
 				    <li><a data-toggle="tab" value="newwindetail?member_cd=member_cd6" class="link">상세정보</a></li>
 				  </ul>
 
                 <!-- form start -->
                   <div class="box-body">
       					<h3 class="box-title">독서실 상세 정보</h3>
+   					
 					<form name="myForm" name="postForm" action="${pageContext.request.contextPath}/member/member_pro" method="post">
 						<div class="box-body">	
 						<div class="form-group">
@@ -70,6 +86,9 @@ $(document).ready(function(){
 						<div class="form-group">
 							<label class="control-label" for="inputLarge">해지일</label>
 							<input type="text" class="form-control" id="member_end_date" name="member_end_date" value="${member.member_end_date}" readonly>
+						</div>
+						<div class="form-group">
+						<input type="button" value="창닫기" onclick="window.close()">
 						</div>
                 </form>         
               </div>
