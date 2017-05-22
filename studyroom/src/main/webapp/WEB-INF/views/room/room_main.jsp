@@ -62,7 +62,11 @@
 	</script>
 	
 	<style>
-		
+		   .bg-bluesky{
+		    	background-color: #3c8dbc;
+		    	color : white;
+		   }
+		   
 	</style>
 
 </head>
@@ -129,5 +133,12 @@
 
 
 <c:import url="../module2/jsscript.jsp" />
+<script>
+	if($('.windetailon').length > 0){
+		console.log('헬로우');
+		$('.windetailon').parent().removeClass('bg-olive');
+		$('.windetailon').parent().addClass('bg-bluesky');
+	}
+</script>
 </body>
 </html>
