@@ -4,6 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.monorella.srf.branch.member.MemberMapper">
+
+
 	<!-- 신규회원 알림 -->
 	<select id="MemberNew" resultType="String" parameterType="com.monorella.srf.branch.dto.Member">
 		SELECT count(*) FROM branch_member_tb
