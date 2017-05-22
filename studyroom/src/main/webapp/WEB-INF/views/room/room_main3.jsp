@@ -23,7 +23,7 @@
 				console.log('seat_cd = ' + seat_cd);
 			    var branch_owner_cd = $("input[name=chk]:eq(0)").val();
 			    console.log('branch_owner_cd = ' + branch_owner_cd);
-			    var room_cd = $(this).prev().val();
+			    var room_cd = $("input[name=chk]:eq(1)").val();
 			    console.log('room_cd = ' + room_cd);
 			    var member_cd = $("input[name=chk]:eq(2)").val();
 			    console.log('member_cd = ' + member_cd);
@@ -101,9 +101,9 @@
 				<c:forEach var="s" items="${seatlist}">
 					<c:if test="${s.room_cd eq r.room_cd}">
 					 <input type="hidden" class="get_seat" value="${s.seat_cd}"/>
-	 				 <input type="hidden" name="chk" class="bocd" value="${s.branch_owner_cd}">
-					 <input type="hidden" name="chk" class="mcd" class="mcdc" value="${s.member_cd}">
-					 <input type="hidden" name="chk" class="rcd" value="${s.room_cd}">	
+	 				 <input type="hidden" name="chk" id="bocd" value="${s.branch_owner_cd}">
+					 <input type="hidden" name="chk" id="rcd" value="${s.room_cd}">
+					 <input type="hidden" name="chk" id="mcd" class="mcdc" value="${s.member_cd}">	
 					 <button class="btn bg-olive btn-flat margin seat_btn" id="scd" value="${s.seat_cd}">	
 						<p>열람석${s.seat_cnumber}</p>
 							<c:choose>
@@ -121,11 +121,15 @@
 			<hr>
 			</c:forEach>
 
-			</div> <!-- col-md-9 col-lg-10 main -->
-		</div><!-- row -->
-		</section><!-- content -->
-	</div><!-- content-wrapper -->
-   </div><!-- wrapper -->
+
+			
+	
+				
+				</div> <!-- col-md-9 col-lg-10 main -->
+			</div><!-- row -->
+			</section><!-- content -->
+		</div><!-- content-wrapper -->
+	   </div><!-- wrapper -->
 
 
 <c:import url="../module2/jsscript.jsp" />
