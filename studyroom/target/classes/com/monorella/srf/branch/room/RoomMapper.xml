@@ -4,9 +4,28 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.monorella.srf.branch.room.RoomMapper">
+
+  	<!-- 열람실 현황 입실&퇴실 modify -->
+  	<update id="modifySeatRoomDashBoard" parameterType="com.monorella.srf.branch.dto.RoomDashBoard">
+  		UPDATE branch_room_dashboard_tb
+			SET
+				seat_in=#{seat_in},
+				seat_out=#{seat_out}
+			WHERE room_cd= #{room_cd}
+  	</update>
+  	
+  	<!-- 열람실 현황 결제&미결제 수 modify -->
+	<update id="modifyRoomDashBoard" parameterType="com.monorella.srf.branch.dto.RoomDashBoard">
+			UPDATE branch_room_dashboard_tb
+				SET 
+					pay_seat= #{pay_seat},
+					notpay_seat= #{notpay_seat},
+					room_personnel= #{pay_seat}
+				WHERE room_cd= #{room_cd}
+	</update>
   	
   	<!-- 열람실 현황 조회 -->
-  	<select id="selctRoomDashBoardNow" resultType="com.monorella.srf.branch.dto.RoomDashboard">
+  	<select id="selctRoomDashBoardNow" resultType="com.monorella.srf.branch.dto.RoomDashBoard">
 		SELECT 
 			brd.room_dash_cd
 			, brd.room_cd
@@ -23,7 +42,7 @@
   	</select>
   	
   	<!-- 열람실 현황 초기화 입력데이터 조회 -->
-  	<select id="selectRoomDashBoard" resultType="com.monorella.srf.branch.dto.RoomDashboard" parameterType="String">
+  	<select id="selectRoomDashBoard" resultType="com.monorella.srf.branch.dto.RoomDashBoard" parameterType="String">
   		SELECT 
   			room_cd
   			,(SELECT COUNT(seat_appoint) FROM branch_saet_tb WHERE seat_appoint = 'Y' AND room_cd = #{room_cd}) AS pay_seat
@@ -36,6 +55,19 @@
   	</select>
   	
   	<!-- 열람실 코드 전체 가져오기  -->
+  	<select id="selectRoomAllCd" resultType="com.monorella.srf.branch.dto.Room">
+  		SELECT 
+			room_cd
+		FROM branch_room_tb
+  	</select>
+  	
+  	<!--열람석 code에 일치하는 열람실 Code 조회 -->
+  	<select id="selectRoomCdeqSeatCd" parameterType="int" resultType="String">
+	  	SELECT
+			 room_cd
+		FROM branch_saet_tb
+		WHERE seat_cd = #{seat_cd}	
+  	</select>
   	
   	<!-- 열람실 코드 가져오기 -->
   	<select id="selectRoomCd" resultType="String">
@@ -55,7 +87,7 @@
 	  		 ,  bs.seat_col
 	  		 ,  bm.member_nm
 		FROM branch_saet_tb bs LEFT JOIN branch_member_tb bm ON bs.seat_cd = bm.seat_cd 
-		WHERE room_cd = #{room_cd};
+		WHERE room_cd = #{room_cd}
   	</select>
   
   	<!-- 열람석 배치하기 -->
@@ -104,7 +136,7 @@
 	</select>
 	
 	<!-- 열람실 현황 입력 초기화 --> 
-	<insert id="insertRoomDashBoard" parameterType="com.monorella.srf.branch.dto.RoomDashboard">
+	<insert id="insertRoomDashBoard" parameterType="com.monorella.srf.branch.dto.RoomDashBoard">
 		INSERT INTO branch_room_dashboard_tb(
 			room_cd
 			, seat_in

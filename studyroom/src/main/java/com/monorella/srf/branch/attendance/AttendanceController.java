@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.monorella.srf.branch.dto.Member;
+import com.monorella.srf.branch.dto.RoomDashBoard;
 import com.monorella.srf.branch.dto.SeatTime;
+import com.monorella.srf.branch.room.RoomDao;
 
 @Controller
 public class AttendanceController {
 	@Autowired
 	private AttendanceDao attendanceDao;
+	@Autowired
+	private RoomDao roomDao;
 	
 	//출결번호 입력 처리
 	@RequestMapping(value="/attendance/attendance_pro", method=RequestMethod.POST)
@@ -26,6 +30,8 @@ public class AttendanceController {
 		System.out.println("attendance_pro() now_time :" + now_date );
 		//출결번호 체크
 		Member member = attendanceDao.selectInoutNum(inout_num);
+		System.out.println("member :" + member);
+		
 		
 		if(member.getMember_nm() != null){
 			System.out.println("출결번호 체크 확인");
@@ -37,6 +43,7 @@ public class AttendanceController {
 				seat_state = "입실";
 				//입실시간 입력
 				attendanceDao.insertSeatInTime(member);
+
 			}else{
 				//member seat_state 변경
 				seat_state = "퇴실";
@@ -48,12 +55,44 @@ public class AttendanceController {
 					System.out.println("퇴실 시간 입력 성공");
 				}
 			}
+			
+			//좌석번호와 일치하는 열람실 코드 조회 
+			String room_cd = roomDao.selectRoomCdeqSeatCd(member.getSeat_cd());
+			System.out.println("AttendanceController, room_cd :" + room_cd);
+			//열람실 현황 조회
+			RoomDashBoard roomDashBoard = roomDao.selectRoomDashBoard(room_cd);
+			int in_count = roomDashBoard.getSeat_in(); //입실 수
+			int out_count = roomDashBoard.getSeat_out(); //퇴실 수
+			
+			if(seat_state.equals("입실")){
+				//입 퇴실 수 계산
+				in_count += 1;
+				if(out_count > 0){
+					out_count -=1;
+				}
+				
+			}else if(seat_state.equals("퇴실")){
+				//입 퇴실 수 계산
+				in_count -= 1;
+				out_count += 1;
+			}
+			
+			roomDashBoard.setSeat_in(in_count);
+			roomDashBoard.setSeat_out(out_count);
+			
+			//입퇴실 수 수정
+			roomDao.modifySeatRoomDashBoard(roomDashBoard);
+			
 			//입퇴실 수정
 			attendanceDao.modifySeatState(seat_state, member);
 			//입실시간 퇴실시간 초기화
 			
-			//입퇴실 여부 확인 JSON
+
 			
+			System.out.println("AttendanceController, roomDashBoard :" + roomDashBoard);
+			roomDao.modifySeatRoomDashBoard(roomDashBoard);
+			
+			//입퇴실 여부 출력 JSON
 			JSONObject jsonMain = new JSONObject(); 
 			jsonMain.put("name", member.getMember_nm());
 			jsonMain.put("status", seat_state);

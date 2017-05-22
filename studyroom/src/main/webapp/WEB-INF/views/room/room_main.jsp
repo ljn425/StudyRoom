@@ -25,7 +25,7 @@
 			    console.log('branch_owner_cd = ' + branch_owner_cd);
 			    var room_cd = $(this).prev().val();
 			    console.log('room_cd = ' + room_cd);
-			    var member_cd = $("input[name=chk]:eq(2)").val();
+			    var member_cd = $(this).prev().prev().val();
 			    console.log('member_cd = ' + member_cd);
 			    
 			    var windetail = $(this).find('.windetail').text();
